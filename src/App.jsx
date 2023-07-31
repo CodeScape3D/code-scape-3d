@@ -1,11 +1,18 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import "animate.css"
+import "animate.css";
+import Home from "./components/Home";
+import NotFound from "./components/NotFoud";
 
 function App() {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <h1 className="text-center font-black">CodeScape3D + React + Vite + Tailwind</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
