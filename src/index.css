@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .nav-tab {
+        @apply text-white block h-full px-7 py-4 hover:bg-secondary relative
+    }
+
+    .nav-tab::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @apply w-0 py-0.5 bg-white transition-all
+    }
+
+    .nav-tab:hover::after {
+        @apply w-full
+    }
+}
