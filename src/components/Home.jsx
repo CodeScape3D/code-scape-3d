@@ -1,9 +1,15 @@
+import { QuizView } from "../quiz";
+import { NavBar, Footer} from "./"
+import { UserContextMenu } from "./UserContextMenu";
+
 function Home() {
   return (
-    <div className="flex justify-center items-center h-screen bg-white">
-      <h1 className="text-center font-black text-3xl animate__animated animate__rotateIn text-purple-900">
-        CodeScape3D + React + Vite + Tailwind
-      </h1>
+    <div className="flex flex-col items-center h-screen bg-white">
+      <NavBar />
+      <div className="h-screen">
+        
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .nav-tab {
+        @apply flex justify-center items-center text-white block md:h-full px-3 py-7  md:px-7 md:py-4 md:hover:bg-secondary relative w-6/12 md:w-auto
+    }
+
+    .nav-tab::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @apply w-0 py-0.5 bg-white transition-all
+    }
+
+    .nav-tab:hover::after {
+        @apply w-full
+    }
+
+    .context-menu {
+        border-radius: 20px;
+        width: 180px;
+        @apply bg-primary p-3 rounded-3xl flex flex-col
+    }
+
+    .btn {
+        @apply bg-gray text-white px-4 py-2 rounded-xl
+    }
+}
