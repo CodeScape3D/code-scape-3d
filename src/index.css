@@ -4,7 +4,7 @@
 
 @layer components {
     .nav-tab {
-        @apply text-white block h-full px-7 py-4 hover:bg-secondary relative
+        @apply flex justify-center items-center text-white block md:h-full px-3 py-7  md:px-7 md:py-4 md:hover:bg-secondary relative w-6/12 md:w-auto
     }
 
     .nav-tab::after {
@@ -17,5 +17,15 @@
 
     .nav-tab:hover::after {
         @apply w-full
+    }
+
+    .context-menu {
+        border-radius: 20px;
+        width: 180px;
+        @apply bg-primary p-3 rounded-3xl flex flex-col
+    }
+
+    .btn {
+        @apply bg-gray text-white px-4 py-2 rounded-xl
     }
 }

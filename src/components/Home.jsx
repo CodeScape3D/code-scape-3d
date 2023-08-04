@@ -1,10 +1,14 @@
+import { QuizView } from "../quiz";
 import { NavBar, Footer} from "./"
+import { UserContextMenu } from "./UserContextMenu";
 
 function Home() {
   return (
     <div className="flex flex-col items-center h-screen bg-white">
       <NavBar />
-      <div className="h-screen"></div>
+      <div className="h-screen">
+        
+      </div>
       <Footer />
     </div>
   );

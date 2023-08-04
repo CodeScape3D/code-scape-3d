@@ -1,20 +1,41 @@
+import { useState } from "react"
+import { NavTabs, NavTab } from "./"
 import Logo from "../assets/logo.png"
 import UserLogo from "../assets/user.png"
-import { NavTabs, NavTab } from "./"
-
+import Menu from "../assets/icons/menu.svg"
+import { MobileMenu } from "./MobileMenu"
 
 export const NavBar = () => {
+
+    const [isHamburgerMenuVisible, setIsHamburgerMenuVisible] = useState(true)
+
+    const showHamburgerMenu = () => { 
+        setIsHamburgerMenuVisible(true)
+    }
+
+    const hideHamburgerMenu = () => { 
+        setIsHamburgerMenuVisible(false)
+    }
+
     return (
-        <nav className="w-full bg-primary flex items-center justify-between px-3">
-            <img src={Logo} width="38" />
+        <>
+            <nav className="w-full bg-primary flex items-center justify-end md:justify-between px-3">
+                <img src={Logo} width="38" className="hidden md:block" />
 
-            <NavTabs>
-                <NavTab text="Material educativo" />
-                <NavTab text="Minijuegos" />
-                <NavTab text="Quizzes" />
-            </NavTabs>
+                <NavTabs>
+                    <NavTab text="Material educativo" />
+                    <NavTab text="Minijuegos" />
+                    <NavTab text="Quizzes" />
+                </NavTabs>
 
-            <img src={UserLogo} width="38" />
-        </nav>
+                <button className="hidden md:block"><img src={UserLogo} width="38" /></button>
+
+                <button className="block md:hidden" onClick={showHamburgerMenu}>
+                    <img src={Menu} width="38" />
+                </button>
+            </nav>
+
+            <MobileMenu isHamburgerMenuVisible={isHamburgerMenuVisible} hideHamburgerMenu={hideHamburgerMenu} />
+        </>
     )
 }
