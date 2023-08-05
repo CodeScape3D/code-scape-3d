@@ -2,6 +2,8 @@ import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
 import { AnswerButton, CodeBlock, WrongAnswerDialog, CorrectAnswerDialog, AnswersGrid } from "../components"
+import { QuizQuestion } from "../components/QuizQuestion"
+import { QuizStatement } from "../components/QuizStatement"
 
 export const QuizView = () => {
 
@@ -9,13 +11,8 @@ export const QuizView = () => {
         <div className="flex flex-col w-full h-full gap-3 p-4 justify-around">
             <section className="flex flex-col md:flex-row flex-1">
 
-                {/* Quiz Question */}
                 <div className="question-wrapper">
-                    <span className="block mb-4">
-                        La Lista Enlazada Simple a continuación representa una cola q donde q.peek() = 43. Luego, realizamos estas operaciones:
-                    </span>
-
-
+                    <QuizStatement question={"La Lista Enlazada Simple a continuación representa una cola q donde q.peek() = 43. Luego, realizamos estas operaciones:"} />
                     <CodeBlock code={`q.dequeue();
 q.dequeue();
 q.peek();
@@ -25,9 +22,9 @@ q.enqueue(81);`} />
 
 
                 </div>
-                {/* Quiz Answers */}
+
                 <div className="flex p-10 gap-3 flex-col justify-center items-center flex-1">
-                    <span className="font-bold text-center">¿Cuál es el resultado de q.peek() después de realizar todas esas operaciones?</span>
+                    <QuizQuestion question={"¿Cuál es el resultado de q.peek() después de realizar todas esas operaciones?"} />
                     <AnswersGrid>
                         <AnswerButton text="A. 45" />
                         <AnswerButton text="B. 14" />
