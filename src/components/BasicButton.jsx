@@ -7,8 +7,11 @@ export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "
             onClick={onClick}
             variant="contained"
             sx={{
-                borderRadius: "15px",
+                borderRadius: "10px",
                 backgroundColor: backgroundColor ,
+                ":hover": {
+                    backgroundColor: backgroundColor,
+                }
             }} className="btn flex items-center justify-start gap-3"
         >
             {children}

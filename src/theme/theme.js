@@ -13,6 +13,7 @@ export const theme = createTheme({
         },
         gray: {
             main: "#1E1E1E",
+            primary: "#D9D9D9",
         }
     }
 })
