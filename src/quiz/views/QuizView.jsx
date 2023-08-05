@@ -7,7 +7,7 @@ export const QuizView = () => {
 
     return (
         <div className="flex flex-col w-full h-full gap-3 p-4 justify-around">
-            <section className="flex flex-1">
+            <section className="flex flex-col md:flex-row flex-1">
 
                 {/* Quiz Question */}
                 <div className="question-wrapper">
