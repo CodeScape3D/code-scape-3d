@@ -1,9 +1,15 @@
 import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
-import { AnswerButton, CodeBlock, WrongAnswerDialog, CorrectAnswerDialog, AnswersGrid } from "../components"
-import { QuizQuestion } from "../components/QuizQuestion"
-import { QuizStatement } from "../components/QuizStatement"
+import {
+    AnswerButton,
+    CodeBlock,
+    WrongAnswerDialog,
+    CorrectAnswerDialog,
+    AnswersGrid, QuizQuestion,
+    QuizStatement
+} from "../components"
+
 
 export const QuizView = () => {
 
