@@ -9,9 +9,8 @@ function Home() {
         <Header>
           <HeaderHome />
         </Header>
-
-        {/* Cursos */}
-        <Cursos />  
+         {/* Cursos */}
+        <Cursos />
       </div>
     </div>
   );
