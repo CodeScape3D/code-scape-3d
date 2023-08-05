@@ -23,7 +23,7 @@ export const NavBar = () => {
                 <img src={Logo} width="38" className="hidden md:block" />
 
                 <NavTabs>
-                    <NavTab text="Aprende" />
+                    <NavTab text="Aprende"/>
                     <NavTab text="Minijuegos" />
                     <NavTab text="Quizzes" />
                 </NavTabs>
