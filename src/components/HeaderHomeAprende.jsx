@@ -1,6 +1,6 @@
 import Logo from '../assets/logo.png'
 
-const HeaderHome = () => {
+const HeaderHomeAprende = () => {
   return (
     <>
       <div className="flex gap-4 justify-center items-center">
@@ -12,4 +12,4 @@ const HeaderHome = () => {
   );
 };
 
-export default HeaderHome;
+export default HeaderHomeAprende;

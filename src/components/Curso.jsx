@@ -2,7 +2,9 @@ import { svgProgramacion1 } from "../assets/svg/SvgConstans";
 const Curso = () => {
   return (
     <>
-      <div className="bg-primary cursor-pointer hover:bg-secondary transition-colors rounded-lg w-28 h-28 md:h-44 md:w-44 h-33 flex flex-col justify-center items-center">
+      <div className="bg-primary cursor-pointer hover:bg-secondary transition-colors rounded-lg w-28 h-28 md:h-44 md:w-44 h-33 flex flex-col justify-center items-center
+      shadow-xl animate__bounceIn
+      ">
         <div className="flex justify-center w-10 h-10 md:w-auto">
           {svgProgramacion1}
         </div>
@@ -11,7 +13,9 @@ const Curso = () => {
         </p>
       </div>
 
-      <div className="bg-primary cursor-pointer hover:bg-secondary transition-colors rounded-lg w-28 h-28 md:h-44 md:w-44 h-33 flex flex-col justify-center items-center">
+      <div className="bg-primary cursor-pointer hover:bg-secondary transition-colors rounded-lg w-28 h-28 md:h-44 md:w-44 h-33 flex flex-col justify-center items-center
+      shadow-xl animate__bounceIn
+      ">
         <div className="flex justify-center w-10 h-10 md:w-auto">
           {svgProgramacion1}
         </div>
@@ -20,7 +24,9 @@ const Curso = () => {
         </p>
       </div>
 
-      <div className="bg-primary cursor-pointer hover:bg-secondary transition-colors rounded-lg w-28 h-28 md:h-44 md:w-44 h-33 flex flex-col justify-center items-center">
+      <div className="bg-primary cursor-pointer hover:bg-secondary transition-colors rounded-lg w-28 h-28 md:h-44 md:w-44 h-33 flex flex-col justify-center items-center
+      shadow-xl animate__bounceIn
+      ">
         <div className="flex justify-center w-10 h-10 md:w-auto">
           {svgProgramacion1}
         </div>
@@ -28,7 +34,7 @@ const Curso = () => {
           Programacion lll
         </p>
       </div>
-      
+
     </>
   );
 };
