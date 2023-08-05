@@ -8,15 +8,14 @@
     }
 
     .nav-tab::after {
+        @apply w-0 bg-secondary
+    }
+    .nav-tab-active::after {
         content: "";
         position: absolute;
         bottom: 0;
         left: 0;
-        @apply w-0 py-0.5 bg-white transition-all
-    }
-
-    .nav-tab:hover::after {
-        @apply w-full
+        @apply w-full py-0.5 bg-white transition-all
     }
 
     .context-menu {
