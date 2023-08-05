@@ -3,15 +3,18 @@ import "./App.css";
 import "animate.css";
 import Home from "./components/Home";
 import NotFound from "./components/NotFoud";
+import { AppTheme } from "./theme";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <AppTheme>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </AppTheme>
   );
 }
 

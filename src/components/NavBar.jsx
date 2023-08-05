@@ -7,7 +7,7 @@ import { MobileMenu } from "./MobileMenu"
 
 export const NavBar = () => {
 
-    const [isHamburgerMenuVisible, setIsHamburgerMenuVisible] = useState(true)
+    const [isHamburgerMenuVisible, setIsHamburgerMenuVisible] = useState(false)
 
     const showHamburgerMenu = () => { 
         setIsHamburgerMenuVisible(true)
@@ -23,7 +23,7 @@ export const NavBar = () => {
                 <img src={Logo} width="38" className="hidden md:block" />
 
                 <NavTabs>
-                    <NavTab text="Material educativo" />
+                    <NavTab text="Aprende" />
                     <NavTab text="Minijuegos" />
                     <NavTab text="Quizzes" />
                 </NavTabs>
