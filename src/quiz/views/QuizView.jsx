@@ -1,13 +1,15 @@
 import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
-import { AnswerButton, CodeBlock } from "../components"
+import { AnswerButton, CodeBlock, WrongAnswerDialog } from "../components"
+import { CorrectAnswerDialog } from "../components/CorrectAnswerDialog"
 
 export const QuizView = () => {
     return (
         <div className="flex flex-col w-full h-full gap-3 p-4 justify-around">
             <section className="flex flex-1">
-                {/* Quiz question */}
+
+                {/* Quiz Question */}
                 <div className="question-wrapper">
                     <span className="block mb-4">
                         La Lista Enlazada Simple a continuación representa una cola q donde q.peek() = 43. Luego, realizamos estas operaciones:
@@ -25,13 +27,18 @@ q.enqueue(81);`} />
                 </div>
                 {/* Quiz Answers */}
                 <div className="flex p-10 gap-3 flex-col justify-center items-center flex-1">
-                    <span className="font-bold">¿Cuál es el resultado de q.peek() después de realizar todas esas operaciones?</span>
-                    <div className="grid grid-cols-2 grid-rows-2 w-full gap-x-10 gap-y-5">
+                    <span className="font-bold text-center">¿Cuál es el resultado de q.peek() después de realizar todas esas operaciones?</span>
+                    <div className="grid grid-cols-2 grid-rows-2 w-3/4 gap-x-10 gap-y-5">
                         <AnswerButton text="A. 45" />
                         <AnswerButton text="B. 14" />
                         <AnswerButton text="C. 81" />
                         <AnswerButton text="D. 67" />
                     </div>
+                    <CorrectAnswerDialog />
+                    <WrongAnswerDialog />
+                    <BasicButton backgroundColor="primary.main">
+                        Ver retroalimentación
+                    </BasicButton>
                 </div>
             </section>
             <section className="w-full flex justify-between">
