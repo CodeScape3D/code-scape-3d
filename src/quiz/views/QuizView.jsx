@@ -1,10 +1,10 @@
 import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
-import { AnswerButton, CodeBlock, WrongAnswerDialog } from "../components"
-import { CorrectAnswerDialog } from "../components/CorrectAnswerDialog"
+import { AnswerButton, CodeBlock, WrongAnswerDialog, CorrectAnswerDialog, AnswersGrid } from "../components"
 
 export const QuizView = () => {
+
     return (
         <div className="flex flex-col w-full h-full gap-3 p-4 justify-around">
             <section className="flex flex-1">
@@ -28,12 +28,12 @@ q.enqueue(81);`} />
                 {/* Quiz Answers */}
                 <div className="flex p-10 gap-3 flex-col justify-center items-center flex-1">
                     <span className="font-bold text-center">¿Cuál es el resultado de q.peek() después de realizar todas esas operaciones?</span>
-                    <div className="grid grid-cols-2 grid-rows-2 w-3/4 gap-x-10 gap-y-5">
+                    <AnswersGrid>
                         <AnswerButton text="A. 45" />
                         <AnswerButton text="B. 14" />
                         <AnswerButton text="C. 81" />
                         <AnswerButton text="D. 67" />
-                    </div>
+                    </AnswersGrid>
                     <CorrectAnswerDialog />
                     <WrongAnswerDialog />
                     <BasicButton backgroundColor="primary.main">
@@ -41,6 +41,7 @@ q.enqueue(81);`} />
                     </BasicButton>
                 </div>
             </section>
+
             <section className="w-full flex justify-between">
                 <div className="flex gap-3">
                     <BasicButton>
