@@ -1,6 +1,10 @@
-export * from "./NavBar"
-export * from "./NavTab"
-export * from "./NavTabs"
-export * from "./Footer"
-export * from "./BasicButton"
-
+export * from "./NavBar";
+export * from "./NavTab";
+export * from "./NavTabs";
+export * from "./Footer";
+export * from "./BasicButton";
+export * from "./HomeQuiz";
+export * from "./NotFoud";
+export * from "./HomeAprende";
+export * from "./HomeMiniJuegos";
+export * from "./Home";

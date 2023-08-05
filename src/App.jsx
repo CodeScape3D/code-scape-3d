@@ -1,18 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "animate.css";
-import Home from "./components/Home";
-import NotFound from "./components/NotFoud";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { NavBar, Footer, Home, HomeAprende, NotFound, HomeQuiz, HomeMiniJuegos } from "./components";
+import { QuizView } from "./quiz/views";
 import { AppTheme } from "./theme";
 
 function App() {
   return (
     <AppTheme>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="flex flex-col items-center h-screen">
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/aprende" element={<HomeAprende />} />
+            <Route path="/mini-juegos" element={<HomeMiniJuegos />} />
+            <Route path="/quizzes" element={<HomeQuiz />} />
+            <Route path="/quiz" element={<QuizView />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
       </Router>
     </AppTheme>
   );

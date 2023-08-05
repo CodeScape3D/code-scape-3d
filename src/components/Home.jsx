@@ -1,17 +1,12 @@
-import { QuizView } from "../quiz";
-import { NavBar, Footer} from "./"
-import { UserContextMenu } from "./UserContextMenu";
 
-function Home() {
+
+export const Home = () => {
   return (
-    <div className="flex flex-col items-center h-screen bg-white">
-      <NavBar />
-      <div className="h-screen w-full">
-        <QuizView />
-      </div>
-      <Footer />
+    <div className="h-full flex flex-col justify-center items-center" >
+      <h1
+        className="font-black text-4xl md:text-5xl mb-2" >
+        Bienvenido a CodeScape3D
+      </h1>
     </div>
-  );
+  )
 }
-
-export default Home;
