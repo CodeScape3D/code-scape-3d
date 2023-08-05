@@ -12,7 +12,8 @@ export default {
         100: "#D9D9D9",
         900:"#1E1E1E"
       },
-      "danger": "#FF0D38"
+      "danger": "#FF0D38",
+      "success": "#2ecc71"
     }
 
   },
