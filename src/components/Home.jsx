@@ -1,19 +1,12 @@
-import Cursos from "./Cursos";
-import Header from "./Header";
-import HeaderHome from "./HeaderHome";
 
-function Home() {
+
+export const Home = () => {
   return (
-    <div className="flex flex-col items-center h-screen bg-white">
-      <div className="h-screen">
-        <Header>
-          <HeaderHome />
-        </Header>
-         {/* Cursos */}
-        <Cursos />
-      </div>
+    <div className="h-full flex flex-col justify-center items-center" >
+      <h1
+        className="font-black text-4xl md:text-5xl mb-2" >
+        Bienvenido a CodeScape3D
+      </h1>
     </div>
-  );
+  )
 }
-
-export default Home;
