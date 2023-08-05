@@ -2,7 +2,7 @@ import "./App.css";
 import "animate.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavBar, Footer, Home, HomeAprende, NotFound, HomeQuiz, HomeMiniJuegos } from "./components";
-import { QuizView } from "./quiz/views";
+import { QuizResults, QuizView } from "./quiz";
 import { AppTheme } from "./theme";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
             <Route path="/aprende" element={<HomeAprende />} />
             <Route path="/mini-juegos" element={<HomeMiniJuegos />} />
             <Route path="/quizzes" element={<HomeQuiz />} />
-            <Route path="/quiz" element={<QuizView />} />
+            <Route path="/quiz" element={<QuizResults />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
