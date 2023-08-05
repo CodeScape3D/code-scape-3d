@@ -1,15 +1,17 @@
-import { QuizView } from "../quiz";
-import { NavBar, Footer} from "./"
-import { UserContextMenu } from "./UserContextMenu";
+import Cursos from "./Cursos";
+import Header from "./Header";
+import HeaderHome from "./HeaderHome";
 
 function Home() {
   return (
     <div className="flex flex-col items-center h-screen bg-white">
-      <NavBar />
-      <div className="h-screen w-full">
-        <QuizView />
+      <div className="h-screen">
+        <Header>
+          <HeaderHome />
+        </Header>
+         {/* Cursos */}
+        <Cursos />
       </div>
-      <Footer />
     </div>
   );
 }
