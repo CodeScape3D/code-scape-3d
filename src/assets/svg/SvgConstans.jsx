@@ -28,41 +28,41 @@ export const svgProgramacion2 = (
 
 export const svgProgramacion3 = (
   <svg
-    width="512"
-    height="512"
+    width="60"
+    height="60"
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
     <g fill="none">
       <path
-        stroke="#000000"
+        stroke="#fff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="4"
         d="M25 40H7a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3h34a3 3 0 0 1 3 3v13.941"
       />
       <path
-        stroke="#000000"
+        stroke="#fff"
         strokeWidth="4"
         d="M4 11a3 3 0 0 1 3-3h34a3 3 0 0 1 3 3v9H4v-9Z"
       />
       <path
-        stroke="#000000"
+        stroke="#fff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="4"
         d="M32 35h12m-6-6v12"
       />
-      <circle r="2" fill="#000000" transform="matrix(0 -1 -1 0 10 14)" />
-      <circle r="2" fill="#000000" transform="matrix(0 -1 -1 0 16 14)" />
+      <circle r="2" fill="#fff" transform="matrix(0 -1 -1 0 10 14)" />
+      <circle r="2" fill="#fff" transform="matrix(0 -1 -1 0 16 14)" />
     </g>
   </svg>
 );
 
 export const svgBubbleSort = (
   <svg
-    width="60"
-    height="60"
+    width="40"
+    height="40"
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -77,8 +77,8 @@ export const svgBubbleSort = (
 
 export const svgQuickSort = (
   <svg
-    width="60"
-    height="60"
+    width="40"
+    height="40"
     viewBox="0 0 512 512"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -91,8 +91,8 @@ export const svgQuickSort = (
 
 export const svgShellSort = (
   <svg
-    width="60"
-    height="60"
+    width="40"
+    height="40"
     viewBox="0 0 32 32"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -105,8 +105,8 @@ export const svgShellSort = (
 
 export const svgInsertionSort = (
   <svg
-    width="60"
-    height="60"
+    width="40"
+    height="40"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
