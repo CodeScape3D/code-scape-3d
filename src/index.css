@@ -32,4 +32,12 @@
         border-radius: 18px 0px 18px 0px;
         @apply flex-1 bg-gray-100 p-3
     }
+
+    .percentage-indicator {
+        background-color: rgba(243, 243, 243, 0.5);
+        backdrop-filter: blur(40px);
+        width: fit-content;
+        @apply absolute top-0 right-0 text-danger font-bold rounded-xl px-3 py-2
+    }
+
 }
