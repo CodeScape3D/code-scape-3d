@@ -17,9 +17,8 @@ const AnswersRow = () => {
 
 export const QuizResults = () => {
     return (
-        <>
-            <div className="h-full w-full flex flex-col items-center md:items-start py-2  md:py-6 px-10 overflow-y-scroll md:overflow-y-auto">
-
+      <>
+        <div className="h-full w-full flex flex-grow flex-col py-6 px-10 items-start">
                 <AnswersRow />
 
                 <div className="flex w-full flex-col md:flex-row flex-1 justify-center items-center gap-6">

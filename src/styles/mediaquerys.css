@@ -1,0 +1,29 @@
+/* Media Query para pantallas con ancho menor a 640px */
+@media (max-width: 639px) {
+  .custom-inner-div {
+    /* Estilos específicos para los divs internos en pantallas pequeñas */
+    width: 300px; /* Cambia el valor según lo que necesites */
+    height: 40%; /* Cambia el valor según lo que necesites */
+  }
+
+  .cardQuery {
+    margin-bottom: 14px;
+    margin-top: 18px;
+  }
+
+  .fontSizeQuizzes {
+    font-size: 1.35rem /* 18px */;
+    line-height: 1.7 /* 28px */;
+  }
+}
+
+@media (max-width: 769px) {
+  main {
+    overflow-y: scroll;
+    max-height: calc(100vh - 60px);
+
+    /* Ajusta el valor según tus necesidades */
+  }
+
+}
+

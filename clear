@@ -1,0 +1,15 @@
+[33m66f7916[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/Isackd[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mIsackd[m[33m)[m Merge pull request #3 from CodeScape3D/dev-gaspar
+[33me82bb40[m[33m ([m[1;31morigin/dev-gaspar[m[33m)[m Instalacion de react router
+[33m4bb5a67[m Merge branch 'markus'
+[33m9c27768[m[33m ([m[1;31morigin/markus[m[33m)[m Se ha instalado la librería animate css
+[33mca35b61[m Merge pull request #2 from CodeScape3D/fronti
+[33m25afa41[m fuente negra
+[33mb46a8f3[m Merge branch 'main' into markus
+[33mcbcd382[m correccion de devDependencies
+[33mfe014bf[m Merge branch 'main' into markus
+[33mb28ff68[m Se agregó la dependencia de whatwg-fetch y se creó la carpeta de test junto con un test de ejemplo
+[33ma68f73a[m Merge pull request #1 from CodeScape3D/main
+[33m039fce3[m Instalacion de librerias de pruebas
+[33m765e265[m Inicializacion del proyecto
+[33m4362069[m Update README.md
+[33m63f6c8f[m Initial commit
