@@ -5,17 +5,18 @@ import HeaderHomeAprende from "./HeaderHomeAprende";
 import HomeAprendeTabla from "./HomeAprendeTabla";
 import { topic } from "./HomeCartas";
 
+
 export const HomeAprende = () => {
   const [filtro, setFiltro] = useState("");
   const [temasFiltrados, setTemasFiltrados] = useState([]);
 
-  useEffect(() =>{
+  useEffect(() => {
     const filtrarTemas = topic.filter(theme => theme.curso === filtro)
     setTemasFiltrados(filtrarTemas)
   }, [filtro])
 
   return (
-    <main className="h-full md:w-3/4 md:p-9">
+    <div className="flex flex-grow flex-col md:w-3/4 md:p-9">
       <Header>
         <HeaderHomeAprende />
       </Header>
@@ -28,6 +29,6 @@ export const HomeAprende = () => {
       </p>
       {/* Tabla y Tarjetas(dentro) */}
       <HomeAprendeTabla filtro={filtro} temasFiltrados={temasFiltrados} />
-    </main>
+    </div>
   );
 };
