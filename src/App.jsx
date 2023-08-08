@@ -16,7 +16,7 @@ function App() {
             <Route path="/aprende" element={<HomeAprende />} />
             <Route path="/mini-juegos" element={<HomeMiniJuegos />} />
             <Route path="/quizzes" element={<HomeQuiz />} />
-            <Route path="/quiz" element={<QuizResults />} />
+            <Route path="/quiz" element={<QuizView />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
