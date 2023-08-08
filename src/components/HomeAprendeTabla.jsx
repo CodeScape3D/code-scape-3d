@@ -6,7 +6,7 @@ const HomeAprendeTabla = ({ filtro, temasFiltrados }) => {
   return (
     <>
       {/* Tabla */}
-      <div className="mt-5 w-full md:w-full shadow-lg animate__bounceIn">
+      <div className="my-5 w-full md:w-full shadow-lg animate__bounceIn">
         <h2 className="block text-center font-bold bg-primary text-white py-1.5 rounded-tr-lg rounded-tl-lg">
           Tematicas
         </h2>

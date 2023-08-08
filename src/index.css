@@ -12,10 +12,9 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        @apply w-0 py-0.5 bg-white transition-all
+        @apply w-0 bg-white py-0.5 transition-all
     }
-
-    .nav-tab:hover::after {
+    .nav-tab-active::after {
         @apply w-full
     }
 
@@ -33,4 +32,12 @@
         border-radius: 18px 0px 18px 0px;
         @apply flex-1 bg-gray-100 p-3
     }
+
+    .percentage-indicator {
+        background-color: rgba(243, 243, 243, 0.5);
+        backdrop-filter: blur(40px);
+        width: fit-content;
+        @apply absolute top-0 right-0 text-danger font-bold rounded-xl px-3 py-2
+    }
+
 }

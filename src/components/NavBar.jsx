@@ -27,10 +27,9 @@ export const NavBar = () => {
                 <img src={Logo} width="38" className="hidden md:block cursor-pointer" onClick={() => navigate("/")} />
 
                 <NavTabs>
-                    <NavTab text="Inicio" onClick={() => { navigate("/") }} />
-                    <NavTab text="Aprende" onClick={() => navigate("/aprende")} />
-                    <NavTab text="Quizzes" onClick={() => navigate("/quizzes")} />
-                    <NavTab text="Minijuegos" onClick={() => navigate("/mini-juegos")} />
+                    <NavTab text="Aprende" linkTo="/" />
+                    <NavTab text="Quizzes" linkTo="/quizzes" />
+                    <NavTab text="Minijuegos" linkTo="/mini-juegos" />
                 </NavTabs>
 
                 <button className="hidden md:block"><img src={UserLogo} width="38" /></button>
