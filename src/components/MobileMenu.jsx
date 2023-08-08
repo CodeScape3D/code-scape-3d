@@ -8,16 +8,14 @@ export const MobileMenu = ({ isHamburgerMenuVisible, hideHamburgerMenu }) => {
 
     const navigate = useNavigate();
 
-
     return (
         <div className={`absolute top-0 left-0 ${isHamburgerMenuVisible ? "flex" : "hidden"} flex-col items-center justify-center md:hidden bg-primary text-white opacity-95 w-screen h-screen z-50 animate__animated animate__slideInRight`}>
-
-            <NavTab text="Inicio" onClick={() => { navigate("/"); hideHamburgerMenu() }} />
-            <NavTab text="Aprende" onClick={() => { navigate("/aprende"); hideHamburgerMenu() }} />
-            <NavTab text="Quizzes" onClick={() => { navigate("/quizzes"); hideHamburgerMenu() }} />
-            <NavTab text="Minijuegos" onClick={() => { navigate("/mini-juegos"); hideHamburgerMenu() }} />
-
-            <NavTab text="" iconSrc={UserLogo} />
+            
+            <NavTab text="Inicio" linkTo="/" onClick={hideHamburgerMenu} />
+            <NavTab text="Aprende" linkTo="/aprende" onClick={hideHamburgerMenu} />
+            <NavTab text="Quizzes" linkTo="/quizzes" onClick={hideHamburgerMenu} />
+            <NavTab text="Minijuegos" linkTo="/mini-juegos" onClick={hideHamburgerMenu} />
+            <NavTab text="" iconSrc={UserLogo} onClick={hideHamburgerMenu} />
 
             <button className="absolute top-2 right-5" onClick={hideHamburgerMenu}>
                 <img src={CloseIcon} width="24" alt="CloseIcon" />
