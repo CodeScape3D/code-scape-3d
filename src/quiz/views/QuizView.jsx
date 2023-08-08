@@ -29,7 +29,7 @@ q.enqueue(81);`} />
 
                 </div>
 
-                <div className="flex p-10 gap-3 flex-col justify-center items-center flex-1">
+                <div className="flex p-2 md:p-10 gap-3 flex-col justify-center items-center flex-1">
                     <QuizQuestion question={"¿Cuál es el resultado de q.peek() después de realizar todas esas operaciones?"} />
                     <AnswersGrid>
                         <AnswerButton text="A. 45" />
@@ -45,7 +45,7 @@ q.enqueue(81);`} />
                 </div>
             </section>
 
-            <section className="w-full flex justify-between">
+            <section className="w-full flex flex-col gap-2 md:gap-0 md:flex-row items-center justify-between">
                 <div className="flex gap-3">
                     <BasicButton>
                         <img src={ArrowLeft} width="24" />  Volver

@@ -15,7 +15,7 @@ const exampleData = {
 
 export const AnswersChart = ({data = exampleData, options = {}}) => {
     return (
-        <div className="relative w-fit">
+        <div className="mt-6 md:mt-0 relative w-fit">
             <Pie
                 data={data}
                 options={options}
