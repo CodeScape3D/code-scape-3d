@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 
-export const NavTab = ({ text, onClick = () => {},  linkTo = "/" , iconSrc = "" }) => {
+export const NavTab = ({ text, onClick = () => {},  linkTo = "#!" , iconSrc = "" }) => {
     return (
         <NavLink to={linkTo} onClick={onClick}  className={ ({isActive}) => `nav-tab ${isActive ? "nav-tab-active" : ""}`}>
             <span className="text-2xl md:text-base">{text}</span>
