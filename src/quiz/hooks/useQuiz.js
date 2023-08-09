@@ -1,6 +1,45 @@
-import { useState } from "react"
+import { useReducer } from "react"
+import { quizReducer } from "../reducers"
 
-export const useQuiz = (structure = {}) => {
+export const useQuiz = (quizStructure = {}) => {
 
+    const init = () => {
+        const firstQuestion = quizStructure.quiz[0]
+        return {
+            currentQuestionIndex: 0,
+            currentQuestion: firstQuestion.question,
+        }
+    }
+
+    const [quizState, dispatch] = useReducer(quizReducer, quizStructure, init)
+
+    const goToNextQuestion = () => { 
+        const action = {
+            type: quizActions.nextQuestion
+        }
+        dispatch(action)
+    }
+
+    const goToPreviousQuestion = () => { 
+        const action = {
+            type: quizActions.previousQuestion
+        }
+        dispatch(action)
+    }
+
+    const onAnswerSelected = (answer) => { 
+        const action = {
+            type: quizActions.answerSelected,
+            payload: answer
+        }
+        dispatch(action)
+    }
+
+    return {
+        ...quizState,
+        goToNextQuestion,
+        goToPreviousQuestion,
+        onAnswerSelected
+    }
     
 }

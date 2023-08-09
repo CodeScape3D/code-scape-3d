@@ -9,16 +9,20 @@ import {
     AnswersGrid, QuizQuestion,
     QuizStatement
 } from "../components"
+import { linkedListQuiz } from "../data"
+import { useQuiz } from "../hooks"
 
 
 export const QuizView = () => {
+
+    const { goToNextQuestion, goToPreviousQuestion, onAnswerSelected, currentSelectedAnswer, currentQuestion } = useQuiz(linkedListQuiz)
 
     return (
         <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">
             <section className="flex flex-col md:flex-row flex-1">
 
                 <div className="question-wrapper">
-                    <QuizStatement question={"La Lista Enlazada Simple a continuación representa una cola q donde q.peek() = 43. Luego, realizamos estas operaciones:"} />
+                    <QuizStatement question={currentQuestion} />
                     <CodeBlock code={`q.dequeue();
 q.dequeue();
 q.peek();
