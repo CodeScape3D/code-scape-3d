@@ -13,9 +13,9 @@ import "../styles/mediaquerys.css";
 export const HomeQuiz = () => {
   //const navigate = useNavigate();
   return (
-    <div className="h-full flex flex-col">
-      <div className="bg-quaternary text-white w-screen">
-        <h1 className="text-3xl text-center mt-10 md:text-4xl">
+    <div className="h-full w-full flex flex-col">
+      <div className="bg-quaternary text-white w-full">
+        <h1 className="text-3xl font-bold text-center mt-10 md:text-4xl">
           Desafía tus <br />
           conocimientos
         </h1>
