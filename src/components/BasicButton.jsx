@@ -11,7 +11,9 @@ export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "
                 backgroundColor: backgroundColor ,
                 ":hover": {
                     backgroundColor: backgroundColor,
-                }
+                },
+                textTransform: "none",
+                fontWeight: "bold",
             }} className="btn flex items-center justify-start gap-3"
         >
             {children}

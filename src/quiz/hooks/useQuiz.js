@@ -1,5 +1,6 @@
 import { useReducer } from "react"
 import { quizReducer } from "../reducers"
+import { quizActions } from "../actions"
 
 export const useQuiz = (quizStructure = {}) => {
 
@@ -7,7 +8,9 @@ export const useQuiz = (quizStructure = {}) => {
         const firstQuestion = quizStructure.quiz[0]
         return {
             currentQuestionIndex: 0,
-            currentQuestion: firstQuestion.question,
+            currentQuestion: firstQuestion,
+            quiz: quizStructure.quiz,
+            totalQuestions: quizStructure.quiz.length,
         }
     }
 
@@ -32,6 +35,7 @@ export const useQuiz = (quizStructure = {}) => {
             type: quizActions.answerSelected,
             payload: answer
         }
+        console.log(answer)
         dispatch(action)
     }
 

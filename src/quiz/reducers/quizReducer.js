@@ -5,17 +5,25 @@ export const quizReducer = (state = {}, action) => {
 
     switch (action.type) {
         case quizActions.nextQuestion:
-            return {
-                ...state,
-                currentQuestionIndex: state.currentQuestionIndex + 1,
-                currentQuestion: state.quiz[state.currentQuestionIndex + 1]
-            }
+            if (state.currentQuestionIndex < state.totalQuestions - 1) {
+                return {
+                    ...state,
+                    currentQuestionIndex: state.currentQuestionIndex + 1,
+                    currentQuestion: state.quiz[state.currentQuestionIndex + 1]
+                }
+            } 
+
+            return state
         case quizActions.previousQuestion:
-            return {
-                ...state,
-                currentQuestionIndex: state.currentQuestionIndex - 1,
-                currentQuestion: state.quiz[state.currentQuestionIndex - 1]
+            if (state.currentQuestionIndex > 0) {
+                return {
+                    ...state,
+                    currentQuestionIndex: state.currentQuestionIndex - 1,
+                    currentQuestion: state.quiz[state.currentQuestionIndex - 1]
+                }
             }
+
+            return state
         case quizActions.answerSelected:
             return { 
                 ...state,

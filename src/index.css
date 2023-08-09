@@ -30,7 +30,7 @@
 
     .question-wrapper {
         border-radius: 18px 0px 18px 0px;
-        @apply flex-1 bg-gray-100 p-3
+        @apply flex-1 bg-gray-100 p-3 h-fit
     }
 
     .percentage-indicator {
