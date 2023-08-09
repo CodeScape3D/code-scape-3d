@@ -19,7 +19,7 @@ export const QuizView = () => {
         goToNextQuestion,
         goToPreviousQuestion,
         onAnswerSelected,
-        currentSelectedAnswer,
+        selectedAnswer,
         currentQuestion,
         totalQuestions,
         currentQuestionIndex
@@ -45,6 +45,7 @@ export const QuizView = () => {
                                     answerLetter={key}
                                     answerContent={value}
                                     onAnswerSelected={onAnswerSelected}
+                                    isSelected={selectedAnswer === key}
                                 />
                             ))
                         }

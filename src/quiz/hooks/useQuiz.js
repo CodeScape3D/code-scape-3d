@@ -35,7 +35,7 @@ export const useQuiz = (quizStructure = {}) => {
             type: quizActions.answerSelected,
             payload: answer
         }
-        console.log(answer)
+        
         dispatch(action)
     }
 
