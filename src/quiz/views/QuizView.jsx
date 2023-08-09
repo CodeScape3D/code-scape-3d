@@ -1,3 +1,4 @@
+import React from 'react';
 import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
@@ -24,7 +25,7 @@ export const QuizView = () => {
         currentQuestionIndex,
     } = useQuiz(linkedListQuiz)
     const { question, statement, options , selectedAnswer} = currentQuestion
-    const isPreviousButtonVisible = currentQuestionIndex > 0
+    const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
 
 
     return (
