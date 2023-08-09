@@ -4,7 +4,7 @@
 
 @layer components {
     .nav-tab {
-        @apply flex justify-center items-center text-white block md:h-full px-3 py-7  md:px-7 md:py-4 md:hover:bg-secondary relative w-6/12 md:w-auto transition-colors
+        @apply flex justify-center items-center text-white md:h-full px-3 py-7  md:px-7 md:py-4 md:hover:bg-secondary relative w-6/12 md:w-auto transition-colors
     }
 
     .nav-tab::after {
