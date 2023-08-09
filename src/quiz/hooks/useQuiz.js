@@ -35,11 +35,12 @@ export const useQuiz = (quizStructure = {}) => {
             type: quizActions.answerSelected,
             payload: answer
         }
-        
+
         dispatch(action)
     }
 
     return {
+        quizState,
         ...quizState,
         goToNextQuestion,
         goToPreviousQuestion,

@@ -14,7 +14,7 @@ export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "
                 },
                 textTransform: "none",
                 fontWeight: "bold",
-            }} className="btn flex items-center justify-start gap-3"
+            }} className={`btn flex items-center justify-start gap-3`}
         >
             {children}
         </Button>

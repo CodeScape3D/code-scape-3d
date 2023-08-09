@@ -19,13 +19,13 @@ export const QuizView = () => {
         goToNextQuestion,
         goToPreviousQuestion,
         onAnswerSelected,
-        selectedAnswer,
         currentQuestion,
         totalQuestions,
-        currentQuestionIndex
+        currentQuestionIndex,
     } = useQuiz(linkedListQuiz)
-    const { question, statement, options } = currentQuestion
+    const { question, statement, options , selectedAnswer} = currentQuestion
     const isPreviousButtonVisible = currentQuestionIndex > 0
+
 
     return (
         <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">

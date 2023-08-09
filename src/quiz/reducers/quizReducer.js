@@ -25,9 +25,23 @@ export const quizReducer = (state = {}, action) => {
 
             return state
         case quizActions.answerSelected:
+
+            const newQuizState = state.quiz.map((question, index) => { 
+                if (index === state.currentQuestionIndex) {
+                    return {
+                        ...question,
+                        selectedAnswer: action.payload
+                    }
+                }
+
+                return question
+            })
+                
+
             return { 
                 ...state,
-                selectedAnswer: action.payload
+                quiz: newQuizState,
+                currentQuestion: newQuizState[state.currentQuestionIndex]
             }
         default:
             return state;
