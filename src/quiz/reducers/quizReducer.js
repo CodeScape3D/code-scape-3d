@@ -10,7 +10,8 @@ export const quizReducer = (state = {}, action) => {
                 return {
                     ...state,
                     currentQuestionIndex: state.currentQuestionIndex + 1,
-                    currentQuestion: state.quiz[state.currentQuestionIndex + 1]
+                    currentQuestion: state.quiz[state.currentQuestionIndex + 1],
+                    currentQuestionState: state.quiz[state.currentQuestionIndex + 1].state
                 }
             }
 
@@ -20,7 +21,8 @@ export const quizReducer = (state = {}, action) => {
                 return {
                     ...state,
                     currentQuestionIndex: state.currentQuestionIndex - 1,
-                    currentQuestion: state.quiz[state.currentQuestionIndex - 1]
+                    currentQuestion: state.quiz[state.currentQuestionIndex - 1],
+                    currentQuestionState: state.quiz[state.currentQuestionIndex - 1].state
                 }
             }
 

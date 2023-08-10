@@ -12,6 +12,7 @@ import {
 import { linkedListQuiz } from "../data"
 import { formatQuestionIndicator } from "../helpers"
 import { useQuiz } from "../hooks"
+import { questionStates } from '../constants';
 
 
 export const QuizView = () => {
@@ -19,14 +20,26 @@ export const QuizView = () => {
     const {
         goToNextQuestion,
         goToPreviousQuestion,
+        onCheckAnswer,
         onAnswerSelected,
         currentQuestion,
         totalQuestions,
         currentQuestionIndex,
+        currentQuestionState
     } = useQuiz(linkedListQuiz)
     const { question, statement, options , selectedAnswer} = currentQuestion
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
 
+    console.log(currentQuestion);
+
+    const handleOnNextQuestion = () => { 
+        if (currentQuestionState === questionStates.UNANSWERED) {
+            onCheckAnswer()
+            return
+        }
+
+        goToNextQuestion()
+    }
 
     return (
         <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">
@@ -51,11 +64,12 @@ export const QuizView = () => {
                             ))
                         }
                     </AnswersGrid>
-                    {/* <CorrectAnswerDialog />
-                    <WrongAnswerDialog /> */}
-                    {/* <BasicButton backgroundColor="primary.main">
-                        Ver retroalimentación
-                    </BasicButton> */}
+                    {
+                        currentQuestionState === questionStates.CORRECT && <CorrectAnswerDialog />
+                    }
+                    {
+                        currentQuestionState === questionStates.INCORRECT && <WrongAnswerDialog />
+                    }
                 </div>
             </section>
 
@@ -68,7 +82,7 @@ export const QuizView = () => {
                             </BasicButton>
                         )
                     }
-                    <BasicButton onClick={goToNextQuestion}>
+                    <BasicButton onClick={handleOnNextQuestion}>
                         Siguiente <img src={ArrowRight} width="24" />
                     </BasicButton>
                 </div>

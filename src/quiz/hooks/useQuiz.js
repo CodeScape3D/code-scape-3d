@@ -53,7 +53,8 @@ export const useQuiz = (quizStructure = {}) => {
         ...quizState,
         goToNextQuestion,
         goToPreviousQuestion,
-        onAnswerSelected
+        onAnswerSelected,
+        onCheckAnswer
     }
     
 }
