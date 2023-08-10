@@ -29,8 +29,9 @@ export const QuizView = () => {
     } = useQuiz(linkedListQuiz)
     const { question, statement, options , selectedAnswer} = currentQuestion
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
+    const isQuestionCorrect = React.useMemo(() => currentQuestionState === questionStates.CORRECT, [currentQuestionState])
+    const isQuestionIncorrect = React.useMemo(() => currentQuestionState === questionStates.INCORRECT, [currentQuestionState])
 
-    console.log(currentQuestion);
 
     const handleOnNextQuestion = () => { 
         if (currentQuestionState === questionStates.UNANSWERED) {
@@ -65,10 +66,18 @@ export const QuizView = () => {
                         }
                     </AnswersGrid>
                     {
-                        currentQuestionState === questionStates.CORRECT && <CorrectAnswerDialog />
+                        isQuestionCorrect && <CorrectAnswerDialog />
                     }
                     {
-                        currentQuestionState === questionStates.INCORRECT && <WrongAnswerDialog />
+                        isQuestionIncorrect && <WrongAnswerDialog />
+                    }
+                    {
+                        isQuestionIncorrect && (
+                        <BasicButton onClick={() => {
+                            window.open("https://www.youtube.com/shorts/AzjJj5OK6ZM", "_blank")
+                        }}>
+                            Ver retroalimentación
+                        </BasicButton>)
                     }
                 </div>
             </section>
