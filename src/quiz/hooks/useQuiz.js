@@ -39,6 +39,14 @@ export const useQuiz = (quizStructure = {}) => {
         dispatch(action)
     }
 
+    const onCheckAnswer = () => {
+        const action = {
+            type: quizActions.checkAnswer
+        }
+
+        dispatch(action)
+    }
+
     return {
         quizState,
         ...quizState,
