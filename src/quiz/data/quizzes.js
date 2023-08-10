@@ -11,7 +11,9 @@ export const linkedListQuiz = {
                 "D": "Estructura de datos que consiste en nodos enlazados, donde cada nodo apunta al siguiente nodo en la secuencia."
             },
             "answer": "D",
-            "selectedAnswer": null
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+
         },
         {
             "statement": "¿Cuál es la ventaja principal de las listas enlazadas sobre los arrays?",
@@ -23,7 +25,8 @@ export const linkedListQuiz = {
                 "D": "Pueden crecer dinámicamente sin reubicación."
             },
             "answer": "D",
-            "selectedAnswer": null
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
         },
         {
             "statement": "Un nodo en una lista enlazada consta de dos campos. ¿Cuáles son?",
@@ -35,7 +38,8 @@ export const linkedListQuiz = {
                 "D": "Posición y valor."
             },
             "answer": "C",
-            "selectedAnswer": null
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
         },
         {
             "statement": "En una lista enlazada doblemente enlazada, ¿cada nodo tiene enlaces a cuántos otros nodos?",
@@ -47,7 +51,8 @@ export const linkedListQuiz = {
                 "D": "Un enlace al nodo siguiente y otro al nodo anterior."
             },
             "answer": "D",
-            "selectedAnswer": null
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
         },
         {
             "statement": "¿Cuál es la complejidad típica para insertar un elemento al principio de una lista enlazada?",
@@ -59,7 +64,8 @@ export const linkedListQuiz = {
                 "D": "Depende del tamaño de la lista."
             },
             "answer": "A",
-            "selectedAnswer": null
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
         }
     ]
 }

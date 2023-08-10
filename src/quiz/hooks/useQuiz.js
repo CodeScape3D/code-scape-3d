@@ -11,6 +11,7 @@ export const useQuiz = (quizStructure = {}) => {
             currentQuestion: firstQuestion,
             quiz: quizStructure.quiz,
             totalQuestions: quizStructure.quiz.length,
+            currentQuestionState: quizStructure.quiz[0].state
         }
     }
 
