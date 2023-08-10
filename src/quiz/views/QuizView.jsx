@@ -27,13 +27,14 @@ export const QuizView = () => {
         currentQuestionIndex,
         currentQuestionState
     } = useQuiz(linkedListQuiz)
-    const { question, statement, options , selectedAnswer} = currentQuestion
+    const { question, statement, options, selectedAnswer } = currentQuestion
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
     const isQuestionCorrect = React.useMemo(() => currentQuestionState === questionStates.CORRECT, [currentQuestionState])
     const isQuestionIncorrect = React.useMemo(() => currentQuestionState === questionStates.INCORRECT, [currentQuestionState])
+    const isQuizFinished = React.useMemo(() => currentQuestionIndex === totalQuestions - 1, [currentQuestionIndex, totalQuestions])
 
 
-    const handleOnNextQuestion = () => { 
+    const handleOnNextQuestion = () => {
         if (currentQuestionState === questionStates.UNANSWERED) {
             onCheckAnswer()
             return
@@ -73,11 +74,11 @@ export const QuizView = () => {
                     }
                     {
                         isQuestionIncorrect && (
-                        <BasicButton onClick={() => {
-                            window.open("https://www.youtube.com/shorts/AzjJj5OK6ZM", "_blank")
-                        }}>
-                            Ver retroalimentación
-                        </BasicButton>)
+                            <BasicButton onClick={() => {
+                                window.open("https://www.youtube.com/shorts/AzjJj5OK6ZM", "_blank")
+                            }}>
+                                Ver retroalimentación
+                            </BasicButton>)
                     }
                 </div>
             </section>
@@ -91,9 +92,14 @@ export const QuizView = () => {
                             </BasicButton>
                         )
                     }
-                    <BasicButton onClick={handleOnNextQuestion}>
-                        Siguiente <img src={ArrowRight} width="24" />
-                    </BasicButton>
+                    {
+                        isQuizFinished
+                            ? (<BasicButton>Finalizar</BasicButton>)
+                            : <BasicButton
+                                onClick={handleOnNextQuestion}>
+                                Siguiente <img src={ArrowRight} width="24" />
+                            </BasicButton>
+                    }
                 </div>
                 <span className="font-bold">{formatQuestionIndicator(currentQuestionIndex, totalQuestions)}</span>
             </section>

@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import PropTypes from 'prop-types'
 
-export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "gray.main"}) => {
+export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "gray.main", disabled = false}) => {
     return (
         <Button
             onClick={onClick}
@@ -25,5 +25,6 @@ BasicButton.propTypes = {
     children: PropTypes.node,
     onClick: PropTypes.func,
     backgroundColor: PropTypes.string,
+    disabled: PropTypes.bool
 }
 
