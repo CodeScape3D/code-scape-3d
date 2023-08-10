@@ -35,7 +35,7 @@ export const QuizView = () => {
 
 
     const handleOnNextQuestion = () => {
-        if (currentQuestionState === questionStates.UNANSWERED) {
+        if (currentQuestionState === questionStates.UNANSWERED && selectedAnswer != null) {
             onCheckAnswer()
             return
         }
@@ -62,6 +62,7 @@ export const QuizView = () => {
                                     answerContent={value}
                                     onAnswerSelected={onAnswerSelected}
                                     isSelected={selectedAnswer === key}
+                                    disabled={currentQuestionState !== questionStates.UNANSWERED}
                                 />
                             ))
                         }
