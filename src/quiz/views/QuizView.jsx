@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
@@ -9,12 +9,11 @@ import {
     AnswersGrid, QuizQuestion,
     QuizStatement
 } from "../components"
-import { linkedListQuiz } from "../data"
 import { formatQuestionIndicator } from "../helpers"
-import { useQuiz } from "../hooks"
 import { questionStates } from '../constants';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { QuizContext } from '../context';
 
 
 export const QuizView = () => {
@@ -29,7 +28,7 @@ export const QuizView = () => {
         currentQuestionIndex,
         currentQuestionState,
         canFinishQuiz
-    } = useQuiz(linkedListQuiz)
+    } = useContext(QuizContext)
     const { question, statement, options, selectedAnswer } = currentQuestion
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
     const isQuestionCorrect = React.useMemo(() => currentQuestionState === questionStates.CORRECT, [currentQuestionState])

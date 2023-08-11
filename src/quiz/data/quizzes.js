@@ -69,3 +69,73 @@ export const linkedListQuiz = {
         }
     ]
 }
+
+export const sortingMethodsQuiz = {
+    "quiz": [
+        {
+            "statement": "Método de ordenamiento que compara pares de elementos adyacentes y los intercambia si están en el orden incorrecto.",
+            "question": "¿Qué es el método de ordenamiento de burbuja?",
+            "options": {
+                "A": "Ordena dividiendo repetidamente la lista en sublistas más pequeñas.",
+                "B": "Ordena encontrando el mínimo elemento y colocándolo al principio.",
+                "C": "Ordena comparando pares de elementos adyacentes y ajustándolos si están en el orden incorrecto.",
+                "D": "Ordena dividiendo la lista en dos subconjuntos y ordenándolos por separado."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "¿Cuál es la complejidad promedio del algoritmo de ordenamiento de burbuja?",
+            "question": "Complejidad promedio del ordenamiento de burbuja",
+            "options": {
+                "A": "O(1)",
+                "B": "O(n)",
+                "C": "O(n log n)",
+                "D": "O(n^2)"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "Método de ordenamiento que divide repetidamente la lista en sublistas más pequeñas y luego combina las sublistas ordenadas.",
+            "question": "¿En qué consiste el método de ordenamiento merge sort?",
+            "options": {
+                "A": "Divide la lista en dos subconjuntos y ordena cada subconjunto de manera independiente.",
+                "B": "Encuentra el elemento mínimo y lo coloca al principio de la lista.",
+                "C": "Compara elementos adyacentes y los intercambia si están en el orden incorrecto.",
+                "D": "Divide repetidamente la lista en sublistas más pequeñas y combina las sublistas ordenadas."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "¿Cuál es la principal ventaja del merge sort sobre otros métodos de ordenamiento?",
+            "question": "Ventaja del merge sort",
+            "options": {
+                "A": "Tiene una complejidad de tiempo lineal.",
+                "B": "Requiere menos espacio en memoria.",
+                "C": "Es más fácil de implementar.",
+                "D": "Siempre tiene un tiempo de ejecución constante."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "Método de ordenamiento que selecciona repetidamente el elemento mínimo de la lista restante y lo coloca al principio.",
+            "question": "¿Qué es el método de ordenamiento selection sort?",
+            "options": {
+                "A": "Divide la lista en subconjuntos y los ordena de manera independiente.",
+                "B": "Ordena comparando pares de elementos adyacentes y ajustándolos si están en el orden incorrecto.",
+                "C": "Selecciona repetidamente el elemento máximo y lo coloca al final de la lista.",
+                "D": "Selecciona repetidamente el elemento mínimo y lo coloca al principio de la lista."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        }
+    ]
+}

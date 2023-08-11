@@ -1,4 +1,3 @@
-//import { useNavigate } from "react-router-dom";
 import QuizCard from "./QuizCard";
 import {
   svgOrderMethods,
@@ -30,7 +29,7 @@ export const HomeQuiz = () => {
 
           <QuizCard logo={svgOrderMethods} titulo={"Metodos de Ordenamiento"} ruta={"#"} />
           <QuizCard logo={svgSearchMethods} titulo={"Metodos de Busquedas"} ruta={"#"}  />
-          <QuizCard logo={svgLinkedList} titulo={"Listas Enlazadas"} ruta={"/quiz"}  />
+          <QuizCard logo={svgLinkedList} titulo={"Listas Enlazadas"} ruta={"/quiz/linkedList"}  />
           <QuizCard logo={svgBinaryTrees} titulo={"Arboles Binarios"} ruta={"#"}  />
           <QuizCard logo={svgPiles} titulo={"Pilas"} ruta={"#"}  />
           <QuizCard logo={svgQueue} titulo={"Colas"} ruta={"#"}  />
