@@ -17,21 +17,21 @@ export const useQuiz = (quizStructure = {}) => {
 
     const [quizState, dispatch] = useReducer(quizReducer, quizStructure, init)
 
-    const goToNextQuestion = () => { 
+    const goToNextQuestion = () => {
         const action = {
             type: quizActions.nextQuestion
         }
         dispatch(action)
     }
 
-    const goToPreviousQuestion = () => { 
+    const goToPreviousQuestion = () => {
         const action = {
             type: quizActions.previousQuestion
         }
         dispatch(action)
     }
 
-    const onAnswerSelected = (answer) => { 
+    const onAnswerSelected = (answer) => {
         const action = {
             type: quizActions.answerSelected,
             payload: answer
@@ -48,13 +48,18 @@ export const useQuiz = (quizStructure = {}) => {
         dispatch(action)
     }
 
+    const canFinishQuiz = () => {
+        return quizState.quiz.every(question =>  question.selectedAnswer != null)
+    }
+
     return {
-        quizState,
         ...quizState,
+        quizState,
         goToNextQuestion,
         goToPreviousQuestion,
         onAnswerSelected,
-        onCheckAnswer
+        onCheckAnswer,
+        canFinishQuiz
     }
-    
+
 }

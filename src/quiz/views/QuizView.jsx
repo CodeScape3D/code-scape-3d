@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
@@ -13,6 +13,7 @@ import { linkedListQuiz } from "../data"
 import { formatQuestionIndicator } from "../helpers"
 import { useQuiz } from "../hooks"
 import { questionStates } from '../constants';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 
 export const QuizView = () => {
@@ -25,13 +26,15 @@ export const QuizView = () => {
         currentQuestion,
         totalQuestions,
         currentQuestionIndex,
-        currentQuestionState
+        currentQuestionState,
+        canFinishQuiz
     } = useQuiz(linkedListQuiz)
     const { question, statement, options, selectedAnswer } = currentQuestion
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
     const isQuestionCorrect = React.useMemo(() => currentQuestionState === questionStates.CORRECT, [currentQuestionState])
     const isQuestionIncorrect = React.useMemo(() => currentQuestionState === questionStates.INCORRECT, [currentQuestionState])
-    const isQuizFinished = React.useMemo(() => currentQuestionIndex === totalQuestions - 1, [currentQuestionIndex, totalQuestions])
+    const isQuizAtTheEnd = React.useMemo(() => currentQuestionIndex === totalQuestions - 1, [currentQuestionIndex, totalQuestions])
+    const [isAlertDialogVisible, setIsAlertDialogVisible] = useState(false)
 
 
     const handleOnNextQuestion = () => {
@@ -43,19 +46,27 @@ export const QuizView = () => {
         goToNextQuestion()
     }
 
-    const handleOnQuizFinished = () => {
+    const handleOnQuizAtTheEnd = () => {
+    
+        if (canFinishQuiz()) {
+            onCheckAnswer()
+            setTimeout(() => {
+                console.log("Navigating to results...");
+            }, 2000)
 
-        onCheckAnswer()
-        
-        setTimeout(() => { 
+            return
+        }
 
+        setIsAlertDialogVisible(true)
+    }
 
-        }, 2000)
-
+    const handleOnCloseAlertDialog = () => { 
+        setIsAlertDialogVisible(false)
     }
 
     return (
-        <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">
+       <>
+         <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">
             <section className="flex flex-col md:flex-row flex-1">
 
                 <div className="question-wrapper">
@@ -105,8 +116,8 @@ export const QuizView = () => {
                         )
                     }
                     {
-                        isQuizFinished
-                            ? (<BasicButton onClick={handleOnQuizFinished}>Finalizar</BasicButton>)
+                        isQuizAtTheEnd
+                            ? (<BasicButton onClick={handleOnQuizAtTheEnd}>Finalizar</BasicButton>)
                             : <BasicButton
                                 onClick={handleOnNextQuestion}>
                                 Siguiente <img src={ArrowRight} width="24" />
@@ -116,5 +127,29 @@ export const QuizView = () => {
                 <span className="font-bold">{formatQuestionIndicator(currentQuestionIndex, totalQuestions)}</span>
             </section>
         </div>
+
+        <Dialog
+            open={isAlertDialogVisible}
+            onClose={handleOnCloseAlertDialog}
+        >
+            <DialogTitle>
+                {"Importante"}
+            </DialogTitle>
+
+            <DialogContent>
+                <DialogContentText>
+                    Debes responder todas las preguntas antes de finalizar el quiz.
+                </DialogContentText>
+            </DialogContent>
+
+            <DialogActions>
+                    <BasicButton onClick={handleOnCloseAlertDialog}>
+                        Aceptar
+                    </BasicButton>
+            </DialogActions>
+
+        </Dialog>
+       
+       </>
     )
 }
