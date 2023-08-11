@@ -43,6 +43,17 @@ export const QuizView = () => {
         goToNextQuestion()
     }
 
+    const handleOnQuizFinished = () => {
+
+        onCheckAnswer()
+        
+        setTimeout(() => { 
+
+
+        }, 2000)
+
+    }
+
     return (
         <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">
             <section className="flex flex-col md:flex-row flex-1">
@@ -95,7 +106,7 @@ export const QuizView = () => {
                     }
                     {
                         isQuizFinished
-                            ? (<BasicButton>Finalizar</BasicButton>)
+                            ? (<BasicButton onClick={handleOnQuizFinished}>Finalizar</BasicButton>)
                             : <BasicButton
                                 onClick={handleOnNextQuestion}>
                                 Siguiente <img src={ArrowRight} width="24" />
