@@ -24,7 +24,7 @@ export const QuizResults = () => {
                 <div className="flex w-full flex-col md:flex-row flex-1 justify-center items-center gap-6">
                     <AnswersChart />
                     <AnswersDetails rightAnswersCount={7} wrongAnswersCount={3} rating={3.5} approved={true} />
-                    <div className="hidden lg:block">
+                    <div className="hidden lg:block animate__animated animate__backInRight">
                         {svgCheck}
                     </div>
                 </div>

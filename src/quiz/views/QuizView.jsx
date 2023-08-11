@@ -14,6 +14,7 @@ import { formatQuestionIndicator } from "../helpers"
 import { useQuiz } from "../hooks"
 import { questionStates } from '../constants';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 export const QuizView = () => {
@@ -35,6 +36,7 @@ export const QuizView = () => {
     const isQuestionIncorrect = React.useMemo(() => currentQuestionState === questionStates.INCORRECT, [currentQuestionState])
     const isQuizAtTheEnd = React.useMemo(() => currentQuestionIndex === totalQuestions - 1, [currentQuestionIndex, totalQuestions])
     const [isAlertDialogVisible, setIsAlertDialogVisible] = useState(false)
+    const navigate = useNavigate()
 
 
     const handleOnNextQuestion = () => {
@@ -52,7 +54,8 @@ export const QuizView = () => {
             onCheckAnswer()
             setTimeout(() => {
                 console.log("Navigating to results...");
-            }, 2000)
+                navigate("/quiz/results")
+            }, 1000)
 
             return
         }
