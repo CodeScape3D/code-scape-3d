@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/mediaquerys.css";
+import PropTypes from "prop-types";
 
 const QuizCard = ({ logo, titulo, ruta }) => {
   return (
@@ -19,6 +20,12 @@ const QuizCard = ({ logo, titulo, ruta }) => {
       </Link>
     </>
   );
+};
+
+QuizCard.propTypes = { 
+  logo: PropTypes.element.isRequired,
+  titulo: PropTypes.string.isRequired,
+  ruta: PropTypes.string.isRequired,
 };
 
 export default QuizCard;
