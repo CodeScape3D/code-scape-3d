@@ -5,4 +5,5 @@ export const quizActions = {
     previousQuestion: "PREVIOUS_QUESTION",
     answerSelected: "ANSWER_SELECTED",
     checkAnswer: "CHECK_ANSWER",
+    computeResults: "COMPUTE_RESULTS"
 }

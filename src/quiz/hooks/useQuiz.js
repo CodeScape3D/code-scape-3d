@@ -5,13 +5,14 @@ import { quizActions } from "../actions"
 export const useQuiz = (quizStructure = {}) => {
 
     const init = () => {
-        const firstQuestion = quizStructure.quiz[0]
+        const firstQuestion = quizStructure.questions[0]
         return {
             currentQuestionIndex: 0,
             currentQuestion: firstQuestion,
-            quiz: quizStructure.quiz,
-            totalQuestions: quizStructure.quiz.length,
-            currentQuestionState: quizStructure.quiz[0].state
+            questions: quizStructure.questions,
+            totalQuestions: quizStructure.questions.length,
+            currentQuestionState: quizStructure.questions[0].state,
+            quizName: quizStructure.name
         }
     }
 
@@ -49,7 +50,15 @@ export const useQuiz = (quizStructure = {}) => {
     }
 
     const canFinishQuiz = () => {
-        return quizState.quiz.every(question =>  question.selectedAnswer != null)
+        return quizState.questions.every(question => question.selectedAnswer != null)
+    }
+
+    const computeResults = () => {
+        const action = {
+            type: quizActions.computeResults
+        }
+
+        dispatch(action)
     }
 
     return {
@@ -59,7 +68,8 @@ export const useQuiz = (quizStructure = {}) => {
         goToPreviousQuestion,
         onAnswerSelected,
         onCheckAnswer,
-        canFinishQuiz
+        canFinishQuiz,
+        computeResults
     }
 
 }

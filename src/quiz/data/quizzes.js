@@ -1,6 +1,7 @@
 
 export const linkedListQuiz = {
-    "quiz": [
+    "name": "Listas enlazadas",
+    "questions": [
         {
             "statement": "Estructura de datos que consiste en nodos enlazados, donde cada nodo apunta al siguiente nodo en la secuencia.",
             "question": "¿Qué es una lista enlazada?",
@@ -71,7 +72,8 @@ export const linkedListQuiz = {
 }
 
 export const sortingMethodsQuiz = {
-    "quiz": [
+    "name": "Métodos de ordenamiento",
+    "questions": [
         {
             "statement": "Método de ordenamiento que compara pares de elementos adyacentes y los intercambia si están en el orden incorrecto.",
             "question": "¿Qué es el método de ordenamiento de burbuja?",
