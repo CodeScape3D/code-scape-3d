@@ -1,25 +1,38 @@
-import React, { useState } from 'react';
-import ArrowLeft from "../../assets/icons/arrow-left.svg"
-import ArrowRight from "../../assets/icons/arrow-right.svg"
-import { BasicButton } from "../../components"
-import {
-    AnswerButton,
-    WrongAnswerDialog,
-    CorrectAnswerDialog,
-    AnswersGrid, QuizQuestion,
-    QuizStatement
-} from "../components"
-import { formatQuestionIndicator, getQuizByName } from "../helpers"
-import { questionStates } from '../constants';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { useQuiz } from '../hooks';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import ArrowLeft from '../../assets/icons/arrow-left.svg';
+import ArrowRight from '../../assets/icons/arrow-right.svg';
+import { BasicButton } from '../../components';
+import {
+  AnswerButton,
+  WrongAnswerDialog,
+  CorrectAnswerDialog,
+  AnswersGrid,
+  QuizQuestion,
+  QuizStatement,
+} from '../components';
+import {
+  canFinishQuiz,
+  formatQuestionIndicator,
+  getQuizByName,
+} from '../helpers';
+import { questionStates } from '../constants';
+import {
+  answerSelected,
+  checkAnswer,
+  goToNextQuestion,
+  goToPreviousQuestion,
+  setQuiz,
+} from '../../store';
 
 
 export const QuizView = () => {
 
     const { quizName } = useParams()
     const quiz = React.useMemo(() => getQuizByName(quizName), [quizName])
+    const dispatch = useDispatch()
 
     if (!quiz) {
         return (
@@ -27,40 +40,40 @@ export const QuizView = () => {
         )
     }
 
-    const {
-        goToNextQuestion,
-        goToPreviousQuestion,
-        onCheckAnswer,
-        onAnswerSelected,
-        currentQuestion,
-        totalQuestions,
-        currentQuestionIndex,
-        currentQuestionState,
-        canFinishQuiz,
-    } = useQuiz(quiz)
+    useEffect(() => {
+        dispatch(setQuiz(quiz))
+    } ,[])
 
-
-    const { question, statement, options, selectedAnswer } = currentQuestion
+    const { currentQuestion, currentQuestionIndex, totalQuestions, questions } = useSelector(state => state.quiz)
+    const { options, statement, question, selectedAnswer, state } = currentQuestion 
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
-    const isQuestionCorrect = React.useMemo(() => currentQuestionState === questionStates.CORRECT, [currentQuestionState])
-    const isQuestionIncorrect = React.useMemo(() => currentQuestionState === questionStates.INCORRECT, [currentQuestionState])
+    const isQuestionCorrect = React.useMemo(() => state === questionStates.CORRECT, [state])
+    const isQuestionIncorrect = React.useMemo(() => state === questionStates.INCORRECT, [state])
     const isQuizAtTheEnd = React.useMemo(() => currentQuestionIndex === totalQuestions - 1, [currentQuestionIndex, totalQuestions])
     const [isAlertDialogVisible, setIsAlertDialogVisible] = useState(false)
 
     const handleOnNextQuestion = () => {
-        if (currentQuestionState === questionStates.UNANSWERED && selectedAnswer != null) {
-            onCheckAnswer()
+        if (state === questionStates.UNANSWERED && selectedAnswer != null) {
+            dispatch(checkAnswer())
             return
         }
-        goToNextQuestion()
+        dispatch(goToNextQuestion())
+    }
+
+    const handleOnPreviousQuestion = () => { 
+        dispatch(goToPreviousQuestion())
     }
 
     const handleOnQuizAtTheEnd = () => {
-        if (canFinishQuiz()) {
-            onCheckAnswer()
+        if (canFinishQuiz(questions)) {
+            dispatch(checkAnswer())
             return
         }
         setIsAlertDialogVisible(true)
+    }
+
+    const handleOnAnswerSelected = (answer) => { 
+        dispatch(answerSelected(answer))
     }
 
     const handleOnCloseAlertDialog = () => {
@@ -85,9 +98,9 @@ export const QuizView = () => {
                                         key={key}
                                         answerLetter={key}
                                         answerContent={value}
-                                        onAnswerSelected={onAnswerSelected}
+                                        onAnswerSelected={handleOnAnswerSelected}
                                         isSelected={selectedAnswer === key}
-                                        disabled={currentQuestionState !== questionStates.UNANSWERED}
+                                        disabled={state !== questionStates.UNANSWERED}
                                     />
                                 ))
                             }
@@ -113,7 +126,7 @@ export const QuizView = () => {
                     <div className="flex gap-3">
                         {
                             isPreviousButtonVisible && (
-                                <BasicButton onClick={goToPreviousQuestion}>
+                                <BasicButton onClick={handleOnPreviousQuestion}>
                                     <img src={ArrowLeft} width="24" />  Volver
                                 </BasicButton>
                             )
