@@ -24,7 +24,7 @@ export const quizSlice = createSlice({
             scoreStatistics: { 
                 datasets: [
                     {
-                        data: statistics.data,
+                        data: [0, 0],
                         backgroundColor: ["#87BA7A", "#FF7575"]
                     }
                 ]
