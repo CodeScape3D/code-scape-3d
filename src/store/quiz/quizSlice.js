@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { questionStates } from '../../quiz';
 
+const MAX_SCORE = 5;
+const MINIMUM_SCORE_TO_APPROVE = 3;
+
 export const quizSlice = createSlice({
     name: 'quiz',
     initialState: {
@@ -21,7 +24,7 @@ export const quizSlice = createSlice({
             incorrectAnswersCount: 0,
             score: 0,
             approved: false,
-            scoreStatistics: { 
+            scoreStatistics: {
                 datasets: [
                     {
                         data: [0, 0],
@@ -62,6 +65,30 @@ export const quizSlice = createSlice({
             const isCorrect = currentQuestion.selectedAnswer === currentQuestion.answer;
             state.questions[state.currentQuestionIndex].state = isCorrect ? questionStates.CORRECT : questionStates.INCORRECT;
             state.currentQuestion = state.questions[state.currentQuestionIndex];
+        },
+        computeResults: (state) => {
+            const correctAnswers = state.questions.filter(question => question.state === questionStates.CORRECT).length;
+            const incorrectAnswers = state.questions.filter(question => question.state === questionStates.INCORRECT).length;
+            const score = (correctAnswers / state.totalQuestions) * MAX_SCORE;
+            const approved = score >= MINIMUM_SCORE_TO_APPROVE;
+            const statistics = {
+                data: [correctAnswers, incorrectAnswers],
+            }
+
+            state.quizResults = {
+                correctAnswersCount: correctAnswers,
+                incorrectAnswersCount: incorrectAnswers,
+                score: score,
+                approved: approved,
+                scoreStatistics: { 
+                    datasets: [
+                        {
+                            data: statistics.data,
+                            backgroundColor: ["#87BA7A", "#FF7575"]
+                        }
+                    ] 
+                }
+            }
         }
     }
 });
@@ -71,5 +98,6 @@ export const {
     goToNextQuestion,
     goToPreviousQuestion,
     answerSelected,
-    checkAnswer
+    checkAnswer,
+    computeResults
 } = quizSlice.actions;

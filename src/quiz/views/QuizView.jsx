@@ -22,6 +22,7 @@ import { questionStates } from '../constants';
 import {
   answerSelected,
   checkAnswer,
+  computeResults,
   goToNextQuestion,
   goToPreviousQuestion,
   setQuiz,
@@ -30,6 +31,7 @@ import {
 
 export const QuizView = () => {
 
+    const navigate = useNavigate()
     const { quizName } = useParams()
     const quiz = React.useMemo(() => getQuizByName(quizName), [quizName])
     const dispatch = useDispatch()
@@ -67,6 +69,12 @@ export const QuizView = () => {
     const handleOnQuizAtTheEnd = () => {
         if (canFinishQuiz(questions)) {
             dispatch(checkAnswer())
+            dispatch(computeResults())
+
+            setTimeout(() => {
+                navigate("/quiz/results")
+            }, 1200)
+
             return
         }
         setIsAlertDialogVisible(true)
