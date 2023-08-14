@@ -13,6 +13,8 @@ const QuizCard = ({ logo, titulo, ruta }) => {
           <div className="bg-secondary w-full h-full rounded-b-lg flex justify-center text-center items-center sm:h-96">
             <p className="sm:text-lg text-white md:text-xl fontSizeQuizzes">{titulo}</p>
           </div>
+
+          
         </div>
       </Link>
     </div>
