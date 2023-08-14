@@ -16,6 +16,20 @@ export const quizSlice = createSlice({
         questions: [],
         totalQuestions: 0,
         quizName: "",
+        quizResults: {
+            correctAnswersCount: 0,
+            incorrectAnswersCount: 0,
+            score: 0,
+            approved: false,
+            scoreStatistics: { 
+                datasets: [
+                    {
+                        data: statistics.data,
+                        backgroundColor: ["#87BA7A", "#FF7575"]
+                    }
+                ]
+            }
+        }
     },
     reducers: {
         setQuiz: (state, { payload }) => {
