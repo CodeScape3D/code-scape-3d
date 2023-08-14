@@ -27,10 +27,10 @@ export const AnswersChart = ({ data = exampleData, options = {} }) => {
 
             <PercentageIndicator
                 percentage={formatCountToPercentage(data.datasets[0].data[1],data.totalQuestions)}
-                position={"top-1/4"} />
+                position={"left-0 top-3/4"} />
             <PercentageIndicator
                 percentage={formatCountToPercentage(data.datasets[0].data[0],data.totalQuestions)}
-                position={"left-0 top-3/4"} textColor="text-success" />
+                position={"top-1/4"} textColor="text-success" />
 
         </div>
     )
