@@ -4,6 +4,7 @@ import { BasicButton } from "../../components"
 import { svgCheck } from "../../assets/svg/SvgConstans"
 import { questionStates } from "../constants"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router"
 
 const AnswersRow = ({ data }) => {
     return (
@@ -22,6 +23,7 @@ const AnswersRow = ({ data }) => {
 
 export const QuizResults = () => {
 
+    const navigate = useNavigate()
     const { quizName, questions, quizResults } = useSelector(state => state.quiz)
     const { correctAnswersCount, incorrectAnswersCount, score, approved, scoreStatistics } = quizResults
 
@@ -45,7 +47,7 @@ export const QuizResults = () => {
                 </div>
 
                 <div className="flex flex-col mt-2 md:mt-0 md:flex-row w-full justify-center items-center gap-3">
-                    <BasicButton backgroundColor="secondary.main">
+                    <BasicButton backgroundColor="secondary.main" onClick={() => navigate("/quizzes")} >
                         <span>Finalizar cuestionario</span>
                     </BasicButton>
                     <BasicButton backgroundColor="secondary.main">
