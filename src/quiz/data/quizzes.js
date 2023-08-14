@@ -141,3 +141,114 @@ export const sortingMethodsQuiz = {
         }
     ]
 }
+
+export const searchMethodsQuiz = {
+    "name": "Métodos de búsqueda",
+    "questions": [
+        {
+            "statement": "Método de búsqueda que recorre la lista desde el principio hasta encontrar el elemento buscado.",
+            "question": "¿Qué es la búsqueda lineal?",
+            "options": {
+                "A": "Recorre la lista de manera aleatoria.",
+                "B": "Recorre la lista de atrás hacia adelante.",
+                "C": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
+                "D": "Divide la lista en sublistas para buscar de manera más eficiente."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "¿Cuál es la complejidad promedio de la búsqueda lineal en una lista desordenada?",
+            "question": "Complejidad promedio de la búsqueda lineal",
+            "options": {
+                "A": "O(1)",
+                "B": "O(n)",
+                "C": "O(n log n)",
+                "D": "O(n^2)"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "Método de búsqueda que divide repetidamente la lista en dos subconjuntos y determina en cuál de ellos puede estar el elemento buscado.",
+            "question": "¿En qué consiste la búsqueda binaria?",
+            "options": {
+                "A": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
+                "B": "Compara pares de elementos adyacentes y ajusta si están en el orden incorrecto.",
+                "C": "Divide repetidamente la lista en dos subconjuntos y determina en cuál de ellos puede estar el elemento buscado.",
+                "D": "Selecciona repetidamente el elemento máximo y lo coloca al final de la lista."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "¿Cuál es la principal ventaja de la búsqueda binaria sobre la búsqueda lineal?",
+            "question": "Ventaja de la búsqueda binaria",
+            "options": {
+                "A": "Siempre encuentra el elemento en tiempo constante.",
+                "B": "No requiere que la lista esté ordenada.",
+                "C": "Tiene una complejidad promedio más baja.",
+                "D": "Es más fácil de implementar."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "Método de búsqueda que utiliza una función de hash para encontrar la ubicación del elemento.",
+            "question": "¿Qué es la búsqueda por hashing?",
+            "options": {
+                "A": "Compara elementos adyacentes y los intercambia si están en el orden incorrecto.",
+                "B": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
+                "C": "Utiliza una función de hash para encontrar la ubicación del elemento.",
+                "D": "Selecciona repetidamente el elemento mínimo y lo coloca al principio de la lista."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "En la búsqueda por hashing, ¿qué es una colisión?",
+            "question": "Colisión en búsqueda por hashing",
+            "options": {
+                "A": "Cuando dos elementos son iguales.",
+                "B": "Cuando la función de hash no encuentra el elemento.",
+                "C": "Cuando varios elementos tienen la misma ubicación calculada por la función de hash.",
+                "D": "Cuando el elemento no se encuentra en la lista."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "Método de búsqueda que utiliza la propiedad de que los elementos están ordenados para reducir el espacio de búsqueda a la mitad.",
+            "question": "¿En qué consiste la búsqueda interpolada?",
+            "options": {
+                "A": "Compara pares de elementos adyacentes y ajusta si están en el orden incorrecto.",
+                "B": "Utiliza una función de interpolación para encontrar la ubicación del elemento.",
+                "C": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
+                "D": "Divide repetidamente la lista en dos subconjuntos y determina en cuál de ellos puede estar el elemento buscado."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        },
+        {
+            "statement": "¿Cuál es la principal limitación de la búsqueda interpolada?",
+            "question": "Limitación de la búsqueda interpolada",
+            "options": {
+                "A": "Requiere que la lista esté ordenada.",
+                "B": "No funciona con elementos numéricos.",
+                "C": "Es más lenta que otros métodos de búsqueda.",
+                "D": "Solo puede utilizarse en listas pequeñas."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED"
+        }
+    ]
+}
+
