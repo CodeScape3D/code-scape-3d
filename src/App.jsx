@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavBar, Footer, HomeAprende, NotFound, HomeQuiz, HomeMiniJuegos } from "./components";
 import { QuizResults, QuizView } from "./quiz";
 import { AppTheme } from "./theme";
-import { QuizProvider } from "./quiz";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -12,7 +11,6 @@ function App() {
   return (
     <AppTheme>
       <Provider store={store}>
-      <QuizProvider>
         <Router>
           <div className="flex flex-col min-h-screen items-center">
             <NavBar />
@@ -27,7 +25,6 @@ function App() {
             <Footer />
           </div>
         </Router>
-      </QuizProvider>
       </Provider>
     </AppTheme>
   );

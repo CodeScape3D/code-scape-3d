@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ArrowLeft from "../../assets/icons/arrow-left.svg"
 import ArrowRight from "../../assets/icons/arrow-right.svg"
 import { BasicButton } from "../../components"
@@ -13,16 +13,13 @@ import { formatQuestionIndicator, getQuizByName } from "../helpers"
 import { questionStates } from '../constants';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { QuizContext } from '../context';
 import { useQuiz } from '../hooks';
-import { QuizResults } from './QuizResults';
 
 
 export const QuizView = () => {
 
     const { quizName } = useParams()
     const quiz = React.useMemo(() => getQuizByName(quizName), [quizName])
-    const { setCurrentQuizData } = useContext(QuizContext)
 
     if (!quiz) {
         return (
