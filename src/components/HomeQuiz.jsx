@@ -30,9 +30,9 @@ export const HomeQuiz = () => {
           <QuizCard logo={svgOrderMethods} titulo={"Metodos de Ordenamiento"} ruta={"/quiz/sortingMethods"} />
           <QuizCard logo={svgSearchMethods} titulo={"Metodos de Busquedas"} ruta={"/quiz/searchMethods"}  />
           <QuizCard logo={svgLinkedList} titulo={"Listas Enlazadas"} ruta={"/quiz/linkedList"}  />
-          <QuizCard logo={svgBinaryTrees} titulo={"Arboles Binarios"} ruta={"#"}  />
-          <QuizCard logo={svgPiles} titulo={"Pilas"} ruta={"#"}  />
-          <QuizCard logo={svgQueue} titulo={"Colas"} ruta={"#"}  />
+          <QuizCard logo={svgBinaryTrees} titulo={"Arboles Binarios"} ruta={"/quiz/binaryTree"}  />
+          <QuizCard logo={svgPiles} titulo={"Pilas"} ruta={"/quiz/stacks"}  />
+          <QuizCard logo={svgQueue} titulo={"Colas"} ruta={"/quiz/queues"}  />
 
         </div>
       </div>
