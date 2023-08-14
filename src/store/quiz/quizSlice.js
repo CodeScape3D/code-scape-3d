@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { questionStates } from '../../quiz';
 
-const MAX_SCORE = 5;
-const MINIMUM_SCORE_TO_APPROVE = 3;
+const MAX_SCORE = 5.0;
+const MINIMUM_SCORE_TO_APPROVE = 3.0;
+const MINIMUM_SCORE = 1.0
 
 export const quizSlice = createSlice({
     name: 'quiz',
@@ -69,7 +70,8 @@ export const quizSlice = createSlice({
         computeResults: (state) => {
             const correctAnswers = state.questions.filter(question => question.state === questionStates.CORRECT).length;
             const incorrectAnswers = state.questions.filter(question => question.state === questionStates.INCORRECT).length;
-            const score = (correctAnswers / state.totalQuestions) * MAX_SCORE;
+            const result = (correctAnswers / state.totalQuestions) * MAX_SCORE;
+            const score = result <= 0 ? MINIMUM_SCORE: result;
             const approved = score >= MINIMUM_SCORE_TO_APPROVE;
             const statistics = {
                 data: [correctAnswers, incorrectAnswers],
@@ -86,7 +88,8 @@ export const quizSlice = createSlice({
                             data: statistics.data,
                             backgroundColor: ["#87BA7A", "#FF7575"]
                         }
-                    ] 
+                    ],
+                    totalQuestions: state.totalQuestions
                 }
             }
         }
