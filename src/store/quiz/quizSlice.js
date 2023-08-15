@@ -71,7 +71,7 @@ export const quizSlice = createSlice({
             const correctAnswers = state.questions.filter(question => question.state === questionStates.CORRECT).length;
             const incorrectAnswers = state.questions.filter(question => question.state === questionStates.INCORRECT).length;
             const result = (correctAnswers / state.totalQuestions) * MAX_SCORE;
-            const score = result <= 0 ? MINIMUM_SCORE: result.toFixed(2);
+            const score = result < MINIMUM_SCORE ? MINIMUM_SCORE: result.toFixed(2);
             const approved = score >= MINIMUM_SCORE_TO_APPROVE;
             const statistics = {
                 data: [correctAnswers, incorrectAnswers],
