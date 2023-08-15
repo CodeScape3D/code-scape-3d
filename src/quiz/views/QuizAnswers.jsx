@@ -38,6 +38,12 @@ export const QuizAnswers = () => {
                             answerContent={question.options[question.answer]}
                             disabled={true}
                         />
+                        <span className="block">Has marcado</span>
+                        <AnswerButton
+                            answerLetter={question.selectedAnswer}
+                            answerContent={question.options[question.selectedAnswer]}
+                            disabled={true}
+                        />
                     </div>
                 ))
             }
