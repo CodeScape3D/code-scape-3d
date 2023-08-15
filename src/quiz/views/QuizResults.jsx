@@ -50,7 +50,7 @@ export const QuizResults = () => {
                     <BasicButton backgroundColor="secondary.main" onClick={() => navigate("/quizzes")} >
                         <span>Finalizar cuestionario</span>
                     </BasicButton>
-                    <BasicButton backgroundColor="secondary.main">
+                    <BasicButton backgroundColor="secondary.main" onClick={() => navigate("/quiz/results/answers")}>
                         <span>Ver respuestas</span>
                     </BasicButton>
                 </div>
