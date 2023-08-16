@@ -1,95 +1,142 @@
 
 export const linkedListQuiz = {
-    "name": "Listas enlazadas",
+    "name": "Listas Enlazadas",
     "questions": [
         {
-            "statement": "Estructura de datos que consiste en nodos enlazados, donde cada nodo apunta al siguiente nodo en la secuencia.",
-            "question": "¿Qué es una lista enlazada?",
+            "statement": "¿Cuál es la definición adecuada de una lista enlazada?",
+            "question": "¿Qué se entiende por una lista enlazada?",
             "options": {
-                "A": "Un conjunto desordenado de elementos.",
-                "B": "Una estructura de datos estática.",
-                "C": "Una estructura de datos que solo permite acceso al último elemento.",
-                "D": "Estructura de datos que consiste en nodos enlazados, donde cada nodo apunta al siguiente nodo en la secuencia."
-            },
-            "answer": "D",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-
-        },
-        {
-            "statement": "¿Cuál es la ventaja principal de las listas enlazadas sobre los arrays?",
-            "question": "Ventaja principal de las listas enlazadas",
-            "options": {
-                "A": "Ocupan menos espacio en memoria.",
-                "B": "Ofrecen acceso aleatorio más eficiente.",
-                "C": "Son más fáciles de implementar.",
-                "D": "Pueden crecer dinámicamente sin reubicación."
-            },
-            "answer": "D",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "Un nodo en una lista enlazada consta de dos campos. ¿Cuáles son?",
-            "question": "Campos de un nodo en una lista enlazada",
-            "options": {
-                "A": "Índice y valor.",
-                "B": "Valor y enlace al nodo anterior.",
-                "C": "Valor y enlace al nodo siguiente.",
-                "D": "Posición y valor."
+                "A": "Una colección ordenada de elementos con un tamaño fijo.",
+                "B": "Una colección desordenada de elementos con un tamaño variable.",
+                "C": "Una colección ordenada de elementos con un tamaño variable.",
+                "D": "Una colección desordenada de elementos con un tamaño fijo."
             },
             "answer": "C",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Una lista enlazada es una estructura de datos que consiste en una serie de nodos, donde cada nodo contiene un valor y una referencia al siguiente nodo."
         },
         {
-            "statement": "En una lista enlazada doblemente enlazada, ¿cada nodo tiene enlaces a cuántos otros nodos?",
-            "question": "Enlaces en una lista enlazada doblemente enlazada",
+            "statement": "¿Qué es un nodo en una lista enlazada?",
+            "question": "En el contexto de listas enlazadas, ¿qué es un nodo?",
             "options": {
-                "A": "Ningún enlace.",
-                "B": "Un enlace al nodo siguiente.",
-                "C": "Un enlace al nodo anterior.",
-                "D": "Un enlace al nodo siguiente y otro al nodo anterior."
+                "A": "Un enlace entre dos elementos en la lista.",
+                "B": "El primer elemento de la lista.",
+                "C": "Un valor almacenado en la lista.",
+                "D": "Un elemento de la lista que contiene un valor y una referencia al siguiente elemento."
             },
             "answer": "D",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Un nodo en una lista enlazada es un elemento que contiene un valor y un puntero/referencia al siguiente nodo en la lista."
         },
         {
-            "statement": "¿Cuál es la complejidad típica para insertar un elemento al principio de una lista enlazada?",
-            "question": "Complejidad de inserción al principio de una lista enlazada",
+            "statement": "¿Cuál es la ventaja principal de una lista enlazada sobre un array?",
+            "question": "En comparación con un array, ¿cuál es la principal ventaja de una lista enlazada?",
+            "options": {
+                "A": "Las listas enlazadas pueden almacenar un número ilimitado de elementos.",
+                "B": "Las listas enlazadas tienen acceso más rápido a elementos.",
+                "C": "Las listas enlazadas ocupan menos espacio en memoria.",
+                "D": "Las listas enlazadas pueden insertar y eliminar elementos eficientemente en cualquier posición."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Una ventaja clave de las listas enlazadas es su capacidad para insertar y eliminar elementos eficientemente en cualquier posición, mientras que los arrays pueden ser menos eficientes en ese aspecto debido a la necesidad de reorganizar elementos."
+        },
+        {
+            "statement": "En una lista enlazada doblemente enlazada, cada nodo tiene referencias a:",
+            "question": "En una lista enlazada doblemente enlazada, ¿a qué elementos apunta cada nodo?",
+            "options": {
+                "A": "Al nodo anterior y al siguiente nodo.",
+                "B": "Solo al nodo anterior.",
+                "C": "Solo al nodo siguiente.",
+                "D": "Al primer y último nodo de la lista."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En una lista enlazada doblemente enlazada, cada nodo tiene referencias tanto al nodo anterior como al siguiente."
+        },
+        {
+            "statement": "¿Qué es la operación de 'eliminar' en una lista enlazada?",
+            "question": "En una lista enlazada, ¿qué implica la operación de 'eliminar' un nodo?",
+            "options": {
+                "A": "Eliminar el valor almacenado en el nodo.",
+                "B": "Desconectar el nodo de la lista y liberar la memoria.",
+                "C": "Mover el nodo al final de la lista.",
+                "D": "Duplicar el nodo y sus datos."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La operación de 'eliminar' en una lista enlazada implica desconectar el nodo de la lista y liberar la memoria asociada al nodo eliminado."
+        },
+        {
+            "statement": "¿Cuál es la complejidad temporal promedio para buscar un elemento en una lista enlazada no ordenada?",
+            "question": "En una lista enlazada no ordenada, ¿cuál es la complejidad temporal promedio de la operación de búsqueda?",
             "options": {
                 "A": "O(1)",
                 "B": "O(n)",
                 "C": "O(log n)",
                 "D": "Depende del tamaño de la lista."
             },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En una lista enlazada no ordenada, la complejidad promedio de búsqueda es O(n), ya que en el peor caso tendrías que recorrer toda la lista para encontrar el elemento buscado."
+        },
+        {
+            "statement": "¿Qué es la 'circularidad' en una lista enlazada circular?",
+            "question": "En el contexto de listas enlazadas circulares, ¿qué significa 'circularidad'?",
+            "options": {
+                "A": "Cada nodo apunta a todos los demás nodos.",
+                "B": "La lista se repite infinitamente.",
+                "C": "El último nodo apunta al primer nodo.",
+                "D": "Los nodos están organizados en una forma circular."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En una lista enlazada circular, el último nodo apunta de nuevo al primer nodo, creando así una estructura circular."
+        },
+        {
+            "statement": "¿Qué es la 'cabeza' en una lista enlazada?",
+            "question": "En una lista enlazada, ¿a qué hace referencia el término 'cabeza'?",
+            "options": {
+                "A": "El primer nodo de la lista.",
+                "B": "El último nodo de la lista.",
+                "C": "El nodo que contiene el valor más grande.",
+                "D": "El nodo que contiene el valor más pequeño."
+            },
             "answer": "A",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "La 'cabeza' de una lista enlazada se refiere al primer nodo de la lista, es el punto de entrada principal para acceder a los elementos de la lista."
         }
     ]
 }
 
 export const sortingMethodsQuiz = {
-    "name": "Métodos de ordenamiento",
+    "name": "Métodos de Ordenamiento",
     "questions": [
         {
-            "statement": "Método de ordenamiento que compara pares de elementos adyacentes y los intercambia si están en el orden incorrecto.",
-            "question": "¿Qué es el método de ordenamiento de burbuja?",
+            "statement": "¿Cuál de los siguientes métodos de ordenamiento es conocido por su eficiencia en listas pequeñas o parcialmente ordenadas?",
+            "question": "¿Qué método de ordenamiento es eficiente para listas pequeñas o parcialmente ordenadas?",
             "options": {
-                "A": "Ordena dividiendo repetidamente la lista en sublistas más pequeñas.",
-                "B": "Ordena encontrando el mínimo elemento y colocándolo al principio.",
-                "C": "Ordena comparando pares de elementos adyacentes y ajustándolos si están en el orden incorrecto.",
-                "D": "Ordena dividiendo la lista en dos subconjuntos y ordenándolos por separado."
+                "A": "Quicksort",
+                "B": "Bubblesort",
+                "C": "Insertion Sort",
+                "D": "Merge Sort"
             },
             "answer": "C",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Insertion Sort es eficiente en listas pequeñas o parcialmente ordenadas debido a su naturaleza de inserción incremental."
         },
         {
-            "statement": "¿Cuál es la complejidad promedio del algoritmo de ordenamiento de burbuja?",
-            "question": "Complejidad promedio del ordenamiento de burbuja",
+            "statement": "¿Cuál es la peor complejidad temporal en el peor caso para el algoritmo Quicksort?",
+            "question": "En el peor caso, ¿cuál es la complejidad temporal de Quicksort?",
             "options": {
                 "A": "O(1)",
                 "B": "O(n)",
@@ -98,447 +145,555 @@ export const sortingMethodsQuiz = {
             },
             "answer": "D",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "En el peor caso, Quicksort tiene una complejidad temporal de O(n^2), pero con particiones equilibradas y elección adecuada del pivote, puede tener una complejidad promedio de O(n log n)."
         },
         {
-            "statement": "Método de ordenamiento que divide repetidamente la lista en sublistas más pequeñas y luego combina las sublistas ordenadas.",
-            "question": "¿En qué consiste el método de ordenamiento merge sort?",
+            "statement": "¿Qué método de ordenamiento siempre tiene una complejidad temporal de O(n log n) en el peor caso?",
+            "question": "¿Cuál de estos métodos de ordenamiento siempre tiene una complejidad temporal de O(n log n) en el peor caso?",
             "options": {
-                "A": "Divide la lista en dos subconjuntos y ordena cada subconjunto de manera independiente.",
-                "B": "Encuentra el elemento mínimo y lo coloca al principio de la lista.",
-                "C": "Compara elementos adyacentes y los intercambia si están en el orden incorrecto.",
-                "D": "Divide repetidamente la lista en sublistas más pequeñas y combina las sublistas ordenadas."
+                "A": "Bubblesort",
+                "B": "Selection Sort",
+                "C": "Heapsort",
+                "D": "Mergesort"
             },
             "answer": "D",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Mergesort tiene una complejidad temporal de O(n log n) en el peor caso, lo que lo hace eficiente para ordenar grandes conjuntos de datos."
         },
         {
-            "statement": "¿Cuál es la principal ventaja del merge sort sobre otros métodos de ordenamiento?",
-            "question": "Ventaja del merge sort",
+            "statement": "¿Cuál de los siguientes métodos de ordenamiento es inestable?",
+            "question": "¿Cuál de estos métodos de ordenamiento es inestable?",
             "options": {
-                "A": "Tiene una complejidad de tiempo lineal.",
-                "B": "Requiere menos espacio en memoria.",
-                "C": "Es más fácil de implementar.",
-                "D": "Siempre tiene un tiempo de ejecución constante."
-            },
-            "answer": "B",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "Método de ordenamiento que selecciona repetidamente el elemento mínimo de la lista restante y lo coloca al principio.",
-            "question": "¿Qué es el método de ordenamiento selection sort?",
-            "options": {
-                "A": "Divide la lista en subconjuntos y los ordena de manera independiente.",
-                "B": "Ordena comparando pares de elementos adyacentes y ajustándolos si están en el orden incorrecto.",
-                "C": "Selecciona repetidamente el elemento máximo y lo coloca al final de la lista.",
-                "D": "Selecciona repetidamente el elemento mínimo y lo coloca al principio de la lista."
+                "A": "Quicksort",
+                "B": "Insertion Sort",
+                "C": "Mergesort",
+                "D": "Selection Sort"
             },
             "answer": "D",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Selection Sort es un método de ordenamiento inestable, lo que significa que no necesariamente mantiene el orden relativo de elementos iguales."
+        },
+        {
+            "statement": "¿Cuál de los siguientes métodos de ordenamiento es más apropiado para listas enlazadas?",
+            "question": "Para ordenar listas enlazadas, ¿cuál de estos métodos es más apropiado?",
+            "options": {
+                "A": "Bubblesort",
+                "B": "Quicksort",
+                "C": "Insertion Sort",
+                "D": "Mergesort"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Mergesort es especialmente adecuado para listas enlazadas debido a su naturaleza de dividir y combinar, que se alinea bien con las operaciones de enlace de nodos."
+        },
+        {
+            "statement": "¿En qué situación HeapSort supera a Quicksort y Mergesort?",
+            "question": "¿En qué situación HeapSort es superior a Quicksort y Mergesort?",
+            "options": {
+                "A": "En la eficiencia de memoria.",
+                "B": "En la velocidad de ordenamiento.",
+                "C": "Cuando se ordenan elementos repetidos.",
+                "D": "Cuando se trata de datos distribuidos uniformemente."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "HeapSort es más eficiente en términos de memoria, ya que no requiere almacenar todos los elementos en una estructura de datos adicional antes de ordenar."
+        },
+        {
+            "statement": "¿Cuál es la principal desventaja del algoritmo Bubblesort?",
+            "question": "¿Cuál es la principal desventaja de Bubblesort?",
+            "options": {
+                "A": "Es inestable.",
+                "B": "Tiene una complejidad temporal alta en el peor caso.",
+                "C": "Es lento en general.",
+                "D": "No se puede implementar en lenguajes de programación modernos."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La principal desventaja de Bubblesort es su lentitud en comparación con otros métodos de ordenamiento, ya que requiere muchas comparaciones y movimientos de elementos."
+        },
+        {
+            "statement": "¿Qué método de ordenamiento tiene siempre una complejidad temporal de O(n^2), pero es más eficiente en listas pequeñas?",
+            "question": "¿Cuál de estos métodos de ordenamiento siempre tiene una complejidad temporal de O(n^2), pero es más eficiente en listas pequeñas?",
+            "options": {
+                "A": "Quicksort",
+                "B": "Bubblesort",
+                "C": "Insertion Sort",
+                "D": "Selection Sort"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Insertion Sort tiene una complejidad temporal de O(n^2) en el peor caso, pero es más eficiente en listas pequeñas debido a su naturaleza de inserción incremental."
         }
     ]
 }
 
+
 export const searchMethodsQuiz = {
-    "name": "Métodos de búsqueda",
+    "name": "Métodos de Búsqueda",
     "questions": [
         {
-            "statement": "Método de búsqueda que recorre la lista desde el principio hasta encontrar el elemento buscado.",
-            "question": "¿Qué es la búsqueda lineal?",
+            "statement": "¿Cuál de los siguientes métodos de búsqueda es más eficiente en un conjunto de datos ordenado?",
+            "question": "En un conjunto de datos ordenado, ¿cuál método de búsqueda es más eficiente?",
             "options": {
-                "A": "Recorre la lista de manera aleatoria.",
-                "B": "Recorre la lista de atrás hacia adelante.",
-                "C": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
-                "D": "Divide la lista en sublistas para buscar de manera más eficiente."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Cuál es la complejidad promedio de la búsqueda lineal en una lista desordenada?",
-            "question": "Complejidad promedio de la búsqueda lineal",
-            "options": {
-                "A": "O(1)",
-                "B": "O(n)",
-                "C": "O(n log n)",
-                "D": "O(n^2)"
+                "A": "Búsqueda lineal",
+                "B": "Búsqueda binaria",
+                "C": "Búsqueda en árbol",
+                "D": "Búsqueda hash"
             },
             "answer": "B",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "La búsqueda binaria es más eficiente en conjuntos de datos ordenados, ya que reduce el espacio de búsqueda a la mitad en cada iteración."
         },
         {
-            "statement": "Método de búsqueda que divide repetidamente la lista en dos subconjuntos y determina en cuál de ellos puede estar el elemento buscado.",
-            "question": "¿En qué consiste la búsqueda binaria?",
+            "statement": "¿Cuál de los siguientes métodos de búsqueda es más adecuado para conjuntos de datos pequeños y no ordenados?",
+            "question": "En conjuntos de datos pequeños y no ordenados, ¿cuál método de búsqueda es más adecuado?",
             "options": {
-                "A": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
-                "B": "Compara pares de elementos adyacentes y ajusta si están en el orden incorrecto.",
-                "C": "Divide repetidamente la lista en dos subconjuntos y determina en cuál de ellos puede estar el elemento buscado.",
-                "D": "Selecciona repetidamente el elemento máximo y lo coloca al final de la lista."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Cuál es la principal ventaja de la búsqueda binaria sobre la búsqueda lineal?",
-            "question": "Ventaja de la búsqueda binaria",
-            "options": {
-                "A": "Siempre encuentra el elemento en tiempo constante.",
-                "B": "No requiere que la lista esté ordenada.",
-                "C": "Tiene una complejidad promedio más baja.",
-                "D": "Es más fácil de implementar."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "Método de búsqueda que utiliza una función de hash para encontrar la ubicación del elemento.",
-            "question": "¿Qué es la búsqueda por hashing?",
-            "options": {
-                "A": "Compara elementos adyacentes y los intercambia si están en el orden incorrecto.",
-                "B": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
-                "C": "Utiliza una función de hash para encontrar la ubicación del elemento.",
-                "D": "Selecciona repetidamente el elemento mínimo y lo coloca al principio de la lista."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "En la búsqueda por hashing, ¿qué es una colisión?",
-            "question": "Colisión en búsqueda por hashing",
-            "options": {
-                "A": "Cuando dos elementos son iguales.",
-                "B": "Cuando la función de hash no encuentra el elemento.",
-                "C": "Cuando varios elementos tienen la misma ubicación calculada por la función de hash.",
-                "D": "Cuando el elemento no se encuentra en la lista."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "Método de búsqueda que utiliza la propiedad de que los elementos están ordenados para reducir el espacio de búsqueda a la mitad.",
-            "question": "¿En qué consiste la búsqueda interpolada?",
-            "options": {
-                "A": "Compara pares de elementos adyacentes y ajusta si están en el orden incorrecto.",
-                "B": "Utiliza una función de interpolación para encontrar la ubicación del elemento.",
-                "C": "Recorre la lista desde el principio hasta encontrar el elemento buscado.",
-                "D": "Divide repetidamente la lista en dos subconjuntos y determina en cuál de ellos puede estar el elemento buscado."
-            },
-            "answer": "B",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Cuál es la principal limitación de la búsqueda interpolada?",
-            "question": "Limitación de la búsqueda interpolada",
-            "options": {
-                "A": "Requiere que la lista esté ordenada.",
-                "B": "No funciona con elementos numéricos.",
-                "C": "Es más lenta que otros métodos de búsqueda.",
-                "D": "Solo puede utilizarse en listas pequeñas."
+                "A": "Búsqueda lineal",
+                "B": "Búsqueda binaria",
+                "C": "Búsqueda en árbol",
+                "D": "Búsqueda hash"
             },
             "answer": "A",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "La búsqueda lineal es más adecuada para conjuntos de datos pequeños y no ordenados, ya que implica revisar cada elemento uno por uno."
+        },
+        {
+            "statement": "¿Qué método de búsqueda se beneficia más de conjuntos de datos ordenados en términos de tiempo?",
+            "question": "Entre estos métodos de búsqueda, ¿cuál se beneficia más de conjuntos de datos ordenados en términos de tiempo?",
+            "options": {
+                "A": "Búsqueda lineal",
+                "B": "Búsqueda binaria",
+                "C": "Búsqueda en árbol",
+                "D": "Búsqueda hash"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La búsqueda binaria se beneficia enormemente de conjuntos de datos ordenados, ya que reduce la cantidad de elementos a considerar en cada paso."
+        },
+        {
+            "statement": "¿Cuál de los siguientes métodos de búsqueda es más eficiente en términos de tiempo en conjuntos de datos grandes?",
+            "question": "En conjuntos de datos grandes, ¿cuál método de búsqueda es más eficiente en términos de tiempo?",
+            "options": {
+                "A": "Búsqueda lineal",
+                "B": "Búsqueda binaria",
+                "C": "Búsqueda en árbol",
+                "D": "Búsqueda hash"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La búsqueda hash es más eficiente en términos de tiempo en conjuntos de datos grandes, ya que permite el acceso directo a los elementos utilizando una función de hash."
+        },
+        {
+            "statement": "¿En qué tipo de estructura de datos es común realizar la búsqueda en profundidad (DFS) y la búsqueda en amplitud (BFS)?",
+            "question": "¿En qué tipo de estructura de datos es común realizar tanto la búsqueda en profundidad (DFS) como la búsqueda en amplitud (BFS)?",
+            "options": {
+                "A": "Listas enlazadas",
+                "B": "Árboles binarios",
+                "C": "Colas",
+                "D": "Grafos"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La búsqueda en profundidad (DFS) y la búsqueda en amplitud (BFS) son comunes en la exploración de grafos para encontrar caminos y conexiones entre nodos."
+        },
+        {
+            "statement": "¿En qué tipo de estructura de datos es útil implementar una tabla hash para la búsqueda eficiente?",
+            "question": "¿En qué tipo de estructura de datos es útil implementar una tabla hash para la búsqueda eficiente?",
+            "options": {
+                "A": "Listas enlazadas",
+                "B": "Árboles binarios",
+                "C": "Colas",
+                "D": "Arrays"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Las tablas hash son particularmente útiles para la búsqueda eficiente en arrays o arreglos, ya que permiten acceso directo a través de una función de hash."
+        },
+        {
+            "statement": "¿Cuál es la principal ventaja de la búsqueda binaria sobre la búsqueda lineal?",
+            "question": "¿Cuál es la principal ventaja de la búsqueda binaria en comparación con la búsqueda lineal?",
+            "options": {
+                "A": "Es más simple de implementar.",
+                "B": "Es más rápida en todo tipo de conjuntos de datos.",
+                "C": "Es más precisa.",
+                "D": "Requiere menos memoria."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La principal ventaja de la búsqueda binaria es su velocidad, ya que reduce significativamente el número de comparaciones necesarias, especialmente en conjuntos de datos grandes."
+        },
+        {
+            "statement": "¿Cuál de los siguientes métodos de búsqueda es especialmente eficiente para conjuntos de datos dispersos?",
+            "question": "¿Cuál de estos métodos de búsqueda es especialmente eficiente para conjuntos de datos dispersos?",
+            "options": {
+                "A": "Búsqueda lineal",
+                "B": "Búsqueda binaria",
+                "C": "Búsqueda en árbol",
+                "D": "Búsqueda hash"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La búsqueda hash es especialmente eficiente para conjuntos de datos dispersos o con muchos valores faltantes, ya que puede mapear rápidamente claves a valores."
         }
     ]
 }
+
 
 export const binaryTreeQuiz = {
     "name": "Árboles Binarios",
     "questions": [
         {
-            "statement": "¿Qué es un árbol binario?",
-            "question": "¿Cuál de las siguientes opciones describe mejor un árbol binario?",
+            "statement": "¿Cuál es la definición correcta de un árbol binario?",
+            "question": "En el contexto de estructuras de datos, ¿qué es un árbol binario?",
             "options": {
-                "A": "Un árbol con tres hijos en cada nodo.",
-                "B": "Un árbol con dos hijos en cada nodo.",
-                "C": "Un árbol con un solo hijo en cada nodo.",
-                "D": "Un árbol con muchos hijos en cada nodo."
+                "A": "Una estructura de datos que contiene elementos únicos en forma de lista.",
+                "B": "Una estructura de datos que contiene elementos duplicados organizados en forma de árbol.",
+                "C": "Una estructura de datos en la que cada nodo tiene hasta tres hijos.",
+                "D": "Una estructura de datos en la que cada nodo tiene hasta dos hijos."
             },
-            "answer": "B",
+            "answer": "D",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Un árbol binario es una estructura de datos en la que cada nodo tiene hasta dos hijos: un hijo izquierdo y un hijo derecho."
         },
         {
-            "statement": "¿Qué es un nodo hoja?",
-            "question": "En el contexto de un árbol binario, ¿qué es un nodo hoja?",
+            "statement": "¿Cuál es la ventaja de los árboles binarios en comparación con las listas enlazadas?",
+            "question": "En comparación con las listas enlazadas, ¿cuál es una ventaja de los árboles binarios?",
             "options": {
-                "A": "Un nodo que tiene solo un hijo.",
+                "A": "Los árboles binarios requieren menos memoria.",
+                "B": "Los árboles binarios admiten inserciones y eliminaciones eficientes en cualquier posición.",
+                "C": "Los árboles binarios tienen acceso más rápido a los elementos.",
+                "D": "Los árboles binarios son más fáciles de implementar."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Los árboles binarios pueden proporcionar un acceso más rápido a los elementos en comparación con las listas enlazadas, especialmente cuando el árbol está balanceado."
+        },
+        {
+            "statement": "¿Cuál es la diferencia clave entre un árbol binario completo y un árbol binario perfecto?",
+            "question": "En términos de árboles binarios, ¿cuál es la diferencia clave entre un árbol binario completo y un árbol binario perfecto?",
+            "options": {
+                "A": "Un árbol binario completo tiene el mismo número de nodos en cada nivel, mientras que un árbol binario perfecto no.",
+                "B": "Un árbol binario perfecto tiene todos sus nodos en el mismo nivel, mientras que un árbol binario completo no.",
+                "C": "Un árbol binario completo tiene todos sus nodos en un solo nivel, mientras que un árbol binario perfecto no.",
+                "D": "No hay diferencia entre un árbol binario completo y un árbol binario perfecto."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En un árbol binario completo, todos los niveles excepto posiblemente el último están completamente llenos, y si el último nivel no está lleno, los nodos se llenan de izquierda a derecha. En un árbol binario perfecto, todos los niveles están completamente llenos."
+        },
+        {
+            "statement": "¿Qué es un nodo hoja en un árbol binario?",
+            "question": "En un árbol binario, ¿qué se entiende por un nodo hoja?",
+            "options": {
+                "A": "Un nodo que tiene dos hijos.",
                 "B": "Un nodo que no tiene hijos.",
-                "C": "Un nodo que tiene dos hijos.",
-                "D": "Un nodo que es la raíz del árbol."
+                "C": "El primer nodo en el árbol.",
+                "D": "Un nodo que tiene solo un hijo."
             },
             "answer": "B",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Un nodo hoja en un árbol binario es un nodo que no tiene hijos, es decir, no tiene nodos conectados debajo de él."
         },
         {
-            "statement": "¿Cuál es la altura de un árbol?",
-            "question": "La altura de un árbol se define como...",
+            "statement": "¿Cuál es la diferencia entre un árbol binario de búsqueda y un árbol binario equilibrado?",
+            "question": "En términos de árboles binarios, ¿cuál es la diferencia entre un árbol binario de búsqueda y un árbol binario equilibrado?",
+            "options": {
+                "A": "No hay diferencia; ambos términos se refieren a lo mismo.",
+                "B": "Un árbol binario de búsqueda tiene todos sus nodos en el mismo nivel, mientras que un árbol binario equilibrado no.",
+                "C": "Un árbol binario de búsqueda está organizado de tal manera que cada nodo tiene un hijo izquierdo y uno derecho, mientras que un árbol binario equilibrado no tiene esta restricción.",
+                "D": "Un árbol binario de búsqueda mantiene una propiedad de orden, mientras que un árbol binario equilibrado garantiza una altura limitada."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Un árbol binario de búsqueda mantiene una propiedad de orden, es decir, para cada nodo, todos los nodos en el subárbol izquierdo son menores y todos los nodos en el subárbol derecho son mayores. Un árbol binario equilibrado garantiza una altura limitada para mantener operaciones eficientes."
+        },
+        {
+            "statement": "¿Qué es la altura de un árbol binario?",
+            "question": "En el contexto de árboles binarios, ¿qué se entiende por la altura de un árbol?",
             "options": {
                 "A": "El número de nodos en el árbol.",
-                "B": "La longitud del camino más largo desde la raíz hasta un nodo hoja.",
-                "C": "La suma de los valores de todos los nodos en el árbol.",
-                "D": "El número promedio de hijos en cada nodo."
+                "B": "La cantidad de niveles en el árbol.",
+                "C": "La distancia entre la raíz y el nodo más profundo.",
+                "D": "La cantidad total de ramas en el árbol."
             },
             "answer": "B",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "La altura de un árbol binario se refiere a la cantidad de niveles en el árbol, desde la raíz hasta el nivel más profundo."
         },
         {
-            "statement": "¿Qué es un árbol binario completo?",
-            "question": "¿Cuál de las siguientes afirmaciones describe mejor a un árbol binario completo?",
+            "statement": "¿Qué operación suele ser más lenta en un árbol binario desequilibrado en comparación con un árbol binario equilibrado?",
+            "question": "En términos de operaciones en árboles binarios, ¿qué operación suele ser más lenta en un árbol binario desequilibrado en comparación con un árbol binario equilibrado?",
             "options": {
-                "A": "Un árbol en el que todos los nodos tienen dos hijos.",
-                "B": "Un árbol en el que todos los nodos tienen un solo hijo.",
-                "C": "Un árbol en el que todos los nodos tienen el mismo valor.",
-                "D": "Un árbol en el que los nodos no tienen un orden específico."
+                "A": "Inserción",
+                "B": "Eliminación",
+                "C": "Búsqueda",
+                "D": "Recorrido en orden"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En un árbol binario desequilibrado, la búsqueda puede ser más lenta, ya que la altura puede ser mayor, lo que resulta en un mayor número de comparaciones para encontrar un nodo específico."
+        },
+        {
+            "statement": "¿Cuál es la ventaja principal de un árbol binario completo en términos de eficiencia de espacio?",
+            "question": "En términos de eficiencia de espacio, ¿cuál es la principal ventaja de un árbol binario completo?",
+            "options": {
+                "A": "Requiere menos memoria en comparación con otros tipos de árboles.",
+                "B": "Mantiene un equilibrio perfecto entre nodos izquierdos y derechos.",
+                "C": "Tiene menos niveles que otros tipos de árboles.",
+                "D": "Permite una búsqueda más rápida que otros tipos de árboles."
             },
             "answer": "A",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Cómo se llama un árbol binario en el que cada nodo puede tener como máximo dos hijos?",
-            "question": "¿Cuál es el término que se utiliza para describir un árbol binario en el que cada nodo puede tener como máximo dos hijos?",
-            "options": {
-                "A": "Árbol binario ordenado.",
-                "B": "Árbol binario balanceado.",
-                "C": "Árbol binario completo.",
-                "D": "Árbol binario regular."
-            },
-            "answer": "A",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Qué es la profundidad de un nodo?",
-            "question": "En un árbol binario, ¿cómo se define la profundidad de un nodo?",
-            "options": {
-                "A": "La distancia entre el nodo y la raíz del árbol.",
-                "B": "El número de hijos que tiene el nodo.",
-                "C": "La altura del nodo.",
-                "D": "La suma de los valores de los nodos en el camino desde el nodo hasta la raíz."
-            },
-            "answer": "A",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Qué es un árbol binario de búsqueda?",
-            "question": "¿Cuál de las siguientes opciones describe mejor un árbol binario de búsqueda?",
-            "options": {
-                "A": "Un árbol en el que todos los nodos tienen solo un hijo.",
-                "B": "Un árbol en el que cada nodo tiene un valor mayor que sus hijos.",
-                "C": "Un árbol en el que cada nodo tiene un valor menor que sus hijos.",
-                "D": "Un árbol en el que cada nodo tiene dos hijos."
-            },
-            "answer": "B",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Un árbol binario completo utiliza el espacio de manera más eficiente, ya que todos los niveles, excepto posiblemente el último, están completamente llenos y los nodos se llenan de izquierda a derecha en el último nivel."
         }
     ]
 }
+
 
 export const stackQuiz = {
     "name": "Pilas",
     "questions": [
         {
-            "statement": "¿Qué es una pila en programación?",
-            "question": "¿Cuál de las siguientes opciones describe mejor una pila en el contexto de programación?",
+            "statement": "¿Cuál es la definición correcta de una pila en estructuras de datos?",
+            "question": "En el contexto de estructuras de datos, ¿qué es una pila?",
             "options": {
-                "A": "Una estructura de datos lineal con acceso aleatorio.",
-                "B": "Una estructura de datos que sigue el principio LIFO.",
-                "C": "Una estructura de datos que sigue el principio FIFO.",
-                "D": "Una estructura de datos jerárquica."
-            },
-            "answer": "B",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Qué operaciones se pueden realizar en una pila?",
-            "question": "Cuál de las siguientes opciones NO es una operación común en una pila?",
-            "options": {
-                "A": "Push (apilar)",
-                "B": "Pop (desapilar)",
-                "C": "Retrieve (recuperar)",
-                "D": "Peek (observar)"
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Cómo se llama el elemento que se encuentra en la parte superior de la pila?",
-            "question": "En una pila, ¿cuál es el término que se utiliza para referirse al elemento que se encuentra en la parte superior?",
-            "options": {
-                "A": "Último elemento",
-                "B": "Primero elemento",
-                "C": "Tope de pila",
-                "D": "Base de pila"
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Qué sucede cuando se realiza la operación 'pop' en una pila vacía?",
-            "question": "¿Cuál de las siguientes opciones describe mejor el resultado de realizar 'pop' en una pila vacía?",
-            "options": {
-                "A": "Se agrega un elemento al tope de la pila.",
-                "B": "Se elimina el elemento en la base de la pila.",
-                "C": "Se devuelve un valor especial para indicar que la pila está vacía.",
-                "D": "Se reorganizan los elementos restantes en la pila."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Para qué se utiliza comúnmente una pila en programación?",
-            "question": "¿Cuál de las siguientes opciones describe mejor un uso común de las pilas en programación?",
-            "options": {
-                "A": "Ordenar elementos de forma ascendente.",
-                "B": "Realizar búsquedas eficientes en grandes conjuntos de datos.",
-                "C": "Implementar estructuras de árbol.",
-                "D": "Controlar llamadas a funciones y manejar historial de navegación."
+                "A": "Una estructura de datos que almacena elementos en orden aleatorio.",
+                "B": "Una estructura de datos que almacena elementos en orden inverso.",
+                "C": "Una estructura de datos que sigue el principio FIFO (First-In-First-Out).",
+                "D": "Una estructura de datos que sigue el principio LIFO (Last-In-First-Out)."
             },
             "answer": "D",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Una pila es una estructura de datos que sigue el principio LIFO (Last-In-First-Out), lo que significa que el último elemento en entrar es el primero en salir."
         },
         {
-            "statement": "¿Qué es una pila desbordada (stack overflow)?",
-            "question": "En programación, ¿qué término se usa para describir la situación en la que una pila ha alcanzado su capacidad máxima?",
+            "statement": "¿Cuál es la operación que añade un elemento al tope de una pila?",
+            "question": "En una pila, ¿qué operación agrega un elemento al tope?",
             "options": {
-                "A": "Stack underflow",
-                "B": "Stack overflow",
-                "C": "Pila excedida",
-                "D": "Pila completa"
-            },
-            "answer": "B",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Cuál es la principal diferencia entre una pila y una cola?",
-            "question": "En el contexto de estructuras de datos, ¿cuál es la principal diferencia entre una pila y una cola?",
-            "options": {
-                "A": "La pila sigue el principio FIFO, mientras que la cola sigue el principio LIFO.",
-                "B": "La pila permite acceso aleatorio, mientras que la cola no.",
-                "C": "La pila permite inserción y eliminación en ambos extremos, mientras que la cola solo permite en uno de los extremos.",
-                "D": "La pila es una estructura lineal, mientras que la cola es una estructura jerárquica."
+                "A": "Push",
+                "B": "Insert",
+                "C": "Enqueue",
+                "D": "Append"
             },
             "answer": "A",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "La operación que agrega un elemento al tope de una pila se llama 'Push'."
+        },
+        {
+            "statement": "¿Cuál es la operación que elimina y devuelve el elemento del tope de una pila?",
+            "question": "En una pila, ¿qué operación elimina y devuelve el elemento del tope?",
+            "options": {
+                "A": "Pop",
+                "B": "Dequeue",
+                "C": "Remove",
+                "D": "Extract"
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La operación que elimina y devuelve el elemento del tope de una pila se llama 'Pop'."
+        },
+        {
+            "statement": "¿Cuál es la ventaja principal de una pila en comparación con una cola?",
+            "question": "En comparación con una cola, ¿cuál es la ventaja principal de una pila?",
+            "options": {
+                "A": "Permite acceso más rápido a los elementos.",
+                "B": "Es más eficiente en términos de memoria.",
+                "C": "Sigue el principio FIFO.",
+                "D": "Sigue el principio LIFO."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La ventaja principal de una pila sobre una cola es que sigue el principio LIFO (Last-In-First-Out), lo que es útil en situaciones donde se necesita mantener el orden de llegada inverso de los elementos."
+        },
+        {
+            "statement": "¿Cuál de los siguientes no es un escenario típico de uso de una pila?",
+            "question": "De estos escenarios, ¿cuál no es un uso típico de una pila?",
+            "options": {
+                "A": "Gestionar llamadas a funciones en una ejecución de programa.",
+                "B": "Realizar un recorrido en profundidad (DFS) en un árbol.",
+                "C": "Implementar la función de 'deshacer' en un editor de texto.",
+                "D": "Evaluar expresiones matemáticas en notación infija."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Aunque las pilas son útiles en muchos contextos, el recorrido en profundidad (DFS) en un árbol suele requerir el uso de colas debido a la naturaleza FIFO de DFS."
+        },
+        {
+            "statement": "¿Cuál de las siguientes estructuras de datos se asemeja a una pila, pero tiene un límite máximo en la cantidad de elementos?",
+            "question": "¿Cuál de estas estructuras de datos es similar a una pila, pero tiene un límite máximo en la cantidad de elementos?",
+            "options": {
+                "A": "Cola",
+                "B": "Lista enlazada",
+                "C": "Pila con límite",
+                "D": "Pila de prioridad"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Una 'Pila con límite' es similar a una pila, pero tiene un límite máximo en la cantidad de elementos que puede contener."
+        },
+        {
+            "statement": "¿Cuál es la complejidad temporal promedio de la operación 'Pop' en una pila implementada con una lista enlazada?",
+            "question": "En una pila implementada con una lista enlazada, ¿cuál es la complejidad temporal promedio de la operación 'Pop'?",
+            "options": {
+                "A": "O(1)",
+                "B": "O(log n)",
+                "C": "O(n)",
+                "D": "Depende de la implementación de la lista enlazada."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En una pila implementada con una lista enlazada, la operación 'Pop' tiene una complejidad temporal promedio constante de O(1), ya que solo se necesita ajustar los punteros adecuadamente."
         }
     ]
 }
+
 
 export const queueQuiz = {
     "name": "Colas",
     "questions": [
         {
-            "statement": "¿Qué es una cola en programación?",
-            "question": "¿Cuál de las siguientes opciones describe mejor una cola en el contexto de programación?",
+            "statement": "¿Cuál es la definición correcta de una cola en estructuras de datos?",
+            "question": "En el contexto de estructuras de datos, ¿qué es una cola?",
             "options": {
-                "A": "Una estructura de datos lineal con acceso aleatorio.",
-                "B": "Una estructura de datos que sigue el principio LIFO.",
-                "C": "Una estructura de datos que sigue el principio FIFO.",
-                "D": "Una estructura de datos jerárquica."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Qué operaciones se pueden realizar en una cola?",
-            "question": "Cuál de las siguientes opciones NO es una operación común en una cola?",
-            "options": {
-                "A": "Enqueue (encolar)",
-                "B": "Dequeue (desencolar)",
-                "C": "Retrieve (recuperar)",
-                "D": "Peek (observar)"
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Cómo se llama el elemento que se encuentra al frente de la cola?",
-            "question": "En una cola, ¿cuál es el término que se utiliza para referirse al elemento que se encuentra al frente?",
-            "options": {
-                "A": "Último elemento",
-                "B": "Primero elemento",
-                "C": "Tope de cola",
-                "D": "Base de cola"
-            },
-            "answer": "B",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Qué sucede cuando se realiza la operación 'dequeue' en una cola vacía?",
-            "question": "¿Cuál de las siguientes opciones describe mejor el resultado de realizar 'dequeue' en una cola vacía?",
-            "options": {
-                "A": "Se agrega un elemento al frente de la cola.",
-                "B": "Se elimina el elemento en la base de la cola.",
-                "C": "Se devuelve un valor especial para indicar que la cola está vacía.",
-                "D": "Se reorganizan los elementos restantes en la cola."
-            },
-            "answer": "C",
-            "selectedAnswer": null,
-            "state": "UNANSWERED"
-        },
-        {
-            "statement": "¿Para qué se utiliza comúnmente una cola en programación?",
-            "question": "¿Cuál de las siguientes opciones describe mejor un uso común de las colas en programación?",
-            "options": {
-                "A": "Ordenar elementos de forma descendente.",
-                "B": "Realizar búsquedas eficientes en grandes conjuntos de datos.",
-                "C": "Implementar estructuras de árbol.",
-                "D": "Administrar tareas en orden de llegada."
+                "A": "Una estructura de datos que almacena elementos en orden aleatorio.",
+                "B": "Una estructura de datos que almacena elementos en orden inverso.",
+                "C": "Una estructura de datos que sigue el principio LIFO (Last-In-First-Out).",
+                "D": "Una estructura de datos que sigue el principio FIFO (First-In-First-Out)."
             },
             "answer": "D",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Una cola es una estructura de datos que sigue el principio FIFO (First-In-First-Out), lo que significa que el primer elemento en entrar es el primero en salir."
         },
         {
-            "statement": "¿Qué es una cola desbordada?",
-            "question": "En programación, ¿qué término se usa para describir la situación en la que una cola ha alcanzado su capacidad máxima?",
+            "statement": "¿Cuál es la operación que añade un elemento al final de una cola?",
+            "question": "En una cola, ¿qué operación agrega un elemento al final?",
             "options": {
-                "A": "Queue underflow",
-                "B": "Queue overflow",
-                "C": "Cola excedida",
-                "D": "Cola completa"
+                "A": "Push",
+                "B": "Insert",
+                "C": "Enqueue",
+                "D": "Append"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La operación que agrega un elemento al final de una cola se llama 'Enqueue'."
+        },
+        {
+            "statement": "¿Cuál es la operación que elimina y devuelve el elemento del frente de una cola?",
+            "question": "En una cola, ¿qué operación elimina y devuelve el elemento del frente?",
+            "options": {
+                "A": "Pop",
+                "B": "Dequeue",
+                "C": "Remove",
+                "D": "Extract"
             },
             "answer": "B",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "La operación que elimina y devuelve el elemento del frente de una cola se llama 'Dequeue'."
         },
         {
-            "statement": "¿Cuál es la principal diferencia entre una cola y una pila?",
-            "question": "En el contexto de estructuras de datos, ¿cuál es la principal diferencia entre una cola y una pila?",
+            "statement": "¿Cuál es la ventaja principal de una cola en comparación con una pila?",
+            "question": "En comparación con una pila, ¿cuál es la ventaja principal de una cola?",
             "options": {
-                "A": "La cola sigue el principio FIFO, mientras que la pila sigue el principio LIFO.",
-                "B": "La cola permite acceso aleatorio, mientras que la pila no.",
-                "C": "La cola permite inserción y eliminación en ambos extremos, mientras que la pila solo permite en uno de los extremos.",
-                "D": "La cola es una estructura lineal, mientras que la pila es una estructura jerárquica."
+                "A": "Permite acceso más rápido a los elementos.",
+                "B": "Es más eficiente en términos de memoria.",
+                "C": "Sigue el principio LIFO.",
+                "D": "Sigue el principio FIFO."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La ventaja principal de una cola sobre una pila es que sigue el principio FIFO (First-In-First-Out), lo que es útil en situaciones donde se necesita mantener el orden de llegada de los elementos."
+        },
+        {
+            "statement": "¿Qué tipo de cola permite que los elementos recién agregados reemplacen a los elementos más antiguos si la cola está llena?",
+            "question": "¿Qué tipo de cola permite la reemplazo de elementos más antiguos si la cola está llena?",
+            "options": {
+                "A": "Cola circular",
+                "B": "Cola de prioridad",
+                "C": "Cola doble",
+                "D": "Cola lineal"
             },
             "answer": "A",
             "selectedAnswer": null,
-            "state": "UNANSWERED"
+            "state": "UNANSWERED",
+            "feedback": "Una cola circular permite que los elementos recién agregados reemplacen a los elementos más antiguos si la cola está llena, manteniendo así un tamaño constante."
+        },
+        {
+            "statement": "¿Cuál de las siguientes estructuras de datos se asemeja a una cola, pero tiene un límite máximo en la cantidad de elementos?",
+            "question": "¿Cuál de estas estructuras de datos es similar a una cola, pero tiene un límite máximo en la cantidad de elementos?",
+            "options": {
+                "A": "Pila",
+                "B": "Lista enlazada",
+                "C": "Cola de prioridad",
+                "D": "Cola con límite"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Una 'Cola con límite' es similar a una cola, pero tiene un límite máximo en la cantidad de elementos que puede contener."
+        },
+        {
+            "statement": "¿Cuál de los siguientes no es un escenario típico de uso de una cola?",
+            "question": "De estos escenarios, ¿cuál no es un uso típico de una cola?",
+            "options": {
+                "A": "Mantener el historial de navegación en un navegador web.",
+                "B": "Implementar la función de 'deshacer' en un editor de texto.",
+                "C": "Realizar un recorrido en profundidad (DFS) en un árbol.",
+                "D": "Gestionar tareas en un sistema operativo (scheduling)."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Aunque las colas son útiles en muchos contextos, realizar un recorrido en profundidad (DFS) en un árbol suele requerir el uso de pilas debido a la naturaleza LIFO de DFS."
+        },
+        {
+            "statement": "¿Cuál es la complejidad temporal promedio de la operación 'Enqueue' en una cola implementada con una lista enlazada?",
+            "question": "En una cola implementada con una lista enlazada, ¿cuál es la complejidad temporal promedio de la operación 'Enqueue'?",
+            "options": {
+                "A": "O(1)",
+                "B": "O(log n)",
+                "C": "O(n)",
+                "D": "Depende de la implementación de la lista enlazada."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En una cola implementada con una lista enlazada, la operación 'Enqueue' tiene una complejidad temporal promedio constante de O(1), ya que solo se necesita ajustar los punteros adecuadamente."
         }
     ]
 }
+

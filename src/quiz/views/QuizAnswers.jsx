@@ -44,6 +44,8 @@ export const QuizAnswers = () => {
                             answerContent={question.options[question.selectedAnswer]}
                             disabled={true}
                         />
+                        <span className="">Explicación:</span>
+                        <p className="text-justify">{question.feedback}</p>
                     </div>
                 ))
             }
