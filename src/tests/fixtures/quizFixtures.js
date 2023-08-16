@@ -126,3 +126,65 @@ export const quizLastQuestionLoadedState = {
         }
     }
 }
+
+export const quizFirstQuestionAnsweredCorrectlyState = {
+    currentQuestionIndex: 0,
+    currentQuestion: {
+        ...demoQuiz.questions[0],
+        selectedAnswer: "a",
+    },
+    questions: [
+        {
+            statement: "¿Cuál es la capital de Argentina?",
+            question: "¿Cuál es la capital de Argentina?",
+            options: {
+                "a": "Buenos Aires",
+                "b": "Córdoba",
+                "c": "Rosario",
+                "d": "Mendoza"
+            },
+            answer: "a",
+            selectedAnswer: "a",
+            state: "UNANSWERED",
+            feedback: "Buenos Aires es la capital de Argentina"
+        }
+    ],
+    totalQuestions: demoQuiz.questions.length,
+    quizName: demoQuiz.name,
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [{ data: [0, 0], backgroundColor: ["#87BA7A", "#FF7575"] }]
+        }
+    }
+}
+
+export const quizFirstQuestionAnsweredIncorrectlyState = { 
+    currentQuestionIndex: 0,
+    currentQuestion: {
+        ...demoQuiz.questions[0],
+        selectedAnswer: "b",
+    },
+    questions: [
+        {
+            statement: "¿Cuál es la capital de Argentina?",
+            question: "¿Cuál es la capital de Argentina?",
+            options: {
+                "a": "Buenos Aires",
+                "b": "Córdoba",
+                "c": "Rosario",
+                "d": "Mendoza"
+            },
+            answer: "a",
+            selectedAnswer: "b",
+            state: "UNANSWERED",
+            feedback: "Buenos Aires es la capital de Argentina"
+        }
+    ]
+}
+
+
+

@@ -1,7 +1,10 @@
-import { goToNextQuestion, goToPreviousQuestion, quizSlice, setQuiz } from "../../../store"
+import { questionStates } from "../../../quiz"
+import { answerSelected, checkAnswer, goToNextQuestion, goToPreviousQuestion, quizSlice, setQuiz } from "../../../store"
 import {
     demoQuiz,
     initialQuizState,
+    quizFirstQuestionAnsweredCorrectlyState,
+    quizFirstQuestionAnsweredIncorrectlyState,
     quizLastQuestionLoadedState,
     quizLoadedState,
     quizSecondQuestionLoadedState
@@ -64,6 +67,26 @@ describe("Pruebas en el quizSlice", () => {
         expect(state).toEqual(quizLoadedState)
     })
 
+    test("Debe seleccionar una respuesta y cambiarla en el estado", () => {
+        const selectedAnswer = "a"
+        const state = quizSlice.reducer(quizLoadedState, answerSelected(selectedAnswer))
+        expect(state.questions[0].selectedAnswer).toBe(selectedAnswer)
+        expect(state.currentQuestion.selectedAnswer).toBe(selectedAnswer)
+    })
+
+    test("Debe calificar la respuesta como correcta y cambiarla en el estado", () => {
+        const state = quizSlice.reducer(quizFirstQuestionAnsweredCorrectlyState, checkAnswer())
+        expect(state.questions[0].state).toBe(questionStates.CORRECT)
+        expect(state.currentQuestion.state).toBe(questionStates.CORRECT)
+    })
+
+    test("Debe calificar la respuesta como incorrecta y cambiarla en el estado", () => {
+        const state = quizSlice.reducer(quizFirstQuestionAnsweredIncorrectlyState, checkAnswer())
+        expect(state.questions[0].state).toBe(questionStates.INCORRECT)
+        expect(state.currentQuestion.state).toBe(questionStates.INCORRECT)
+    })
+
+    //TODO: test para el caso de computar los resultados del quiz
 
 
 })
