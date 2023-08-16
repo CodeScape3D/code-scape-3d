@@ -1,31 +1,3 @@
-export const initialQuizState = {
-    currentQuestionIndex: 0,
-        currentQuestion: {
-            statement: "",
-            question: "",
-            options: {},
-            answer: "",
-            selectedAnswer: null,
-            state: "UNANSWERED"
-        },
-        questions: [],
-        totalQuestions: 0,
-        quizName: "",
-        quizResults: {
-            correctAnswersCount: 0,
-            incorrectAnswersCount: 0,
-            score: 0,
-            approved: false,
-            scoreStatistics: {
-                datasets: [
-                    {
-                        data: [0, 0],
-                        backgroundColor: ["#87BA7A", "#FF7575"]
-                    }
-                ]
-            }
-        }
-}
 
 export const demoQuiz = {
     name: "Demo Quiz",
@@ -73,4 +45,84 @@ export const demoQuiz = {
             feedback: "Santiago es la capital de Chile"
         },
     ]
+}
+
+export const initialQuizState = {
+    currentQuestionIndex: 0,
+    currentQuestion: {
+        statement: "",
+        question: "",
+        options: {},
+        answer: "",
+        selectedAnswer: null,
+        state: "UNANSWERED"
+    },
+    questions: [],
+    totalQuestions: 0,
+    quizName: "",
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [
+                {
+                    data: [0, 0],
+                    backgroundColor: ["#87BA7A", "#FF7575"]
+                }
+            ]
+        }
+    }
+}
+
+export const quizLoadedState = {
+    currentQuestionIndex: 0,
+    currentQuestion: demoQuiz.questions[0],
+    questions: demoQuiz.questions,
+    totalQuestions: demoQuiz.questions.length,
+    quizName: demoQuiz.name,
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [{ data: [0, 0], backgroundColor: ["#87BA7A", "#FF7575"] }]
+        }
+    }
+}
+
+export const quizSecondQuestionLoadedState = {
+    currentQuestionIndex: 1,
+    currentQuestion: demoQuiz.questions[1],
+    questions: demoQuiz.questions,
+    totalQuestions: demoQuiz.questions.length,
+    quizName: demoQuiz.name,
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [{ data: [0, 0], backgroundColor: ["#87BA7A", "#FF7575"] }]
+        }
+    }
+}
+
+export const quizLastQuestionLoadedState = {
+    currentQuestionIndex: demoQuiz.questions.length - 1,
+    currentQuestion: demoQuiz.questions[demoQuiz.questions.length - 1],
+    questions: demoQuiz.questions,
+    totalQuestions: demoQuiz.questions.length,
+    quizName: demoQuiz.name,
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [{ data: [0, 0], backgroundColor: ["#87BA7A", "#FF7575"] }]
+        }
+    }
 }
