@@ -1,7 +1,18 @@
 import { questionStates } from "../../../quiz"
-import { answerSelected, checkAnswer, goToNextQuestion, goToPreviousQuestion, quizSlice, setQuiz } from "../../../store"
 import {
+    answerSelected,
+    checkAnswer,
+    computeResults,
+    goToNextQuestion,
+    goToPreviousQuestion,
+    quizSlice,
+    setQuiz
+} from "../../../store"
+import {
+    correctlyAnsweredDemoQuizState,
     demoQuiz,
+    dummyAnsweredDemoQuizState,
+    incorrectlyAnsweredDemoQuizState,
     initialQuizState,
     quizFirstQuestionAnsweredCorrectlyState,
     quizFirstQuestionAnsweredIncorrectlyState,
@@ -86,7 +97,36 @@ describe("Pruebas en el quizSlice", () => {
         expect(state.currentQuestion.state).toBe(questionStates.INCORRECT)
     })
 
-    //TODO: test para el caso de computar los resultados del quiz
+    test("Debe de calificar el quiz correctamente", () => {
+        const expectedCorrectAnswersCount = 1
+        const expectedIncorrectAnswersCount = 2
+        const expectedScore = 1.67
+        const state = quizSlice.reducer(dummyAnsweredDemoQuizState, computeResults())
 
+        const { correctAnswersCount, incorrectAnswersCount, score, approved, scoreStatistics } = state.quizResults
+
+        expect(correctAnswersCount).toBe(expectedCorrectAnswersCount)
+        expect(incorrectAnswersCount).toBe(expectedIncorrectAnswersCount)
+        expect(score).toBe(expectedScore.toString())
+        expect(approved).toBeFalsy()
+        expect(scoreStatistics).toEqual({
+            datasets: [{ data: [correctAnswersCount, incorrectAnswersCount], backgroundColor: ["#87BA7A", "#FF7575"] }],
+            totalQuestions: 3
+        })
+    })
+
+    test("Cuando todas las preguntas estan respondidas correctamente, la calificación debe ser la máxima y debe estar aprobado", () => { 
+        const state = quizSlice.reducer(correctlyAnsweredDemoQuizState, computeResults())
+        const { score, approved } = state.quizResults
+        expect(score).toBe("5.00")
+        expect(approved).toBeTruthy()
+    })
+
+    test("Cuando todas las preguntas estan respondidas incorrectamente, la calificación debe ser la mínima y no debe estar aprobado", () => { 
+        const state = quizSlice.reducer(incorrectlyAnsweredDemoQuizState, computeResults())
+        const { score, approved } = state.quizResults
+        expect(score).toBe("1.00")
+        expect(approved).toBeFalsy()
+    })
 
 })

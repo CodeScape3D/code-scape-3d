@@ -186,5 +186,222 @@ export const quizFirstQuestionAnsweredIncorrectlyState = {
     ]
 }
 
+export const dummyAnsweredDemoQuizState = {
+    currentQuestionIndex: 0,
+    currentQuestion: {
+        statement: "¿Cuál es la capital de Chile?",
+        question: "¿Cuál es la capital de Chile?",
+        options: {
+            "a": "Santiago",
+            "b": "Valparaíso",
+            "c": "Concepción",
+            "d": "La Serena"
+        },
+        answer: "a",
+        selectedAnswer: "a",
+        state: "CORRECT",
+        feedback: "Santiago es la capital de Chile"
+    },
+    questions: [
+        {
+            statement: "¿Cuál es la capital de Argentina?",
+            question: "¿Cuál es la capital de Argentina?",
+            options: {
+                "a": "Buenos Aires",
+                "b": "Córdoba",
+                "c": "Rosario",
+                "d": "Mendoza"
+            },
+            answer: "a",
+            selectedAnswer: "b",
+            state: "INCORRECT",
+            feedback: "Buenos Aires es la capital de Argentina"
+        },
+        {
+            statement: "¿Cuál es la capital de Brasil?",
+            question: "¿Cuál es la capital de Brasil?",
+            options: {
+                "a": "Brasilia",
+                "b": "Sao Paulo",
+                "c": "Rio de Janeiro",
+                "d": "Belo Horizonte"
+            },
+            answer: "a",
+            selectedAnswer: "c",
+            state: "INCORRECT",
+            feedback: "Brasilia es la capital de Brasil"
+        },
+        {
+            statement: "¿Cuál es la capital de Chile?",
+            question: "¿Cuál es la capital de Chile?",
+            options: {
+                "a": "Santiago",
+                "b": "Valparaíso",
+                "c": "Concepción",
+                "d": "La Serena"
+            },
+            answer: "a",
+            selectedAnswer: "a",
+            state: "CORRECT",
+            feedback: "Santiago es la capital de Chile"
+        },
+    ],
+    totalQuestions: demoQuiz.questions.length,
+    quizName: demoQuiz.name,
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [{ data: [0, 0], backgroundColor: ["#87BA7A", "#FF7575"] }]
+        }
+    }
+}
 
+export const correctlyAnsweredDemoQuizState = { 
+    questions: [
+        {
+            statement: "¿Cuál es la capital de Argentina?",
+            question: "¿Cuál es la capital de Argentina?",
+            options: {
+                "a": "Buenos Aires",
+                "b": "Córdoba",
+                "c": "Rosario",
+                "d": "Mendoza"
+            },
+            answer: "a",
+            selectedAnswer: "a",
+            state: "CORRECT",
+            feedback: "Buenos Aires es la capital de Argentina"
+        },
+        {
+            statement: "¿Cuál es la capital de Brasil?",
+            question: "¿Cuál es la capital de Brasil?",
+            options: {
+                "a": "Brasilia",
+                "b": "Sao Paulo",
+                "c": "Rio de Janeiro",
+                "d": "Belo Horizonte"
+            },
+            answer: "a",
+            selectedAnswer: "a",
+            state: "CORRECT",
+            feedback: "Brasilia es la capital de Brasil"
+        },
+        {
+            statement: "¿Cuál es la capital de Chile?",
+            question: "¿Cuál es la capital de Chile?",
+            options: {
+                "a": "Santiago",
+                "b": "Valparaíso",
+                "c": "Concepción",
+                "d": "La Serena"
+            },
+            answer: "a",
+            selectedAnswer: "a",
+            state: "CORRECT",
+            feedback: "Santiago es la capital de Chile"
+        },
+    ],
+    currentQuestion: {
+        statement: "¿Cuál es la capital de Chile?",
+        question: "¿Cuál es la capital de Chile?",
+        options: {
+            "a": "Santiago",
+            "b": "Valparaíso",
+            "c": "Concepción",
+            "d": "La Serena"
+        },
+        answer: "a",
+        selectedAnswer: "a",
+        state: "CORRECT",
+        feedback: "Santiago es la capital de Chile"
+    },
+    totalQuestions: demoQuiz.questions.length,
+    quizName: demoQuiz.name,
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [{ data: [0, 0], backgroundColor: ["#87BA7A", "#FF7575"] }]
+        }
+    },
+    currentQuestionIndex: 2
+}
+
+export const incorrectlyAnsweredDemoQuizState =  { 
+    questions: [
+        {
+            statement: "¿Cuál es la capital de Argentina?",
+            question: "¿Cuál es la capital de Argentina?",
+            options: {
+                "a": "Buenos Aires",
+                "b": "Córdoba",
+                "c": "Rosario",
+                "d": "Mendoza"
+            },
+            answer: "a",
+            selectedAnswer: "b",
+            state: "INCORRECT",
+            feedback: "Buenos Aires es la capital de Argentina"
+        },
+        {
+            statement: "¿Cuál es la capital de Brasil?",
+            question: "¿Cuál es la capital de Brasil?",
+            options: {
+                "a": "Brasilia",
+                "b": "Sao Paulo",
+                "c": "Rio de Janeiro",
+                "d": "Belo Horizonte"
+            },
+            answer: "a",
+            selectedAnswer: "c",
+            state: "INCORRECT",
+            feedback: "Brasilia es la capital de Brasil"
+        },
+        {
+            statement: "¿Cuál es la capital de Chile?",
+            question: "¿Cuál es la capital de Chile?",
+            options: {
+                "a": "Santiago",
+                "b": "Valparaíso",
+                "c": "Concepción",
+                "d": "La Serena"
+            },
+            answer: "a",
+            selectedAnswer: "d",
+            state: "INCORRECT",
+            feedback: "Santiago es la capital de Chile"
+        },
+    ],
+    currentQuestion: {
+        statement: "¿Cuál es la capital de Chile?",
+        question: "¿Cuál es la capital de Chile?",
+        options: {
+            "a": "Santiago",
+            "b": "Valparaíso",
+            "c": "Concepción",
+            "d": "La Serena"
+        },
+        answer: "a",
+        selectedAnswer: "c",
+        state: "INCORRECT",
+        feedback: "Santiago es la capital de Chile"
+    },
+    totalQuestions: demoQuiz.questions.length,
+    quizName: demoQuiz.name,
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [{ data: [0, 0], backgroundColor: ["#87BA7A", "#FF7575"] }]
+        }
+    },
+    currentQuestionIndex: 2
+}
 
