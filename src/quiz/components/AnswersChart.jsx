@@ -1,6 +1,6 @@
 import { Pie } from "react-chartjs-2"
 import { Chart as ChartJS, ArcElement } from "chart.js"
-import { PercentageIndicator } from ".."
+import { PercentageIndicator, formatCountToPercentage } from ".."
 
 ChartJS.register(ArcElement)
 
@@ -13,7 +13,7 @@ const exampleData = {
     ]
 }
 
-export const AnswersChart = ({data = exampleData, options = {}}) => {
+export const AnswersChart = ({ data = exampleData, options = {} }) => {
     return (
         <div className="mt-6 md:mt-0 relative w-fit">
             <Pie
@@ -25,8 +25,12 @@ export const AnswersChart = ({data = exampleData, options = {}}) => {
 
             </div>
 
-            <PercentageIndicator percentage={"35"} position={"top-1/4"} />
-            <PercentageIndicator percentage={"67"} position={"left-0 top-3/4"} textColor="text-success" />
+            <PercentageIndicator
+                percentage={formatCountToPercentage(data.datasets[0].data[1],data.totalQuestions)}
+                position={"left-0 top-3/4"} />
+            <PercentageIndicator
+                percentage={formatCountToPercentage(data.datasets[0].data[0],data.totalQuestions)}
+                position={"top-1/4"} textColor="text-success" />
 
         </div>
     )
