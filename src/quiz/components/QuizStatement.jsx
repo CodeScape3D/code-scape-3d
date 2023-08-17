@@ -1,12 +1,12 @@
 
 import PropTypes from 'prop-types'
 
-export const QuizStatement = ({ question }) => {
+export const QuizStatement = ({ statement }) => {
     return (
-        <span className="block mb-4">{question}</span>
+        <span className="block mb-4">{statement}</span>
     )
 }
 
 QuizStatement.propTypes = {
-    question: PropTypes.string.isRequired
+    statement: PropTypes.string.isRequired
 }

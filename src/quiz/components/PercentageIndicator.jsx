@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 export const PercentageIndicator = ({ percentage, position, textColor = "text-danger" }) => {
     return (
         <span className={`percentage-indicator ${position} ${textColor} animate__animated animate__bounceIn`}>
-            {`${percentage}%`}
+            {percentage}
         </span>
     )
 }
