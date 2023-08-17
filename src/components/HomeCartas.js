@@ -32,7 +32,7 @@ export const courses = [
 export const topic = [
   {
     id: 1,
-    curso: "Programacion1",
+    curso: "Programacion2",
     titulo: "Bubble Sort",
     imagen: svgBubbleSort,
   },
@@ -44,7 +44,7 @@ export const topic = [
   },
   {
     id: 3,
-    curso: "Programacion3",
+    curso: "Programacion2",
     titulo: "Shell Sort",
     imagen: svgShellSort,
   },

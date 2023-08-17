@@ -1,4 +1,3 @@
-//import { svgInsertionSort } from "../assets/svg/SvgConstans";
 import PropTypes from "prop-types";
 
 const CardTabla = ({ tema }) => {
