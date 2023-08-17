@@ -7,23 +7,58 @@
   }
 
   .cardQuery {
-    margin-bottom: 14px;
-    margin-top: 18px;
+    margin-bottom: 12px;
+    margin-top: 15px;
   }
 
   .fontSizeQuizzes {
     font-size: 1.35rem /* 18px */;
     line-height: 1.7 /* 28px */;
   }
+
+  .gamesScroll{
+
+    margin-top: 1.5rem;
+  }
 }
 
 @media (max-width: 769px) {
-  main {
+  .mainQuizzes {
     overflow-y: scroll;
     max-height: calc(100vh - 60px);
 
-    /* Ajusta el valor según tus necesidades */
+
+  }
+
+  .gamesScroll{
+
+    overflow-y: scroll;
+    max-height: calc(100vh - 60px);
+
+
   }
 
 }
 
+
+@media (max-width: 640px){
+
+  .mainDivGames{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+  }
+
+  .gamesContainer{
+
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .pTitleGame{
+    width: 10rem;
+  }
+
+
+}
