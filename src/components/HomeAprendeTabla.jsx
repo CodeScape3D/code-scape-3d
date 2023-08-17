@@ -6,11 +6,11 @@ const HomeAprendeTabla = ({ filtro, temasFiltrados }) => {
   return (
     <>
       {/* Tabla */}
-      <div className="my-5 w-full md:w-full shadow-lg animate__bounceIn">
+      <div className="my-5 w-full md:w-full p-2 animate__bounceIn">
         <h2 className="block text-center font-bold bg-primary text-white py-1.5 rounded-tr-lg rounded-tl-lg">
           Tematicas
         </h2>
-        <div className="h-full bg-tertiary rounded-bl-lg rounded-br-lg flex justify-center items-center flex-col md:flex-row p-5 md:gap-10 ">
+        <div className="h-full bg-tertiary transition-all rounded-bl-lg rounded-br-lg flex flex-wrap justify-center items-center flex-row gap-2 md:flex-row shadow-lg p-2 md:p-5 md:gap-10 ">
           <>
             {filtro ? (
               <>
