@@ -94,6 +94,9 @@ export const quizSlice = createSlice({
                     totalQuestions: state.totalQuestions
                 }
             }
+        },
+        setCurrentQuestion: (state, { payload }) => { 
+            state.currentQuestion = payload;
         }
     }
 });
@@ -104,5 +107,6 @@ export const {
     goToPreviousQuestion,
     answerSelected,
     checkAnswer,
-    computeResults
+    computeResults,
+    setCurrentQuestion
 } = quizSlice.actions;
