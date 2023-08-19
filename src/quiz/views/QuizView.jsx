@@ -70,6 +70,7 @@ export const QuizView = () => {
 
     const handleOnQuizAtTheEnd = () => {
         if (canFinishQuiz(questions)) {
+            dispatch(checkAnswer())
             dispatch(computeResults())
 
             setTimeout(() => {
