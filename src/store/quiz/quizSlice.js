@@ -100,7 +100,7 @@ export const quizSlice = createSlice({
         setCurrentQuestion: (state, { payload }) => {
             state.currentQuestion = payload;
         },
-        resetState: (state) => {
+        resetStateForQuiz: (state) => {
             state = initialState;
         }
     }
@@ -114,5 +114,5 @@ export const {
     checkAnswer,
     computeResults,
     setCurrentQuestion,
-    resetState
+    resetStateForQuiz
 } = quizSlice.actions;
