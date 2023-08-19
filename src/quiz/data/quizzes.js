@@ -118,7 +118,7 @@ export const linkedListQuiz = {
 }
 
 export const bubbleSortQuiz = {
-    "name": "Método de Ordenamiento de Burbuja",
+    "name": "Ordenamiento de Burbuja",
     "array": [5, 2, 8, 1, 3, 7, 4, 6],
     "questions": [
         {
@@ -229,6 +229,299 @@ export const bubbleSortQuiz = {
         
     ]
 }
+
+export const quickSortQuiz = {
+    "name": "QuickSort",
+    "array": [29, 14, 36, 82, 47, 5, 63, 20],
+    "questions": [
+        {
+            "statement": "Explique brevemente cómo funciona el algoritmo QuickSort.",
+            "question": "¿Cómo funciona QuickSort?",
+            "options": {
+                "A": "Utiliza bucles para comparar elementos adyacentes y hacer intercambios hasta que el arreglo esté ordenado.",
+                "B": "Divide el arreglo en dos subarreglos, ordena recursivamente cada subarreglo y luego combina los resultados.",
+                "C": "Selecciona el elemento más pequeño del arreglo y lo coloca en la posición correcta.",
+                "D": "Cuenta la frecuencia de cada elemento en el arreglo y los organiza en orden descendente."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. QuickSort divide el arreglo, ordena los subarreglos y luego los combina."
+        },
+        {
+            "statement": "¿Cuál es la complejidad promedio del algoritmo QuickSort?",
+            "question": "¿Cuál es la complejidad promedio?",
+            "options": {
+                "A": "O(n)",
+                "B": "O(n log n)",
+                "C": "O(n^2)",
+                "D": "O(log n)"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. La complejidad promedio de QuickSort es O(n log n)."
+        },
+        {
+            "statement": "¿Cuál de las siguientes afirmaciones sobre QuickSort es cierta?",
+            "question": "Afirmación verdadera sobre QuickSort.",
+            "options": {
+                "A": "QuickSort siempre tiene una complejidad de tiempo constante.",
+                "B": "QuickSort no se utiliza para ordenar arreglos.",
+                "C": "QuickSort puede degradar a O(n^2) en el peor caso.",
+                "D": "QuickSort solo funciona en arreglos de longitud par."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. QuickSort puede degradar a O(n^2) en el peor caso debido a una mala elección del pivote."
+        },
+        {
+            "statement": "¿Cuál es el objetivo principal del algoritmo QuickSort?",
+            "question": "¿Cuál es el objetivo de QuickSort?",
+            "options": {
+                "A": "Encontrar el elemento más grande en el arreglo.",
+                "B": "Dividir el arreglo en tres subarreglos.",
+                "C": "Buscar un elemento específico en el arreglo.",
+                "D": "Ordenar el arreglo en un orden ascendente o descendente."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. El objetivo principal de QuickSort es ordenar el arreglo en un orden ascendente o descendente."
+        },
+        {
+            "statement": "Dado el arreglo [29, 14, 36, 82, 47, 5, 63, 20], ¿cuál sería el pivote en la primera iteración de QuickSort?",
+            "question": "¿Cuál es el pivote en la primera iteración?",
+            "options": {
+                "A": "29",
+                "B": "14",
+                "C": "36",
+                "D": "82"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Correcto. En la primera iteración, el pivote es 14."
+        },
+        {
+            "statement": "¿Cuál es el primer paso del algoritmo QuickSort?",
+            "question": "¿Qué se hace primero en QuickSort?",
+            "options": {
+                "A": "Particionar el arreglo en dos subarreglos.",
+                "B": "Elegir el elemento pivote.",
+                "C": "Ordenar recursivamente los subarreglos.",
+                "D": "Comparar elementos adyacentes y hacer intercambios."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Correcto. El primer paso es elegir un elemento pivote."
+        }
+    ]
+}
+
+
+export const shellSortQuiz = {
+    "name": "ShellSort",
+    "array": [56, 32, 17, 92, 78, 23, 61, 42],
+    "questions": [
+        {
+            "statement": "Explique brevemente cómo funciona el algoritmo ShellSort.",
+            "question": "¿Cómo funciona ShellSort?",
+            "options": {
+                "A": "Compara elementos adyacentes y los intercambia si están en el orden incorrecto.",
+                "B": "Divide el arreglo en subarreglos y luego los ordena con el método de inserción.",
+                "C": "Selecciona el elemento más grande y lo coloca en la posición correcta en cada pasada.",
+                "D": "Cuenta la frecuencia de cada elemento en el arreglo y los organiza en orden ascendente."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. ShellSort divide el arreglo en subarreglos y luego los ordena con el método de inserción."
+        },
+        {
+            "statement": "¿Cuál es la principal característica distintiva de ShellSort en comparación con otros métodos de ordenamiento?",
+            "question": "Principal característica de ShellSort.",
+            "options": {
+                "A": "Utiliza un pivote para comparar elementos.",
+                "B": "Opera en tiempo constante.",
+                "C": "Ordena primero los elementos pares y luego los impares.",
+                "D": "Utiliza una secuencia de brechas para realizar múltiples pasadas."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. ShellSort utiliza una secuencia de brechas para realizar múltiples pasadas y mejorar el ordenamiento."
+        },
+        {
+            "statement": "¿Cuál es el peor caso de complejidad temporal para ShellSort?",
+            "question": "Peor caso de complejidad temporal.",
+            "options": {
+                "A": "O(n)",
+                "B": "O(n log n)",
+                "C": "O(n^2)",
+                "D": "O(log n)"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. El peor caso de ShellSort es O(n^2), pero depende de la secuencia de brechas utilizada."
+        },
+        {
+            "statement": "¿Qué secuencia de brechas es comúnmente utilizada en ShellSort?",
+            "question": "Secuencia de brechas en ShellSort.",
+            "options": {
+                "A": "Secuencia de Fibonacci.",
+                "B": "Secuencia de números primos.",
+                "C": "Secuencia aritmética ascendente.",
+                "D": "Secuencia geométrica."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. La secuencia de Fibonacci es comúnmente utilizada en ShellSort para definir las brechas."
+        },
+        {
+            "statement": "Dado el arreglo [56, 32, 17, 92, 78, 23, 61, 42], ¿cuál sería la brecha inicial en ShellSort?",
+            "question": "¿Cuál es la brecha inicial?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Correcto. La brecha inicial en ShellSort es 2 en este caso."
+        },
+        {
+            "statement": "Ordena el siguiente arreglo utilizando el algoritmo ShellSort con brechas de tamaño 2: [56, 32, 17, 92, 78, 23, 61, 42]. ¿Cuál sería el arreglo ordenado después de la primera pasada?",
+            "question": "Arreglo después de la primera pasada de ShellSort.",
+            "options": {
+                "A": "[32, 56, 17, 92, 23, 78, 42, 61]",
+                "B": "[56, 17, 32, 78, 23, 42, 61, 92]",
+                "C": "[17, 56, 32, 78, 23, 42, 61, 92]",
+                "D": "[56, 32, 17, 92, 78, 23, 61, 42]"
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Correcto. Después de la primera pasada con brechas de tamaño 2, el arreglo se vería así: [32, 56, 17, 92, 23, 78, 42, 61]."
+        }
+    ]
+}
+
+export const insertionSortQuiz = {
+    "name": "Insertion Sort",
+    "array": [18, 42, 9, 31, 27, 5, 13, 37],
+    "questions": [
+        {
+            "statement": "Explique brevemente cómo funciona el algoritmo Insertion Sort.",
+            "question": "¿Cómo funciona Insertion Sort?",
+            "options": {
+                "A": "Divide el arreglo en dos mitades y luego combina los resultados ordenados.",
+                "B": "Selecciona el elemento más grande y lo coloca en la posición correcta en cada pasada.",
+                "C": "Compara elementos adyacentes y los intercambia si están en el orden incorrecto.",
+                "D": "Inserta elementos en la posición correcta uno por uno en el subarreglo ordenado."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. Insertion Sort inserta elementos uno por uno en la posición correcta en el subarreglo ordenado."
+        },
+        {
+            "statement": "¿Cuál es la principal ventaja del algoritmo Insertion Sort?",
+            "question": "Principal ventaja de Insertion Sort.",
+            "options": {
+                "A": "Es eficiente para arreglos de gran tamaño.",
+                "B": "Siempre tiene una complejidad lineal.",
+                "C": "Es estable y no cambia el orden relativo de elementos iguales.",
+                "D": "Ninguna de las anteriores."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. Insertion Sort es estable y no cambia el orden relativo de elementos iguales."
+        },
+        {
+            "statement": "¿Cuál es el peor caso de complejidad temporal para Insertion Sort?",
+            "question": "Peor caso de complejidad temporal.",
+            "options": {
+                "A": "O(n)",
+                "B": "O(n log n)",
+                "C": "O(n^2)",
+                "D": "O(log n)"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. El peor caso de Insertion Sort es O(n^2)."
+        },
+        {
+            "statement": "¿Cuál es el elemento pivote en el algoritmo Insertion Sort?",
+            "question": "Elemento pivote en Insertion Sort.",
+            "options": {
+                "A": "El primer elemento del arreglo.",
+                "B": "El último elemento del arreglo.",
+                "C": "El elemento en la posición central del arreglo.",
+                "D": "No hay un elemento pivote en Insertion Sort."
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "Correcto. En Insertion Sort, el pivote es el primer elemento del arreglo."
+        },
+        {
+            "statement": "Ordena el siguiente arreglo utilizando el algoritmo Insertion Sort: [18, 42, 9, 31, 27, 5, 13, 37]. ¿Cuál sería el arreglo ordenado después de la segunda pasada?",
+            "question": "Arreglo después de la segunda pasada de Insertion Sort.",
+            "options": {
+                "A": "[18, 9, 42, 31, 27, 5, 13, 37]",
+                "B": "[9, 18, 42, 31, 27, 5, 13, 37]",
+                "C": "[18, 42, 9, 31, 27, 5, 13, 37]",
+                "D": "[18, 9, 5, 27, 31, 42, 13, 37]"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Correcto. Después de la segunda pasada, el arreglo sería: [9, 18, 42, 31, 27, 5, 13, 37]."
+        },
+        {
+            "statement": "Ordena el siguiente arreglo utilizando el algoritmo Insertion Sort: [18, 42, 9, 31, 27, 5, 13, 37]. ¿Cuál sería el arreglo ordenado después de la quinta pasada?",
+            "question": "Arreglo después de la quinta pasada de Insertion Sort.",
+            "options": {
+                "A": "[5, 9, 13, 18, 27, 31, 37, 42]",
+                "B": "[5, 9, 13, 18, 27, 31, 42, 37]",
+                "C": "[18, 9, 13, 5, 27, 31, 37, 42]",
+                "D": "[18, 42, 9, 31, 27, 5, 13, 37]"
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Correcto. Después de la quinta pasada, el arreglo sería: [5, 9, 13, 18, 27, 31, 37, 42]."
+        }
+    ]
+}
+
 
 
 export const sortingMethodsQuiz = {
