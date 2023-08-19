@@ -23,8 +23,8 @@ export const AnimationView = () => {
     if (sort) {
       dispatch(setAlgorithm(algorithm));
 
-      if (state.generatedArray.length > 0) {
-        dispatch(setArray(state.generatedArray));
+      if (generatedArray.length > 0) {
+        dispatch(setArray(generatedArray));
         setIsOpen(true);
       } else {
         dispatch(setArray([4,8,3,5]));
