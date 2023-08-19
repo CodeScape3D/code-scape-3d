@@ -12,6 +12,7 @@ export const AnimationView = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const algorithm = animacion.charAt(0).toUpperCase() + animacion.slice(1) + ' Sort';
+  
   const { generatedArray, currentQuestion } = useSelector((state) => state.quiz);
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -27,6 +28,7 @@ export const AnimationView = () => {
         setIsOpen(true);
       } else {
         dispatch(generateRandomArray());
+        setIsOpen(false);
       }
 
     } else {
