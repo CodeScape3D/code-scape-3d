@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { BubbleSortCode, QuickSortCode } from '../algorithms';
+import { BubbleSortCode, InsertionSortCode, QuickSortCode, ShellSortCode } from '../algorithms';
 
 export const SortCode = () => {
 
@@ -31,8 +31,8 @@ export const SortCode = () => {
     switch (algorithm) {
       case 'Bubble Sort': return <BubbleSortCode codeRef={codeRef} />
       case 'Quick Sort': return <QuickSortCode codeRef={codeRef} />
-      case 'Shell Sort': return null
-      case 'Insertion Sort': return null
+      case 'Shell Sort': return <ShellSortCode codeRef={codeRef} />
+      case 'Insertion Sort': return <InsertionSortCode codeRef={codeRef} />
       default: null;
     }
   }
