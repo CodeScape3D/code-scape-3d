@@ -18,6 +18,7 @@ export const quizSlice = createSlice({
             state: "UNANSWERED"
         },
         questions: [],
+        generatedArray: [],
         totalQuestions: 0,
         quizName: "",
         quizResults: {
@@ -42,6 +43,7 @@ export const quizSlice = createSlice({
             state.questions = payload.questions;
             state.totalQuestions = payload.questions.length;
             state.quizName = payload.name;
+            state.generatedArray = payload.array;
         },
         goToNextQuestion: (state) => {
             const canGoToNextQuestion = state.currentQuestionIndex < state.totalQuestions - 1

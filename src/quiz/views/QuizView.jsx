@@ -18,7 +18,7 @@ import {
   formatQuestionIndicator,
   getQuizByName,
 } from '../helpers';
-import { questionStates } from '../constants';
+import { questionStates, questionType } from '../constants';
 import {
   answerSelected,
   checkAnswer,
@@ -47,10 +47,12 @@ export const QuizView = () => {
     } ,[])
 
     const { currentQuestion, currentQuestionIndex, totalQuestions, questions } = useSelector(state => state.quiz)
-    const { options, statement, question, selectedAnswer, state } = currentQuestion 
+    const { options, statement, question, selectedAnswer, state, type } = currentQuestion 
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
     const isQuestionCorrect = React.useMemo(() => state === questionStates.CORRECT, [state])
     const isQuestionIncorrect = React.useMemo(() => state === questionStates.INCORRECT, [state])
+    const isQuestionTypePractical = React.useMemo(() => type == questionType.PRACTICAL, [type])
+    const shouldShowFeedbackButton = React.useMemo(() => isQuestionIncorrect && isQuestionTypePractical, [isQuestionIncorrect, isQuestionTypePractical])
     const isQuizAtTheEnd = React.useMemo(() => currentQuestionIndex === totalQuestions - 1, [currentQuestionIndex, totalQuestions])
     const [isAlertDialogVisible, setIsAlertDialogVisible] = useState(false)
 
@@ -120,7 +122,7 @@ export const QuizView = () => {
                             isQuestionIncorrect && <WrongAnswerDialog />
                         }
                         {
-                            isQuestionIncorrect && (
+                            shouldShowFeedbackButton && (
                                 <BasicButton onClick={() => {
                                     window.open("https://www.youtube.com/shorts/AzjJj5OK6ZM", "_blank")
                                 }}>

@@ -1,20 +1,13 @@
-import { fireEvent, render, screen } from "@testing-library/react"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { MemoryRouter, Route, Routes } from "react-router-dom"
 import { Provider } from "react-redux"
 import { configureStore } from "@reduxjs/toolkit"
-import { quizSlice } from "../../../store"
 import { QuizView } from "../../../quiz"
+import { quizSlice } from "../../../store"
 
 const mockGoToNextQuestion = jest.fn()
-
-jest.mock("../../../store/quiz/quizSlice", () => {
-    const originalModule = jest.requireActual("../../../store/quiz/quizSlice")
-    return { 
-        ...originalModule,
-        goToNextQuestion: () => mockGoToNextQuestion
-    }
-    
-})
+const mockGoToPreviousQuestion = jest.fn()
+const mockCheckAnswer = jest.fn()
 
 const testStore = configureStore({
     reducer: {
@@ -22,7 +15,17 @@ const testStore = configureStore({
     }
 })
 
+
+
+jest.mock("../../../store/quiz/quizSlice", () => ({
+    ...jest.requireActual("../../../store/quiz/quizSlice"),
+    goToNextQuestion: () => mockGoToNextQuestion,
+    checkAnswer: () => mockCheckAnswer,
+}))
+
 describe("Pruebas en la vista QuizView", () => {
+
+    beforeEach(() => jest.clearAllMocks())
 
     test("Debe de renderizarse correctamente con el quiz de listas enlazadas", () => {
         render(
@@ -44,7 +47,7 @@ describe("Pruebas en la vista QuizView", () => {
         expect(screen.getByText("Siguiente")).toBeTruthy()
     })
 
-    test("Boton siguiente debe de llamar handleOnNextQuestion", () => {
+    test("Boton siguiente debe de llamar goToNextQuestion si no hay respuesta seleccionada", () => {
         render(
             <Provider store={testStore}>
                 <MemoryRouter initialEntries={["/quiz/linkedList"]}>
@@ -58,6 +61,44 @@ describe("Pruebas en la vista QuizView", () => {
         const nextButton = screen.getByText("Siguiente")
         fireEvent.click(nextButton)
         expect(mockGoToNextQuestion).toHaveBeenCalledTimes(1)
+        expect(mockCheckAnswer).not.toHaveBeenCalled()
+    })
+
+    test("Boton siguiente debe de llamar checkAnswer si hay respuesta seleccionada", () => {
+        render(
+            <Provider store={testStore}>
+                <MemoryRouter initialEntries={["/quiz/linkedList"]}>
+                    <Routes>
+                        <Route path="/quiz/:quizName" element={<QuizView />} />
+                    </Routes>
+                </MemoryRouter>
+            </Provider>
+        )
+
+        const answerAButton = screen.getByText("A. Una colección ordenada de elementos con un tamaño fijo.")
+        fireEvent.click(answerAButton)
+        const nextButton = screen.getByText("Siguiente")
+        fireEvent.click(nextButton)
+        expect(mockCheckAnswer).toHaveBeenCalledTimes(1)
+    })
+
+    test("Boton Volver debe llamar goToPreviousQuestion", async () => {
+
+        jest.unmock("../../../store/quiz/quizSlice")
+       
+        render(
+            <Provider store={testStore}>
+                <MemoryRouter initialEntries={["/quiz/linkedList"]}>
+                    <Routes>
+                        <Route path="/quiz/:quizName" element={<QuizView />} />
+                    </Routes>
+                </MemoryRouter>
+            </Provider>
+        )
+        
+        const nextButton = screen.getByText("Siguiente")
+        fireEvent.click(nextButton)
+        
     })
 
 
