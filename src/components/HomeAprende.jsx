@@ -21,7 +21,7 @@ export const HomeAprende = () => {
         <HeaderHomeAprende />
       </Header>
 
-      {/* Filtros
+      {/* Filtros*/}
       <Cursos setFiltro={setFiltro} />
       <p
         onClick={() => setFiltro("")}
@@ -29,7 +29,7 @@ export const HomeAprende = () => {
       >
         Quitar Filtros
       </p>
-      */}
+
 
       {/* Tabla y Tarjetas(dentro) */}
       <HomeAprendeTabla filtro={filtro} temasFiltrados={temasFiltrados} />

@@ -34,24 +34,28 @@ export const topic = [
     id: 1,
     curso: "Programacion2",
     titulo: "Bubble Sort",
+    param: "bubble",
     imagen: svgBubbleSort,
   },
   {
     id: 2,
     curso: "Programacion2",
     titulo: "Quick Sort",
+    param: "quick",
     imagen: svgQuickSort,
   },
   {
     id: 3,
     curso: "Programacion2",
     titulo: "Shell Sort",
+    param: "shell",
     imagen: svgShellSort,
   },
   {
     id: 4,
     curso: "Programacion2",
     titulo: "Insertion Sort",
+    param: "insertion",
     imagen: svgInsertionSort,
   },
 ];
