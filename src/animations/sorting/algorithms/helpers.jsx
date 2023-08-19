@@ -6,7 +6,8 @@ export const newTrace = (array) => {
 			secondSet: [],
 			thirdSet: [],
 			fourthSet: [],
-			sortedSet: []
+			sortedSet: [],
+			currentIndex: null
 		}
 	];
 };
@@ -18,7 +19,8 @@ export const moveInHistoryRecord = (
 	firstSet = [],
 	secondSet = [],
 	thirdSet = [],
-	fourthSet = []
+	fourthSet = [],
+	currentIndex = null
 ) => {
 	stepHistory.push({
 		array: [...array],
@@ -26,7 +28,8 @@ export const moveInHistoryRecord = (
 		secondSet: [...secondSet],
 		thirdSet: [...thirdSet],
 		fourthSet: [...fourthSet],
-		sortedSet: [...sortedSet]
+		sortedSet: [...sortedSet],
+		currentIndex: currentIndex
 	});
 };
 
