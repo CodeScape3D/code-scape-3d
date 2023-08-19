@@ -5,9 +5,9 @@ import { SearchMethodGrid } from "../components"
 
 export const SortingMethodsPage = () => {
     return (
-        <div className="h-full w-full">
+        <div className="w-full flex-1">
             <h1 className="text-3xl font-bold text-center text-white bg-primary py-4">Métodos de ordenamiento</h1>
-            <div className="wrap">
+            <div className="wrap px-3 py-3">
                 <SearchMethodGrid>
                     {
                         topic.map((tema) => (
