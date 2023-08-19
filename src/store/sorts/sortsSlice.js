@@ -108,6 +108,10 @@ export const sortsSlice = createSlice({
       };
     },
 
+    setHistory: (state, action) => {
+      state.history = action.payload;
+    },
+
     setTimeIdArr: (state, action) => {
       state.timeIdArr = action.payload;
     },
@@ -167,4 +171,5 @@ export const {
   setPlaying,
   restoreRepeat,
   setSortingSpeed,
+  setHistory
 } = sortsSlice.actions;

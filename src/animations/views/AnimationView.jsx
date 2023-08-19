@@ -1,7 +1,7 @@
 import { Header, SortControls, SortCode, SortChart } from '../sorting/components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAlgorithm, generateRandomArray, getSortingAlgorithm, setArray, } from '../../store';
+import { setAlgorithm, generateRandomArray, getSortingAlgorithm, setArray, setHistory, updateVisualization } from '../../store';
 import { useEffect, useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { BasicButton } from '../../components';
@@ -14,6 +14,7 @@ export const AnimationView = () => {
   const algorithm = animacion.charAt(0).toUpperCase() + animacion.slice(1) + ' Sort';
 
   const { generatedArray, currentQuestion } = useSelector((state) => state.quiz);
+  const { stepHistory, history } = useSelector((state) => state.sorts);
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -25,9 +26,14 @@ export const AnimationView = () => {
 
       if (generatedArray.length > 0) {
         dispatch(setArray(generatedArray));
+        if (currentQuestion.stepToHistory) {
+          dispatch(setHistory(currentQuestion.stepToHistory));
+          const step = stepHistory[history];
+          dispatch(updateVisualization(step));
+        }
         setIsOpen(true);
       } else {
-        dispatch(setArray([4,8,3,5]));
+        dispatch(generateRandomArray());
         setIsOpen(false);
       }
 
