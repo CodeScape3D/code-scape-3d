@@ -27,7 +27,7 @@ export const AnimationView = () => {
         dispatch(setArray(generatedArray));
         setIsOpen(true);
       } else {
-        dispatch(generateRandomArray());
+        dispatch(setArray([4,8,3,5]));
         setIsOpen(false);
       }
 
