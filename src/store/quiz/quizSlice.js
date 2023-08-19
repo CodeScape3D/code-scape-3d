@@ -5,37 +5,39 @@ const MAX_SCORE = 5.0;
 const MINIMUM_SCORE_TO_APPROVE = 3.0;
 const MINIMUM_SCORE = 1.0
 
+const initialState = {
+    currentQuestionIndex: 0,
+    currentQuestion: {
+        statement: "",
+        question: "",
+        options: {},
+        answer: "",
+        selectedAnswer: null,
+        state: "UNANSWERED"
+    },
+    questions: [],
+    generatedArray: [],
+    totalQuestions: 0,
+    quizName: "",
+    quizResults: {
+        correctAnswersCount: 0,
+        incorrectAnswersCount: 0,
+        score: 0,
+        approved: false,
+        scoreStatistics: {
+            datasets: [
+                {
+                    data: [0, 0],
+                    backgroundColor: ["#87BA7A", "#FF7575"]
+                }
+            ]
+        }
+    }
+}
+
 export const quizSlice = createSlice({
     name: 'quiz',
-    initialState: {
-        currentQuestionIndex: 0,
-        currentQuestion: {
-            statement: "",
-            question: "",
-            options: {},
-            answer: "",
-            selectedAnswer: null,
-            state: "UNANSWERED"
-        },
-        questions: [],
-        generatedArray: [],
-        totalQuestions: 0,
-        quizName: "",
-        quizResults: {
-            correctAnswersCount: 0,
-            incorrectAnswersCount: 0,
-            score: 0,
-            approved: false,
-            scoreStatistics: {
-                datasets: [
-                    {
-                        data: [0, 0],
-                        backgroundColor: ["#87BA7A", "#FF7575"]
-                    }
-                ]
-            }
-        }
-    },
+    initialState: initialState,
     reducers: {
         setQuiz: (state, { payload }) => {
             state.currentQuestionIndex = 0;
@@ -84,7 +86,7 @@ export const quizSlice = createSlice({
                 incorrectAnswersCount: incorrectAnswers,
                 score: score,
                 approved: approved,
-                scoreStatistics: { 
+                scoreStatistics: {
                     datasets: [
                         {
                             data: statistics.data,
@@ -95,8 +97,11 @@ export const quizSlice = createSlice({
                 }
             }
         },
-        setCurrentQuestion: (state, { payload }) => { 
+        setCurrentQuestion: (state, { payload }) => {
             state.currentQuestion = payload;
+        },
+        resetState: (state) => {
+            state = initialState;
         }
     }
 });
@@ -108,5 +113,6 @@ export const {
     answerSelected,
     checkAnswer,
     computeResults,
-    setCurrentQuestion
+    setCurrentQuestion,
+    resetState
 } = quizSlice.actions;
