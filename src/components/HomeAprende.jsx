@@ -4,11 +4,19 @@ import Header from "./Header";
 import HeaderHomeAprende from "./HeaderHomeAprende";
 import HomeAprendeTabla from "./HomeAprendeTabla";
 import { topic } from "./HomeCartas";
+import { useDispatch } from "react-redux";
+import { resetStateForQuiz } from "../store";
 
 
 export const HomeAprende = () => {
   const [filtro, setFiltro] = useState("");
   const [temasFiltrados, setTemasFiltrados] = useState([]);
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(resetStateForQuiz())
+  }, [])
 
   useEffect(() => {
     const filtrarTemas = topic.filter(theme => theme.curso === filtro)

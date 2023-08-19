@@ -12,7 +12,7 @@ export const AnimationView = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const algorithm = animacion.charAt(0).toUpperCase() + animacion.slice(1) + ' Sort';
-  
+
   const { generatedArray, currentQuestion } = useSelector((state) => state.quiz);
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -23,8 +23,8 @@ export const AnimationView = () => {
     if (sort) {
       dispatch(setAlgorithm(algorithm));
 
-      if (generatedArray.length > 0) {
-        dispatch(setArray(generatedArray));
+      if (state.generatedArray.length > 0) {
+        dispatch(setArray(state.generatedArray));
         setIsOpen(true);
       } else {
         dispatch(setArray([4,8,3,5]));
@@ -82,6 +82,7 @@ export const AnimationView = () => {
         </DialogActions>
 
       </Dialog>
+
     </div>
   );
 };

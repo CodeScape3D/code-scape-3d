@@ -194,7 +194,8 @@ export const bubbleSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "En una iteración completa del método de ordenamiento de burbuja, se compara y troca cada par de elementos adyacentes, lo que resultaría en el arreglo [2, 5, 1, 3, 7, 4, 6, 8]."
+            "feedback": "En una iteración completa del método de ordenamiento de burbuja, se compara y troca cada par de elementos adyacentes, lo que resultaría en el arreglo [2, 5, 1, 3, 7, 4, 6, 8].",
+            "stepToHistory": 14
         },
         {
             "statement": "Enunciado de la pregunta práctica 3",
@@ -209,7 +210,8 @@ export const bubbleSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "Para ordenar completamente el arreglo [5, 2, 8, 1, 3, 7, 4, 6] utilizando el método de ordenamiento de burbuja, se necesitan 7 iteraciones."
+            "feedback": "Para ordenar completamente el arreglo [5, 2, 8, 1, 3, 7, 4, 6] utilizando el método de ordenamiento de burbuja, se necesitan 7 iteraciones.",
+            "stepToHistory": -1
         },
         {
             "statement": "Enunciado de la pregunta práctica 4",
@@ -224,34 +226,35 @@ export const bubbleSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "Después de la primera iteración, el elemento más grande, que estaba al final del arreglo, se movería a su posición correcta, que es la última."
+            "feedback": "Después de la primera iteración, el elemento más grande, que estaba al final del arreglo, se movería a su posición correcta, que es la última.",
+            "stepToHistory": -1
         },
         
     ]
 }
 
 export const quickSortQuiz = {
-    "name": "QuickSort",
-    "array": [29, 14, 36, 82, 47, 5, 63, 20],
+    "name": "Quicksort",
+    "array": [42, 17, 89, 5, 63, 31, 77, 11],
     "questions": [
         {
-            "statement": "Explique brevemente cómo funciona el algoritmo QuickSort.",
-            "question": "¿Cómo funciona QuickSort?",
+            "statement": "¿Cuál es la idea principal detrás del algoritmo Quicksort?",
+            "question": "Selecciona la opción correcta.",
             "options": {
-                "A": "Utiliza bucles para comparar elementos adyacentes y hacer intercambios hasta que el arreglo esté ordenado.",
-                "B": "Divide el arreglo en dos subarreglos, ordena recursivamente cada subarreglo y luego combina los resultados.",
-                "C": "Selecciona el elemento más pequeño del arreglo y lo coloca en la posición correcta.",
-                "D": "Cuenta la frecuencia de cada elemento en el arreglo y los organiza en orden descendente."
+                "A": "Dividir el arreglo en subarreglos y ordenarlos por separado.",
+                "B": "Recorrer el arreglo y comparar cada elemento con el siguiente.",
+                "C": "Ordenar el arreglo utilizando una cola de prioridad.",
+                "D": "Invertir el orden de los elementos del arreglo."
             },
-            "answer": "B",
+            "answer": "A",
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "THEORICAL",
-            "feedback": "QuickSort divide el arreglo, ordena los subarreglos y luego los combina."
+            "feedback": "Correcto. Quicksort divide el arreglo en subarreglos más pequeños y luego los ordena de manera recursiva."
         },
         {
-            "statement": "¿Cuál es la complejidad promedio del algoritmo QuickSort?",
-            "question": "¿Cuál es la complejidad promedio?",
+            "statement": "¿Cuál es la complejidad promedio del algoritmo Quicksort?",
+            "question": "Selecciona la opción correcta.",
             "options": {
                 "A": "O(n)",
                 "B": "O(n log n)",
@@ -262,70 +265,74 @@ export const quickSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "THEORICAL",
-            "feedback": "La complejidad promedio de QuickSort es O(n log n)."
+            "feedback": "Correcto. La complejidad promedio de Quicksort es O(n log n)."
         },
         {
-            "statement": "¿Cuál de las siguientes afirmaciones sobre QuickSort es cierta?",
-            "question": "Afirmación verdadera sobre QuickSort.",
+            "statement": "Dado el siguiente paso en Quicksort:\n\nPivote: 31\nElementos menores: [17, 5, 11]\nElementos mayores: [42, 89, 63, 77]\n\n¿Cuál es el siguiente paso?",
+            "question": "Selecciona la opción correcta.",
             "options": {
-                "A": "QuickSort siempre tiene una complejidad de tiempo constante.",
-                "B": "QuickSort no se utiliza para ordenar arreglos.",
-                "C": "QuickSort puede degradar a O(n^2) en el peor caso.",
-                "D": "QuickSort solo funciona en arreglos de longitud par."
+                "A": "Ordenar los elementos menores.",
+                "B": "Ordenar los elementos mayores.",
+                "C": "El arreglo ya está ordenado.",
+                "D": "Intercambiar el pivote con el primer elemento mayor."
             },
-            "answer": "C",
+            "answer": "B",
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "THEORICAL",
-            "feedback": "QuickSort puede degradar a O(n^2) en el peor caso debido a una mala elección del pivote."
+            "feedback": "Correcto. En Quicksort, se ordenan recursivamente los elementos menores y mayores por separado."
         },
         {
-            "statement": "¿Cuál es el objetivo principal del algoritmo QuickSort?",
-            "question": "¿Cuál es el objetivo de QuickSort?",
+            "statement": "Dado el siguiente arreglo: [42, 17, 89, 5, 63, 31, 77, 11]\n\n¿Cuál es el tercer elemento después de aplicar el algoritmo Quicksort?",
+            "question": "Selecciona la opción correcta.",
             "options": {
-                "A": "Encontrar el elemento más grande en el arreglo.",
-                "B": "Dividir el arreglo en tres subarreglos.",
-                "C": "Buscar un elemento específico en el arreglo.",
-                "D": "Ordenar el arreglo en un orden ascendente o descendente."
+                "A": "17",
+                "B": "31",
+                "C": "42",
+                "D": "63"
             },
             "answer": "D",
             "selectedAnswer": null,
             "state": "UNANSWERED",
-            "type": "THEORICAL",
-            "feedback": "El objetivo principal de QuickSort es ordenar el arreglo en un orden ascendente o descendente."
+            "type": "PRACTICAL",
+            "feedback": "Correcto. El tercer elemento después de aplicar Quicksort es 63.",
+            "stepToHistory": -1
         },
         {
-            "statement": "Dado el arreglo [29, 14, 36, 82, 47, 5, 63, 20], ¿cuál sería el pivote en la primera iteración de QuickSort?",
-            "question": "¿Cuál es el pivote en la primera iteración?",
+            "statement": "Dado el siguiente arreglo: [42, 17, 89, 5, 63, 31, 77, 11]\n\nAplica un paso de Quicksort y muestra el arreglo resultante.",
+            "question": "Selecciona la opción correcta.",
             "options": {
-                "A": "29",
-                "B": "14",
-                "C": "36",
-                "D": "82"
+                "A": "[11, 17, 5, 31, 63, 42, 77, 89]",
+                "B": "[11, 17, 5, 31, 63, 77, 42, 89]",
+                "C": "[11, 17, 5, 31, 42, 63, 77, 89]",
+                "D": "[11, 17, 31, 5, 63, 42, 77, 89]"
             },
             "answer": "B",
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "En la primera iteración, el pivote es 14."
+            "feedback": "Correcto. Después de un paso de Quicksort, el arreglo se vería como [11, 17, 5, 31, 63, 77, 42, 89].",
+            "stepToHistory": -1
         },
         {
-            "statement": "¿Cuál es el primer paso del algoritmo QuickSort?",
-            "question": "¿Qué se hace primero en QuickSort?",
+            "statement": "Dado el siguiente arreglo: [42, 17, 89, 5, 63, 31, 77, 11]\n\n¿Cuál es el último elemento después de aplicar Quicksort de manera completa?",
+            "question": "Selecciona la opción correcta.",
             "options": {
-                "A": "Particionar el arreglo en dos subarreglos.",
-                "B": "Elegir el elemento pivote.",
-                "C": "Ordenar recursivamente los subarreglos.",
-                "D": "Comparar elementos adyacentes y hacer intercambios."
+                "A": "11",
+                "B": "31",
+                "C": "63",
+                "D": "89"
             },
-            "answer": "B",
+            "answer": "C",
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "El primer paso es elegir un elemento pivote."
+            "feedback": "Después de aplicar Quicksort completamente, el último elemento sería 63.",
+            "stepToHistory": -1
         }
     ]
 }
+
 
 
 export const shellSortQuiz = {
