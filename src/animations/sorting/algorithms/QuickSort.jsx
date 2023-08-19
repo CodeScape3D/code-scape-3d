@@ -95,3 +95,16 @@ export const QuickSort = (nums) => {
 
 export const QuickSortLegend = createKey("Comparing", "Swapping", null, "Strictly less than Pivot");
 
+export const QuickSortCode = ({ codeRef }) => {
+	return (
+		<code ref={codeRef}>
+			<pre>{`for each (unsorted) partition
+set random element as pivot
+	storeIndex = pivotIndex+1`}</pre>
+			<pre>{`	for i = pivotIndex+1 to rightmostIndex
+		if (a[i] < a[pivot])`}</pre>
+			<pre>{`			swap(i, storeIndex); storeIndex++`}</pre>
+			<pre>{`	swap(pivot, storeIndex-1)`}</pre>
+		</code>
+	)
+}
