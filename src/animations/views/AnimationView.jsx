@@ -1,8 +1,10 @@
 import { Header, SortControls, SortCode, SortChart } from '../sorting/components';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setAlgorithm, generateRandomArray } from '../../store';
 import { useEffect } from 'react';
+
+import { svgExam } from '../../assets/svg/SvgConstans';
 
 export const AnimationView = () => {
   const { animacion } = useParams();
@@ -17,7 +19,11 @@ export const AnimationView = () => {
   return (
     <div className="flex flex-col items-center mt-3 w-full h-full flex-grow">
 
-      <Header titulo={algorithm} />
+      <Header
+        titulo={algorithm}
+        quiz={"sortingMethods"}
+        descripcionQuiz={"Quiz métodos de ordenamiento"}
+      />
 
       <div className="flex-grow mb-4 w-full">
         <SortChart />
@@ -32,9 +38,6 @@ export const AnimationView = () => {
         <div className="md:w-1/2 flex items-center">
           <SortCode />
         </div>
-
-        
-
       </div>
     </div>
   );
