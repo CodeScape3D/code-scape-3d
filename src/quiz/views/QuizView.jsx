@@ -123,9 +123,7 @@ export const QuizView = () => {
                         }
                         {
                             shouldShowFeedbackButton && (
-                                <BasicButton onClick={() => {
-                                    window.open("https://www.youtube.com/shorts/AzjJj5OK6ZM", "_blank")
-                                }}>
+                                <BasicButton onClick={() => { navigate(`/animacion/${quizName}`) }}>
                                     Ver retroalimentación
                                 </BasicButton>)
                         }
