@@ -139,7 +139,7 @@ const createRecord = (state) => {
   }
 };
 
-const getSortingAlgorithm = (algorithm) => {
+export const getSortingAlgorithm = (algorithm) => {
   const sortingFunctions = {
     "Bubble Sort": BubbleSort,
     "Selection Sort": SelectionSort,
@@ -151,7 +151,6 @@ const getSortingAlgorithm = (algorithm) => {
     "Cocktail Sort": CocktailSort,
     "ThreeWayQuick Sort": ThreeWayQuickSort,
   };
-
   return sortingFunctions[algorithm] || null;
 };
 

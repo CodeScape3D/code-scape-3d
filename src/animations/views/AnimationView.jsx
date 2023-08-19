@@ -1,17 +1,24 @@
 import { Header, SortControls, SortCode, SortChart } from '../sorting/components';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setAlgorithm, generateRandomArray } from '../../store';
+import { setAlgorithm, generateRandomArray, getSortingAlgorithm } from '../../store';
 import { useEffect } from 'react';
 
 export const AnimationView = () => {
   const { animacion } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const algorithm = animacion.charAt(0).toUpperCase() + animacion.slice(1) + ' Sort';
 
   useEffect(() => {
-    dispatch(setAlgorithm(algorithm));
-    dispatch(generateRandomArray());
+    const sort = getSortingAlgorithm(algorithm);
+
+    if (sort) {
+      dispatch(setAlgorithm(algorithm));
+      dispatch(generateRandomArray());
+    } else {
+      navigate('/404');
+    }
   }, [animacion]);
 
   return (
@@ -36,6 +43,7 @@ export const AnimationView = () => {
         <div className="md:w-1/2 flex items-center">
           <SortCode />
         </div>
+        
       </div>
     </div>
   );
