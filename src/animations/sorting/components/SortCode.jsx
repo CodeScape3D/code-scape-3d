@@ -1,24 +1,50 @@
-import React from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { BubbleSortCode, QuickSortCode } from '../algorithms';
 
 export const SortCode = () => {
 
-  const code = `
-  Para i de 0 a longitud(lista) - 1:
-    Para j de 0 a longitud(lista) - i - 1:
-      Si lista[j] > lista[j+1] entonces
-      Fin Si
-    Fin Para
-  Fin Para
-      `;
+  const codeRef = useRef(null);
+  const [prevCurrentLine, setPrevCurrentLine] = useState(null);
+  const sortsState = useSelector(state => state.sorts);
+
+  useEffect(() => {
+
+    if (sortsState.history === -1) return;
+    const currentLine = sortsState.stepHistory[sortsState.history].currentIndex;
+
+    const currentElement = codeRef.current.childNodes[currentLine];
+    const prevElement = codeRef.current.childNodes[prevCurrentLine];
+
+    if (prevElement) {
+      prevElement.classList.remove('bg-secondary');
+    }
+
+    if (currentElement) {
+      currentElement.classList.add('bg-secondary');
+    }
+
+    setPrevCurrentLine(currentLine);
+  }, [sortsState.history]);
+
+  const Code = (algorithm) => {
+    switch (algorithm) {
+      case 'Bubble Sort': return <BubbleSortCode codeRef={codeRef} />
+      case 'Quick Sort': return <QuickSortCode codeRef={codeRef} />
+      case 'Shell Sort': return null
+      case 'Insertion Sort': return null
+      default: null;
+    }
+  }
 
   return (
     <div className='w-full md:w-80 mx-auto md:mr-4 md:mb-4'>
       <div className="bg-secondary text-white py-1 px-2">
         Comienza el ordenamiento
       </div>
-      <pre className="bg-primary text-white text-xs p-2">
-        {code}
-      </pre>
+      <div className="bg-primary text-white text-xs p-2">
+        {Code(sortsState.algorithm)}
+      </div>
     </div>
   )
 }
