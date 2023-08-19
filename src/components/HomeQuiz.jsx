@@ -8,9 +8,18 @@ import {
   svgQueue,
 } from "../assets/svg/SvgConstans";
 import "../styles/mediaquerys.css";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { resetStateForQuiz } from "../store";
 
 export const HomeQuiz = () => {
-  //const navigate = useNavigate();
+  
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+      dispatch(resetStateForQuiz())
+  }, []) 
+
   return (
     <div className="h-full w-full flex flex-grow flex-col">
       <div className="bg-primary text-white w-full">

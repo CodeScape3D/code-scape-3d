@@ -79,6 +79,12 @@ export const QuizView = () => {
 
             return
         }
+
+        if (currentQuestion.state === questionStates.UNANSWERED) {
+            dispatch(checkAnswer())
+            return
+        }
+
         setIsAlertDialogVisible(true)
     }
 

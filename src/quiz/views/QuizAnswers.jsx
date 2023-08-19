@@ -1,13 +1,17 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { AnswerButton, AnswersGrid, QuizQuestion } from "../components"
 import { BasicButton } from "../../components"
 import { Navigate, useNavigate } from "react-router-dom"
+import { questionType } from "../constants"
+import { setCurrentQuestion } from "../../store"
+import { getAnimationNameByQuizName } from "../helpers"
 
 
 export const QuizAnswers = () => {
 
-    const { questions } = useSelector(state => state.quiz)
+    const { questions, quizName } = useSelector(state => state.quiz)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     
     if (questions.length === 0) {
         return <Navigate to="/quizzes" />
@@ -46,6 +50,12 @@ export const QuizAnswers = () => {
                         />
                         <span className="">Explicación:</span>
                         <p className="text-justify">{question.feedback}</p>
+                        {
+                            question.type === questionType.PRACTICAL && <BasicButton onClick={() => {
+                                dispatch(setCurrentQuestion(question))
+                                navigate(`/animacion/${getAnimationNameByQuizName(quizName)}`)
+                            }}> Ver retroalimentación </BasicButton>
+                        }
                     </div>
                 ))
             }
