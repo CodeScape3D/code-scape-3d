@@ -117,6 +117,120 @@ export const linkedListQuiz = {
     ]
 }
 
+export const bubbleSortQuiz = {
+    "name": "Método de Ordenamiento de Burbuja",
+    "array": [5, 2, 8, 1, 3, 7, 4, 6],
+    "questions": [
+        {
+            "statement": "Enunciado de la pregunta teórica 1",
+            "question": "¿Cuál es la idea principal detrás del método de ordenamiento de burbuja?",
+            "options": {
+                "A": "Dividir y conquistar",
+                "B": "Comparar y trocar",
+                "C": "Intercambiar y combinar",
+                "D": "Reemplazar y ordenar"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "En el método de ordenamiento de burbuja, los elementos adyacentes se comparan y se intercambian si están en el orden incorrecto."
+        },
+        {
+            "statement": "Enunciado de la pregunta teórica 2",
+            "question": "¿Cuál es la complejidad temporal promedio del método de ordenamiento de burbuja?",
+            "options": {
+                "A": "O(n)",
+                "B": "O(n log n)",
+                "C": "O(n^2)",
+                "D": "O(log n)"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "La complejidad temporal promedio del método de ordenamiento de burbuja es O(n^2), lo que lo hace ineficiente para listas grandes."
+        },
+        {
+            "statement": "Enunciado de la pregunta teórica 4",
+            "question": "¿Cuál es el mejor caso de complejidad temporal para el método de ordenamiento de burbuja?",
+            "options": {
+                "A": "O(n)",
+                "B": "O(n log n)",
+                "C": "O(n^2)",
+                "D": "O(log n)"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "El mejor caso de complejidad temporal para el método de ordenamiento de burbuja es O(n), que ocurre cuando la lista ya está ordenada y no se realizan intercambios en las iteraciones."
+        },
+        {
+            "statement": "Enunciado de la pregunta teórica 3",
+            "question": "¿Cuál es la principal desventaja del método de ordenamiento de burbuja?",
+            "options": {
+                "A": "Es difícil de implementar",
+                "B": "Requiere mucho espacio de memoria",
+                "C": "Es inestable para elementos iguales",
+                "D": "Tiene una complejidad O(n log n)"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "El método de ordenamiento de burbuja es inestable para elementos iguales, lo que significa que el orden relativo de elementos iguales podría cambiar después de la ordenación."
+        },
+        {
+            "statement": "Enunciado de la pregunta práctica 2",
+            "question": "Utilizando el método de ordenamiento de burbuja, ¿cuál sería el arreglo después de una iteración completa?",
+            "options": {
+                "A": "[2, 5, 1, 3, 7, 4, 6, 8]",
+                "B": "[1, 2, 3, 4, 5, 6, 7, 8]",
+                "C": "[5, 2, 8, 1, 3, 7, 4, 6]",
+                "D": "[8, 7, 6, 5, 4, 3, 2, 1]"
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "En una iteración completa del método de ordenamiento de burbuja, se compara y troca cada par de elementos adyacentes, lo que resultaría en el arreglo [2, 5, 1, 3, 7, 4, 6, 8]."
+        },
+        {
+            "statement": "Enunciado de la pregunta práctica 3",
+            "question": "Siguiendo el método de ordenamiento de burbuja, ¿cuántas iteraciones se necesitan para ordenar completamente el arreglo proporcionado?",
+            "options": {
+                "A": "6",
+                "B": "7",
+                "C": "8",
+                "D": "5"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Para ordenar completamente el arreglo [5, 2, 8, 1, 3, 7, 4, 6] utilizando el método de ordenamiento de burbuja, se necesitan 7 iteraciones."
+        },
+        {
+            "statement": "Enunciado de la pregunta práctica 4",
+            "question": "¿Cuál es el elemento más grande después de la primera iteración del método de ordenamiento de burbuja en el arreglo proporcionado?",
+            "options": {
+                "A": "5",
+                "B": "8",
+                "C": "1",
+                "D": "2"
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "PRACTICAL",
+            "feedback": "Después de la primera iteración, el elemento más grande, que estaba al final del arreglo, se movería a su posición correcta, que es la última."
+        },
+        
+    ]
+}
+
+
 export const sortingMethodsQuiz = {
     "name": "Métodos de Ordenamiento",
     "questions": [
