@@ -70,7 +70,6 @@ export const QuizView = () => {
 
     const handleOnQuizAtTheEnd = () => {
         if (canFinishQuiz(questions)) {
-            dispatch(checkAnswer())
             dispatch(computeResults())
 
             setTimeout(() => {
@@ -79,6 +78,12 @@ export const QuizView = () => {
 
             return
         }
+
+        if (currentQuestion.state === questionStates.UNANSWERED) {
+            dispatch(checkAnswer())
+            return
+        }
+
         setIsAlertDialogVisible(true)
     }
 
