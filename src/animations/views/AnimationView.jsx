@@ -10,7 +10,7 @@ export const AnimationView = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const algorithm = animacion.charAt(0).toUpperCase() + animacion.slice(1) + ' Sort';
-  const { generatedArray, currentQuestion } = useSelector((state) => state.quiz);
+  const state = useSelector(state => state.quiz);
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -19,9 +19,9 @@ export const AnimationView = () => {
 
     if (sort) {
       dispatch(setAlgorithm(algorithm));
-
-      if (generatedArray.length > 0) {
-        dispatch(setArray(generatedArray));
+      console.log(state.generatedArray);
+      if (state.generatedArray.length > 0) {
+        dispatch(setArray(state.generatedArray));
         setIsOpen(true);
       } else {
         dispatch(generateRandomArray());
@@ -58,7 +58,7 @@ export const AnimationView = () => {
       </div>
 
       {modalIsOpen ? (<div>
-        {currentQuestion.feedback}
+        {state.currentQuestion.feedback}
         <button onClick={() => setIsOpen(false)}>Cerrar</button>
       </div>) : ("")}
 
