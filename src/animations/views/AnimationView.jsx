@@ -1,21 +1,27 @@
 import { Header, SortControls, SortCode, SortChart } from '../sorting/components';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setAlgorithm, generateRandomArray, getSortingAlgorithm, setArray } from '../../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAlgorithm, generateRandomArray, getSortingAlgorithm, setArray, } from '../../store';
 import { useEffect } from 'react';
 
 export const AnimationView = () => {
+
   const { animacion } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const algorithm = animacion.charAt(0).toUpperCase() + animacion.slice(1) + ' Sort';
 
+  const { generatedArray, currentQuestion } = useSelector((state) => state.quiz);
+
   useEffect(() => {
+  
+    console.log(generatedArray);
+
     const sort = getSortingAlgorithm(algorithm);
 
     if (sort) {
       dispatch(setAlgorithm(algorithm));
-      dispatch(setArray([7, 8, 25, 4, 18]));
+      dispatch(generateRandomArray());
     } else {
       navigate('/404');
     }
@@ -26,7 +32,7 @@ export const AnimationView = () => {
 
       <Header
         titulo={algorithm}
-        quiz={"sortingMethods"}
+        quiz={animacion}
         descripcionQuiz={"Quiz métodos de ordenamiento"}
       />
 
