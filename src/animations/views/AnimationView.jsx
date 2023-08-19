@@ -1,10 +1,8 @@
 import { Header, SortControls, SortCode, SortChart } from '../sorting/components';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setAlgorithm, generateRandomArray } from '../../store';
 import { useEffect } from 'react';
-
-import { svgExam } from '../../assets/svg/SvgConstans';
 
 export const AnimationView = () => {
   const { animacion } = useParams();
