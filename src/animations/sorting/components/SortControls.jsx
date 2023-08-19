@@ -151,7 +151,7 @@ export const SortControls = () => {
           <InputLabel htmlFor="speed-select">Speed Selector</InputLabel>
           <Select
             id="speed-select"
-            defaultValue={1}
+            defaultValue={sortState.sortingSpeed}
             onChange={changePlaySpeed}
             label="Speed Selector"
             style={{ height: "48px" }}
@@ -171,7 +171,7 @@ export const SortControls = () => {
           <Select
             id="array-size-select"
             onChange={onArraySizeChange}
-            defaultValue={5}
+            defaultValue={sortState.arraySize}
             label="Array Length"
             style={{ height: "48px" }}
           >
