@@ -27,7 +27,7 @@ export const HomeQuiz = () => {
       <div className="mainQuizzes container m-auto mt-10 mb-6 md:mt-6 sm:mb-6 md:mb-6 lg:my-3  ">
         <div className="grid sm:grid-cols-1  gap-4 md:grid-cols-3 md:gap-6  justify-center sm:mt-10 lg:mt-10 xl:mt-10 ">
 
-          <QuizCard logo={svgOrderMethods} titulo={"Metodos de Ordenamiento"} ruta={"/quiz/sortingMethods"} />
+          <QuizCard logo={svgOrderMethods} titulo={"Metodos de Ordenamiento"} ruta={"/quizzes/sortingMethods"} />
           <QuizCard logo={svgSearchMethods} titulo={"Metodos de Busquedas"} ruta={"/quiz/searchMethods"}  />
           <QuizCard logo={svgLinkedList} titulo={"Listas Enlazadas"} ruta={"/quiz/linkedList"}  />
           <QuizCard logo={svgBinaryTrees} titulo={"Arboles Binarios"} ruta={"/quiz/binaryTree"}  />
