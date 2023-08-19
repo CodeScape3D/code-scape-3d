@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAlgorithm, generateRandomArray, getSortingAlgorithm, setArray, } from '../../store';
 import { useEffect, useState } from 'react';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { BasicButton } from '../../components';
 
 export const AnimationView = () => {
 
@@ -38,7 +40,7 @@ export const AnimationView = () => {
       <Header
         titulo={algorithm}
         quiz={animacion}
-        descripcionQuiz={`Quiz métodos de ` + algorithm + `.`}
+        descripcionQuiz={algorithm + ` Quiz`}
       />
 
       <div className="flex-grow mb-4 w-full">
@@ -57,11 +59,27 @@ export const AnimationView = () => {
 
       </div>
 
-      {modalIsOpen ? (<div>
-        {currentQuestion.feedback}
-        <button onClick={() => setIsOpen(false)}>Cerrar</button>
-      </div>) : ("")}
+      <Dialog
+        open={modalIsOpen}
+        onClose={() => setIsOpen(false)}
+      >
+        <DialogTitle>
+          {"Feedback"}
+        </DialogTitle>
 
+        <DialogContent>
+          <DialogContentText>
+            {currentQuestion.feedback}
+          </DialogContentText>
+        </DialogContent>
+
+        <DialogActions>
+          <BasicButton onClick={() => setIsOpen(false)}>
+            Cerrar
+          </BasicButton>
+        </DialogActions>
+
+      </Dialog>
     </div>
   );
 };
