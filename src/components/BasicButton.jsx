@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import PropTypes from 'prop-types'
 
-export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "gray.main", disabled = false}) => {
+export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "gray.main", disabled = false, ariaLabel = ""}) => {
     return (
         <Button
             onClick={onClick}
@@ -16,6 +16,7 @@ export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "
                 fontWeight: "bold",
             }} className={`btn flex items-center justify-start gap-3`}
             disabled={disabled}
+            aria-label={ariaLabel}
         >
             {children}
         </Button>
@@ -26,6 +27,7 @@ BasicButton.propTypes = {
     children: PropTypes.node,
     onClick: PropTypes.func,
     backgroundColor: PropTypes.string,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    ariaLabel: PropTypes.string
 }
 
