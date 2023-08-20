@@ -3,19 +3,20 @@ import { useSelector } from "react-redux";
 
 export const SortChart = () => {
 
-	const sortState = useSelector(state => state.sorts);
-	const maxNum = Math.max(...sortState.array);
+	const { array, firstSet, secondSet, thirdSet, fourthSet, sortedSet } = useSelector(state => state.sorts);
+
+	const maxNum = Math.max(...array);
 
 	return (
 		<div style={{ transition: '0.75s ease-in-out' }} className="flex flex-row items-end h-52 p-2 md:p-4 gap-1">
 			{getListOfBars(
-				sortState.array,
+				array,
 				maxNum,
-				sortState.firstSet,
-				sortState.secondSet,
-				sortState.thirdSet,
-				sortState.fourthSet,
-				sortState.sortedSet)}
+				firstSet,
+				secondSet,
+				thirdSet,
+				fourthSet,
+				sortedSet)}
 		</div>
 	);
 };
