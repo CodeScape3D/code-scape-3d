@@ -80,7 +80,7 @@ export const QuizView = () => {
             return
         }
 
-        if (currentQuestion.state === questionStates.UNANSWERED) {
+        if (currentQuestion.state === questionStates.UNANSWERED || currentQuestion.selectedAnswer == null) {
             dispatch(checkAnswer())
             return
         }
