@@ -6,26 +6,26 @@ import ArrowLeft from '../../assets/icons/arrow-left.svg';
 import ArrowRight from '../../assets/icons/arrow-right.svg';
 import { BasicButton } from '../../components';
 import {
-  AnswerButton,
-  WrongAnswerDialog,
-  CorrectAnswerDialog,
-  AnswersGrid,
-  QuizQuestion,
-  QuizStatement,
+    AnswerButton,
+    WrongAnswerDialog,
+    CorrectAnswerDialog,
+    AnswersGrid,
+    QuizQuestion,
+    QuizStatement,
 } from '../components';
 import {
-  canFinishQuiz,
-  formatQuestionIndicator,
-  getQuizByName,
+    canFinishQuiz,
+    formatQuestionIndicator,
+    getQuizByName,
 } from '../helpers';
 import { questionStates, questionType } from '../constants';
 import {
-  answerSelected,
-  checkAnswer,
-  computeResults,
-  goToNextQuestion,
-  goToPreviousQuestion,
-  setQuiz,
+    answerSelected,
+    checkAnswer,
+    computeResults,
+    goToNextQuestion,
+    goToPreviousQuestion,
+    setQuiz,
 } from '../../store';
 
 
@@ -34,6 +34,7 @@ export const QuizView = () => {
     const navigate = useNavigate()
     const { quizName } = useParams()
     const quiz = React.useMemo(() => getQuizByName(quizName), [quizName])
+    const { currentQuestion, currentQuestionIndex, totalQuestions, questions } = useSelector(state => state.quiz)
     const dispatch = useDispatch()
 
     if (!quiz) {
@@ -43,11 +44,13 @@ export const QuizView = () => {
     }
 
     useEffect(() => {
-        dispatch(setQuiz(quiz))
-    } ,[])
+        if (totalQuestions === 0) {
+            dispatch(setQuiz(quiz))
+        }
+    }, [])
 
-    const { currentQuestion, currentQuestionIndex, totalQuestions, questions } = useSelector(state => state.quiz)
-    const { options, statement, question, selectedAnswer, state, type } = currentQuestion 
+
+    const { options, statement, question, selectedAnswer, state, type } = currentQuestion
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
     const isQuestionCorrect = React.useMemo(() => state === questionStates.CORRECT, [state])
     const isQuestionIncorrect = React.useMemo(() => state === questionStates.INCORRECT, [state])
@@ -64,7 +67,7 @@ export const QuizView = () => {
         dispatch(goToNextQuestion())
     }
 
-    const handleOnPreviousQuestion = () => { 
+    const handleOnPreviousQuestion = () => {
         dispatch(goToPreviousQuestion())
     }
 
@@ -88,7 +91,7 @@ export const QuizView = () => {
         setIsAlertDialogVisible(true)
     }
 
-    const handleOnAnswerSelected = (answer) => { 
+    const handleOnAnswerSelected = (answer) => {
         dispatch(answerSelected(answer))
     }
 
