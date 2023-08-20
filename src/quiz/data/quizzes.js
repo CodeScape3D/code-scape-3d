@@ -412,7 +412,8 @@ export const shellSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "La brecha inicial en ShellSort es 2 en este caso."
+            "feedback": "La brecha inicial en ShellSort es 2 en este caso.",
+            "stepToHistory": 0
         },
         {
             "statement": "Ordena el siguiente arreglo utilizando el algoritmo ShellSort con brechas de tamaño 2: [56, 32, 17, 92, 78, 23, 61, 42]. ¿Cuál sería el arreglo ordenado después de la primera pasada?",
@@ -427,7 +428,8 @@ export const shellSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "Después de la primera pasada con brechas de tamaño 2, el arreglo se vería así: [32, 56, 17, 92, 23, 78, 42, 61]."
+            "feedback": "Después de la primera pasada con brechas de tamaño 2, el arreglo se vería así: [32, 56, 17, 92, 23, 78, 42, 61].",
+            "stepToHistory": 0
         }
     ]
 }
@@ -509,7 +511,8 @@ export const insertionSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "Después de la segunda pasada, el arreglo sería: [9, 18, 42, 31, 27, 5, 13, 37]."
+            "feedback": "Después de la segunda pasada, el arreglo sería: [9, 18, 42, 31, 27, 5, 13, 37].",
+            "stepToHistory": 0
         },
         {
             "statement": "Ordena el siguiente arreglo utilizando el algoritmo Insertion Sort: [18, 42, 9, 31, 27, 5, 13, 37]. ¿Cuál sería el arreglo ordenado después de la quinta pasada?",
@@ -524,7 +527,8 @@ export const insertionSortQuiz = {
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "PRACTICAL",
-            "feedback": "Después de la quinta pasada, el arreglo sería: [5, 9, 13, 18, 27, 31, 37, 42]."
+            "feedback": "Después de la quinta pasada, el arreglo sería: [5, 9, 13, 18, 27, 31, 37, 42].",
+            "stepToHistory": 0
         }
     ]
 }
