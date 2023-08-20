@@ -109,7 +109,10 @@ export const sortsSlice = createSlice({
     },
 
     setHistory: (state, action) => {
-      state.history = action.payload;
+      return {
+        ...state,
+        history: action.payload,
+      };
     },
 
     setTimeIdArr: (state, action) => {
@@ -120,12 +123,53 @@ export const sortsSlice = createSlice({
       state.playing = action.payload;
     },
 
+    setearAlgoritmo: (state, action) => {
+      state.algorithm = action.payload;
+    },
+
     restoreRepeat: (state) => {
       const srcArray = [...state.srcArray];
       state.array = srcArray;
       state.history = -1;
       state.compared = [];
       state.sortedSet = [];
+    },
+    setGeneratedArray: (state, action) => {
+      state.playing = false;
+      const { array, history } = action.payload;
+      state.array = array;
+      state.arraySize = array.length;
+      state.stepHistory = [];
+      state.history = history;
+      state.firstSet = [];
+      state.secondSet = [];
+      state.thirdSet = [];
+      state.fourthSet = [];
+      state.sortedSet = [];
+      state.srcArray = [...array];
+
+      const numbers = [...array];
+      const sort = getSortingAlgorithm(state.algorithm);
+      if (sort) {
+        const stepHistory = sort(numbers);
+        state.stepHistory = stepHistory;
+      }
+
+      state.timeIdArr.forEach((timeoutId) => clearTimeout(timeoutId));
+      state.timeIdArr = [];
+
+      const step = state.stepHistory[state.history];
+
+      console.log("step", step);
+      console.log("history", state.history);
+
+      state.array = step.array;
+      state.firstSet = step.firstSet;
+      state.secondSet = step.secondSet;
+      state.thirdSet = step.thirdSet;
+      state.fourthSet = step.fourthSet;
+      state.sortedSet = step.sortedSet;
+      state.isOver = step.sortedSet.length + 1 === step.array.length;
     },
   },
 });
@@ -171,5 +215,7 @@ export const {
   setPlaying,
   restoreRepeat,
   setSortingSpeed,
-  setHistory
+  setHistory,
+  setearAlgoritmo,
+  setGeneratedArray,
 } = sortsSlice.actions;

@@ -6,12 +6,12 @@ export const SortCode = () => {
 
   const codeRef = useRef(null);
   const [prevCurrentLine, setPrevCurrentLine] = useState(null);
-  const sortsState = useSelector(state => state.sorts);
+  const { algorithm, history, stepHistory } = useSelector(state => state.sorts);
 
   useEffect(() => {
 
-    if (sortsState.history === -1) return;
-    const currentLine = sortsState.stepHistory[sortsState.history].currentIndex;
+    if (history === -1 || history >= stepHistory.length) return;
+    const currentLine = stepHistory[history].currentIndex;
 
     const currentElement = codeRef.current.childNodes[currentLine];
     const prevElement = codeRef.current.childNodes[prevCurrentLine];
@@ -25,7 +25,7 @@ export const SortCode = () => {
     }
 
     setPrevCurrentLine(currentLine);
-  }, [sortsState.history]);
+  }, [history, stepHistory, algorithm]);
 
   const Code = (algorithm) => {
     switch (algorithm) {
@@ -43,7 +43,7 @@ export const SortCode = () => {
         Comienza el ordenamiento
       </div>
       <div className="bg-primary text-white text-xs p-2">
-        {Code(sortsState.algorithm)}
+        {Code(algorithm)}
       </div>
     </div>
   )
