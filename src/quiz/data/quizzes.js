@@ -195,7 +195,7 @@ export const bubbleSortQuiz = {
             "state": "UNANSWERED",
             "type": "PRACTICAL",
             "feedback": "En una iteración completa del método de ordenamiento de burbuja, se compara y troca cada par de elementos adyacentes, lo que resultaría en el arreglo [2, 5, 1, 3, 7, 4, 6, 8].",
-            "stepToHistory": 14
+            "stepToHistory": 15
         },
         {
             "statement": "Enunciado de la pregunta práctica 3",
@@ -211,7 +211,7 @@ export const bubbleSortQuiz = {
             "state": "UNANSWERED",
             "type": "PRACTICAL",
             "feedback": "Para ordenar completamente el arreglo [5, 2, 8, 1, 3, 7, 4, 6] utilizando el método de ordenamiento de burbuja, se necesitan 7 iteraciones.",
-            "stepToHistory": -1
+            "stepToHistory": 0
         },
         {
             "statement": "Enunciado de la pregunta práctica 4",
@@ -227,7 +227,7 @@ export const bubbleSortQuiz = {
             "state": "UNANSWERED",
             "type": "PRACTICAL",
             "feedback": "Después de la primera iteración, el elemento más grande, que estaba al final del arreglo, se movería a su posición correcta, que es la última.",
-            "stepToHistory": -1
+            "stepToHistory": 0
         },
         
     ]
@@ -296,7 +296,7 @@ export const quickSortQuiz = {
             "state": "UNANSWERED",
             "type": "PRACTICAL",
             "feedback": "Correcto. El tercer elemento después de aplicar Quicksort es 63.",
-            "stepToHistory": -1
+            "stepToHistory": 0
         },
         {
             "statement": "Dado el siguiente arreglo: [42, 17, 89, 5, 63, 31, 77, 11]\n\nAplica un paso de Quicksort y muestra el arreglo resultante.",
@@ -312,7 +312,7 @@ export const quickSortQuiz = {
             "state": "UNANSWERED",
             "type": "PRACTICAL",
             "feedback": "Correcto. Después de un paso de Quicksort, el arreglo se vería como [11, 17, 5, 31, 63, 77, 42, 89].",
-            "stepToHistory": -1
+            "stepToHistory": 0
         },
         {
             "statement": "Dado el siguiente arreglo: [42, 17, 89, 5, 63, 31, 77, 11]\n\n¿Cuál es el último elemento después de aplicar Quicksort de manera completa?",
@@ -328,7 +328,7 @@ export const quickSortQuiz = {
             "state": "UNANSWERED",
             "type": "PRACTICAL",
             "feedback": "Después de aplicar Quicksort completamente, el último elemento sería 63.",
-            "stepToHistory": -1
+            "stepToHistory": 0
         }
     ]
 }
