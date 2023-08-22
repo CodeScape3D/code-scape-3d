@@ -31,3 +31,24 @@ export const Pop = (head, value, isHead) => {
 
   return stepHistory;
 }
+
+export const PushCode = ({ codeRef }) => {
+  return (
+    <code ref={codeRef}>
+      <pre>{`Nodo nodo = new Nodo(int)
+nodo.next = head`}</pre>
+      <pre>{`head = nodo`}</pre>
+    </code>
+  )
+}
+
+export const PopCode = ({ codeRef }) => {
+  return (
+    <code ref={codeRef}>
+      <pre>{`if empty, do nothing`}</pre>
+      <pre>{`tmp = head`}</pre>
+      <pre>{`head = tmp.next`}</pre>
+      <pre>{`delete tmp`}</pre>
+    </code>
+  )
+}

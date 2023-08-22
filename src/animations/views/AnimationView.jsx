@@ -1,11 +1,11 @@
 import { Header, SortControls, SortCode, SortChart } from '../sorting/components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { generateRandomArray, getSortingAlgorithm, setArray, setHistory, updateVisualization, setearAlgoritmo, setGeneratedArray } from '../../store';
+import { generateRandomArray, getSortingAlgorithm, setearAlgoritmo, setGeneratedArray } from '../../store';
 import { useEffect, useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { BasicButton } from '../../components';
-import { StackChart, StackControls } from '../stack';
+import { StackChart, StackCode, StackControls } from '../stack';
 
 export const AnimationView = () => {
 
@@ -65,7 +65,8 @@ export const AnimationView = () => {
         </div>
 
         <div className="md:w-1/2 flex items-center">
-          <SortCode />
+          {animacion === 'stack' ? (<StackCode />) : ''}
+          {sort ? (<SortCode />) : ''}
         </div>
 
       </div>
