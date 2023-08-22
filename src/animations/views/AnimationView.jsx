@@ -5,6 +5,7 @@ import { generateRandomArray, getSortingAlgorithm, setArray, setHistory, updateV
 import { useEffect, useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { BasicButton } from '../../components';
+import { StackChart, StackControls } from '../stack';
 
 export const AnimationView = () => {
 
@@ -18,8 +19,9 @@ export const AnimationView = () => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
+  const sort = getSortingAlgorithm(algorithm);
+
   useEffect(() => {
-    const sort = getSortingAlgorithm(algorithm);
 
     if (sort) {
       dispatch(setearAlgoritmo(algorithm));
@@ -37,28 +39,29 @@ export const AnimationView = () => {
         setIsOpen(false);
       }
 
-    } else {
-      navigate('/404');
     }
   }, [animacion]);
 
+  const classNameChart = "flex-grow mb-4 w-full items-center justify-center " + (animacion === 'stack' ? 'flex' : '')
   return (
     <div className="flex flex-col items-center mt-3 w-full h-full flex-grow">
 
       <Header
-        titulo={algorithm}
+        titulo={(sort ? algorithm : animacion)}
         quiz={animacion}
-        descripcionQuiz={algorithm + ` Quiz`}
+        descripcionQuiz={(sort ? algorithm : animacion) + ` quiz`}
       />
 
-      <div className="flex-grow mb-4 w-full">
-        <SortChart />
+      <div className={classNameChart}>
+        {animacion === 'stack' ? (<StackChart />) : ''}
+        {sort ? (<SortChart />) : ''}
       </div>
 
       <div className="flex flex-col md:flex-row w-full">
 
         <div className="md:w-1/2 flex items-center">
-          <SortControls />
+          {animacion === 'stack' ? (<StackControls />) : ''}
+          {sort ? (<SortControls />) : ''}
         </div>
 
         <div className="md:w-1/2 flex items-center">

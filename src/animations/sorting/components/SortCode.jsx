@@ -40,7 +40,7 @@ export const SortCode = () => {
   return (
     <div className='w-full md:w-80 mx-auto md:mr-4 md:mb-4'>
       <div className="bg-secondary text-white py-1 px-2">
-        Comienza el ordenamiento
+        Algoritmo
       </div>
       <div className="bg-primary text-white text-xs p-2">
         {Code(algorithm)}
