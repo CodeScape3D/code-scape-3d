@@ -22,5 +22,4 @@ export default defineConfig({
       },
     }),
   ],
-  base: "https://dev-gaspar.github.io/CodeScape3D/code-scape-3d",
 });
