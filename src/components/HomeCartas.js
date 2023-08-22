@@ -6,6 +6,7 @@ import {
   svgQuickSort,
   svgShellSort,
   svgInsertionSort,
+  svgPiles,
 } from "../assets/svg/SvgConstans";
 
 export const courses = [
@@ -57,5 +58,12 @@ export const topic = [
     titulo: "Insertion Sort",
     param: "insertion",
     imagen: svgInsertionSort,
+  },
+  {
+    id: 5,
+    curso: "Programacion2",
+    titulo: "Pilas",
+    param: "stack",
+    imagen: svgPiles,
   },
 ];

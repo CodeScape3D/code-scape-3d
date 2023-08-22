@@ -8,7 +8,7 @@ export const SortChart = () => {
 	const maxNum = Math.max(...array);
 
 	return (
-		<div style={{ transition: '0.75s ease-in-out' }} className="flex flex-row items-end h-52 p-2 md:p-4 gap-1">
+		<div style={{ transition: '0.75s ease-in-out' }} className="flex flex-row items-end sm:h-52 h-80 p-2 md:p-4 gap-1">
 			{getListOfBars(
 				array,
 				maxNum,

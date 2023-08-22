@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { BubbleSortCode, InsertionSortCode, QuickSortCode, ShellSortCode } from '../algorithms';
+import { PopCode, PushCode } from '../algorithms';
 
-export const SortCode = () => {
+export const StackCode = () => {
 
   const codeRef = useRef(null);
   const [prevCurrentLine, setPrevCurrentLine] = useState(null);
-  const { algorithm, history, stepHistory } = useSelector(state => state.sorts);
+  const { funAction, history, stepHistory } = useSelector(state => state.stack);
 
   useEffect(() => {
 
     if (history === -1 || history >= stepHistory.length) return;
+
     const currentLine = stepHistory[history].currentIndex;
 
     const currentElement = codeRef.current.childNodes[currentLine];
@@ -25,14 +26,12 @@ export const SortCode = () => {
     }
 
     setPrevCurrentLine(currentLine);
-  }, [history, stepHistory, algorithm]);
+  }, [history, stepHistory, funAction]);
 
-  const Code = (algorithm) => {
-    switch (algorithm) {
-      case 'Bubble Sort': return <BubbleSortCode codeRef={codeRef} />
-      case 'Quick Sort': return <QuickSortCode codeRef={codeRef} />
-      case 'Shell Sort': return <ShellSortCode codeRef={codeRef} />
-      case 'Insertion Sort': return <InsertionSortCode codeRef={codeRef} />
+  const Code = (funAction) => {
+    switch (funAction) {
+      case 'push': return <PushCode codeRef={codeRef} />
+      case 'pop': return <PopCode codeRef={codeRef} />
       default: null;
     }
   }
@@ -42,8 +41,8 @@ export const SortCode = () => {
       <div className="bg-secondary text-white py-1 px-2">
         Algoritmo
       </div>
-      <div className="bg-primary text-white text-xs p-2">
-        {Code(algorithm)}
+      <div className="bg-primary text-white text-xs p-2 transition-all">
+        {Code(funAction)}
       </div>
     </div>
   )

@@ -39,7 +39,7 @@ export const QuizView = () => {
 
     if (!quiz) {
         return (
-            <Navigate to="/quizzes" />
+            <Navigate to="/404" />
         )
     }
 
