@@ -7,8 +7,22 @@ import { AnimationView } from "./animations";
 import { AppTheme } from "./theme";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { useGoogleOneTapLogin } from "react-google-one-tap-login";
 
 function App() {
+
+  useGoogleOneTapLogin({
+    onSuccess: (response) => {
+      
+    },
+    onError: (error) => { console.log(error) },
+    googleAccountConfigs: {
+      client_id: "650278237463-j0le5it1a0mdje1s7iibg912g4jcsc0d.apps.googleusercontent.com"
+    },
+    disabled: false,
+  })
+
+
   return (
     <AppTheme>
       <Provider store={store}>
