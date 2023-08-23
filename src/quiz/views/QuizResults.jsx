@@ -1,7 +1,7 @@
 
 import { AnswerSquare, AnswersChart, AnswersDetails } from "../components"
 import { BasicButton } from "../../components"
-import { svgCheck } from "../../assets/svg/SvgConstans"
+import { svgCheck, svgCross } from "../../assets/svg/SvgConstans"
 import { questionStates } from "../constants"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router"
@@ -33,7 +33,7 @@ export const QuizResults = () => {
                 <AnswersRow data={questions} />
 
                 <div className="flex w-full flex-col md:flex-row flex-1 justify-center items-center gap-6">
-                    <AnswersChart data={scoreStatistics}  />
+                    <AnswersChart data={scoreStatistics} />
                     <AnswersDetails
                         rightAnswersCount={correctAnswersCount}
                         wrongAnswersCount={incorrectAnswersCount}
