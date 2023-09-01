@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { decrementHistoryStack, incrementHistoryStack, actionButton, restoreRepeatStack, restoreTimeId, setHead, setPlayingStack, setTimeIdStack, updateVisualizationStack } from '../../../store';
 import { Alert, Button, Snackbar, TextField } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BasicButton } from '../../../components';
+import { svgPause, svgBack, svgPlay, svgRepeat, svgForward } from '../../../assets/svg/SvgConstans';
 
 export const StackControls = () => {
   const stackState = useSelector((state) => state.stack);
@@ -149,23 +150,34 @@ export const StackControls = () => {
     }
   }
 
+  const [svg, setSvg] = useState(svgPlay);
+
+  useEffect(() => {
+    if (stackState.playing) {
+      setSvg(svgPause);
+    } else {
+      setSvg(svgPlay);
+    }
+  }, [stackState.playing]);
+
+
   return (
     <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
       <div className="flex justify-center space-x-4 mb-3">
         <BasicButton onClick={goBackward}>
-          <span>⏪</span>
+          <span>{svgBack}</span>
         </BasicButton>
 
         <BasicButton onClick={(e) => onPlayPause(e)}>
-          <span> {stackState.playing ? "⏸️" : "▶️"}</span>
+          <span> {svg}</span>
         </BasicButton>
 
         <BasicButton onClick={goForward}>
-          <span>⏩</span>
+          <span>{svgForward}</span>
         </BasicButton>
 
         <BasicButton onClick={repeat}>
-          <span>🔁</span>
+          <span>{svgRepeat}</span>
         </BasicButton>
 
       </div>

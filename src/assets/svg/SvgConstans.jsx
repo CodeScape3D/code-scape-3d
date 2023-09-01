@@ -383,4 +383,35 @@ export const svgExam = (
       <path fillRule="evenodd" d="M38 15L28 4H14a4 4 0 0 0-4 4v32a4 4 0 0 0 4 4h20a4 4 0 0 0 4-4V15Zm-11 0a1 1 0 0 0 1 1h8v24a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h13v9Zm7.388-1L29 8.073V14h5.388Z" clipRule="evenodd" />
     </g>
   </svg>
-); 
+);
+
+
+export const svgBack = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="m2 10l10-6v3.6L18 4v12l-6-3.6V16z" />
+  </svg>
+);
+
+export const svgPlay = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="m5 4l10 6l-10 6V4z" />
+  </svg>
+);
+
+export const svgPause = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M5 16V4h3v12H5zm7-12h3v12h-3V4z" />
+  </svg>
+);
+
+export const svgRepeat = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M5 7v3l-2 1.5V5h11V3l4 3.01L14 9V7H5zm10 6v-3l2-1.5V15H6v2l-4-3.01L6 11v2h9z" />
+  </svg>
+);
+
+export const svgForward = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M18 10L8 16v-3.6L2 16V4l6 3.6V4z" />
+  </svg>
+);

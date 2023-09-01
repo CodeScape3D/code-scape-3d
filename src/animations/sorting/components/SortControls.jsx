@@ -1,6 +1,7 @@
-import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { BasicButton } from '../../../components';
+import { svgBack, svgPlay, svgPause, svgRepeat, svgForward } from '../../../assets/svg/SvgConstans';
 import {
   incrementHistory,
   decrementHistory,
@@ -12,6 +13,7 @@ import {
   setSortingSpeed,
   setArraySize,
 } from "../../../store"
+import { useEffect, useState } from 'react';
 
 export const SortControls = () => {
 
@@ -115,23 +117,34 @@ export const SortControls = () => {
     dispatch(setArraySize(arraySize));
   }
 
+  const [svg, setSvg] = useState(svgPlay);
+
+  useEffect(() => {
+    if (sortState.playing) {
+      setSvg(svgPause);
+    } else {
+      setSvg(svgPlay);
+    }
+  }, [sortState.playing]);
+
+
   return (
     <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
       <div className='flex justify-center space-x-4 mb-3'>
         <BasicButton onClick={goBackward} >
-          <span>⏪</span>
+          <span>{svgBack}</span>
         </BasicButton>
 
         <BasicButton onClick={(e) => onPlayPause(e)} >
-          <span>{sortState.playing ? "⏸️" : "▶️"}</span>
+          {svg}
         </BasicButton>
 
         <BasicButton onClick={goForward} >
-          <span>⏩</span>
+          <span>{svgForward}</span>
         </BasicButton>
 
         <BasicButton onClick={repeat} >
-          <span>🔁</span>
+          <span>{svgRepeat}</span>
         </BasicButton>
       </div>
       <div className="flex justify-center space-x-4 items-center">
