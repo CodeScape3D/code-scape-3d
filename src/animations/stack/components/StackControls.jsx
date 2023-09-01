@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { decrementHistoryStack, incrementHistoryStack, actionButton, restoreRepeatStack, restoreTimeId, setHead, setPlayingStack, setTimeIdStack, updateVisualizationStack } from '../../../store';
 import { Alert, Button, Snackbar, TextField } from '@mui/material';
 import { useState } from 'react';
+import { BasicButton } from '../../../components';
 
 export const StackControls = () => {
   const stackState = useSelector((state) => state.stack);
@@ -151,35 +152,22 @@ export const StackControls = () => {
   return (
     <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
       <div className="flex justify-center space-x-4 mb-3">
-        <Button
-          onClick={goBackward}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          ⏪
-        </Button>
-        <Button
-          onClick={(e) => onPlayPause(e)}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          {stackState.playing ? "⏸️" : "▶️"}
+        <BasicButton onClick={goBackward}>
+          <span>⏪</span>
+        </BasicButton>
 
-        </Button>
-        <Button
-          onClick={goForward}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          ⏩
-        </Button>
-        <Button
-          onClick={repeat}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          🔁
-        </Button>
+        <BasicButton onClick={(e) => onPlayPause(e)}>
+          <span> {stackState.playing ? "⏸️" : "▶️"}</span>
+        </BasicButton>
+
+        <BasicButton onClick={goForward}>
+          <span>⏩</span>
+        </BasicButton>
+
+        <BasicButton onClick={repeat}>
+          <span>🔁</span>
+        </BasicButton>
+
       </div>
       <div className="flex justify-center space-x-4 items-center">
         <TextField
@@ -193,14 +181,22 @@ export const StackControls = () => {
         <Button
           variant="contained"
           onClick={handlePushButton}
-          style={{ height: "48px" }}>
+          sx={{
+            height: "48px",
+            backgroundColor: "gray.main",
+          }}
+        >
+
           Push
         </Button>
         <Button
           variant="contained"
           onMouseEnter={handlePopButton}
           onClick={() => { run(stackState.stepHistory) }}
-          style={{ height: "48px" }}>
+          sx={{
+            height: "48px",
+            backgroundColor: "gray.main",
+          }}>
           Pop
         </Button>
       </div>
