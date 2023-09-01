@@ -1,5 +1,6 @@
 import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
+import { BasicButton } from '../../../components';
 import {
   incrementHistory,
   decrementHistory,
@@ -117,34 +118,21 @@ export const SortControls = () => {
   return (
     <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
       <div className='flex justify-center space-x-4 mb-3'>
-        <Button
-          onClick={goBackward}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          ⏪
-        </Button>
-        <Button
-          onClick={(e) => onPlayPause(e)}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          {sortState.playing ? "⏸️" : "▶️"}
-        </Button>
-        <Button
-          onClick={goForward}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          ⏩
-        </Button>
-        <Button
-          onClick={repeat}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          🔁
-        </Button>
+        <BasicButton onClick={goBackward} >
+          <span>⏪</span>
+        </BasicButton>
+
+        <BasicButton onClick={(e) => onPlayPause(e)} >
+          <span>{sortState.playing ? "⏸️" : "▶️"}</span>
+        </BasicButton>
+
+        <BasicButton onClick={goForward} >
+          <span>⏩</span>
+        </BasicButton>
+
+        <BasicButton onClick={repeat} >
+          <span>🔁</span>
+        </BasicButton>
       </div>
       <div className="flex justify-center space-x-4 items-center">
         <FormControl variant="outlined" style={{ width: "150px" }}>
@@ -189,6 +177,6 @@ export const SortControls = () => {
           </Select>
         </FormControl>
       </div>
-    </div>
+    </div >
   )
 }
