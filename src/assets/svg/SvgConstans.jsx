@@ -415,3 +415,15 @@ export const svgForward = (
     <path fill="currentColor" d="M18 10L8 16v-3.6L2 16V4l6 3.6V4z" />
   </svg>
 );
+
+export const svgSelectionHome = (
+  <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="none" stroke="#fff" strokeWidth="2" d="M5 18h3V6H5v12Zm7-16v20V2ZM1 22h22V2H1v20Z" />
+  </svg>
+);
+
+export const svgHeapHome = (
+  <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#fff" d="M3 19q-.825 0-1.413-.588T1 17V7q0-.825.588-1.413T3 5h10q.825 0 1.413.588T15 7v10q0 .825-.588 1.413T13 19H3Zm15-8q-.425 0-.713-.288T17 10V6q0-.425.288-.713T18 5h4q.425 0 .713.288T23 6v4q0 .425-.288.713T22 11h-4Zm0 8q-.425 0-.713-.288T17 18v-4q0-.425.288-.713T18 13h4q.425 0 .713.288T23 14v4q0 .425-.288.713T22 19h-4Zm-7.5-3q.625 0 1.063-.438T12 14.5q0-.625-.438-1.063T10.5 13q-.625 0-1.063.438T9 14.5q0 .625.438 1.063T10.5 16Zm-5.05-.05l6.5-6.5l-1.4-1.4l-6.5 6.5l1.4 1.4ZM5.5 11q.625 0 1.062-.438T7 9.5q0-.625-.438-1.063T5.5 8q-.625 0-1.063.438T4 9.5q0 .625.438 1.063T5.5 11Z" />
+  </svg>
+);
