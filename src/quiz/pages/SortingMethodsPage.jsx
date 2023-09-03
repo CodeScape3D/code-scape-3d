@@ -27,9 +27,11 @@ export const SortingMethodsPage = () => {
                         imagen: svgFundamentals
                     }} ruta={`/quiz/sortingFundamentals`} />
                     {
-                        topic.map((tema) => (
-                            <CardTabla tema={tema} key={tema.id} ruta={`/quiz/${tema.param}`} />
-                        ))
+                        topic.map((tema) => {
+                            if (tema.id != 5) {
+                               return <CardTabla tema={tema} key={tema.id} ruta={`/quiz/${tema.param}`} />
+                            }
+                        })
                     }
                 </SearchMethodGrid>
             </div>
