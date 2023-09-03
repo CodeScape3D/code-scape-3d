@@ -48,11 +48,23 @@ export const BubbleSortInfo = () => {
 			<li className="mb-2">
 				<span className="font-semibold">Desventajas:</span> Ineficiente para listas grandes, no es estable, complejidad de tiempo cuadrática.
 			</li>
-			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span> O(n^2)
+			<li className="mb-2">
+				<span className="font-semibold">Complejidad:</span>
+				<ul className="list-disc list-inside ml-4"> {/* Agregar margen izquierdo para listas anidadas */}
+					<li className="mb-1">
+						<span className="font-semibold">Peor caso:</span> O(n^2)
+					</li>
+					<li className="mb-1">
+						<span className="font-semibold">Mejor caso:</span> (si se agrega una bandera para detectar que la lista ya está ordenada): O(n)
+					</li>
+					<li className="mb-1">
+						<span className="font-semibold">Caso promedio:</span> O(n^2)
+					</li>
+				</ul>
 			</li>
 		</ul>
-	)
-}
+	);
+};
+
 
 
