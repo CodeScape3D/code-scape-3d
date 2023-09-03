@@ -15,7 +15,7 @@ const Bar = ({
 		if (thirdState) return "bg-danger";
 		if (secondState) return "bg-primary";
 		if (firstState) return "bg-secondary";
-		return "bg-stone-400";
+		return "bg-neutral-400";
 	};
 
 	const barStyling = {
