@@ -242,7 +242,7 @@ export const bubbleSortQuiz = {
         },
         {
             "statement": "Enunciado de la pregunta teórica 2",
-            "question": "¿Cuál es la complejidad temporal promedio del método de ordenamiento de burbuja?",
+            "question": "¿Cuál es la complejidad promedio de tiempo del algoritmo Bubble Sort en el peor caso?",
             "options": {
                 "A": "O(n)",
                 "B": "O(n log n)",
@@ -358,7 +358,7 @@ export const quickSortQuiz = {
         },
         {
             "statement": "¿Cuál es la idea principal detrás del algoritmo Quicksort?",
-            "question": "Selecciona la opción correcta.",
+            "question": "Idea principal de Quicksort",
             "options": {
                 "A": "Dividir el arreglo en subarreglos y ordenarlos por separado.",
                 "B": "Recorrer el arreglo y comparar cada elemento con el siguiente.",
@@ -388,7 +388,7 @@ export const quickSortQuiz = {
         },
         {
             "statement": "¿Cuál es la complejidad promedio del algoritmo Quicksort?",
-            "question": "Selecciona la opción correcta.",
+            "question": "Complejidad promedio de QuickSort.",
             "options": {
                 "A": "O(n)",
                 "B": "O(n log n)",
