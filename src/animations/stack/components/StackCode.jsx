@@ -79,7 +79,7 @@ export const StackCode = () => {
             <span
               className="inline-flex items-center ml-2 px-3 py-1 bg-primary text-white rounded-lg cursor-pointer hover:bg-secondary transition"
               onClick={toggleInfoPanel}>
-              Info
+              Explicacion
               <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
             </span>
           </div>
