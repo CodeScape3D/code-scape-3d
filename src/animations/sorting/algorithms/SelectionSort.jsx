@@ -67,12 +67,8 @@ export const SelectionSortInfo = () => {
 				<span className="font-semibold">Desventajas:</span> Ineficiente para listas grandes, no es estable, complejidad de tiempo cuadrática.
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span>
-				<ul className="list-disc list-inside ml-4">
-					<li className="mb-1">
-						<span className="font-semibold">Todos los casos:</span> O(n^2), ya que siempre realiza el mismo número de comparaciones y movimientos de elementos, independientemente del estado inicial de la lista.
-					</li>
-				</ul>
+				<span className="font-semibold">Complejidad:</span> O(n^2), en todos los casos, ya que siempre realiza el mismo número de comparaciones y movimientos de elementos, independientemente del estado inicial de la lista.
+
 			</li>
 		</ul>
 	)
