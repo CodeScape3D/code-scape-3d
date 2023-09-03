@@ -43,3 +43,22 @@ export const ShellSortCode = ({ codeRef }) => {
 		</code>
 	)
 }
+
+export const ShellSortInfo = () => {
+	return (
+		<ul className="list-disc list-inside text-sm">
+			<li className="mb-2">
+				<span className="font-semibold">Cómo funciona:</span> consiste en dividir el arreglo (o la lista de elementos) en intervalos (o bloques) de varios elementos para organizarlos después por medio del ordenamiento de inserción directa.
+			</li>
+			<li className="mb-2">
+				<span className="font-semibold">Ventajas:</span> Uno de los algoritmos mas rapidos, no requiere memoria adicional.
+			</li>
+			<li className="mb-2">
+				<span className="font-semibold">Desventajas:</span> Poco estable ya que pierde orden relativo, no utiliza pivote.
+			</li>
+			<li className='mb-2'>
+				<span className="font-semibold">Complejidad:</span> Depende de la secuencia de intervalos utilizada.
+			</li>
+		</ul>
+	)
+}
