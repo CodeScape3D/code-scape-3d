@@ -50,7 +50,7 @@ export const BubbleSortInfo = () => {
 			</li>
 			<li className="mb-2">
 				<span className="font-semibold">Complejidad:</span>
-				<ul className="list-disc list-inside ml-4"> {/* Agregar margen izquierdo para listas anidadas */}
+				<ul className="list-disc list-inside ml-4">
 					<li className="mb-1">
 						<span className="font-semibold">Peor caso:</span> O(n^2)
 					</li>
