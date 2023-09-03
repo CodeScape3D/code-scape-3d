@@ -44,3 +44,23 @@ export const InsertionSortCode = ({ codeRef }) => {
 	)
 }
 
+export const InsertionSortInfo = () => {
+	return (
+		<ul className="list-disc list-inside text-sm">
+			<li className="mb-2">
+				<span className="font-semibold">Cómo funciona:</span> Construye una lista ordenada uno por uno insertando elementos no ordenados en su posición correcta.
+			</li>
+			<li className="mb-2">
+				<span className="font-semibold">Ventajas:</span> Simple y eficiente para listas pequeñas o casi ordenadas.
+			</li>
+			<li className="mb-2">
+				<span className="font-semibold">Desventajas:</span> Ineficiente para listas grandes, complejidad de tiempo cuadrática.
+			</li>
+			<li className='mb-2'>
+				<span className="font-semibold">Complejidad:</span> O(n^2).
+			</li>
+		</ul>
+	)
+}
+
+

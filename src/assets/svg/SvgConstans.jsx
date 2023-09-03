@@ -388,5 +388,85 @@ export const svgExam = (
 export const svgFundamentals = (
   <svg width="40" height="40" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
     <path fill="#fff" d="M9.875 0a1 1 0 0 0-.406.156S8.204.952 6.844 1.813c-1.36.86-2.873 1.808-3.219 2a1 1 0 0 0-.063.03C2.306 4.618 2.045 5.884 2 6.594c-.003.033 0 .06 0 .095c-.011.266 0 .437 0 .437v13.063C2 22.087 4.213 23 6.313 23c.7 0 1.4-.113 2-.313c.4-.2.687-.6.687-1v-10.5c0-2.3.5-3.38 2-4.28c.4-.2 4.594-3.095 4.594-3.095c.2-.2.406-.606.406-.906v-.094c0-.4-.2-.706-.5-.906c-.3-.2-.7-.2-1 0c-.1.1-6.2 4.207-7.5 4.907c-1.3.8-2.513.993-2.813.593c-.093-.093-.174-.378-.187-.656v-.063c.001-.272.071-.784.625-1.125c.562-.313 1.957-1.204 3.313-2.062c.573-.363.644-.402 1.093-.688A1 1 0 0 0 11 2.5V1a1 1 0 0 0-1.125-1zm8 3.5a1 1 0 0 0-.438.188s-5.034 3.387-5.906 3.968a1 1 0 0 0-.031.032c-.724.543-1.153 1.189-1.344 1.78A3.264 3.264 0 0 0 10 10.5v.313a1 1 0 0 0 0 .093V23c0 1.9 2.188 3 4.188 3c.9 0 1.712-.194 2.312-.594c1.2-.7 7-5.218 7-5.218c.3-.2.5-.482.5-.782v-13c0-.5-.194-.8-.594-1c-.3-.2-.793-.106-1.093.094c-1.6 1.2-5.907 4.588-6.907 5.188c-1.4.8-2.719 1-3.219.5c-.2-.2-.187-.388-.187-.688c.006-.172.025-.32.063-.438c.056-.174.17-.388.593-.718c.02-.016.01-.015.031-.031c.723-.483 2.934-1.99 4.376-2.97A1 1 0 0 0 19 6V4.5a1 1 0 0 0-1.125-1zM22 10.813v2l-5 3.874v-2l5-3.874z"/>
-</svg>
-)
+  </svg>
+);
+
+export const svgBack = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="m2 10l10-6v3.6L18 4v12l-6-3.6V16z" />
+  </svg>
+);
+
+export const svgPlay = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="m5 4l10 6l-10 6V4z" />
+  </svg>
+);
+
+export const svgPause = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M5 16V4h3v12H5zm7-12h3v12h-3V4z" />
+  </svg>
+);
+
+export const svgRepeat = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M5 7v3l-2 1.5V5h11V3l4 3.01L14 9V7H5zm10 6v-3l2-1.5V15H6v2l-4-3.01L6 11v2h9z" />
+  </svg>
+);
+
+export const svgForward = (
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M18 10L8 16v-3.6L2 16V4l6 3.6V4z" />
+  </svg>
+);
+
+export const svgSelectionHome = (
+  <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="none" stroke="#fff" strokeWidth="2" d="M5 18h3V6H5v12Zm7-16v20V2ZM1 22h22V2H1v20Z" />
+  </svg>
+);
+
+export const svgHeapHome = (
+  <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#fff" d="M3 19q-.825 0-1.413-.588T1 17V7q0-.825.588-1.413T3 5h10q.825 0 1.413.588T15 7v10q0 .825-.588 1.413T13 19H3Zm15-8q-.425 0-.713-.288T17 10V6q0-.425.288-.713T18 5h4q.425 0 .713.288T23 6v4q0 .425-.288.713T22 11h-4Zm0 8q-.425 0-.713-.288T17 18v-4q0-.425.288-.713T18 13h4q.425 0 .713.288T23 14v4q0 .425-.288.713T22 19h-4Zm-7.5-3q.625 0 1.063-.438T12 14.5q0-.625-.438-1.063T10.5 13q-.625 0-1.063.438T9 14.5q0 .625.438 1.063T10.5 16Zm-5.05-.05l6.5-6.5l-1.4-1.4l-6.5 6.5l1.4 1.4ZM5.5 11q.625 0 1.062-.438T7 9.5q0-.625-.438-1.063T5.5 8q-.625 0-1.063.438T4 9.5q0 .625.438 1.063T5.5 11Z" />
+  </svg>
+);
+
+export const svgInfo = (
+  <svg width="20" height="20" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#fff" d="M108 84a16 16 0 1 1 16 16a16 16 0 0 1-16-16Zm128 44A108 108 0 1 1 128 20a108.12 108.12 0 0 1 108 108Zm-24 0a84 84 0 1 0-84 84a84.09 84.09 0 0 0 84-84Zm-72 36.68V132a20 20 0 0 0-20-20a12 12 0 0 0-4 23.32V168a20 20 0 0 0 20 20a12 12 0 0 0 4-23.32Z" />
+  </svg>
+);
+
+export const svgAlgo = (
+  <svg width="20" height="20" viewBox="0 0 256 231" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <path id="logosGoogleCloudFunctions0" d="M252.926 103.237L200.327 11.76A23.12 23.12 0 0 0 180.607 0H75.392a23.1 23.1 0 0 0-19.72 11.76L3.053 102.997a22.96 22.96 0 0 0 0 22.88l52.598 91.997a23.54 23.54 0 0 0 19.72 12.18h105.217a23.46 23.46 0 0 0 19.74-12.12l52.598-91.478a23.46 23.46 0 0 0 0-23.219Z" />
+    </defs>
+    <mask id="logosGoogleCloudFunctions1" fill="#fff">
+      <use href="#logosGoogleCloudFunctions0" />
+    </mask>
+    <path fill="#348840" d="M252.926 103.237L200.327 11.76A23.12 23.12 0 0 0 180.607 0H75.392a23.1 23.1 0 0 0-19.72 11.76L3.053 102.997a22.96 22.96 0 0 0 0 22.88l52.598 91.997a23.54 23.54 0 0 0 19.72 12.18h105.217a23.46 23.46 0 0 0 19.74-12.12l52.598-91.478a23.46 23.46 0 0 0 0-23.219Z" mask="url(#logosGoogleCloudFunctions1)" />
+    <path d="m187.168 84.732l-7.252 7.909l1.633 46.998l-6.873 9.961l-3.985-3.984h3.666v-16.297l-17.592-17.592l-13.296 6.646l-44.101-44.2L78.13 85.548l-2.63 22.035l7.452 40.324l10.798 10.579l-4.921 6.993l64.247 65.758h26.84c8.223-.282 17.128-5.671 21.1-12.877l43.78-76.003l-57.628-57.625Z" mask="url(#logosGoogleCloudFunctions1)" opacity=".07" />
+    <path fill="#FFF" d="m88.829 165.479l10.539-10.54l-15.799-15.798v-49.17l15.799-15.798l-10.539-10.54l-21.098 21.099v59.648z" mask="url(#logosGoogleCloudFunctions1)" />
+    <circle cx="105.145" cy="114.556" r="7.471" fill="#FFF" mask="url(#logosGoogleCloudFunctions1)" />
+    <circle cx="127.499" cy="114.556" r="7.471" fill="#FFF" mask="url(#logosGoogleCloudFunctions1)" />
+    <circle cx="149.852" cy="114.556" r="7.471" fill="#FFF" mask="url(#logosGoogleCloudFunctions1)" />
+    <path fill="#FFF" d="m166.069 63.633l-10.539 10.54l15.799 15.798v49.17l-15.799 15.798l10.539 10.54l21.099-21.099V84.732z" mask="url(#logosGoogleCloudFunctions1)" />
+  </svg>
+);
+
+export const SvgIconDropdown = ({ isOpen }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={`h-6 w-6 transform ${isOpen ? 'rotate-0' : 'rotate-180'}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+};
