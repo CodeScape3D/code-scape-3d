@@ -227,18 +227,18 @@ export const bubbleSortQuiz = {
     "questions": [
         {
             "statement": "Enunciado de la pregunta teórica 1",
-            "question": "¿Cuál es la idea principal detrás del método de ordenamiento de burbuja?",
+            "question": "¿Cuál es la característica principal del algoritmo Bubble Sort? ",
             "options": {
-                "A": "Dividir y conquistar",
-                "B": "Comparar y trocar",
-                "C": "Intercambiar y combinar",
-                "D": "Reemplazar y ordenar"
+                "A": "Utiliza un elemento pivote para dividir la lista en subconjuntos",
+                "B": "CDivide la lista en subconjuntos y ordena cada subconjunto de forma recursiva",
+                "C": "Compara elementos adyacentes y los intercambia si están en el orden incorrecto",
+                "D": "Ordena los elementos mediante un proceso de inserción en la posición correcta"
             },
-            "answer": "B",
+            "answer": "D",
             "selectedAnswer": null,
             "state": "UNANSWERED",
             "type": "THEORICAL",
-            "feedback": "En el método de ordenamiento de burbuja, los elementos adyacentes se comparan y se intercambian si están en el orden incorrecto."
+            "feedback": "La característica principal del algoritmo de Bubble Sort es que ordena los elementos de una lista comparando pares de elementos adyacentes y realizando intercambios si es necesario para mover el elemento más grande (o más pequeño, dependiendo de si se está ordenando en orden ascendente o descendente) hacia el final de la lista. "
         },
         {
             "statement": "Enunciado de la pregunta teórica 2",
