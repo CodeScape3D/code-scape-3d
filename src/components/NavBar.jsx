@@ -2,9 +2,9 @@ import { useState } from "react"
 import { NavTabs, NavTab } from "./"
 import Logo from "../assets/logo.png"
 import UserLogo from "../assets/user.png"
-import Menu from "../assets/icons/menu.svg"
 import { MobileMenu } from "./MobileMenu"
 import { useNavigate } from 'react-router-dom';
+import { svgMenu } from "../assets/svg/SvgConstans"
 
 export const NavBar = () => {
 
@@ -34,8 +34,8 @@ export const NavBar = () => {
 
                 <button className="hidden md:block"><img src={UserLogo} width="38" /></button>
 
-                <button className="block md:hidden" onClick={showHamburgerMenu}>
-                    <img src={Menu} width="38" />
+                <button className="block md:hidden p-1" onClick={showHamburgerMenu}>
+                    {svgMenu}
                 </button>
             </nav>
 
