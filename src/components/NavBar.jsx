@@ -24,8 +24,17 @@ export const NavBar = () => {
         <>
             <nav className="w-full bg-primary flex items-center justify-end md:justify-between px-3">
 
-                <img src={Logo} width="38" className="hidden md:block cursor-pointer" onClick={() => navigate("/")} />
-
+                <svg
+                    width="38"
+                    height="38"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 38 38"
+                    className="hidden md:block cursor-pointer"
+                    onClick={() => navigate("/")}
+                >
+                    <image xlinkHref={Logo} width="38" height="38" />
+                </svg>
+                
                 <NavTabs>
                     <NavTab text="Aprende" linkTo="/" />
                     <NavTab text="Quizzes" linkTo="/quizzes" />
