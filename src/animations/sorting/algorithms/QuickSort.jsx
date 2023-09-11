@@ -108,3 +108,30 @@ set random element as pivot
 		</code>
 	)
 }
+
+export const QuickSortInfo = () => {
+	return (
+		<ul className="list-disc list-inside text-sm">
+			<li className="mb-2">
+				<span className="font-semibold">Cómo funciona:</span> Divide la lista en subconjuntos más pequeños y luego los ordena recursivamente.
+			</li>
+			<li className="mb-2">
+				<span className="font-semibold">Ventajas:</span> Eficiente en la mayoría de los casos, in situ (no requiere memoria adicional).
+			</li>
+			<li className="mb-2">
+				<span className="font-semibold">Desventajas:</span> No es estable, puede ser lento en listas casi ordenadas.
+			</li>
+			<li className='mb-2'>
+				<span className="font-semibold">Complejidad:</span>
+				<ul className="list-disc list-inside ml-4">
+					<li className="mb-1">
+						<span className="font-semibold">Peor caso:</span>  (raro, pero posible si se elige un pivote desfavorable): O(n^2)
+					</li>
+					<li className="mb-1">
+						<span className="font-semibold">Mejor caso y promedio:</span> (en la mayoría de los casos): O(n log n)
+					</li>
+				</ul>
+			</li>
+		</ul>
+	)
+}

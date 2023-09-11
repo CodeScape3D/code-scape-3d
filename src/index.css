@@ -2,46 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  }
+}
+
 @layer components {
-    .nav-tab {
-        @apply flex justify-center items-center text-white md:h-full px-3 py-7  md:px-7 md:py-4 md:hover:bg-secondary relative w-6/12 md:w-auto transition-colors
-    }
+  .nav-tab {
+    @apply flex justify-center items-center text-white md:h-full px-3 py-7  md:px-7 md:py-4 md:hover:bg-secondary relative w-6/12 md:w-auto transition-colors;
+  }
 
-    .nav-tab::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        @apply w-0 bg-white py-0.5 transition-all
-    }
-    .nav-tab-active::after {
-        @apply w-full
-    }
+  .nav-tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    @apply w-0 bg-white py-0.5 transition-all;
+  }
+  .nav-tab-active::after {
+    @apply w-full;
+  }
 
-    .context-menu {
-        border-radius: 20px;
-        width: 180px;
-        @apply bg-primary p-3 rounded-3xl flex flex-col
-    }
+  .context-menu {
+    border-radius: 20px;
+    width: 180px;
+    @apply bg-primary p-3 rounded-3xl flex flex-col;
+  }
 
-    .btn {
-        @apply bg-gray-900 text-white px-4 py-2 rounded-xl
-    }
+  .btn {
+    @apply bg-gray-900 text-white px-4 py-2 rounded-xl;
+  }
 
-    .question-wrapper {
-        border-radius: 18px 0px 18px 0px;
-        @apply flex-1 bg-gray-100 p-3 h-fit
-    }
+  .question-wrapper {
+    border-radius: 18px 0px 18px 0px;
+    @apply flex-1 bg-gray-100 p-3 h-fit;
+  }
 
-    .percentage-indicator {
-        background-color: rgba(243, 243, 243, 0.5);
-        backdrop-filter: blur(40px);
-        width: fit-content;
-        @apply absolute top-0 right-0 text-danger font-bold rounded-xl px-3 py-2
-    }
+  .percentage-indicator {
+    background-color: rgba(243, 243, 243, 0.5);
+    backdrop-filter: blur(40px);
+    width: fit-content;
+    @apply absolute top-0 right-0 text-danger font-bold rounded-xl px-3 py-2;
+  }
 
-    .wrap {
-        @apply mx-auto my-0 max-w-5xl
-    }
-
+  .wrap {
+    @apply mx-auto my-0 max-w-5xl;
+  }
 }

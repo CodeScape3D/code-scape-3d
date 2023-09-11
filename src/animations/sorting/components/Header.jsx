@@ -13,8 +13,8 @@ export const Header = ({ titulo, quiz, descripcionQuiz }) => {
         <h2 className="text-white font-bold">Volver</h2>
       </button>
 
-      <div className="bg-gray-900 text-center py-2 px-4 md:px-20 rounded-3xl">
-        <h2 className="text-white font-bold">{titulo}</h2>
+      <div className="text-center py-2 px-4 md:px-20 rounded-3xl">
+        <h2 className="text-xl font-bold">{titulo}</h2>
       </div>
 
       <Link to={`/quiz/${quiz}`} className="flex items-center">

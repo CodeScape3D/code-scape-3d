@@ -117,6 +117,110 @@ export const linkedListQuiz = {
     ]
 }
 
+export const sortingFundamentalsQuiz = { 
+    "name": "Fundamentos de métodos de ordenamiento",
+    "questions": [
+        {
+            "statement": "¿Qué es el 'ordenamiento' en programación?",
+            "question": "¿Qué es el 'ordenamiento' en programación?",
+            "options": { 
+                "A": "Un proceso para organizar datos en una base de datos",
+                "B": "Un método para buscar elementos en una lista",
+                "C": "Una técnica para reorganizar elementos en una secuencia específica",
+                "D": "Un algoritmo para generar números aleatorios."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": ": El ordenamiento en programación se refiere a la acción de reorganizar los elementos de una colección, como una lista o un arreglo usando una secuencia en particular, bien puede ser de manera ascendente, descendente o en un criterio definido"
+        },
+        {
+            "statement": " ¿Cuál de los siguientes métodos de ordenamiento tiene una complejidad promedio de tiempo de O(n log n)?",
+            "question": " ¿Cuál de los siguientes métodos de ordenamiento tiene una complejidad promedio de tiempo de O(n log n)?",
+            "options": { 
+                "A": "Burbuja (Bubble Sort)",
+                "B": "Inserción (Insertion Sort)",
+                "C": "Selección (Selection Sort)",
+                "D": "Quicksort"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Tanto burbuja, selección e inserción tienen una complejidad de: O(n^2) y Quicksort tiene una complejidad de  O(n log n)"
+        },
+        {
+            "statement": "En el contexto de los métodos de ordenamiento, ¿qué es un 'elemento pivote'?",
+            "question": "En el contexto de los métodos de ordenamiento, ¿qué es un 'elemento pivote'?",
+            "options": { 
+                "A": "El primer elemento en la lista",
+                "B": "El elemento más pequeño en la lista",
+                "C": "Un elemento aleatorio en la lista",
+                "D": "Un elemento utilizado para dividir una lista en subconjuntos durante el proceso de ordenamiento."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "El pivote es aquel elemento que se selecciona del arreglo para tenerlo como referencia durante el ordenamiento, a su izquierda se dejan los elementos menores a este y a su derecha los elementos mayores a este."
+        },
+        {
+            "statement": "¿Cuál de los siguientes enunciados es cierto sobre el 'ordenamiento estable' en algoritmos de ordenamiento?",
+            "question": "¿Cuál de los siguientes enunciados es cierto sobre el 'ordenamiento estable' en algoritmos de ordenamiento?",
+            "options": { 
+                "A": "Los elementos se organizan en orden descendente",
+                "B": "Los elementos iguales mantienen su orden relativo después del ordenamiento",
+                "C": "Los elementos se reorganizan de forma aleatoria",
+                "D": "Solo se pueden ordenar números enteros en un orden estable."
+            },
+            "answer": "B",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "En otras palabras, si se tienen dos elementos con el mismo valor o clave en la lista original y se aplica un algoritmo de ordenamiento estable, después de ordenar la lista, estos dos elementos seguirán estando en el mismo orden relativo entre sí."
+        },
+        {
+            "statement": "¿Cómo pueden los métodos de ordenamiento mejorar el rendimiento de un programa? ",
+            "question": "¿Cómo pueden los métodos de ordenamiento mejorar el rendimiento de un programa? ",
+            "options": { 
+                "A": "Aceleran el proceso de inicio del programa",
+                "B": "Reducen el consumo de energía del hardware",
+                "C": "Disminuyen la cantidad de memoria RAM necesaria",
+                "D": "Agilizan la búsqueda y clasificación de datos, lo que puede hacer que el programa sea más eficiente."
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Cuando un programa necesita buscar o acceder a datos en una lista, como una lista de contactos en un teléfono, una lista de productos en una tienda en línea o cualquier otro conjunto de datos, tener esos datos ordenados adecuadamente puede hacer que la búsqueda sea mucho más rápida. Cuando los datos están ordenados, puedes utilizar técnicas de búsqueda eficientes, como la búsqueda binaria, que reduce drásticamente el número de comparaciones necesarias para encontrar un elemento específico en la lista. Esto hace que el programa sea más rápido y eficiente en términos de tiempo de ejecución."
+        },
+        {
+            "statement": "¿Qué consideración es esencial al elegir un método de ordenamiento para una aplicación específica?",
+            "question": "¿Qué consideración es esencial al elegir un método de ordenamiento para una aplicación específica?",
+            "options": { 
+                "A": "La popularidad del método en la comunidad de programadores",
+                "B": "La complejidad del código fuente del método",
+                "C": "El tipo de datos y el tamaño del conjunto que se va a ordenar",
+                "D": "La cantidad de colores que se pueden aplicar al algoritmo"
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "La elección del método de ordenamiento correcto debe basarse principalmente en el tipo de datos y el tamaño del conjunto de datos que necesitas ordenar, ya que esto afectará directamente el rendimiento y la eficiencia de una aplicación."
+        },
+        {
+            "statement": "El hecho de que la recursividad sea usada en lugar de la iteración permite:",
+            "question": "El hecho de que la recursividad sea usada en lugar de la iteración permite:",
+            "options": { 
+                "A": "Soluciones elegantes y simples",
+                "B": "Soluciones con menos código",
+                "C": "Soluciones bien estructuradas y modulares a problemas complejos",
+                "D": "Todas las anteriores"
+            },
+            "answer": "D",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "feedback": "Cuando se utiliza la recursión en lugar de la iteración en un programa, se pueden lograr todas las ventajas mencionadas en las opciones a, b y c:"
+        }
+    ]
+}
+
 export const bubbleSortQuiz = {
     "name": "Ordenamiento de Burbuja",
     "array": [5, 2, 8, 1, 3, 7, 4, 6],
@@ -138,7 +242,7 @@ export const bubbleSortQuiz = {
         },
         {
             "statement": "Enunciado de la pregunta teórica 2",
-            "question": "¿Cuál es la complejidad temporal promedio del método de ordenamiento de burbuja?",
+            "question": "¿Cuál es la complejidad promedio de tiempo del algoritmo Bubble Sort en el peor caso?",
             "options": {
                 "A": "O(n)",
                 "B": "O(n log n)",
@@ -238,8 +342,23 @@ export const quickSortQuiz = {
     "array": [42, 17, 89, 5, 63, 31, 77, 11],
     "questions": [
         {
+            "statement": "¿Cuál es el concepto clave detrás del algoritmo Quicksort? ",
+            "question": "Concepto clave de Quicksort.",
+            "options": {
+                "A": "Comparar elementos adyacentes y cambiarlos si están fuera de orden. ",
+                "B": "Dividir la lista en subconjuntos más pequeños, ordenarlos y luego combinarlos",
+                "C": "Elegir un elemento pivote y reorganizar los elementos para que los menores estén a su izquierda y los mayores a su derecha",
+                "D": "Utilizar una estructura de datos de cola para organizar los elementos."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "El concepto de elegir un pivote y colocar los elementos menores a su izquierda y los mayores a su derecha, sigue el concepto de dividir y conquistar."
+        },
+        {
             "statement": "¿Cuál es la idea principal detrás del algoritmo Quicksort?",
-            "question": "Selecciona la opción correcta.",
+            "question": "Idea principal de Quicksort",
             "options": {
                 "A": "Dividir el arreglo en subarreglos y ordenarlos por separado.",
                 "B": "Recorrer el arreglo y comparar cada elemento con el siguiente.",
@@ -253,8 +372,23 @@ export const quickSortQuiz = {
             "feedback": "Correcto. Quicksort divide el arreglo en subarreglos más pequeños y luego los ordena de manera recursiva."
         },
         {
+            "statement": "¿Qué factor puede afectar negativamente el rendimiento del Quicksort en su implementación estándar? ",
+            "question": "Factor que afecta el rendimiento de Quicksort.",
+            "options": {
+                "A": "El uso de un elemento pivote",
+                "B": "La cantidad de elementos en la lista",
+                "C": "La elección del algoritmo de intercambio de elementos",
+                "D": "La elección del algoritmo de intercambio de elementos"
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "La elección de un pivote adecuado es importante para el rendimiento de Quicksort"
+        },
+        {
             "statement": "¿Cuál es la complejidad promedio del algoritmo Quicksort?",
-            "question": "Selecciona la opción correcta.",
+            "question": "Complejidad promedio de QuickSort.",
             "options": {
                 "A": "O(n)",
                 "B": "O(n log n)",

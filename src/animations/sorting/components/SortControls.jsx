@@ -1,5 +1,7 @@
-import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
+import { BasicButton } from '../../../components';
+import { svgBack, svgPlay, svgPause, svgRepeat, svgForward } from '../../../assets/svg/SvgConstans';
 import {
   incrementHistory,
   decrementHistory,
@@ -11,6 +13,7 @@ import {
   setSortingSpeed,
   setArraySize,
 } from "../../../store"
+import { useEffect, useState } from 'react';
 
 export const SortControls = () => {
 
@@ -114,37 +117,35 @@ export const SortControls = () => {
     dispatch(setArraySize(arraySize));
   }
 
+  const [svg, setSvg] = useState(svgPlay);
+
+  useEffect(() => {
+    if (sortState.playing) {
+      setSvg(svgPause);
+    } else {
+      setSvg(svgPlay);
+    }
+  }, [sortState.playing]);
+
+
   return (
     <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
       <div className='flex justify-center space-x-4 mb-3'>
-        <Button
-          onClick={goBackward}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          ⏪
-        </Button>
-        <Button
-          onClick={(e) => onPlayPause(e)}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          {sortState.playing ? "⏸️" : "▶️"}
-        </Button>
-        <Button
-          onClick={goForward}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          ⏩
-        </Button>
-        <Button
-          onClick={repeat}
-          variant="contained"
-          style={{ height: "48px" }}
-        >
-          🔁
-        </Button>
+        <BasicButton onClick={goBackward} >
+          <span>{svgBack}</span>
+        </BasicButton>
+
+        <BasicButton onClick={(e) => onPlayPause(e)} >
+          {svg}
+        </BasicButton>
+
+        <BasicButton onClick={goForward} >
+          <span>{svgForward}</span>
+        </BasicButton>
+
+        <BasicButton onClick={repeat} >
+          <span>{svgRepeat}</span>
+        </BasicButton>
       </div>
       <div className="flex justify-center space-x-4 items-center">
         <FormControl variant="outlined" style={{ width: "150px" }}>
@@ -185,10 +186,9 @@ export const SortControls = () => {
             <MenuItem value={10}>10</MenuItem>
             <MenuItem value={20}>20</MenuItem>
             <MenuItem value={50}>50</MenuItem>
-            <MenuItem value={100}>100</MenuItem>
           </Select>
         </FormControl>
       </div>
-    </div>
+    </div >
   )
 }

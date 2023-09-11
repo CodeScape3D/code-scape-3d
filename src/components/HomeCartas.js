@@ -7,6 +7,8 @@ import {
   svgShellSort,
   svgInsertionSort,
   svgPilesHome,
+  svgSelectionHome,
+  svgHeapHome,
 } from "../assets/svg/SvgConstans";
 
 export const courses = [
@@ -46,6 +48,20 @@ export const topic = [
     imagen: svgQuickSort,
   },
   {
+    id: 4,
+    curso: "Programacion2",
+    titulo: "Insertion Sort",
+    param: "insertion",
+    imagen: svgInsertionSort,
+  },
+  {
+    id: 6,
+    curso: "Programacion2",
+    titulo: "Selection Sort",
+    param: "selection",
+    imagen: svgSelectionHome,
+  },
+  {
     id: 3,
     curso: "Programacion2",
     titulo: "Shell Sort",
@@ -53,11 +69,11 @@ export const topic = [
     imagen: svgShellSort,
   },
   {
-    id: 4,
+    id: 7,
     curso: "Programacion2",
-    titulo: "Insertion Sort",
-    param: "insertion",
-    imagen: svgInsertionSort,
+    titulo: "Heap Sort",
+    param: "heap",
+    imagen: svgHeapHome,
   },
   {
     id: 5,

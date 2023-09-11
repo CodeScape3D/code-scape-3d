@@ -92,7 +92,6 @@ export const AnimationView = () => {
         </DialogActions>
 
       </Dialog>
-
     </div>
   );
 };
