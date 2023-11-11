@@ -13,7 +13,7 @@ function App() {
 
   useGoogleOneTapLogin({
     onSuccess: (response) => {
-      
+      console.log(response.name)
     },
     onError: (error) => { console.log(error) },
     googleAccountConfigs: {
