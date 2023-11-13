@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import { MemoryRouter, Route, Routes } from "react-router-dom"
 import { Provider } from "react-redux"
 import { configureStore } from "@reduxjs/toolkit"
@@ -14,7 +14,6 @@ const testStore = configureStore({
         quiz: quizSlice.reducer
     }
 })
-
 
 
 jest.mock("../../../store/quiz/quizSlice", () => ({
