@@ -136,7 +136,7 @@ export const HeapSortInfo = () => {
 				<span className="font-semibold">Desventajas:</span> No es estable, complejo, se comporta de manera ineficaz con los datos.
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span> O(n log n).
+				<span className="font-semibold">Complejidad:</span> O(n log n) en todos los casos. Heap Sort siempre tiene una complejidad temporal de O(n log n) en el peor caso, lo que lo hace eficiente para listas grandes.
 			</li>
 		</ul>
 	)

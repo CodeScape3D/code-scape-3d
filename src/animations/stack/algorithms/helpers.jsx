@@ -1,4 +1,4 @@
-export const newTrace = (head, isHead) => {
+export const newTraceStack = (head, isHead) => {
   return [
     {
       head: head,
@@ -10,7 +10,7 @@ export const newTrace = (head, isHead) => {
   ];
 };
 
-export const moveInHistoryRecord = (
+export const moveInHistoryRecordStack = (
   stepHistory,
   head,
   firstSet = [],

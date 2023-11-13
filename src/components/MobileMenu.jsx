@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import UserLogo from "../assets/user.png"
-import CloseIcon from "../assets/icons/close.svg"
+import { svgClose } from '../assets/svg/SvgConstans'
 import { NavTab } from './NavTab'
 
 export const MobileMenu = ({ isHamburgerMenuVisible, hideHamburgerMenu }) => {
@@ -13,8 +13,8 @@ export const MobileMenu = ({ isHamburgerMenuVisible, hideHamburgerMenu }) => {
             <NavTab text="Minijuegos" linkTo="/mini-juegos" onClick={hideHamburgerMenu} />
             <NavTab text="" linkTo='#!' iconSrc={UserLogo} onClick={hideHamburgerMenu} />
 
-            <button className=" absolute top-2 right-5" onClick={hideHamburgerMenu}>
-                <img src={CloseIcon} width="24" alt="CloseIcon" />
+            <button className="absolute top-1 right-7" onClick={hideHamburgerMenu}>
+                {svgClose}
             </button>
         </div>
     )

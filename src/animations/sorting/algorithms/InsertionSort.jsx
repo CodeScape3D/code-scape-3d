@@ -57,7 +57,18 @@ export const InsertionSortInfo = () => {
 				<span className="font-semibold">Desventajas:</span> Ineficiente para listas grandes, complejidad de tiempo cuadrática.
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span> O(n^2).
+				<span className="font-semibold">Complejidad:</span>
+				<ul className="list-disc list-inside ml-4">
+					<li className="mb-1">
+						<span className="font-semibold">Peor caso:</span> O(n^2)
+					</li>
+					<li className="mb-1">
+						<span className="font-semibold">Mejor caso:</span> (cuando la lista ya está casi ordenada): O(n)
+					</li>
+					<li className="mb-1">
+						<span className="font-semibold">Caso promedio:</span> O(n^2)
+					</li>
+				</ul>
 			</li>
 		</ul>
 	)

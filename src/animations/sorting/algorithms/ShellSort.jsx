@@ -57,7 +57,7 @@ export const ShellSortInfo = () => {
 				<span className="font-semibold">Desventajas:</span> Poco estable ya que pierde orden relativo, no utiliza pivote.
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span> Depende de la secuencia de intervalos utilizada.
+				<span className="font-semibold">Complejidad:</span> La complejidad de Shell Sort depende del tipo de secuencia de incrementos que se utilice. La complejidad en el peor caso generalmente se considera entre O(n log^2 n) y O(n^2), según la secuencia de incrementos utilizada. La elección de la secuencia de incrementos puede afectar significativamente el rendimiento del algoritmo.
 			</li>
 		</ul>
 	)
