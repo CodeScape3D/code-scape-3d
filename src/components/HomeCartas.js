@@ -9,6 +9,7 @@ import {
   svgPilesHome,
   svgSelectionHome,
   svgHeapHome,
+  SvgListaEnlazada,
 } from "../assets/svg/SvgConstans";
 
 export const courses = [
@@ -81,5 +82,12 @@ export const topic = [
     titulo: "Pilas",
     param: "stack",
     imagen: svgPilesHome,
+  },
+  {
+    id: 8,
+    curso: "Programacion2",
+    titulo: "Lista Enlazada",
+    param: "linkedlist",
+    imagen: SvgListaEnlazada,
   },
 ];

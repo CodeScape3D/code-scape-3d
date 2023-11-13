@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { BasicButton } from '../../components';
 import { StackChart, StackCode, StackControls } from '../stack';
+import { LinkedlistChart, LinkedlistCode, LinkedlistControls } from '../linkedlist';
 
 export const AnimationView = () => {
 
@@ -55,6 +56,7 @@ export const AnimationView = () => {
       <div className={classNameChart}>
         {animacion === 'stack' ? (<StackChart />) : ''}
         {sort ? (<SortChart />) : ''}
+        {animacion === 'linkedlist' && (<LinkedlistChart />)}
       </div>
 
       <div className="flex flex-col md:flex-row w-full">
@@ -62,11 +64,13 @@ export const AnimationView = () => {
         <div className="md:w-1/2 flex items-center">
           {animacion === 'stack' ? (<StackControls />) : ''}
           {sort ? (<SortControls />) : ''}
+          {animacion === 'linkedlist' && (<LinkedlistControls />)}
         </div>
 
         <div className="md:w-1/2 flex items-center">
           {animacion === 'stack' ? (<StackCode />) : ''}
           {sort ? (<SortCode />) : ''}
+          {animacion === 'linkedlist' && (<LinkedlistCode />)}
         </div>
 
       </div>
