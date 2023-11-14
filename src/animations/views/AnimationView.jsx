@@ -43,7 +43,7 @@ export const AnimationView = () => {
     }
   }, [animacion]);
 
-  const classNameChart = "flex-grow mb-4 w-full items-center justify-center " + (animacion === 'stack' ? 'flex' : '')
+  const classNameChart = "flex-grow mb-4 w-full items-center justify-center " + (animacion === 'stack' || animacion === 'linkedlist' ? 'flex' : '')
   return (
     <div className="flex flex-col items-center mt-3 w-full h-full flex-grow">
 

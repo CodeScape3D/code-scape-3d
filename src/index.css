@@ -49,4 +49,8 @@
   .wrap {
     @apply mx-auto my-0 max-w-5xl;
   }
+
+  .rtl-grid {
+    direction: rtl;
+  }
 }
