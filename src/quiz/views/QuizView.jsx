@@ -4,7 +4,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import ArrowLeft from '../../assets/icons/arrow-left.svg';
 import ArrowRight from '../../assets/icons/arrow-right.svg';
-import { BasicButton } from '../../components';
+import { BasicButton, Loader } from '../../components';
 import {
     AnswerButton,
     WrongAnswerDialog,
@@ -23,6 +23,7 @@ import {
     answerSelected,
     checkAnswer,
     computeResults,
+    generateQuiz,
     goToNextQuestion,
     goToPreviousQuestion,
     setQuiz,
@@ -33,22 +34,20 @@ export const QuizView = () => {
 
     const navigate = useNavigate()
     const { quizName } = useParams()
-    const quiz = React.useMemo(() => getQuizByName(quizName), [quizName])
-    const { currentQuestion, currentQuestionIndex, totalQuestions, questions } = useSelector(state => state.quiz)
+    const { currentQuestion,
+        currentQuestionIndex,
+        totalQuestions,
+        questions,
+        isGeneratingQuiz,
+        generatedArray
+    } = useSelector(state => state.quiz)
     const dispatch = useDispatch()
-
-    if (!quiz) {
-        return (
-            <Navigate to="/404" />
-        )
-    }
 
     useEffect(() => {
         if (totalQuestions === 0) {
-            dispatch(setQuiz(quiz))
+            dispatch(generateQuiz(quizName))
         }
     }, [])
-
 
     const { options, statement, question, selectedAnswer, state, type } = currentQuestion
     const isPreviousButtonVisible = React.useMemo(() => currentQuestionIndex > 0, [currentQuestionIndex])
@@ -101,11 +100,30 @@ export const QuizView = () => {
 
     return (
         <>
-            <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">
+            {
+                isGeneratingQuiz ? (
+                    <div className='flex flex-col gap-3 w-full h-screen items-center justify-center'>
+                        <Loader />
+                        <span className='font-bold'>Generando quiz...</span>
+                    </div>
+                ) : (
+                    <div className="flex flex-col flex-grow w-full h-full gap-3 p-4 justify-around">
                 <section className="flex flex-col md:flex-row flex-1">
 
                     <div className="question-wrapper">
-                        <QuizStatement statement={statement} />
+                        
+
+                        {
+                            isQuestionTypePractical ? (
+                                <>
+                                    <QuizStatement statement={statement} />
+                                    <span className='font-bold'>{`Arreglo: [${generatedArray}]`}</span>
+                                </>
+                            ) : (
+                                <QuizStatement statement={statement} />
+                            )
+                        }
+
                     </div>
 
                     <div className="flex p-2 md:p-2 gap-3 flex-col justify-center items-center flex-1">
@@ -160,6 +178,10 @@ export const QuizView = () => {
                     <span className="font-bold">{formatQuestionIndicator(currentQuestionIndex, totalQuestions)}</span>
                 </section>
             </div>
+                )
+            }
+
+            
 
             <Dialog
                 open={isAlertDialogVisible}

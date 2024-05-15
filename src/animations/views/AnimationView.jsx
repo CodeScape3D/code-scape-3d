@@ -15,6 +15,7 @@ export const AnimationView = () => {
   const algorithm = animacion.charAt(0).toUpperCase() + animacion.slice(1) + ' Sort';
 
   const { generatedArray, currentQuestion } = useSelector((state) => state.quiz);
+  console.log(generatedArray);
   const sortState = useSelector((state) => state.sorts);
 
   const [modalIsOpen, setIsOpen] = useState(false);

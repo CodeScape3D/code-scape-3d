@@ -7,3 +7,4 @@ export * from "./HomeQuiz";
 export * from "./NotFoud";
 export * from "./HomeAprende";
 export * from "./HomeMiniJuegos";
+export * from "./Loader";

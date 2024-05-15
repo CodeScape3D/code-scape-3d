@@ -32,7 +32,8 @@ const initialState = {
                 }
             ]
         }
-    }
+    },
+    isGeneratingQuiz: true
 }
 
 export const quizSlice = createSlice({
@@ -100,7 +101,13 @@ export const quizSlice = createSlice({
         setCurrentQuestion: (state, { payload }) => {
             state.currentQuestion = payload;
         },
-        resetStateForQuiz: () => initialState
+        resetStateForQuiz: () => initialState,
+        startQuizGeneration: (state) => {
+            state.isGeneratingQuiz = true;
+        },
+        endQuizGeneration: (state) => {
+            state.isGeneratingQuiz = false;
+        }
     }
 });
 
@@ -112,5 +119,7 @@ export const {
     checkAnswer,
     computeResults,
     setCurrentQuestion,
-    resetStateForQuiz
+    resetStateForQuiz,
+    startQuizGeneration,
+    endQuizGeneration
 } = quizSlice.actions;
