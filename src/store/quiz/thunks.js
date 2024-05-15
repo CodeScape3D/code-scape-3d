@@ -127,7 +127,7 @@ const buildQuizRequest = (quizTopic) => {
             }`
             }, {
                 "role": "user",
-                "content": `Quiz de ${quizTopic}`
+                "content": `Quiz de ${quizTopic === "shell" ? "shellSort" : quizTopic}`
             }
         ]
     }
