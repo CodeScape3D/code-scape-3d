@@ -14,11 +14,13 @@ import {
   setArraySize,
 } from "../../../store"
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const SortControls = () => {
 
   const dispatch = useDispatch();
   const sortState = useSelector(state => state.sorts);
+  const { t } = useTranslation()
 
   const keepPlaying = () => {
     const stepHistory = sortState.stepHistory.slice(sortState.history);
@@ -149,7 +151,7 @@ export const SortControls = () => {
       </div>
       <div className="flex justify-center space-x-4 items-center">
         <FormControl variant="outlined" style={{ width: "150px" }}>
-          <InputLabel htmlFor="speed-select">Speed Selector</InputLabel>
+          <InputLabel htmlFor="speed-select">{ t("speedSelector") }</InputLabel>
           <Select
             id="speed-select"
             value={sortState.sortingSpeed}
@@ -168,7 +170,7 @@ export const SortControls = () => {
           </Select>
         </FormControl>
         <FormControl variant="outlined" style={{ width: "150px" }}>
-          <InputLabel htmlFor="array-size-select">Array Length</InputLabel>
+          <InputLabel htmlFor="array-size-select">{ t("arrayLength") }</InputLabel>
           <Select
             id="array-size-select"
             onChange={onArraySizeChange}

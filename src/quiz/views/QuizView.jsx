@@ -28,10 +28,12 @@ import {
     goToPreviousQuestion,
     setQuiz,
 } from '../../store';
+import { useTranslation } from 'react-i18next';
 
 
 export const QuizView = () => {
 
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const { quizName } = useParams()
     const { currentQuestion,
@@ -162,16 +164,16 @@ export const QuizView = () => {
                         {
                             isPreviousButtonVisible && (
                                 <BasicButton onClick={handleOnPreviousQuestion}>
-                                    <img src={ArrowLeft} width="24" />  Volver
+                                    <img src={ArrowLeft} width="24" />  { t("previous") }
                                 </BasicButton>
                             )
                         }
                         {
                             isQuizAtTheEnd
-                                ? (<BasicButton onClick={handleOnQuizAtTheEnd}>Finalizar</BasicButton>)
+                                ? (<BasicButton onClick={handleOnQuizAtTheEnd}>{ t("finish") }</BasicButton>)
                                 : <BasicButton
                                     onClick={handleOnNextQuestion}>
-                                    Siguiente <img src={ArrowRight} width="24" />
+                                    { t("next") } <img src={ArrowRight} width="24" />
                                 </BasicButton>
                         }
                     </div>
@@ -193,13 +195,17 @@ export const QuizView = () => {
 
                 <DialogContent>
                     <DialogContentText>
-                        Debes responder todas las preguntas antes de finalizar el quiz.
+                        {
+                            t("uncompletedQuizText")
+                        }
                     </DialogContentText>
                 </DialogContent>
 
                 <DialogActions>
                     <BasicButton onClick={handleOnCloseAlertDialog}>
-                        Aceptar
+                        {
+                            t("accept")
+                        }
                     </BasicButton>
                 </DialogActions>
 

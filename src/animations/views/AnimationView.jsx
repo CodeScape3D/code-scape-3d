@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { BasicButton } from '../../components';
 import { StackChart, StackCode, StackControls } from '../stack';
+import { useTranslation } from 'react-i18next';
 
 export const AnimationView = () => {
 
+  const { t } = useTranslation()
   const { animacion } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -88,7 +90,7 @@ export const AnimationView = () => {
 
         <DialogActions>
           <BasicButton onClick={() => setIsOpen(false)}>
-            Cerrar
+            { t("close") }
           </BasicButton>
         </DialogActions>
 
