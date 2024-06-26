@@ -37,6 +37,14 @@
     "correctOption": "Correct option",
     "speedSelector": "Speed selector",
     "arrayLength": "Array length",
-    "algorithm": "Algorithm"
-
+    "algorithm": "Algorithm",
+    "definition": "Definition",
+    "stackDefinition": "A stack is a linear data structure that follows the \"last in, first out\" principle.",
+    "principalOperations": "Principal operations",
+    "pushExplanation": "Adds an element to the top of the stack.",
+    "popExplanation": "Removes the element at the top of the stack.",
+    "stackUsageExplanation": "Stacks are useful for tracing reversible operations, and in many other problems where LIFO access is needed.",
+    "utility": "Utility",
+    "implementations": "Implementations",
+    "stackImplementations": "Stacks can be implemented using arrays or linked lists, depending on the needs and requirements of the problem."
 }

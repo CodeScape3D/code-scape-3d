@@ -37,5 +37,14 @@
     "correctOption": "Respuesta correcta",
     "speedSelector": "Selector de velocidad",
     "arrayLength": "Longitud del arreglo",
-    "algorithm": "Algoritmo"
+    "algorithm": "Algoritmo",
+    "definition": "Definition",
+    "stackDefinition": "Una pila es una estructura de datos lineal que sigue el principio \"último en entrar, primero en salir\".",
+    "principalOperations": "Operaciones principales",
+    "pushExplanation": "Agrega un elemento en la parte superior de la pila.",
+    "popExplanation": "Elimina y devuelve el elemento superior de la pila.",
+    "stackUsageExplanation": "Las pilas son útiles para rastrear operaciones reversibles, y en muchos otros problemas donde se necesita acceso LIFO.",
+    "utility": "Utilidad",
+    "implementations": "Implementaciones",
+    "stackImplementations": "Las pilas se pueden implementar utilizando arreglos (arrays) o listas enlazadas, dependiendo de las necesidades y requisitos del problema."
 }
