@@ -1,18 +1,32 @@
+import { defaultLanguage } from "../../main"
 import {
     binaryTreeQuiz,
+    binaryTreeQuizEn,
     bubbleSortQuiz,
+    bubbleSortQuizEn,
     insertionSortQuiz,
+    insertionSortQuizEn,
     linkedListQuiz,
+    linkedListQuizEn,
     queueQuiz,
+    queueQuizEn,
     quickSortQuiz,
+    quickSortQuizEn,
     searchMethodsQuiz,
+    searchMethodsQuizEn,
     shellSortQuiz,
+    shellSortQuizEn,
     sortingFundamentalsQuiz,
+    sortingFundamentalsQuizEn,
     sortingMethodsQuiz,
-    stackQuiz
+    sortingMethodsQuizEn,
+    stackQuiz,
+    stackQuizEn
 } from "../data"
 
 export const getQuizByName = (name) => {
+
+    const userLanguage = localStorage.getItem("lang") || defaultLanguage
 
     const quizzes = {
         "sortingFundamentals": sortingFundamentalsQuiz,
@@ -28,5 +42,19 @@ export const getQuizByName = (name) => {
         "queues": queueQuiz
     }
 
-    return quizzes[name]
+    const quizzesEn = {
+        "sortingFundamentals": sortingFundamentalsQuizEn,
+        "sortingMethods": sortingMethodsQuizEn,
+        "bubble": bubbleSortQuizEn,
+        "quick": quickSortQuizEn,
+        "shell": shellSortQuizEn,
+        "insertion": insertionSortQuizEn,
+        "linkedList": linkedListQuizEn,
+        "searchMethods": searchMethodsQuizEn,
+        "binaryTree": binaryTreeQuizEn,
+        "stacks": stackQuizEn,
+        "queues": queueQuizEn
+    }
+
+    return userLanguage == "es" ? quizzes[name] : quizzesEn[name]
 }
