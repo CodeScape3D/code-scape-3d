@@ -5,9 +5,11 @@ import UserLogo from "../assets/user.png"
 import { MobileMenu } from "./MobileMenu"
 import { useNavigate } from 'react-router-dom';
 import { svgMenu } from "../assets/svg/SvgConstans"
+import { useTranslation } from "react-i18next"
 
 export const NavBar = () => {
 
+    const { t } = useTranslation()
     const navigate = useNavigate();
 
     const [isHamburgerMenuVisible, setIsHamburgerMenuVisible] = useState(false)
@@ -36,9 +38,9 @@ export const NavBar = () => {
                 </svg>
                 
                 <NavTabs>
-                    <NavTab text="Aprende" linkTo="/" />
+                    <NavTab text={ t("learn") } linkTo="/" />
                     <NavTab text="Quizzes" linkTo="/quizzes" />
-                    <NavTab text="Minijuegos" linkTo="/mini-juegos" />
+                    <NavTab text={ t("minigames") } linkTo="/mini-juegos" />
                 </NavTabs>
 
                 <button className="hidden md:block"><img src={UserLogo} width="38" /></button>

@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom"
 import { questionType } from "../constants"
 import { setCurrentQuestion } from "../../store"
 import { getAnimationNameByQuizName } from "../helpers"
+import { useTranslation } from "react-i18next"
 
 
 export const QuizAnswers = () => {
@@ -12,6 +13,7 @@ export const QuizAnswers = () => {
     const { questions, quizName } = useSelector(state => state.quiz)
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const { t } = useTranslation()
     
     if (questions.length === 0) {
         return <Navigate to="/quizzes" />
@@ -36,25 +38,25 @@ export const QuizAnswers = () => {
                                 ))
                             }
                         </AnswersGrid>
-                        <span className="block">Respuesta correcta:</span>
+                        <span className="block">{ t("correctOption") }</span>
                         <AnswerButton
                             answerLetter={question.answer}
                             answerContent={question.options[question.answer]}
                             disabled={true}
                         />
-                        <span className="block">Has marcado</span>
+                        <span className="block">{ t("youChoose") }</span>
                         <AnswerButton
                             answerLetter={question.selectedAnswer}
                             answerContent={question.options[question.selectedAnswer]}
                             disabled={true}
                         />
-                        <span className="">Explicación:</span>
+                        <span className="">{ t("explanation") }:</span>
                         <p className="text-justify">{question.feedback}</p>
                         {
                             question.type === questionType.PRACTICAL && <BasicButton onClick={() => {
                                 dispatch(setCurrentQuestion(question))
                                 navigate(`/animacion/${getAnimationNameByQuizName(quizName)}`)
-                            }}> Ver retroalimentación </BasicButton>
+                            }}> { t("seeFeedback") } </BasicButton>
                         }
                     </div>
                 ))
@@ -62,10 +64,14 @@ export const QuizAnswers = () => {
 
             <div className="flex gap-3">
                 <BasicButton onClick={() => navigate(-1)}>
-                    Volver
+                    {
+                        t("back")
+                    }
                 </BasicButton>
                 <BasicButton onClick={() => navigate("/quizzes")}>
-                    Salir
+                    {  
+                        t("exit")
+                    }
                 </BasicButton>
             </div>
         </div>
