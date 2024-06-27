@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { newTrace, moveInHistoryRecord, createKey } from "./helpers";
 
 export const InsertionSort = (nums) => {
@@ -45,28 +46,31 @@ export const InsertionSortCode = ({ codeRef }) => {
 }
 
 export const InsertionSortInfo = () => {
+
+	const { t } = useTranslation()
+
 	return (
 		<ul className="list-disc list-inside text-sm">
 			<li className="mb-2">
-				<span className="font-semibold">Cómo funciona:</span> Construye una lista ordenada uno por uno insertando elementos no ordenados en su posición correcta.
+				<span className="font-semibold">{ t("howWorks") }:</span> { t("insertionSortLogic") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Ventajas:</span> Simple y eficiente para listas pequeñas o casi ordenadas.
+				<span className="font-semibold">{ t("advantages") }:</span> { t("insertionSortAdvantages") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Desventajas:</span> Ineficiente para listas grandes, complejidad de tiempo cuadrática.
+				<span className="font-semibold">{ t("disadvantages") }:</span> { t("insertionSortDisadvantages") }
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span>
+				<span className="font-semibold"> { t("complexity") } :</span>
 				<ul className="list-disc list-inside ml-4">
 					<li className="mb-1">
-						<span className="font-semibold">Peor caso:</span> O(n^2)
+						<span className="font-semibold"> { t("worstCase") } :</span> { t("insertionSortWorstCase") }
 					</li>
 					<li className="mb-1">
-						<span className="font-semibold">Mejor caso:</span> (cuando la lista ya está casi ordenada): O(n)
+						<span className="font-semibold"> { t("bestCase") } :</span> { t("insertionSortBestCase") }
 					</li>
 					<li className="mb-1">
-						<span className="font-semibold">Caso promedio:</span> O(n^2)
+						<span className="font-semibold"> { t("averageCase") } :</span> { t("insertionSortAverageCase") }
 					</li>
 				</ul>
 			</li>
