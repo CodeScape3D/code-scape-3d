@@ -123,7 +123,7 @@ export const QuickSortInfo = () => {
 				<span className="font-semibold">{ t("advantages") }:</span> { t("quickSortAdvantages") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold"> { t("disadvantages") }:</span> t("quickSortDisadvantages")
+				<span className="font-semibold"> { t("disadvantages") }:</span> { t("quickSortDisadvantages") }
 			</li>
 			<li className='mb-2'>
 				<span className="font-semibold"> { t("complexity") }:</span>
