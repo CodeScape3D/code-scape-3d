@@ -1,14 +1,15 @@
 import { Button } from '@mui/material'
 import PropTypes from 'prop-types'
 
-export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "gray.main", disabled = false, ariaLabel = ""}) => {
+export const BasicButton = ({ children, onClick = () => { }, backgroundColor = "gray.main", disabled = false, ariaLabel = "", testId = "" }) => {
     return (
         <Button
+            data-testid={testId}
             onClick={onClick}
             variant="contained"
             sx={{
                 borderRadius: "10px",
-                backgroundColor: backgroundColor ,
+                backgroundColor: backgroundColor,
                 ":hover": {
                     backgroundColor: backgroundColor,
                 },

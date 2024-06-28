@@ -131,19 +131,19 @@ export const SortControls = () => {
   return (
     <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
       <div className='flex justify-center space-x-4 mb-3'>
-        <BasicButton onClick={goBackward} >
+        <BasicButton testId="goBackward" onClick={goBackward} >
           <span>{svgBack}</span>
         </BasicButton>
 
-        <BasicButton onClick={(e) => onPlayPause(e)} >
+        <BasicButton testId="playPause" onClick={(e) => onPlayPause(e)} >
           {svg}
         </BasicButton>
 
-        <BasicButton onClick={goForward} >
+        <BasicButton testId="goForward" onClick={goForward} >
           <span>{svgForward}</span>
         </BasicButton>
 
-        <BasicButton onClick={repeat} >
+        <BasicButton testId="repeat" onClick={repeat} >
           <span>{svgRepeat}</span>
         </BasicButton>
       </div>
@@ -154,7 +154,6 @@ export const SortControls = () => {
             id="speed-select"
             value={sortState.sortingSpeed}
             onChange={changePlaySpeed}
-            label="Speed Selector"
             style={{ height: "48px" }}
           >
             <MenuItem value={0.25}>0.25x</MenuItem>
@@ -173,7 +172,6 @@ export const SortControls = () => {
             id="array-size-select"
             onChange={onArraySizeChange}
             value={sortState.arraySize}
-            label="Array Length"
             style={{ height: "48px" }}
           >
             <MenuItem value={3}>3</MenuItem>
