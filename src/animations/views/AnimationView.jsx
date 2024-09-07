@@ -70,9 +70,27 @@ export const AnimationView = () => {
   return (
     <div className="flex flex-col items-center mt-3 w-full h-full flex-grow">
       <Header
-        titulo={sort ? algorithm : animacion}
+        titulo={
+          sort
+            ? algorithm
+            : animacion === "linkedlist"
+            ? "Listas Enlazadas"
+            : animacion === "stack"
+            ? "Pilas"
+            : animacion
+        }
         quiz={animacion}
-        descripcionQuiz={(sort ? algorithm : animacion) + ` quiz`}
+        descripcionQuiz={
+          (sort
+            ? algorithm
+            : animacion === "linkedlist"
+            ? "Listas"
+            : animacion === "stack"
+            ? "Pilas"
+            : animacion) +
+          " " +
+          t("quiz")
+        }
       />
 
       <div className={classNameChart}>
@@ -96,7 +114,7 @@ export const AnimationView = () => {
       </div>
 
       <Dialog open={modalIsOpen} onClose={() => setIsOpen(false)}>
-        <DialogTitle>{"Feedback"}</DialogTitle>
+        <DialogTitle>{t("feedback")}</DialogTitle>
 
         <DialogContent>
           <DialogContentText>{currentQuestion.feedback}</DialogContentText>
