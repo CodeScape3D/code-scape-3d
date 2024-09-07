@@ -82,5 +82,7 @@
   "heapSortDisadvantages": "No es estable, complejo, se comporta de manera ineficaz con los datos.",
   "heapSortComplexity": "O(n log n) en todos los casos. Heap Sort siempre tiene una complejidad temporal de O(n log n) en el peor caso, lo que lo hace eficiente para listas grandes.",
   "feedback": "Retroalimentación",
-  "close": "Cerrar"
+  "close": "Cerrar",
+  "stack": "Pilas",
+  "linkedlist": "Listas enlazadas"
 }

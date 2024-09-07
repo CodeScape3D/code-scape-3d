@@ -74,9 +74,9 @@ export const AnimationView = () => {
           sort
             ? algorithm
             : animacion === "linkedlist"
-            ? "Listas Enlazadas"
+            ? t("linkedlist")
             : animacion === "stack"
-            ? "Pilas"
+            ? t("stack")
             : animacion
         }
         quiz={animacion}
@@ -84,9 +84,9 @@ export const AnimationView = () => {
           (sort
             ? algorithm
             : animacion === "linkedlist"
-            ? "Listas"
+            ? t("linkedlist")
             : animacion === "stack"
-            ? "Pilas"
+            ? t("stack")
             : animacion) +
           " " +
           t("quiz")
