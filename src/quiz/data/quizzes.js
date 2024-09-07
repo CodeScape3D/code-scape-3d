@@ -242,7 +242,7 @@ export const bubbleSortQuiz = {
         },
         {
             "statement": "Enunciado de la pregunta teórica 2",
-            "question": "¿Cuál es la complejidad temporal promedio del método de ordenamiento de burbuja?",
+            "question": "¿Cuál es la complejidad promedio de tiempo del algoritmo Bubble Sort en el peor caso?",
             "options": {
                 "A": "O(n)",
                 "B": "O(n log n)",
@@ -342,8 +342,23 @@ export const quickSortQuiz = {
     "array": [42, 17, 89, 5, 63, 31, 77, 11],
     "questions": [
         {
+            "statement": "¿Cuál es el concepto clave detrás del algoritmo Quicksort? ",
+            "question": "Concepto clave de Quicksort.",
+            "options": {
+                "A": "Comparar elementos adyacentes y cambiarlos si están fuera de orden. ",
+                "B": "Dividir la lista en subconjuntos más pequeños, ordenarlos y luego combinarlos",
+                "C": "Elegir un elemento pivote y reorganizar los elementos para que los menores estén a su izquierda y los mayores a su derecha",
+                "D": "Utilizar una estructura de datos de cola para organizar los elementos."
+            },
+            "answer": "C",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "El concepto de elegir un pivote y colocar los elementos menores a su izquierda y los mayores a su derecha, sigue el concepto de dividir y conquistar."
+        },
+        {
             "statement": "¿Cuál es la idea principal detrás del algoritmo Quicksort?",
-            "question": "Selecciona la opción correcta.",
+            "question": "Idea principal de Quicksort",
             "options": {
                 "A": "Dividir el arreglo en subarreglos y ordenarlos por separado.",
                 "B": "Recorrer el arreglo y comparar cada elemento con el siguiente.",
@@ -357,8 +372,23 @@ export const quickSortQuiz = {
             "feedback": "Correcto. Quicksort divide el arreglo en subarreglos más pequeños y luego los ordena de manera recursiva."
         },
         {
+            "statement": "¿Qué factor puede afectar negativamente el rendimiento del Quicksort en su implementación estándar? ",
+            "question": "Factor que afecta el rendimiento de Quicksort.",
+            "options": {
+                "A": "El uso de un elemento pivote",
+                "B": "La cantidad de elementos en la lista",
+                "C": "La elección del algoritmo de intercambio de elementos",
+                "D": "La elección del algoritmo de intercambio de elementos"
+            },
+            "answer": "A",
+            "selectedAnswer": null,
+            "state": "UNANSWERED",
+            "type": "THEORICAL",
+            "feedback": "La elección de un pivote adecuado es importante para el rendimiento de Quicksort"
+        },
+        {
             "statement": "¿Cuál es la complejidad promedio del algoritmo Quicksort?",
-            "question": "Selecciona la opción correcta.",
+            "question": "Complejidad promedio de QuickSort.",
             "options": {
                 "A": "O(n)",
                 "B": "O(n log n)",

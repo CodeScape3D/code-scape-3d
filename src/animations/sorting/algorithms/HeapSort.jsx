@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { swap, newTrace, moveInHistoryRecord, lastSorted, createRange, createKey } from "./helpers";
 
 export const HeapSort = (nums) => {
@@ -124,19 +125,22 @@ for i from n - 1 down to 1:`}</pre>
 }
 
 export const HeapSortInfo = () => {
+
+	const { t } = useTranslation()
+
 	return (
 		<ul className="list-disc list-inside text-sm">
 			<li className="mb-2">
-				<span className="font-semibold">Cómo funciona:</span> Construye un heap (árbol binario especial) y luego extrae el elemento máximo repetidamente para ordenar la lista.
+				<span className="font-semibold">{ t("howWorks") }:</span> { t("heapSortLogic") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Ventajas:</span> Eficiente en listas grandes, in situ (no requiere memoria adicional).
+				<span className="font-semibold">{ t("advantages") }:</span> { t("heapSortAdvantages") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Desventajas:</span> No es estable, complejo, se comporta de manera ineficaz con los datos.
+				<span className="font-semibold">{ t("disadvantages") }:</span> { t("heapSortDisadvantages") }
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span> O(n log n) en todos los casos. Heap Sort siempre tiene una complejidad temporal de O(n log n) en el peor caso, lo que lo hace eficiente para listas grandes.
+				<span className="font-semibold">{ t("complexity") }:</span> { t("heapSortComplexity") }
 			</li>
 		</ul>
 	)

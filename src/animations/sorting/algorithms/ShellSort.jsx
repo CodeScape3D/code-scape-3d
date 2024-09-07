@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { swap, newTrace, moveInHistoryRecord, createRange, createKey } from "./helpers";
 
 export const ShellSort = (nums) => {
@@ -45,19 +46,22 @@ export const ShellSortCode = ({ codeRef }) => {
 }
 
 export const ShellSortInfo = () => {
+
+	const { t } = useTranslation()
+
 	return (
 		<ul className="list-disc list-inside text-sm">
 			<li className="mb-2">
-				<span className="font-semibold">Cómo funciona:</span> consiste en dividir el arreglo (o la lista de elementos) en intervalos (o bloques) de varios elementos para organizarlos después por medio del ordenamiento de inserción directa.
+				<span className="font-semibold">{ t("howWorks") }:</span> { t("shellSortLogic") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Ventajas:</span> Uno de los algoritmos mas rapidos, no requiere memoria adicional.
+				<span className="font-semibold">{ t("advantages") }:</span> { t("shellSortAdvantages") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Desventajas:</span> Poco estable ya que pierde orden relativo, no utiliza pivote.
+				<span className="font-semibold">{ t("disadvantages") }:</span> { t("shellSortDisadvantages") }
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span> La complejidad de Shell Sort depende del tipo de secuencia de incrementos que se utilice. La complejidad en el peor caso generalmente se considera entre O(n log^2 n) y O(n^2), según la secuencia de incrementos utilizada. La elección de la secuencia de incrementos puede afectar significativamente el rendimiento del algoritmo.
+				<span className="font-semibold">{ t("complexity") }:</span> { t("shellSortComplexity") }
 			</li>
 		</ul>
 	)

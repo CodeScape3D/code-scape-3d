@@ -11,8 +11,12 @@ import {
   svgGameFruitSplash,
   svgGameMilitary,
 } from "../assets/svg/SvgConstans";
+import { useTranslation } from "react-i18next";
 
 export const HomeMiniJuegos = () => {
+
+  const { t } = useTranslation();
+
   return (
     <div className="relative flex flex-col items-center justify-center mainDivGames bg-white w-full">
       <div className="text-center text-black lg:mt-7 md:mt-4 md:mb-4">
@@ -38,14 +42,14 @@ export const HomeMiniJuegos = () => {
 
 
       <div
-        className="absolute inset-0 flex items-center justify-center bg-primary bg-opacity-90"
+        className="absolute inset-0 flex items-center justify-center bg-primary"
       >
 
       </div>
       <div
         className="absolute inset-0 flex items-center justify-center"
       >
-        <p className="text-white text-5xl font-semibold">Próximamente...</p>
+        <p className="text-white text-5xl font-semibold">{t("comingSoon")}</p>
       </div>
     </div>
   );

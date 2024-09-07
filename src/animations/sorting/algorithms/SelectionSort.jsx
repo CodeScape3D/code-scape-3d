@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { swap, newTrace, moveInHistoryRecord, lastSorted, createKey } from "./helpers";
 
 export const SelectionSort = (nums) => {
@@ -55,19 +56,22 @@ export const SelectionSortCode = ({ codeRef }) => {
 }
 
 export const SelectionSortInfo = () => {
+
+	const { t } = useTranslation()
+
 	return (
 		<ul className="list-disc list-inside text-sm">
 			<li className="mb-2">
-				<span className="font-semibold">Cómo funciona:</span> Encuentra el elemento mínimo y lo coloca al principio, luego repite el proceso para el resto de la lista.
+				<span className="font-semibold">{ t("howWorks") }:</span> { t("selectionSortLogic") }
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Ventajas:</span> Simple y útil para listas pequeñas.
+				<span className="font-semibold">{ t("advantages") }:</span> { t("selectionSortAdvantages") } 
 			</li>
 			<li className="mb-2">
-				<span className="font-semibold">Desventajas:</span> Ineficiente para listas grandes, no es estable, complejidad de tiempo cuadrática.
+				<span className="font-semibold">{ t("disadvantages") }:</span> { t("selectionSortDisadvantages") }
 			</li>
 			<li className='mb-2'>
-				<span className="font-semibold">Complejidad:</span> O(n^2), en todos los casos, ya que siempre realiza el mismo número de comparaciones y movimientos de elementos, independientemente del estado inicial de la lista.
+				<span className="font-semibold">{ t("complexity") }:</span> { t("selectionSortComplexity") }
 
 			</li>
 		</ul>
