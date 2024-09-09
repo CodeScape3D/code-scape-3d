@@ -84,5 +84,8 @@
   "feedback": "Feedback",
   "close": "Close",
   "stack": "Stacks",
-  "linkedlist": "Linked Lists"
+  "linkedlist": "Linked Lists",
+  "insert": "Insert",
+  "delete": "Delete",
+  "element": "Element"
 }

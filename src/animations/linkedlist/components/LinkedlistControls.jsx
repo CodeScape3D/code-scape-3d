@@ -1,10 +1,18 @@
 import { Button, TextField } from "@mui/material";
-import { svgBack, svgForward, svgPlay, svgRepeat } from "../../../assets/svg/SvgConstans";
+import {
+  svgBack,
+  svgForward,
+  svgPlay,
+  svgRepeat,
+} from "../../../assets/svg/SvgConstans";
 import { BasicButton } from "../../../components";
+import { useTranslation } from "react-i18next";
 
 export const LinkedlistControls = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
+    <div className="w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between">
       <div className="flex justify-center space-x-4 mb-3">
         <BasicButton onClick={(e) => console.log("back")}>
           <span>{svgBack}</span>
@@ -21,11 +29,10 @@ export const LinkedlistControls = () => {
         <BasicButton onClick={(e) => console.log("repeat")}>
           <span>{svgRepeat}</span>
         </BasicButton>
-
       </div>
       <div className="flex justify-center space-x-4 items-center">
         <TextField
-          label="Int"
+          label={t("element")}
           variant="outlined"
           type="number"
           value={0}
@@ -40,7 +47,7 @@ export const LinkedlistControls = () => {
             backgroundColor: "gray.main",
           }}
         >
-          Insert
+          {t("insert")}
         </Button>
         <Button
           variant="contained"
@@ -48,10 +55,11 @@ export const LinkedlistControls = () => {
           sx={{
             height: "48px",
             backgroundColor: "gray.main",
-          }}>
-          Remove
+          }}
+        >
+          {t("delete")}
         </Button>
       </div>
     </div>
   );
-}
+};

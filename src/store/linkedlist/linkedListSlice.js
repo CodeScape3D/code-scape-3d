@@ -1,12 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Nodo from "../../animations/stack/algorithms/Nodo";
+import Nodo from "../../animations/linkedlist/algorithms/Nodo";
 
 const initialState = {
-  head: new Nodo(4, new Nodo(5, new Nodo(6, new Nodo(7)))),
+  head: new Nodo(4, new Nodo(5, new Nodo(8, new Nodo(7)))),
   elementos: [],
   stepHistory: [],
   timeStep: 1,
-
   funAction: null,
 
   history: -1,

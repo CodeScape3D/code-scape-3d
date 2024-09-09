@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "animate.css": "^4.1.1",
     "chart.js": "^4.3.3",
+    "code-scape-3d": "file:",
     "i18next": "^23.11.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

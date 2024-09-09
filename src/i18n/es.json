@@ -84,5 +84,8 @@
   "feedback": "Retroalimentación",
   "close": "Cerrar",
   "stack": "Pilas",
-  "linkedlist": "Listas enlazadas"
+  "linkedlist": "Listas enlazadas",
+  "insert": "Insertar",
+  "delete": "Eliminar",
+  "element": "Elemento"
 }
