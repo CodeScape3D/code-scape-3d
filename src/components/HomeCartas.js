@@ -79,14 +79,14 @@ export const topic = [
   {
     id: 5,
     curso: "Programacion2",
-    titulo: "Pilas",
+    titulo: "Stacks",
     param: "stack",
     imagen: svgPilesHome,
   },
   {
     id: 8,
     curso: "Programacion2",
-    titulo: "Lista Enlazada",
+    titulo: "Linked List",
     param: "linkedlist",
     imagen: SvgListaEnlazada,
   },

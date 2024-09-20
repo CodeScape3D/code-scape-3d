@@ -1,7 +1,13 @@
 import { useSelector } from "react-redux";
-export const LinkedlistChart = () => {
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
-  const { head, isHead, isTail, firstSet, secondSet } = useSelector((state) => state.linkedList);
+export const LinkedlistChart = () => {
+  const { t } = useTranslation();
+
+  const { head, isHead, isTail, firstSet, secondSet } = useSelector(
+    (state) => state.linkedList
+  );
 
   return (
     <div className="flex flex-col h-32 pr-12 justify-end overflow-x-auto md:overflow-x-hidden">
@@ -24,24 +30,22 @@ const renderList = (node, isHead, isTail, firstSet, secondSet) => {
   };
 
   const nodoClassName = `h-8 p-6 flex justify-center items-center 
-  relative text-black font-bold transition duration-200 ease-in-out border-2 border-black rounded-s-md ${getBackgroundColor()}`
+  relative text-black font-bold transition duration-200 ease-in-out border-2 border-black rounded-s-md ${getBackgroundColor()}`;
 
   return (
     <>
       <div className="relative flex flex-row shadow-md">
         {node.value === isHead && (
           <div className="absolute left-4 bottom-14 flex flex-col items-center text-black font-bold">
-            <span>head</span>
+            <span>{t("head")}</span>
             <span>⬆️</span>
           </div>
         )}
-        <div className={nodoClassName}>
-          {node.value}
-        </div>
+        <div className={nodoClassName}>{node.value}</div>
         <div className="relative w-3 border-t-2 border-e-2 border-b-2 border-black rounded-e-md">
           <div className="absolute left-1 bottom-3">
             {node.value === isTail ? (
-              <span className="font-bold w-5" >➡️tail</span>
+              <span className="font-bold w-5">➡️{t("tail")}</span>
             ) : (
               <span>➝</span>
             )}
@@ -51,4 +55,4 @@ const renderList = (node, isHead, isTail, firstSet, secondSet) => {
       {renderList(node.next, isHead, isTail, firstSet, secondSet)}
     </>
   );
-}
+};

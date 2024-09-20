@@ -87,5 +87,7 @@
   "linkedlist": "Linked Lists",
   "insert": "Insert",
   "delete": "Delete",
-  "element": "Element"
+  "element": "Element",
+  "head": "Head",
+  "tail": "Tail"
 }

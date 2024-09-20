@@ -87,5 +87,7 @@
   "linkedlist": "Listas enlazadas",
   "insert": "Insertar",
   "delete": "Eliminar",
-  "element": "Elemento"
+  "element": "Elemento",
+  "head": "Cabeza",
+  "tail": "Cola"
 }

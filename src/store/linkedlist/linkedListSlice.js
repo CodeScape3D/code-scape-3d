@@ -3,7 +3,7 @@ import Nodo from "../../animations/linkedlist/algorithms/Nodo";
 
 const initialState = {
   head: new Nodo(4, new Nodo(5, new Nodo(8, new Nodo(7)))),
-  elementos: [],
+  elementos: [4, 5, 8, 7],
   stepHistory: [],
   timeStep: 1,
   funAction: null,
