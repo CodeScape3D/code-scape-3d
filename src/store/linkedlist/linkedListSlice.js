@@ -15,14 +15,108 @@ const initialState = {
   isHead: 4,
   isTail: 7,
 
-  srcHead: null,
+  srcHead: new Nodo(4, new Nodo(5, new Nodo(8, new Nodo(7)))),
   playing: false,
 };
 
 export const linkedListSlice = createSlice({
   name: "linkedList",
   initialState,
-  reducers: {},
+  reducers: {
+    restoreLinkedList: () => ({
+      ...initialState,
+    }),
+
+    restoreTimeId: (state) => {
+      state.timeId.forEach((timeoutId) => clearTimeout(timeoutId));
+      return {
+        ...state,
+        timeId: [],
+      };
+    },
+
+    updateVisualizationLinkedList: (state, action) => {
+      const { head, firstSet, secondSet, isHead } = action.payload;
+
+      const elementos = [];
+      let current = head;
+      while (current !== null) {
+        elementos.push(current.getValue());
+        current = current.getNext();
+      }
+
+      return {
+        ...state,
+        head,
+        firstSet,
+        secondSet,
+        isHead,
+        elementos,
+      };
+    },
+
+    setTimeIdLinkedList: (state, action) => {
+      return {
+        ...state,
+        timeId: [...state.timeId, action.payload],
+      };
+    },
+
+    incrementHistoryLinkedList: (state) => {
+      return {
+        ...state,
+        history: state.history + 1,
+      };
+    },
+
+    decrementHistoryLinkedList: (state) => {
+      return {
+        ...state,
+        history: state.history - 1,
+      };
+    },
+
+    setPlayingLinkedList: (state, action) => {
+      return {
+        ...state,
+        playing: action.payload,
+      };
+    },
+
+    createRecordStack: (state, action) => {
+      const head = state.head;
+      const isHead = state.isHead;
+      const value = action.payload.value;
+
+      const funAction = getAction(action.payload.action);
+      if (funAction) {
+        const stepHistory = funAction(head, value, isHead);
+        state.stepHistory = stepHistory;
+        state.funAction = action.payload.action;
+      }
+    },
+  },
 });
 
-export const {} = linkedListSlice.actions;
+export const getAction = (action) => {
+  const actions = {
+    insertHead: null,
+    insertTail: null,
+    deleteHead: null,
+    deleteTail: null,
+    deleteElement: null,
+  };
+  return actions[action] || null;
+};
+
+export const {
+  restoreLinkedList,
+  restoreTimeId,
+  updateVisualizationLinkedList,
+  setTimeIdLinkedList,
+  incrementHistoryLinkedList,
+  decrementHistoryLinkedList,
+  setPlayingLinkedList,
+} = linkedListSlice.actions;
+
+export default linkedListSlice.reducer;

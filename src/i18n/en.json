@@ -89,5 +89,10 @@
   "delete": "Delete",
   "element": "Element",
   "head": "Head",
-  "tail": "Tail"
+  "tail": "Tail",
+  "choose_position": "Choose Position",
+  "insert_at_head_or_tail": "Do you want to insert at the head or the tail?",
+  "choose_delete_position": "Choose Delete Position",
+  "delete_head_tail_or_element": "Do you want to delete the head, the tail, or the specific element?",
+  "element_specific": "Specific Element"
 }

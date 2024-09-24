@@ -89,5 +89,10 @@
   "delete": "Eliminar",
   "element": "Elemento",
   "head": "Cabeza",
-  "tail": "Cola"
+  "tail": "Cola",
+  "choose_position": "Elegir posición",
+  "insert_at_head_or_tail": "¿Deseas insertar en la cabeza o en la cola?",
+  "choose_delete_position": "Elegir posición para eliminar",
+  "delete_head_tail_or_element": "¿Deseas eliminar la cabeza, la cola o el elemento específico?",
+  "element_specific": "Elemento específico"
 }
