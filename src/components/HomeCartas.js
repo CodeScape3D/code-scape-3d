@@ -76,13 +76,15 @@ export const topic = [
     param: "heap",
     imagen: svgHeapHome,
   },
-  {
+  /**
+   * {
     id: 5,
     curso: "Programacion2",
     titulo: "Stacks",
     param: "stack",
     imagen: svgPilesHome,
   },
+   */
   {
     id: 8,
     curso: "Programacion2",
