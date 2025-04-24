@@ -80,5 +80,11 @@
     "heapSortLogic": "Builds a heap (special binary tree) and then repeatedly extracts the maximum element to sort the list.",
     "heapSortAdvantages": "One of the fastest algorithms, does not require additional memory.",
     "heapSortDisadvantages": "Not stable, complex, can behave inefficiently with data.",
-    "heapSortComplexity": "O(n log n) in all cases. Heap Sort always has a time complexity of O(n log n) in the worst case, making it efficient for large lists."
+    "heapSortComplexity": "O(n log n) in all cases. Heap Sort always has a time complexity of O(n log n) in the worst case, making it efficient for large lists.",
+    "selectAlgorithmToLearn": "Select an algorithm to learn how it works",
+    "learningResources": "Learning Resources",
+    "selectCategoryToExplore": "Select a category to explore algorithms and data structures",
+    "availableCategories": "Available Categories",
+    "clickToExpandCategory": "Click on a category to see available topics",
+    "fundamentals": "Fundamentals"
 }

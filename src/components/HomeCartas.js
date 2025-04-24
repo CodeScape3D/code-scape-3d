@@ -32,6 +32,7 @@ export const courses = [
   },
 ];
 
+// Mantenemos la exportación original de topic para compatibilidad
 export const topic = [
   {
     id: 1,
@@ -82,4 +83,18 @@ export const topic = [
     param: "stack",
     imagen: svgPilesHome,
   },
+];
+
+// Nueva estructura por categorías
+export const topicCategories = [
+  {
+    id: 1,
+    nombre: "Métodos de Ordenamiento",
+    temas: topic.filter(t => t.param !== "stack") // Todos excepto Pilas
+  },
+  {
+    id: 2,
+    nombre: "Estructuras de Datos",
+    temas: topic.filter(t => t.param === "stack") // Solo Pilas
+  }
 ];
