@@ -80,6 +80,12 @@
     "heapSortLogic": "Construye un heap (árbol binario especial) y luego extrae el elemento máximo repetidamente para ordenar la lista.",
     "heapSortAdvantages": "Uno de los algoritmos mas rapidos, no requiere memoria adicional.",
     "heapSortDisadvantages": "No es estable, complejo, se comporta de manera ineficaz con los datos.",
-    "heapSortComplexity": "O(n log n) en todos los casos. Heap Sort siempre tiene una complejidad temporal de O(n log n) en el peor caso, lo que lo hace eficiente para listas grandes."
+    "heapSortComplexity": "O(n log n) en todos los casos. Heap Sort siempre tiene una complejidad temporal de O(n log n) en el peor caso, lo que lo hace eficiente para listas grandes.",
+    "selectAlgorithmToLearn": "Selecciona un algoritmo para aprender cómo funciona",
+  "learningResources": "Recursos de Aprendizaje",
+  "selectCategoryToExplore": "Selecciona una categoría para explorar algoritmos y estructuras de datos",
+  "availableCategories": "Categorías Disponibles",
+  "clickToExpandCategory": "Haz clic en una categoría para ver los temas disponibles",
+  "fundamentals": "Fundamentos"
 
 }
