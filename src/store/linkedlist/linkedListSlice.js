@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Nodo from "../../animations/linkedlist/algorithms/Nodo";
+import {
+  InsertHead,
+  InsertTail,
+  DeleteHead,
+  DeleteTail,
+  DeleteElement,
+} from "../../animations";
 
 const initialState = {
   head: new Nodo(4, new Nodo(5, new Nodo(8, new Nodo(7)))),
@@ -100,11 +107,11 @@ export const linkedListSlice = createSlice({
 
 export const getAction = (action) => {
   const actions = {
-    insertHead: null,
-    insertTail: null,
-    deleteHead: null,
-    deleteTail: null,
-    deleteElement: null,
+    inserthead: InsertHead,
+    inserttail: InsertTail,
+    deletehead: DeleteHead,
+    deletetail: DeleteTail,
+    deleteelement: DeleteElement,
   };
   return actions[action] || null;
 };
@@ -117,6 +124,7 @@ export const {
   incrementHistoryLinkedList,
   decrementHistoryLinkedList,
   setPlayingLinkedList,
+  createRecordStack,
 } = linkedListSlice.actions;
 
 export default linkedListSlice.reducer;
