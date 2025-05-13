@@ -3,7 +3,27 @@
 
 branch="$(git symbolic-ref --short HEAD)"
 
+# Protección de ramas principales
+echo "🔍 Verificando rama actual: $branch"
 if [ "$branch" = "main" ] || [ "$branch" = "dev" ]; then
   echo "🚫 Push directo a la rama $branch no permitido. Crea una rama diferente y genera un Pull Request."
   exit 1
-fi 
+fi
+
+# Ejecutar formateo global
+printf '\n⚙️  Ejecutando npm run format...\n'
+npm run format --silent
+
+# Añadir cambios formateados
+git add -u
+
+# Si hay archivos en staging (dif entre index y HEAD)
+if ! git diff --cached --quiet; then
+  printf '\n✨ Se detectaron archivos formateados, creando commit "format"...\n'
+  git commit -m "format" --no-verify
+  echo "ℹ️  Se ha creado un commit de formato. Vuelve a ejecutar 'git push' para enviar los cambios."
+  exit 1
+fi
+
+# Si no hubo cambios, continuar push
+exit 0 
