@@ -1,1 +1,1 @@
-export * from "./stackSlice";
+export * from './stackSlice';

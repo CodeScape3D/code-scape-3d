@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 
-import PropTypes from 'prop-types'
-
-export const CodeBlock = ({code}) => {
+export const CodeBlock = ({ code }) => {
   return (
-    <code className="block p-3 bg-gray-900 rounded-md"><pre className="text-white">{code}</pre></code>
-  )
-}
+    <code className="block p-3 bg-gray-900 rounded-md">
+      <pre className="text-white">{code}</pre>
+    </code>
+  );
+};
 
-CodeBlock.propTypes = { 
-    code: PropTypes.string.isRequired,
-}
+CodeBlock.propTypes = {
+  code: PropTypes.string.isRequired,
+};

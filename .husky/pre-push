@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+branch="$(git symbolic-ref --short HEAD)"
+
+if [ "$branch" = "main" ] || [ "$branch" = "dev" ]; then
+  echo "🚫 Push directo a la rama $branch no permitido. Crea una rama diferente y genera un Pull Request."
+  exit 1
+fi 

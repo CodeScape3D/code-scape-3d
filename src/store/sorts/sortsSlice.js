@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 import {
   BubbleSort,
   SelectionSort,
@@ -9,13 +9,13 @@ import {
   ShellSort,
   CocktailSort,
   ThreeWayQuickSort,
-} from "../../animations/";
+} from '../../animations/';
 
 const initialState = {
   array: [],
   arraySize: 5,
   stepHistory: [],
-  algorithm: "",
+  algorithm: '',
 
   history: -1,
   srcArray: [],
@@ -31,7 +31,7 @@ const initialState = {
 };
 
 export const sortsSlice = createSlice({
-  name: "sorts",
+  name: 'sorts',
   initialState,
   reducers: {
     setArray: (state, action) => {
@@ -74,8 +74,8 @@ export const sortsSlice = createSlice({
       state.sortedSet = [];
       state.srcArray = [...action.payload];
     },
-    restoreTimeIdArr: (state) => {
-      state.timeIdArr.forEach((timeoutId) => clearTimeout(timeoutId));
+    restoreTimeIdArr: state => {
+      state.timeIdArr.forEach(timeoutId => clearTimeout(timeoutId));
       state.timeIdArr = [];
     },
     updateVisualization: (state, action) => {
@@ -94,14 +94,14 @@ export const sortsSlice = createSlice({
       };
     },
 
-    incrementHistory: (state) => {
+    incrementHistory: state => {
       return {
         ...state,
         history: state.history + 1,
       };
     },
 
-    decrementHistory: (state) => {
+    decrementHistory: state => {
       return {
         ...state,
         history: state.history - 1,
@@ -127,7 +127,7 @@ export const sortsSlice = createSlice({
       state.algorithm = action.payload;
     },
 
-    restoreRepeat: (state) => {
+    restoreRepeat: state => {
       const srcArray = [...state.srcArray];
       state.array = srcArray;
       state.history = -1;
@@ -155,13 +155,13 @@ export const sortsSlice = createSlice({
         state.stepHistory = stepHistory;
       }
 
-      state.timeIdArr.forEach((timeoutId) => clearTimeout(timeoutId));
+      state.timeIdArr.forEach(timeoutId => clearTimeout(timeoutId));
       state.timeIdArr = [];
 
       const step = state.stepHistory[state.history];
 
-      console.log("step", step);
-      console.log("history", state.history);
+      console.log('step', step);
+      console.log('history', state.history);
 
       state.array = step.array;
       state.firstSet = step.firstSet;
@@ -178,7 +178,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max)) + 1;
 }
 
-const createRecord = (state) => {
+const createRecord = state => {
   const numbers = [...state.array];
   const sort = getSortingAlgorithm(state.algorithm);
   if (sort) {
@@ -187,17 +187,17 @@ const createRecord = (state) => {
   }
 };
 
-export const getSortingAlgorithm = (algorithm) => {
+export const getSortingAlgorithm = algorithm => {
   const sortingFunctions = {
-    "Bubble Sort": BubbleSort,
-    "Selection Sort": SelectionSort,
-    "Insertion Sort": InsertionSort,
-    "Merge Sort": MergeSort,
-    "Quick Sort": QuickSort,
-    "Heap Sort": HeapSort,
-    "Shell Sort": ShellSort,
-    "Cocktail Sort": CocktailSort,
-    "ThreeWayQuick Sort": ThreeWayQuickSort,
+    'Bubble Sort': BubbleSort,
+    'Selection Sort': SelectionSort,
+    'Insertion Sort': InsertionSort,
+    'Merge Sort': MergeSort,
+    'Quick Sort': QuickSort,
+    'Heap Sort': HeapSort,
+    'Shell Sort': ShellSort,
+    'Cocktail Sort': CocktailSort,
+    'ThreeWayQuick Sort': ThreeWayQuickSort,
   };
   return sortingFunctions[algorithm] || null;
 };

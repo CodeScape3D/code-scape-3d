@@ -16,8 +16,7 @@
     line-height: 1.7 /* 28px */;
   }
 
-  .gamesScroll{
-
+  .gamesScroll {
     margin-top: 1.5rem;
   }
 }
@@ -26,39 +25,27 @@
   .mainQuizzes {
     overflow-y: scroll;
     max-height: calc(100vh - 60px);
-
-
   }
 
-  .gamesScroll{
-
+  .gamesScroll {
     overflow-y: scroll;
     max-height: calc(100vh - 60px);
-
-
   }
-
 }
 
-
-@media (max-width: 640px){
-
-  .mainDivGames{
+@media (max-width: 640px) {
+  .mainDivGames {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-
   }
 
-  .gamesContainer{
-
+  .gamesContainer {
     height: 10rem;
     width: 10rem;
   }
 
-  .pTitleGame{
+  .pTitleGame {
     width: 10rem;
   }
-
-
 }

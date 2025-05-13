@@ -6,7 +6,7 @@ export const newTraceStack = (head, isHead) => {
       secondSet: [],
       isHead: isHead,
       currentIndex: null,
-    }
+    },
   ];
 };
 
@@ -16,7 +16,7 @@ export const moveInHistoryRecordStack = (
   firstSet = [],
   secondSet = [],
   isHead = -1,
-  currentIndex = null,
+  currentIndex = null
 ) => {
   stepHistory.push({
     head: head,

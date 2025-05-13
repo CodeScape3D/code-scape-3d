@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import "../styles/mediaquerys.css";
-import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
+import '../styles/mediaquerys.css';
+import PropTypes from 'prop-types';
 
 const QuizCard = ({ logo, titulo, ruta }) => {
   return (
@@ -12,17 +12,17 @@ const QuizCard = ({ logo, titulo, ruta }) => {
           </div>
 
           <div className="bg-secondary w-full h-full rounded-b-lg flex justify-center text-center items-center sm:h-96">
-            <p className="sm:text-lg text-white md:text-xl fontSizeQuizzes">{titulo}</p>
+            <p className="sm:text-lg text-white md:text-xl fontSizeQuizzes">
+              {titulo}
+            </p>
           </div>
-
-          
         </div>
       </Link>
     </div>
   );
 };
 
-QuizCard.propTypes = { 
+QuizCard.propTypes = {
   logo: PropTypes.element.isRequired,
   titulo: PropTypes.string.isRequired,
   ruta: PropTypes.string.isRequired,

@@ -1,2 +1,2 @@
-export * from "./quizzes"
-export * from "./quizzesEn"
+export * from './quizzes';
+export * from './quizzesEn';

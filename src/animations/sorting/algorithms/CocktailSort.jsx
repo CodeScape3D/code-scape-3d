@@ -1,32 +1,53 @@
-import { swap, newTrace, moveInHistoryRecord, lastSorted, createKey } from "./helpers";
+import {
+  swap,
+  newTrace,
+  moveInHistoryRecord,
+  lastSorted,
+  createKey,
+} from './helpers';
 
-export const CocktailSort = (nums) => {
-	const stepHistory = newTrace(nums);
+export const CocktailSort = nums => {
+  const stepHistory = newTrace(nums);
 
-	for (let i = nums.length - 1; i > 0; i--) {
-		let j;
-		// Backwards
-		for (j = nums.length - 1; j > i; j--) {
-			moveInHistoryRecord(stepHistory, nums, lastSorted(stepHistory), [], [j, j + 1]);
+  for (let i = nums.length - 1; i > 0; i--) {
+    let j;
+    // Backwards
+    for (j = nums.length - 1; j > i; j--) {
+      moveInHistoryRecord(
+        stepHistory,
+        nums,
+        lastSorted(stepHistory),
+        [],
+        [j, j + 1]
+      );
 
-			if (nums[j] < nums[j - 1]) {
-				[nums[j], nums[j - 1]] = [nums[j - 1], nums[j]];
-			}
-		}
+      if (nums[j] < nums[j - 1]) {
+        [nums[j], nums[j - 1]] = [nums[j - 1], nums[j]];
+      }
+    }
 
-		// Forwards
-		for (j = 0; j < i; j++) {
-			moveInHistoryRecord(stepHistory, nums, lastSorted(stepHistory), [j, j + 1]);
+    // Forwards
+    for (j = 0; j < i; j++) {
+      moveInHistoryRecord(stepHistory, nums, lastSorted(stepHistory), [
+        j,
+        j + 1,
+      ]);
 
-			if (nums[j] > nums[j + 1]) {
-				[nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
-			}
-		}
-		moveInHistoryRecord(stepHistory, nums, [...lastSorted(stepHistory), nums.length - 1 - i]);
-	}
-	moveInHistoryRecord(stepHistory, nums, [...lastSorted(stepHistory), nums.length - 1]);
+      if (nums[j] > nums[j + 1]) {
+        [nums[j], nums[j + 1]] = [nums[j + 1], nums[j]];
+      }
+    }
+    moveInHistoryRecord(stepHistory, nums, [
+      ...lastSorted(stepHistory),
+      nums.length - 1 - i,
+    ]);
+  }
+  moveInHistoryRecord(stepHistory, nums, [
+    ...lastSorted(stepHistory),
+    nums.length - 1,
+  ]);
 
-	return stepHistory;
+  return stepHistory;
 };
 
-export const CocktailSortLegend = createKey("Comparing");
+export const CocktailSortLegend = createKey('Comparing');

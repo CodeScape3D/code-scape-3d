@@ -1,7 +1,13 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { BasicButton } from '../../../components';
-import { svgBack, svgPlay, svgPause, svgRepeat, svgForward } from '../../../assets/svg/SvgConstans';
+import {
+  svgBack,
+  svgPlay,
+  svgPause,
+  svgRepeat,
+  svgForward,
+} from '../../../assets/svg/SvgConstans';
 import {
   incrementHistory,
   decrementHistory,
@@ -12,22 +18,21 @@ import {
   setPlaying,
   setSortingSpeed,
   setArraySize,
-} from "../../../store"
+} from '../../../store';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const SortControls = () => {
-
   const dispatch = useDispatch();
   const sortState = useSelector(state => state.sorts);
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const keepPlaying = () => {
     const stepHistory = sortState.stepHistory.slice(sortState.history);
     return run(stepHistory);
   };
 
-  const onPlayPause = (e) => {
+  const onPlayPause = e => {
     e.preventDefault();
     if (sortState.playing) {
       pause();
@@ -50,29 +55,32 @@ export const SortControls = () => {
     dispatch(restoreTimeIdArr());
   };
 
-  const run = (stepHistory) => {
+  const run = stepHistory => {
     const timeIdArr = [];
     stepHistory.forEach((item, i) => {
-      let timeoutId = setTimeout(() => {
-        dispatch(incrementHistory());
-        dispatch(updateVisualization(item));
-      }, i * (250 / sortState.sortingSpeed));
+      let timeoutId = setTimeout(
+        () => {
+          dispatch(incrementHistory());
+          dispatch(updateVisualization(item));
+        },
+        i * (250 / sortState.sortingSpeed)
+      );
 
       timeIdArr.push(timeoutId);
     });
 
-    let timeoutId = setTimeout(() => {
-      dispatch(restoreTimeIdArr());
-    }, stepHistory.length * (250 / sortState.sortingSpeed));
-
+    let timeoutId = setTimeout(
+      () => {
+        dispatch(restoreTimeIdArr());
+      },
+      stepHistory.length * (250 / sortState.sortingSpeed)
+    );
 
     timeIdArr.push(timeoutId);
     dispatch(setTimeIdArr(timeIdArr));
-
   };
 
   const goBackward = () => {
-
     if (sortState.playing) {
       pause();
     }
@@ -87,7 +95,6 @@ export const SortControls = () => {
   };
 
   const goForward = () => {
-
     if (sortState.playing) {
       pause();
     }
@@ -108,16 +115,16 @@ export const SortControls = () => {
     run(sortState.stepHistory);
   };
 
-  const changePlaySpeed = (e) => {
+  const changePlaySpeed = e => {
     pause();
     const sortingSpeed = Number(e.target.value);
     dispatch(setSortingSpeed(sortingSpeed));
   };
 
-  const onArraySizeChange = (e) => {
+  const onArraySizeChange = e => {
     const arraySize = Number(e.target.value);
     dispatch(setArraySize(arraySize));
-  }
+  };
 
   const [svg, setSvg] = useState(svgPlay);
 
@@ -129,35 +136,32 @@ export const SortControls = () => {
     }
   }, [sortState.playing]);
 
-
   return (
-    <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
-      <div className='flex justify-center space-x-4 mb-3'>
-        <BasicButton onClick={goBackward} >
+    <div className="w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between">
+      <div className="flex justify-center space-x-4 mb-3">
+        <BasicButton onClick={goBackward}>
           <span>{svgBack}</span>
         </BasicButton>
 
-        <BasicButton onClick={(e) => onPlayPause(e)} >
-          {svg}
-        </BasicButton>
+        <BasicButton onClick={e => onPlayPause(e)}>{svg}</BasicButton>
 
-        <BasicButton onClick={goForward} >
+        <BasicButton onClick={goForward}>
           <span>{svgForward}</span>
         </BasicButton>
 
-        <BasicButton onClick={repeat} >
+        <BasicButton onClick={repeat}>
           <span>{svgRepeat}</span>
         </BasicButton>
       </div>
       <div className="flex justify-center space-x-4 items-center">
-        <FormControl variant="outlined" style={{ width: "150px" }}>
-          <InputLabel htmlFor="speed-select">{ t("speedSelector") }</InputLabel>
+        <FormControl variant="outlined" style={{ width: '150px' }}>
+          <InputLabel htmlFor="speed-select">{t('speedSelector')}</InputLabel>
           <Select
             id="speed-select"
             value={sortState.sortingSpeed}
             onChange={changePlaySpeed}
             label="Speed Selector"
-            style={{ height: "48px" }}
+            style={{ height: '48px' }}
           >
             <MenuItem value={0.25}>0.25x</MenuItem>
             <MenuItem value={0.5}>0.5x</MenuItem>
@@ -169,14 +173,16 @@ export const SortControls = () => {
             <MenuItem value={50}>50x</MenuItem>
           </Select>
         </FormControl>
-        <FormControl variant="outlined" style={{ width: "150px" }}>
-          <InputLabel htmlFor="array-size-select">{ t("arrayLength") }</InputLabel>
+        <FormControl variant="outlined" style={{ width: '150px' }}>
+          <InputLabel htmlFor="array-size-select">
+            {t('arrayLength')}
+          </InputLabel>
           <Select
             id="array-size-select"
             onChange={onArraySizeChange}
             value={sortState.arraySize}
             label="Array Length"
-            style={{ height: "48px" }}
+            style={{ height: '48px' }}
           >
             <MenuItem value={3}>3</MenuItem>
             <MenuItem value={4}>4</MenuItem>
@@ -191,6 +197,6 @@ export const SortControls = () => {
           </Select>
         </FormControl>
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};

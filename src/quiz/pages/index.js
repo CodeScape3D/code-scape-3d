@@ -1,1 +1,1 @@
-export * from "./SortingMethodsPage"
+export * from './SortingMethodsPage';

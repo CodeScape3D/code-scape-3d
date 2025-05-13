@@ -1,6 +1,5 @@
-
-export const questionStates = { 
-    UNANSWERED: 'UNANSWERED',
-    CORRECT: 'CORRECT',
-    INCORRECT: 'INCORRECT'
-}
+export const questionStates = {
+  UNANSWERED: 'UNANSWERED',
+  CORRECT: 'CORRECT',
+  INCORRECT: 'INCORRECT',
+};

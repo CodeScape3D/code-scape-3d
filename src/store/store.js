@@ -1,7 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { quizSlice } from "./quiz";
-import { sortsSlice } from "./sorts";
-import { stackSlice } from "./stack";
+import { configureStore } from '@reduxjs/toolkit';
+import { quizSlice } from './quiz';
+import { sortsSlice } from './sorts';
+import { stackSlice } from './stack';
 
 export const store = configureStore({
   reducer: {
@@ -9,7 +9,7 @@ export const store = configureStore({
     sorts: sortsSlice.reducer,
     stack: stackSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: false,
     }),

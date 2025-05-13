@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   }
 }
 
@@ -14,7 +14,7 @@
   }
 
   .nav-tab::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
