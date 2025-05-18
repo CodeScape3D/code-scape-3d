@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Pop, Push, Sumergir } from "../../animations";
+import { Pop, Push, Sumergir, Insertar, Extraer } from "../../animations";
 
 const initialState = {
   head: null,
@@ -24,8 +24,9 @@ export const stackSlice = createSlice({
   initialState,
   reducers: {
     setHead: (state, action) => {
-      stackSlice.caseReducers.restoreStack(state, action);
-      stackSlice.caseReducers.restoreTimeId(state);
+      // Usar el reducer interno correctamente
+      restoreStack(state, action);
+      restoreTimeId(state);
     },
     actionButton: (state, action) => {
       createRecordStack(state, action);
@@ -43,6 +44,9 @@ export const stackSlice = createSlice({
       state.timeId = [];
 
       state.srcHead = action.payload;
+      
+      // Actualizar elementos basado en la nueva cabeza
+      updateElementsFromHead(state);
     },
     restoreTimeId: (state) => {
       state.timeId.forEach((timeoutId) => clearTimeout(timeoutId));
@@ -51,6 +55,7 @@ export const stackSlice = createSlice({
     updateVisualizationStack: (state, action) => {
       const currVisualization = action.payload;
 
+      // Actualizar elementos desde la cabeza de la visualización actual
       let elementos = [];
       let current = currVisualization.head;
       while (current !== null) {
@@ -58,14 +63,12 @@ export const stackSlice = createSlice({
         current = current.getNext();
       }
 
-      return {
-        ...state,
-        head: currVisualization.head,
-        firstSet: currVisualization.firstSet,
-        secondSet: currVisualization.secondSet,
-        isHead: currVisualization.isHead,
-        elementos: elementos,
-      };
+      // Actualizar el estado con la visualización actual
+      state.head = currVisualization.head;
+      state.firstSet = currVisualization.firstSet;
+      state.secondSet = currVisualization.secondSet;
+      state.isHead = currVisualization.isHead;
+      state.elementos = elementos;
     },
     restoreRepeatStack: (state) => {
       const head = state.srcHead;
@@ -74,25 +77,21 @@ export const stackSlice = createSlice({
       state.firstSet = [];
       state.secondSet = [];
       state.isHead = -1;
-      state.elementos = [];
+      
+      // Actualizar elementos desde la cabeza restaurada
+      updateElementsFromHead(state);
     },
 
     setTimeIdStack: (state, action) => {
-      state.timeId.push(action.payload);
+      state.timeId.push(...action.payload);
     },
 
     incrementHistoryStack: (state) => {
-      return {
-        ...state,
-        history: state.history + 1,
-      };
+      state.history = state.history + 1;
     },
 
     decrementHistoryStack: (state) => {
-      return {
-        ...state,
-        history: state.history - 1,
-      };
+      state.history = state.history - 1;
     },
 
     setPlayingStack: (state, action) => {
@@ -101,16 +100,51 @@ export const stackSlice = createSlice({
   },
 });
 
+// Función auxiliar para actualizar elementos desde la cabeza
+const updateElementsFromHead = (state) => {
+  let elementos = [];
+  let current = state.head;
+  while (current !== null) {
+    elementos.push(current.getValue());
+    current = current.getNext();
+  }
+  state.elementos = elementos;
+};
+
 const createRecordStack = (state, action) => {
   const head = state.head;
   const isHead = state.isHead;
   const value = action.payload.value;
+  const position = action.payload.position; 
 
   const funAction = getAction(action.payload.action);
   if (funAction) {
-    const stepHistory = funAction(head, value, isHead);
-    state.stepHistory = stepHistory;
-    state.funAction = action.payload.action;
+    let result;
+    
+    // Determinar qué parámetros pasar según la acción
+    if (action.payload.action === 'insertar') {
+      // En la pila, posición 0 significa al inicio (en el tope de la pila)
+      // y posición length significa al final (en el fondo de la pila)
+      result = funAction(head, value, position, isHead);
+    } else if (action.payload.action === 'extraer') {
+      // Para extraer, la posición debe ser interpretada desde el tope (0) hasta el fondo
+      result = funAction(head, position, isHead);
+    } else {
+      result = funAction(head, value, isHead);
+    }
+    
+    // Las funciones de animación devuelven un objeto con historialPasos y nuevaCabeza
+    if (result && result.historialPasos) {
+      state.stepHistory = result.historialPasos;
+      state.funAction = action.payload.action;
+      
+      // Si hay una nueva cabeza, actualizarla en el estado temporal
+      if (result.nuevaCabeza !== undefined) {
+        // No actualizamos state.head aquí porque será actualizado durante la animación
+        // Pero podríamos guardar la cabeza final para referencia
+        state.srcHead = result.nuevaCabeza;
+      }
+    }
   }
 };
 
@@ -118,7 +152,9 @@ export const getAction = (action) => {
   const actions = {
     push: Push,
     pop: Pop,
-    sumergir: Sumergir
+    sumergir: Sumergir,
+    insertar: Insertar,
+    extraer: Extraer
   };
   return actions[action] || null;
 };
@@ -134,15 +170,25 @@ export const verificar = (head, elemento) => {
   return false;
 };
 
+const { 
+  restoreStack, 
+  restoreTimeId, 
+  updateVisualizationStack, 
+  restoreRepeatStack 
+} = stackSlice.actions;
+
 export const {
   actionButton,
-  restoreStack,
-  restoreTimeId,
   setHead,
   decrementHistoryStack,
   incrementHistoryStack,
-  updateVisualizationStack,
   setTimeIdStack,
   setPlayingStack,
-  restoreRepeatStack,
 } = stackSlice.actions;
+
+export { 
+  restoreStack, 
+  restoreTimeId, 
+  updateVisualizationStack, 
+  restoreRepeatStack 
+};
