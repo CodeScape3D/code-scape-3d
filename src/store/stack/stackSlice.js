@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Pop, Push } from '../../animations';
+import { createSlice } from "@reduxjs/toolkit";
+import { Pop, Push, Sumergir } from "../../animations";
 
 const initialState = {
   head: null,
@@ -20,7 +20,7 @@ const initialState = {
 };
 
 export const stackSlice = createSlice({
-  name: 'stack',
+  name: "stack",
   initialState,
   reducers: {
     setHead: (state, action) => {
@@ -44,8 +44,8 @@ export const stackSlice = createSlice({
 
       state.srcHead = action.payload;
     },
-    restoreTimeId: state => {
-      state.timeId.forEach(timeoutId => clearTimeout(timeoutId));
+    restoreTimeId: (state) => {
+      state.timeId.forEach((timeoutId) => clearTimeout(timeoutId));
       state.timeId = [];
     },
     updateVisualizationStack: (state, action) => {
@@ -67,7 +67,7 @@ export const stackSlice = createSlice({
         elementos: elementos,
       };
     },
-    restoreRepeatStack: state => {
+    restoreRepeatStack: (state) => {
       const head = state.srcHead;
       state.head = head;
       state.history = -1;
@@ -81,14 +81,14 @@ export const stackSlice = createSlice({
       state.timeId.push(action.payload);
     },
 
-    incrementHistoryStack: state => {
+    incrementHistoryStack: (state) => {
       return {
         ...state,
         history: state.history + 1,
       };
     },
 
-    decrementHistoryStack: state => {
+    decrementHistoryStack: (state) => {
       return {
         ...state,
         history: state.history - 1,
@@ -114,10 +114,11 @@ const createRecordStack = (state, action) => {
   }
 };
 
-export const getAction = action => {
+export const getAction = (action) => {
   const actions = {
     push: Push,
     pop: Pop,
+    sumergir: Sumergir
   };
   return actions[action] || null;
 };
