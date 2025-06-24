@@ -16,7 +16,7 @@ export const StackChart = () => {
 
 const renderStack = (node, isHead, firstSet, secondSet) => {
   if (!node) {
-    return null;
+    return null; // Simplemente no mostrar nada cuando la pila está vacía
   }
 
   const getBackgroundColor = () => {

@@ -1,22 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-  decrementHistoryStack, 
-  incrementHistoryStack, 
-  actionButton, 
-  restoreRepeatStack, 
-  restoreTimeId, 
-  setHead, 
-  setPlayingStack, 
-  setTimeIdStack, 
-  updateVisualizationStack 
+import {
+  decrementHistoryStack,
+  incrementHistoryStack,
+  actionButton,
+  restoreRepeatStack,
+  restoreTimeId,
+  setHead,
+  setPlayingStack,
+  setTimeIdStack,
+  updateVisualizationStack,
 } from '../../../store';
 import { Alert, Button, Snackbar, TextField } from '@mui/material';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { BasicButton } from '../../../components';
-import { svgPause, svgBack, svgPlay, svgRepeat, svgForward } from '../../../assets/svg/SvgConstans';
+import {
+  svgPause,
+  svgBack,
+  svgPlay,
+  svgRepeat,
+  svgForward,
+} from '../../../assets/svg/SvgConstans';
 
 export const StackControls = () => {
-  const stackState = useSelector((state) => state.stack);
+  const stackState = useSelector(state => state.stack);
   const dispatch = useDispatch();
 
   // Estados locales
@@ -27,22 +33,26 @@ export const StackControls = () => {
   const [open, setOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  // Ref para controlar si ya se ejecutó la animación automática
+  const animationExecutedRef = useRef(false);
+  const currentFunActionRef = useRef(null);
+
   // Handlers para cambios en inputs
-  const handleValueChange = (event) => {
+  const handleValueChange = event => {
     const inputValue = event.target.value;
     if (inputValue === '' || (!isNaN(inputValue) && inputValue !== null)) {
       setValue(inputValue);
     }
   };
 
-  const handleInsertPositionChange = (event) => {
+  const handleInsertPositionChange = event => {
     const inputValue = event.target.value;
     if (inputValue === '' || (!isNaN(inputValue) && inputValue >= 0)) {
       setInsertPosition(inputValue);
     }
   };
 
-  const handleExtractPositionChange = (event) => {
+  const handleExtractPositionChange = event => {
     const inputValue = event.target.value;
     if (inputValue === '' || (!isNaN(inputValue) && inputValue >= 0)) {
       setExtractPosition(inputValue);
@@ -50,95 +60,153 @@ export const StackControls = () => {
   };
 
   // Función para mostrar mensajes de error
-  const showError = useCallback((message) => {
+  const showError = useCallback(message => {
     setToast(message);
     setOpen(true);
   }, []);
 
-  // Función para ejecutar animaciones de manera robusta
-  const executeAnimation = useCallback((action, value, position = null) => {
-    if (isAnimating) {
-      showError("Espera a que termine la animación actual");
-      return;
-    }
-
-    try {
-      // Cancelar cualquier animación en curso
-      dispatch(restoreTimeId());
-      dispatch(setPlayingStack(false));
-      
-      // Preparar el payload de la acción
-      const actionPayload = { action, value };
-      if (position !== null) {
-        actionPayload.position = position;
+  // Función para ejecutar la animación paso a paso - ARREGLADA
+  const runAnimation = useCallback(
+    (stepHistory, startFromBeginning = false) => {
+      if (!stepHistory || stepHistory.length === 0) {
+        setIsAnimating(false);
+        return;
       }
-      
-      // Guardar estado actual y despachar acción
-      dispatch(setHead(stackState.head));
-      dispatch(actionButton(actionPayload));
-      dispatch(restoreRepeatStack());
-      
+
+      // Limpiar timeouts previos
+      dispatch(restoreTimeId());
+      dispatch(setPlayingStack(true));
       setIsAnimating(true);
-      
-    } catch (error) {
-      console.error('Error executing animation:', error);
-      showError("Error al ejecutar la animación");
-      setIsAnimating(false);
-    }
-  }, [dispatch, stackState.head, isAnimating, showError]);
 
-  // Función para ejecutar la animación paso a paso
-  const runAnimation = useCallback((stepHistory) => {
-    if (!stepHistory || stepHistory.length === 0) {
-      setIsAnimating(false);
-      return;
-    }
+      const timeIds = [];
 
-    dispatch(setPlayingStack(true));
-    const timeIds = [];
-    
-    // Ejecutar cada paso con retraso
-    stepHistory.forEach((step, index) => {
-      const timeoutId = setTimeout(() => {
-        dispatch(incrementHistoryStack());
-        dispatch(updateVisualizationStack(step));
-      }, index * (250 / (stackState.timeStep || 1)));
-      
-      timeIds.push(timeoutId);
-    });
-
-    // Finalizar animación
-    const finalTimeoutId = setTimeout(() => {
-      const finalState = stepHistory[stepHistory.length - 1];
-      if (finalState) {
-        dispatch(updateVisualizationStack(finalState));
+      // Si empezamos desde el principio, mostrar el primer paso inmediatamente
+      if (startFromBeginning) {
+        dispatch(updateVisualizationStack(stepHistory[0]));
+        dispatch(incrementHistoryStack()); // Ahora incrementamos DESPUÉS de mostrar
       }
-      
-      dispatch(setPlayingStack(false));
-      dispatch(restoreTimeId());
-      setIsAnimating(false);
-    }, stepHistory.length * (250 / (stackState.timeStep || 1)));
 
-    timeIds.push(finalTimeoutId);
-    dispatch(setTimeIdStack(timeIds));
-  }, [dispatch, stackState.timeStep]);
+      // Ejecutar cada paso restante con retraso
+      const startIndex = startFromBeginning ? 1 : 0;
+
+      for (let i = startIndex; i < stepHistory.length; i++) {
+        const step = stepHistory[i];
+        const timeoutId = setTimeout(
+          () => {
+            dispatch(updateVisualizationStack(step)); // Primero mostramos
+            dispatch(incrementHistoryStack()); // Luego incrementamos
+          },
+          (i - startIndex) * (250 / (stackState.timeStep || 1))
+        );
+
+        timeIds.push(timeoutId);
+      }
+
+      // Finalizar animación
+      const finalTimeoutId = setTimeout(
+        () => {
+          const finalState = stepHistory[stepHistory.length - 1];
+          if (finalState) {
+            dispatch(updateVisualizationStack(finalState));
+          }
+
+          dispatch(setPlayingStack(false));
+          dispatch(restoreTimeId());
+          setIsAnimating(false);
+          animationExecutedRef.current = false; // Reset del flag
+        },
+        (stepHistory.length - startIndex) * (250 / (stackState.timeStep || 1))
+      );
+
+      timeIds.push(finalTimeoutId);
+      dispatch(setTimeIdStack(timeIds));
+    },
+    [dispatch, stackState.timeStep]
+  );
+
+  // Función para ejecutar animaciones de manera robusta
+  const executeAnimation = useCallback(
+    (action, value, position = null) => {
+      if (isAnimating) {
+        showError('Espera a que termine la animación actual');
+        return;
+      }
+
+      try {
+        // Cancelar cualquier animación en curso
+        dispatch(restoreTimeId());
+        dispatch(setPlayingStack(false));
+
+        // Preparar el payload de la acción
+        const actionPayload = { action, value };
+        if (position !== null) {
+          actionPayload.position = position;
+        }
+
+        // Guardar estado actual y despachar acción
+        dispatch(setHead(stackState.head));
+        dispatch(actionButton(actionPayload));
+        dispatch(restoreRepeatStack());
+
+        // Marcar que se va a ejecutar una animación automática
+        animationExecutedRef.current = false;
+        currentFunActionRef.current = action;
+      } catch (error) {
+        console.error('Error executing animation:', error);
+        showError('Error al ejecutar la animación');
+        setIsAnimating(false);
+      }
+    },
+    [dispatch, stackState.head, isAnimating, showError]
+  );
+
+  // Efecto para manejar la ejecución automática de animaciones - ARREGLADO
+  useEffect(() => {
+    // Solo ejecutar si:
+    // 1. Hay un stepHistory válido
+    // 2. Hay una acción activa
+    // 3. No se está reproduciendo manualmente
+    // 4. No se ha ejecutado ya la animación para esta acción
+    // 5. La acción actual coincide con la que se acaba de crear
+    if (
+      stackState.stepHistory &&
+      stackState.stepHistory.length > 0 &&
+      stackState.funAction &&
+      stackState.funAction === currentFunActionRef.current &&
+      !stackState.playing &&
+      !animationExecutedRef.current
+    ) {
+      // Marcar que se va a ejecutar la animación
+      animationExecutedRef.current = true;
+      // Ejecutar desde el principio con el flag correspondiente
+      runAnimation(stackState.stepHistory, true);
+    }
+  }, [stackState.stepHistory, stackState.funAction, runAnimation]);
+
+  // Limpiar refs cuando cambia la acción
+  useEffect(() => {
+    if (stackState.funAction !== currentFunActionRef.current) {
+      animationExecutedRef.current = false;
+      currentFunActionRef.current = stackState.funAction;
+    }
+  }, [stackState.funAction]);
 
   // Handlers para operaciones de pila
   const handlePushButton = () => {
     const numValue = value === '' ? null : parseInt(value);
-    
+
     if (numValue === null) {
-      showError("Ingresa un valor válido");
+      showError('Ingresa un valor válido');
       return;
     }
 
     if (stackState.elementos && stackState.elementos.length >= 7) {
-      showError("La pila está llena (máximo 7 elementos)");
+      showError('La pila está llena (máximo 7 elementos)');
       return;
     }
 
     if (stackState.elementos && stackState.elementos.includes(numValue)) {
-      showError("El elemento ya existe en la pila");
+      showError('El elemento ya existe en la pila');
       return;
     }
 
@@ -148,7 +216,7 @@ export const StackControls = () => {
 
   const handlePopButton = () => {
     if (!stackState.head) {
-      showError("La pila está vacía");
+      showError('La pila está vacía');
       return;
     }
 
@@ -158,12 +226,12 @@ export const StackControls = () => {
 
   const handleSumergirButton = () => {
     if (!stackState.head) {
-      showError("La pila está vacía");
+      showError('La pila está vacía');
       return;
     }
 
     if (!stackState.head.getNext()) {
-      showError("La pila necesita al menos 2 elementos para sumergir");
+      showError('La pila necesita al menos 2 elementos para sumergir');
       return;
     }
 
@@ -174,24 +242,24 @@ export const StackControls = () => {
   const handleInsertarButton = () => {
     const numValue = value === '' ? null : parseInt(value);
     const position = insertPosition === '' ? null : parseInt(insertPosition);
-    
+
     if (numValue === null) {
-      showError("Ingresa un valor válido para insertar");
+      showError('Ingresa un valor válido para insertar');
       return;
     }
 
     if (position === null || position < 0) {
-      showError("Ingresa una posición válida (≥ 0)");
+      showError('Ingresa una posición válida (≥ 0)');
       return;
     }
 
     if (stackState.elementos && stackState.elementos.includes(numValue)) {
-      showError("El elemento ya existe en la pila");
+      showError('El elemento ya existe en la pila');
       return;
     }
 
     if (stackState.elementos && stackState.elementos.length >= 7) {
-      showError("La pila está llena (máximo 7 elementos)");
+      showError('La pila está llena (máximo 7 elementos)');
       return;
     }
 
@@ -208,18 +276,20 @@ export const StackControls = () => {
 
   const handleExtraerButton = () => {
     if (!stackState.head) {
-      showError("La pila está vacía");
+      showError('La pila está vacía');
       return;
     }
 
     const position = extractPosition === '' ? null : parseInt(extractPosition);
-    
+
     if (position === null || position < 0) {
-      showError("Ingresa una posición válida (≥ 0)");
+      showError('Ingresa una posición válida (≥ 0)');
       return;
     }
 
-    const maxPosition = stackState.elementos ? stackState.elementos.length - 1 : 0;
+    const maxPosition = stackState.elementos
+      ? stackState.elementos.length - 1
+      : 0;
     if (position > maxPosition) {
       showError(`La posición máxima válida es ${maxPosition}`);
       return;
@@ -229,8 +299,8 @@ export const StackControls = () => {
     setExtractPosition('');
   };
 
-  // Controles de reproducción manual
-  const onPlayPause = (e) => {
+  // Controles de reproducción manual - ARREGLADO
+  const onPlayPause = e => {
     e.preventDefault();
     if (stackState.playing) {
       pause();
@@ -242,12 +312,19 @@ export const StackControls = () => {
   const play = () => {
     if (stackState.stepHistory && stackState.stepHistory.length > 0) {
       const currentHistory = stackState.history || -1;
-      const remainingSteps = stackState.stepHistory.slice(Math.max(0, currentHistory + 1));
-      
+      const remainingSteps = stackState.stepHistory.slice(
+        Math.max(0, currentHistory + 1)
+      );
+
       if (remainingSteps.length > 0) {
-        runAnimation(remainingSteps);
+        // Marcar que esta es una reproducción manual
+        animationExecutedRef.current = true;
+        runAnimation(remainingSteps, false); // No empezar desde el principio
       } else {
-        runAnimation(stackState.stepHistory);
+        // Reiniciar desde el principio
+        dispatch(restoreRepeatStack());
+        animationExecutedRef.current = true;
+        runAnimation(stackState.stepHistory, true); // Empezar desde el principio
       }
     }
   };
@@ -277,7 +354,10 @@ export const StackControls = () => {
     }
 
     const currentHistory = stackState.history || -1;
-    if (stackState.stepHistory && currentHistory < stackState.stepHistory.length - 1) {
+    if (
+      stackState.stepHistory &&
+      currentHistory < stackState.stepHistory.length - 1
+    ) {
       const nextStep = stackState.stepHistory[currentHistory + 1];
       dispatch(incrementHistoryStack());
       dispatch(updateVisualizationStack(nextStep));
@@ -288,30 +368,27 @@ export const StackControls = () => {
     if (stackState.stepHistory && stackState.stepHistory.length > 0) {
       dispatch(restoreTimeId());
       dispatch(restoreRepeatStack());
-      setIsAnimating(true);
-      runAnimation(stackState.stepHistory);
+      // Marcar que esta es una reproducción manual
+      animationExecutedRef.current = true;
+      runAnimation(stackState.stepHistory, true); // Empezar desde el principio
     }
   };
 
-  // Efecto para manejar cambios en stepHistory
+  // Limpiar timeouts al desmontar el componente
   useEffect(() => {
-    if (stackState.stepHistory && 
-        stackState.stepHistory.length > 0 && 
-        stackState.funAction && 
-        !stackState.playing && 
-        isAnimating) {
-      runAnimation(stackState.stepHistory);
-    }
-  }, [stackState.stepHistory, stackState.funAction, stackState.playing, isAnimating, runAnimation]);
+    return () => {
+      dispatch(restoreTimeId());
+    };
+  }, [dispatch]);
 
   // Determinar el icono de play/pause
   const playPauseIcon = stackState.playing ? svgPause : svgPlay;
 
   return (
-    <div className='w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between'>
+    <div className="w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between">
       {/* Controles de reproducción */}
       <div className="flex justify-center space-x-2 mb-4">
-        <BasicButton 
+        <BasicButton
           onClick={goBackward}
           disabled={stackState.playing || (stackState.history || -1) <= 0}
           title="Retroceder"
@@ -319,26 +396,33 @@ export const StackControls = () => {
           {svgBack}
         </BasicButton>
 
-        <BasicButton 
+        <BasicButton
           onClick={onPlayPause}
-          disabled={!stackState.stepHistory || stackState.stepHistory.length === 0}
-          title={stackState.playing ? "Pausar" : "Reproducir"}
+          disabled={
+            !stackState.stepHistory || stackState.stepHistory.length === 0
+          }
+          title={stackState.playing ? 'Pausar' : 'Reproducir'}
         >
           {playPauseIcon}
         </BasicButton>
 
-        <BasicButton 
+        <BasicButton
           onClick={goForward}
-          disabled={stackState.playing || !stackState.stepHistory || 
-                   (stackState.history || -1) >= stackState.stepHistory.length - 1}
+          disabled={
+            stackState.playing ||
+            !stackState.stepHistory ||
+            (stackState.history || -1) >= stackState.stepHistory.length - 1
+          }
           title="Avanzar"
         >
           {svgForward}
         </BasicButton>
 
-        <BasicButton 
+        <BasicButton
           onClick={repeat}
-          disabled={!stackState.stepHistory || stackState.stepHistory.length === 0}
+          disabled={
+            !stackState.stepHistory || stackState.stepHistory.length === 0
+          }
           title="Repetir"
         >
           {svgRepeat}
@@ -354,7 +438,7 @@ export const StackControls = () => {
           value={value}
           onChange={handleValueChange}
           disabled={isAnimating}
-          style={{ width: "120px" }}
+          style={{ width: '120px' }}
           size="small"
         />
         <Button
@@ -362,12 +446,12 @@ export const StackControls = () => {
           onClick={handlePushButton}
           disabled={isAnimating}
           sx={{
-            height: "40px",
-            backgroundColor: "primary.main",
+            height: '40px',
+            backgroundColor: 'primary.main',
             '&:hover': {
-              backgroundColor: "primary.dark",
+              backgroundColor: 'primary.dark',
             },
-            minWidth: "80px"
+            minWidth: '80px',
           }}
         >
           Push
@@ -377,18 +461,18 @@ export const StackControls = () => {
           onClick={handlePopButton}
           disabled={isAnimating}
           sx={{
-            height: "40px",
-            backgroundColor: "primary.main",
+            height: '40px',
+            backgroundColor: 'primary.main',
             '&:hover': {
-              backgroundColor: "primary.dark",
+              backgroundColor: 'primary.dark',
             },
-            minWidth: "80px"
+            minWidth: '80px',
           }}
         >
           Pop
         </Button>
       </div>
-      
+
       {/* Controles para Insertar */}
       <div className="flex justify-center space-x-2 items-center mb-3">
         <TextField
@@ -398,11 +482,11 @@ export const StackControls = () => {
           value={insertPosition}
           onChange={handleInsertPositionChange}
           disabled={isAnimating}
-          style={{ width: "120px" }}
+          style={{ width: '120px' }}
           size="small"
-          inputProps={{ 
-            min: 0, 
-            max: stackState.elementos ? stackState.elementos.length : 0 
+          inputProps={{
+            min: 0,
+            max: stackState.elementos ? stackState.elementos.length : 0,
           }}
         />
         <Button
@@ -410,19 +494,19 @@ export const StackControls = () => {
           onClick={handleInsertarButton}
           disabled={isAnimating}
           sx={{
-            height: "40px",
-            backgroundColor: "secondary.main",
+            height: '40px',
+            backgroundColor: 'secondary.main',
             '&:hover': {
-              backgroundColor: "secondary.dark",
+              backgroundColor: 'secondary.dark',
             },
-            width: "100%",
-            maxWidth: "170px"
+            width: '100%',
+            maxWidth: '170px',
           }}
         >
           Insertar
         </Button>
       </div>
-      
+
       {/* Controles para Extraer */}
       <div className="flex justify-center space-x-2 items-center mb-3">
         <TextField
@@ -432,13 +516,14 @@ export const StackControls = () => {
           value={extractPosition}
           onChange={handleExtractPositionChange}
           disabled={isAnimating}
-          style={{ width: "120px" }}
+          style={{ width: '120px' }}
           size="small"
-          inputProps={{ 
-            min: 0, 
-            max: stackState.elementos && stackState.elementos.length > 0 
-              ? stackState.elementos.length - 1 
-              : 0 
+          inputProps={{
+            min: 0,
+            max:
+              stackState.elementos && stackState.elementos.length > 0
+                ? stackState.elementos.length - 1
+                : 0,
           }}
         />
         <Button
@@ -446,19 +531,19 @@ export const StackControls = () => {
           onClick={handleExtraerButton}
           disabled={isAnimating}
           sx={{
-            height: "40px",
-            backgroundColor: "secondary.main",
+            height: '40px',
+            backgroundColor: 'secondary.main',
             '&:hover': {
-              backgroundColor: "secondary.dark",
+              backgroundColor: 'secondary.dark',
             },
-            width: "100%",
-            maxWidth: "170px"
+            width: '100%',
+            maxWidth: '170px',
           }}
         >
           Extraer
         </Button>
       </div>
-      
+
       {/* Control Sumergir */}
       <div className="flex justify-center mb-3">
         <Button
@@ -466,13 +551,13 @@ export const StackControls = () => {
           onClick={handleSumergirButton}
           disabled={isAnimating}
           sx={{
-            height: "40px",
-            backgroundColor: "info.main",
+            height: '40px',
+            backgroundColor: 'info.main',
             '&:hover': {
-              backgroundColor: "info.dark",
+              backgroundColor: 'info.dark',
             },
-            width: "100%",
-            maxWidth: "292px"
+            width: '100%',
+            maxWidth: '292px',
           }}
         >
           Sumergir
@@ -480,15 +565,15 @@ export const StackControls = () => {
       </div>
 
       {/* Notificaciones */}
-      <Snackbar 
-        open={open} 
-        autoHideDuration={4000} 
-        onClose={() => setOpen(false)} 
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      <Snackbar
+        open={open}
+        autoHideDuration={4000}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       >
-        <Alert 
-          onClose={() => setOpen(false)} 
-          severity="error" 
+        <Alert
+          onClose={() => setOpen(false)}
+          severity="error"
           sx={{ width: '100%' }}
         >
           {toast}
