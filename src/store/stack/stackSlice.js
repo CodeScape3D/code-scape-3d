@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Pop, Push, Sumergir, Insertar, Extraer } from "../../animations";
+import { createSlice } from '@reduxjs/toolkit';
+import { Pop, Push, Sumergir, Insertar, Extraer } from '../../animations';
 
 const initialState = {
   head: null,
@@ -20,7 +20,7 @@ const initialState = {
 };
 
 export const stackSlice = createSlice({
-  name: "stack",
+  name: 'stack',
   initialState,
   reducers: {
     setHead: (state, action) => {
@@ -44,12 +44,12 @@ export const stackSlice = createSlice({
       state.timeId = [];
 
       state.srcHead = action.payload;
-      
+
       // Actualizar elementos basado en la nueva cabeza
       updateElementsFromHead(state);
     },
-    restoreTimeId: (state) => {
-      state.timeId.forEach((timeoutId) => clearTimeout(timeoutId));
+    restoreTimeId: state => {
+      state.timeId.forEach(timeoutId => clearTimeout(timeoutId));
       state.timeId = [];
     },
     updateVisualizationStack: (state, action) => {
@@ -70,14 +70,14 @@ export const stackSlice = createSlice({
       state.isHead = currVisualization.isHead;
       state.elementos = elementos;
     },
-    restoreRepeatStack: (state) => {
+    restoreRepeatStack: state => {
       const head = state.srcHead;
       state.head = head;
       state.history = -1;
       state.firstSet = [];
       state.secondSet = [];
       state.isHead = -1;
-      
+
       // Actualizar elementos desde la cabeza restaurada
       updateElementsFromHead(state);
     },
@@ -86,11 +86,11 @@ export const stackSlice = createSlice({
       state.timeId.push(...action.payload);
     },
 
-    incrementHistoryStack: (state) => {
+    incrementHistoryStack: state => {
       state.history = state.history + 1;
     },
 
-    decrementHistoryStack: (state) => {
+    decrementHistoryStack: state => {
       state.history = state.history - 1;
     },
 
@@ -101,7 +101,7 @@ export const stackSlice = createSlice({
 });
 
 // Función auxiliar para actualizar elementos desde la cabeza
-const updateElementsFromHead = (state) => {
+const updateElementsFromHead = state => {
   let elementos = [];
   let current = state.head;
   while (current !== null) {
@@ -115,12 +115,12 @@ const createRecordStack = (state, action) => {
   const head = state.head;
   const isHead = state.isHead;
   const value = action.payload.value;
-  const position = action.payload.position; 
+  const position = action.payload.position;
 
   const funAction = getAction(action.payload.action);
   if (funAction) {
     let result;
-    
+
     // Determinar qué parámetros pasar según la acción
     if (action.payload.action === 'insertar') {
       // En la pila, posición 0 significa al inicio (en el tope de la pila)
@@ -132,12 +132,12 @@ const createRecordStack = (state, action) => {
     } else {
       result = funAction(head, value, isHead);
     }
-    
+
     // Las funciones de animación devuelven un objeto con historialPasos y nuevaCabeza
     if (result && result.historialPasos) {
       state.stepHistory = result.historialPasos;
       state.funAction = action.payload.action;
-      
+
       // Si hay una nueva cabeza, actualizarla en el estado temporal
       if (result.nuevaCabeza !== undefined) {
         // No actualizamos state.head aquí porque será actualizado durante la animación
@@ -148,13 +148,13 @@ const createRecordStack = (state, action) => {
   }
 };
 
-export const getAction = (action) => {
+export const getAction = action => {
   const actions = {
     push: Push,
     pop: Pop,
     sumergir: Sumergir,
     insertar: Insertar,
-    extraer: Extraer
+    extraer: Extraer,
   };
   return actions[action] || null;
 };
@@ -170,11 +170,11 @@ export const verificar = (head, elemento) => {
   return false;
 };
 
-const { 
-  restoreStack, 
-  restoreTimeId, 
-  updateVisualizationStack, 
-  restoreRepeatStack 
+const {
+  restoreStack,
+  restoreTimeId,
+  updateVisualizationStack,
+  restoreRepeatStack,
 } = stackSlice.actions;
 
 export const {
@@ -186,9 +186,9 @@ export const {
   setPlayingStack,
 } = stackSlice.actions;
 
-export { 
-  restoreStack, 
-  restoreTimeId, 
-  updateVisualizationStack, 
-  restoreRepeatStack 
+export {
+  restoreStack,
+  restoreTimeId,
+  updateVisualizationStack,
+  restoreRepeatStack,
 };

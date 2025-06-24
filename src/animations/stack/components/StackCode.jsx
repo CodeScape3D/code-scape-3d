@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { PopCode, PushCode, SumergirCode, InsertarCode, ExtraerCode } from '../algorithms';
+import {
+  PopCode,
+  PushCode,
+  SumergirCode,
+  InsertarCode,
+  ExtraerCode,
+} from '../algorithms';
 import { SvgIconDropdown, svgAlgo } from '../../../assets/svg/SvgConstans';
 import { useTranslation } from 'react-i18next';
 
@@ -16,8 +22,13 @@ export const StackCode = () => {
     // Validar que tenemos elementos válidos
     if (history === -1 || !stepHistory || history >= stepHistory.length) {
       // Limpiar cualquier línea previamente destacada
-      if (prevCurrentLine !== null && codeRef.current?.childNodes[prevCurrentLine]) {
-        codeRef.current.childNodes[prevCurrentLine].classList.remove('bg-secondary');
+      if (
+        prevCurrentLine !== null &&
+        codeRef.current?.childNodes[prevCurrentLine]
+      ) {
+        codeRef.current.childNodes[prevCurrentLine].classList.remove(
+          'bg-secondary'
+        );
         setPrevCurrentLine(null);
       }
       return;
@@ -30,7 +41,10 @@ export const StackCode = () => {
 
     // Obtener elementos del DOM
     const currentElement = codeRef.current?.childNodes[currentLine];
-    const prevElement = prevCurrentLine !== null ? codeRef.current?.childNodes[prevCurrentLine] : null;
+    const prevElement =
+      prevCurrentLine !== null
+        ? codeRef.current?.childNodes[prevCurrentLine]
+        : null;
 
     // Remover clase de la línea anterior si existe
     if (prevElement && prevCurrentLine !== currentLine) {
@@ -47,24 +61,28 @@ export const StackCode = () => {
   }, [history, stepHistory, funAction, prevCurrentLine]);
 
   // Función para renderizar el código específico de cada operación
-  const renderCode = (funAction) => {
+  const renderCode = funAction => {
     switch (funAction) {
-      case 'push': 
+      case 'push':
         return <PushCode codeRef={codeRef} />;
-      case 'pop': 
+      case 'pop':
         return <PopCode codeRef={codeRef} />;
-      case 'sumergir': 
+      case 'sumergir':
         return <SumergirCode codeRef={codeRef} />;
-      case 'insertar': 
+      case 'insertar':
         return <InsertarCode codeRef={codeRef} />;
-      case 'extraer': 
+      case 'extraer':
         return <ExtraerCode codeRef={codeRef} />;
-      default: 
+      default:
         return (
           <div className="text-center p-4">
-            <p className="text-gray-300">{t('selectOperation') || 'Selecciona una operación para ver su algoritmo'}</p>
+            <p className="text-gray-300">
+              {t('selectOperation') ||
+                'Selecciona una operación para ver su algoritmo'}
+            </p>
             <p className="mt-2 text-sm text-gray-400">
-              {t('availableOperations') || 'Push, Pop, Insertar, Extraer o Sumergir'}
+              {t('availableOperations') ||
+                'Push, Pop, Insertar, Extraer o Sumergir'}
             </p>
           </div>
         );
@@ -89,52 +107,90 @@ export const StackCode = () => {
   }, [prevCurrentLine]);
 
   return (
-    <div className='w-full md:w-80 mx-auto md:mr-4 md:mb-4'>
+    <div className="w-full md:w-80 mx-auto md:mr-4 md:mb-4">
       <div className="relative">
         {/* Panel de información */}
         {infoVisible && (
-          <div 
-            className="bg-gray-900 text-white p-4 rounded absolute bottom-14 w-full md:w-80 shadow-lg border border-gray-700" 
-            style={{ zIndex: "100" }}
+          <div
+            className="bg-gray-900 text-white p-4 rounded absolute bottom-14 w-full md:w-80 shadow-lg border border-gray-700"
+            style={{ zIndex: '100' }}
           >
             <div className="max-h-96 overflow-y-auto">
               <ul className="list-disc list-inside text-sm space-y-2">
                 <li>
-                  <span className="font-semibold text-blue-300">{t("definition") || "Definición"}:</span> 
-                  <span className="ml-1">{t("stackDefinition") || "Una pila es una estructura de datos LIFO (Last In, First Out)"}</span>
+                  <span className="font-semibold text-blue-300">
+                    {t('definition') || 'Definición'}:
+                  </span>
+                  <span className="ml-1">
+                    {t('stackDefinition') ||
+                      'Una pila es una estructura de datos LIFO (Last In, First Out)'}
+                  </span>
                 </li>
                 <li>
-                  <span className="font-semibold text-blue-300">{t("principalOperations") || "Operaciones principales"}:</span>
+                  <span className="font-semibold text-blue-300">
+                    {t('principalOperations') || 'Operaciones principales'}:
+                  </span>
                   <ul className="text-sm ml-4 mt-1 space-y-1">
                     <li>
-                      <span className="font-semibold text-green-300">Push:</span> 
-                      <span className="ml-1">{t("pushExplanation") || "Añade un elemento al tope de la pila"}</span>
+                      <span className="font-semibold text-green-300">
+                        Push:
+                      </span>
+                      <span className="ml-1">
+                        {t('pushExplanation') ||
+                          'Añade un elemento al tope de la pila'}
+                      </span>
                     </li>
                     <li>
-                      <span className="font-semibold text-red-300">Pop:</span> 
-                      <span className="ml-1">{t("popExplanation") || "Elimina el elemento del tope de la pila"}</span>
+                      <span className="font-semibold text-red-300">Pop:</span>
+                      <span className="ml-1">
+                        {t('popExplanation') ||
+                          'Elimina el elemento del tope de la pila'}
+                      </span>
                     </li>
                     <li>
-                      <span className="font-semibold text-yellow-300">Sumergir:</span> 
-                      <span className="ml-1">Mueve el elemento del tope de la pila al final</span>
+                      <span className="font-semibold text-yellow-300">
+                        Sumergir:
+                      </span>
+                      <span className="ml-1">
+                        Mueve el elemento del tope de la pila al final
+                      </span>
                     </li>
                     <li>
-                      <span className="font-semibold text-purple-300">Insertar:</span> 
-                      <span className="ml-1">Agrega un elemento en una posición específica de la pila</span>
+                      <span className="font-semibold text-purple-300">
+                        Insertar:
+                      </span>
+                      <span className="ml-1">
+                        Agrega un elemento en una posición específica de la pila
+                      </span>
                     </li>
                     <li>
-                      <span className="font-semibold text-orange-300">Extraer:</span> 
-                      <span className="ml-1">Elimina un elemento en una posición específica de la pila</span>
+                      <span className="font-semibold text-orange-300">
+                        Extraer:
+                      </span>
+                      <span className="ml-1">
+                        Elimina un elemento en una posición específica de la
+                        pila
+                      </span>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <span className="font-semibold text-blue-300">{t("utility") || "Utilidad"}:</span> 
-                  <span className="ml-1">{t("stackUsageExplanation") || "Útil para operaciones de deshacer, navegación, etc."}</span>
+                  <span className="font-semibold text-blue-300">
+                    {t('utility') || 'Utilidad'}:
+                  </span>
+                  <span className="ml-1">
+                    {t('stackUsageExplanation') ||
+                      'Útil para operaciones de deshacer, navegación, etc.'}
+                  </span>
                 </li>
                 <li>
-                  <span className="font-semibold text-blue-300">{t("implementations") || "Implementaciones"}:</span> 
-                  <span className="ml-1">{t("stackImplementations") || "Arrays, listas enlazadas, etc."}</span>
+                  <span className="font-semibold text-blue-300">
+                    {t('implementations') || 'Implementaciones'}:
+                  </span>
+                  <span className="ml-1">
+                    {t('stackImplementations') ||
+                      'Arrays, listas enlazadas, etc.'}
+                  </span>
                 </li>
               </ul>
             </div>
@@ -145,15 +201,17 @@ export const StackCode = () => {
         <div className="bg-gray-900 text-white font-bold py-2 px-4 flex justify-between items-center rounded-t border-b border-gray-700">
           <div className="flex items-center">
             {svgAlgo}
-            <span className="ml-2">{t("algorithm") || "Algoritmo"}</span>
+            <span className="ml-2">{t('algorithm') || 'Algoritmo'}</span>
           </div>
           <div className="flex items-center">
             <button
-  className="inline-flex items-center ml-2 px-3 py-1 bg-primary text-white rounded-lg cursor-pointer hover:bg-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="inline-flex items-center ml-2 px-3 py-1 bg-primary text-white rounded-lg cursor-pointer hover:bg-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary"
               onClick={toggleInfoPanel}
-              aria-label={infoVisible ? "Ocultar información" : "Mostrar información"}
+              aria-label={
+                infoVisible ? 'Ocultar información' : 'Mostrar información'
+              }
             >
-              <span>{t("explanation") || "Explicación"}</span>
+              <span>{t('explanation') || 'Explicación'}</span>
               <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
             </button>
           </div>
@@ -161,10 +219,11 @@ export const StackCode = () => {
       </div>
 
       {/* Contenido del código */}
-      <div className="bg-primary text-white text-xs p-2 rounded-b overflow-auto" style={{ maxHeight: "400px" }}>
-        <div className="font-mono">
-          {renderCode(funAction)}
-        </div>
+      <div
+        className="bg-primary text-white text-xs p-2 rounded-b overflow-auto"
+        style={{ maxHeight: '400px' }}
+      >
+        <div className="font-mono">{renderCode(funAction)}</div>
       </div>
     </div>
   );
