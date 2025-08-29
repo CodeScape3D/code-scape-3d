@@ -635,3 +635,25 @@ export const svgMenu = (
     </g>
   </svg>
 );
+
+export const svgSimpleList = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Nodos */}
+      <circle cx="10" cy="20" r="3" />
+      <circle cx="20" cy="20" r="3" />
+      <circle cx="30" cy="20" r="3" />
+
+      {/* Flechas */}
+      <line x1="13" y1="20" x2="17" y2="20" />
+      <line x1="23" y1="20" x2="27" y2="20" />
+      <polygon points="17 18, 19 20, 17 22" fill="#ffffff" />
+      <polygon points="27 18, 29 20, 27 22" fill="#ffffff" />
+    </g>
+  </svg>
+);

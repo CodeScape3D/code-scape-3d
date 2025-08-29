@@ -9,6 +9,7 @@ import {
   svgPilesHome,
   svgSelectionHome,
   svgHeapHome,
+  svgSimpleList,
 } from '../assets/svg/SvgConstans';
 
 export const courses = [
@@ -32,7 +33,6 @@ export const courses = [
   },
 ];
 
-// Mantenemos la exportación original de topic para compatibilidad
 export const topic = [
   {
     id: 1,
@@ -83,18 +83,24 @@ export const topic = [
     param: 'stack',
     imagen: svgPilesHome,
   },
+  {
+    id: 8,
+    curso: 'Programacion2',
+    titulo: 'Listas Simples',
+    param: 'simpleList',
+    imagen: svgSimpleList,
+  },
 ];
 
-// Nueva estructura por categorías
 export const topicCategories = [
   {
     id: 1,
     nombre: 'Métodos de Ordenamiento',
-    temas: topic.filter(t => t.param !== 'stack'), // Todos excepto Pilas
+    temas: topic.filter(t => !['stack', 'simpleList'].includes(t.param)),
   },
   {
     id: 2,
     nombre: 'Estructuras de Datos',
-    temas: topic.filter(t => t.param === 'stack'), // Solo Pilas
+    temas: topic.filter(t => ['stack', 'simpleList'].includes(t.param)),
   },
 ];
