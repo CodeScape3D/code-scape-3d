@@ -83,6 +83,11 @@ export const QuizView = () => {
   const [isAlertDialogVisible, setIsAlertDialogVisible] = useState(false);
 
   const handleOnNextQuestion = () => {
+    // Si no ha seleccionado ninguna respuesta, no hacer nada
+    if (selectedAnswer === null) {
+      return;
+    }
+
     if (state === questionStates.UNANSWERED && selectedAnswer != null) {
       dispatch(checkAnswer());
       return;
@@ -148,7 +153,14 @@ export const QuizView = () => {
               ))}
             </AnswersGrid>
             {isQuestionCorrect && <CorrectAnswerDialog />}
-            {isQuestionIncorrect && <WrongAnswerDialog />}
+            {isQuestionIncorrect && (
+              <WrongAnswerDialog
+                correctAnswer={currentQuestion.answer}
+                correctOption={currentQuestion.options[currentQuestion.answer]}
+                feedback={currentQuestion.feedback}
+              />
+            )}
+
             {shouldShowFeedbackButton && (
               <BasicButton
                 onClick={() => {
