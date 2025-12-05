@@ -657,3 +657,90 @@ export const svgSimpleList = (
     </g>
   </svg>
 );
+
+export const svgDoubleList = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Nodos */}
+      <circle cx="10" cy="20" r="3" />
+      <circle cx="20" cy="20" r="3" />
+      <circle cx="30" cy="20" r="3" />
+
+      {/* Flechas hacia adelante (arriba) */}
+      <line x1="13" y1="18" x2="17" y2="18" />
+      <line x1="23" y1="18" x2="27" y2="18" />
+      <polygon points="17 16, 19 18, 17 20" fill="#ffffff" />
+      <polygon points="27 16, 29 18, 27 20" fill="#ffffff" />
+
+      {/* Flechas hacia atrás (abajo) */}
+      <line x1="17" y1="22" x2="13" y2="22" />
+      <line x1="27" y1="22" x2="23" y2="22" />
+      <polygon points="13 20, 11 22, 13 24" fill="#ffffff" />
+      <polygon points="23 20, 21 22, 23 24" fill="#ffffff" />
+    </g>
+  </svg>
+);
+
+export const svgLinearSearch = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Arreglo de cajas */}
+      <rect x="4" y="16" width="8" height="8" rx="1" />
+      <rect x="12" y="16" width="8" height="8" rx="1" />
+      <rect x="20" y="16" width="8" height="8" rx="1" />
+      <rect x="28" y="16" width="8" height="8" rx="1" />
+
+      {/* Flecha de búsqueda */}
+      <line x1="8" y1="12" x2="8" y2="14" />
+      <polygon points="6 12, 8 8, 10 12" fill="#ffffff" />
+
+      {/* Puntos indicando recorrido */}
+      <circle cx="16" cy="10" r="1" fill="#ffffff" />
+      <circle cx="24" cy="10" r="1" fill="#ffffff" />
+      <circle cx="32" cy="10" r="1" fill="#ffffff" />
+    </g>
+  </svg>
+);
+
+export const svgBinarySearch = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Arreglo de cajas */}
+      <rect x="2" y="18" width="6" height="6" rx="1" opacity="0.4" />
+      <rect x="9" y="18" width="6" height="6" rx="1" opacity="0.4" />
+      <rect x="16" y="16" width="8" height="8" rx="1" strokeWidth="2.5" />
+      <rect x="25" y="18" width="6" height="6" rx="1" opacity="0.4" />
+      <rect x="32" y="18" width="6" height="6" rx="1" opacity="0.4" />
+
+      {/* Indicadores L, M, R */}
+      <text x="5" y="32" fill="#ffffff" fontSize="6" textAnchor="middle">
+        L
+      </text>
+      <text x="20" y="32" fill="#ffffff" fontSize="6" textAnchor="middle">
+        M
+      </text>
+      <text x="35" y="32" fill="#ffffff" fontSize="6" textAnchor="middle">
+        R
+      </text>
+
+      {/* Flecha en el medio */}
+      <line x1="20" y1="12" x2="20" y2="14" />
+      <polygon points="18 12, 20 8, 22 12" fill="#ffffff" />
+    </g>
+  </svg>
+);

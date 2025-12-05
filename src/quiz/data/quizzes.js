@@ -882,144 +882,268 @@ export const sortingMethodsQuiz = {
   ],
 };
 
-export const searchMethodsQuiz = {
-  name: 'Métodos de Búsqueda',
+export const linearSearchQuiz = {
+  name: 'Búsqueda Lineal',
   questions: [
     {
-      statement:
-        '¿Cuál de los siguientes métodos de búsqueda es más eficiente en un conjunto de datos ordenado?',
-      question:
-        'En un conjunto de datos ordenado, ¿cuál método de búsqueda es más eficiente?',
+      statement: '¿Cuál es la definición correcta de búsqueda lineal?',
+      question: '¿Qué es la búsqueda lineal?',
       options: {
-        A: 'Búsqueda lineal',
-        B: 'Búsqueda binaria',
-        C: 'Búsqueda en árbol',
-        D: 'Búsqueda hash',
+        A: 'Un algoritmo que divide el conjunto de datos a la mitad en cada paso.',
+        B: 'Un algoritmo que recorre secuencialmente cada elemento hasta encontrar el objetivo.',
+        C: 'Un algoritmo que utiliza una función hash para encontrar elementos.',
+        D: 'Un algoritmo que busca en un árbol binario.',
       },
       answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'La búsqueda binaria es más eficiente en conjuntos de datos ordenados, ya que reduce el espacio de búsqueda a la mitad en cada iteración.',
+        'La búsqueda lineal es un algoritmo que recorre secuencialmente cada elemento del conjunto de datos hasta encontrar el objetivo o llegar al final.',
     },
     {
       statement:
-        '¿Cuál de los siguientes métodos de búsqueda es más adecuado para conjuntos de datos pequeños y no ordenados?',
+        '¿Cuál es la complejidad temporal de la búsqueda lineal en el peor caso?',
       question:
-        'En conjuntos de datos pequeños y no ordenados, ¿cuál método de búsqueda es más adecuado?',
+        '¿Cuál es la complejidad de tiempo de búsqueda lineal en el peor caso?',
       options: {
-        A: 'Búsqueda lineal',
-        B: 'Búsqueda binaria',
-        C: 'Búsqueda en árbol',
-        D: 'Búsqueda hash',
+        A: 'O(1)',
+        B: 'O(log n)',
+        C: 'O(n)',
+        D: 'O(n²)',
+      },
+      answer: 'C',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'En el peor caso, la búsqueda lineal tiene una complejidad temporal de O(n), ya que puede necesitar revisar todos los elementos del conjunto de datos.',
+    },
+    {
+      statement:
+        '¿En qué tipo de conjunto de datos es más eficiente usar búsqueda lineal?',
+      question: '¿Cuándo es más apropiado usar búsqueda lineal?',
+      options: {
+        A: 'En conjuntos de datos grandes y ordenados.',
+        B: 'En conjuntos de datos pequeños o no ordenados.',
+        C: 'En conjuntos de datos con millones de elementos.',
+        D: 'Solo en estructuras de árbol binario.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La búsqueda lineal es más eficiente para conjuntos de datos pequeños o cuando los datos no están ordenados, ya que no podemos hacer suposiciones sobre la disposición de los elementos.',
+    },
+    {
+      statement: '¿Cuál es la principal ventaja de la búsqueda lineal?',
+      question: '¿Cuál es la ventaja principal de la búsqueda lineal?',
+      options: {
+        A: 'Es muy rápida.',
+        B: 'Funciona en conjuntos de datos no ordenados.',
+        C: 'Usa menos memoria que otros métodos.',
+        D: 'Siempre tiene complejidad O(1).',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La principal ventaja de la búsqueda lineal es que funciona en cualquier conjunto de datos, ordenado o no ordenado, sin necesidad de preprocesamiento.',
+    },
+    {
+      statement: '¿Cuál es la principal desventaja de la búsqueda lineal?',
+      question: '¿Cuál es la desventaja principal de la búsqueda lineal?',
+      options: {
+        A: 'No es estable.',
+        B: 'Usa mucha memoria.',
+        C: 'Es lenta en conjuntos de datos grandes.',
+        D: 'No funciona en arrays.',
+      },
+      answer: 'C',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La principal desventaja de la búsqueda lineal es su lentitud en conjuntos de datos grandes, ya que puede requerir revisar todos los elementos en el peor caso.',
+    },
+    {
+      statement:
+        '¿Es necesario que los datos estén ordenados para usar búsqueda lineal?',
+      question: '¿Los datos deben estar ordenados para búsqueda lineal?',
+      options: {
+        A: 'Sí, siempre.',
+        B: 'No, nunca.',
+        C: 'Solo si hay más de 1000 elementos.',
+        D: 'Depende del lenguaje de programación.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'No es necesario que los datos estén ordenados para usar búsqueda lineal. El algoritmo funciona en cualquier conjunto de datos, ordenado o no.',
+    },
+    {
+      statement:
+        '¿Cuál es el mejor caso de complejidad temporal para la búsqueda lineal?',
+      question:
+        '¿Cuál es el mejor caso de complejidad temporal para búsqueda lineal?',
+      options: {
+        A: 'O(1)',
+        B: 'O(log n)',
+        C: 'O(n)',
+        D: 'O(n²)',
       },
       answer: 'A',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'La búsqueda lineal es más adecuada para conjuntos de datos pequeños y no ordenados, ya que implica revisar cada elemento uno por uno.',
+        'El mejor caso de complejidad temporal para la búsqueda lineal es O(1), que ocurre cuando el elemento buscado es el primero del conjunto de datos.',
     },
     {
       statement:
-        '¿Qué método de búsqueda se beneficia más de conjuntos de datos ordenados en términos de tiempo?',
-      question:
-        'Entre estos métodos de búsqueda, ¿cuál se beneficia más de conjuntos de datos ordenados en términos de tiempo?',
+        '¿Cuántas comparaciones se necesitan en promedio para encontrar un elemento usando búsqueda lineal?',
+      question: '¿Cuántas comparaciones en promedio para búsqueda lineal?',
       options: {
-        A: 'Búsqueda lineal',
-        B: 'Búsqueda binaria',
-        C: 'Búsqueda en árbol',
-        D: 'Búsqueda hash',
+        A: '1 comparación',
+        B: 'n/2 comparaciones',
+        C: 'log n comparaciones',
+        D: 'n comparaciones',
       },
       answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'La búsqueda binaria se beneficia enormemente de conjuntos de datos ordenados, ya que reduce la cantidad de elementos a considerar en cada paso.',
+        'En promedio, la búsqueda lineal requiere n/2 comparaciones, ya que en el caso promedio el elemento se encuentra aproximadamente en la mitad del conjunto de datos.',
     },
+  ],
+};
+
+export const binarySearchQuiz = {
+  name: 'Búsqueda Binaria',
+  questions: [
     {
-      statement:
-        '¿Cuál de los siguientes métodos de búsqueda es más eficiente en términos de tiempo en conjuntos de datos grandes?',
-      question:
-        'En conjuntos de datos grandes, ¿cuál método de búsqueda es más eficiente en términos de tiempo?',
+      statement: '¿Cuál es la definición correcta de búsqueda binaria?',
+      question: '¿Qué es la búsqueda binaria?',
       options: {
-        A: 'Búsqueda lineal',
-        B: 'Búsqueda binaria',
-        C: 'Búsqueda en árbol',
-        D: 'Búsqueda hash',
+        A: 'Un algoritmo que recorre secuencialmente cada elemento.',
+        B: 'Un algoritmo que divide el conjunto ordenado a la mitad en cada paso.',
+        C: 'Un algoritmo que utiliza una función hash.',
+        D: 'Un algoritmo que busca en un árbol binario.',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'La búsqueda hash es más eficiente en términos de tiempo en conjuntos de datos grandes, ya que permite el acceso directo a los elementos utilizando una función de hash.',
+        'La búsqueda binaria es un algoritmo eficiente que divide el conjunto de datos ordenado a la mitad en cada paso, eliminando la mitad donde el objetivo no puede estar.',
     },
     {
       statement:
-        '¿En qué tipo de estructura de datos es común realizar la búsqueda en profundidad (DFS) y la búsqueda en amplitud (BFS)?',
+        '¿Cuál es la complejidad temporal de la búsqueda binaria en el peor caso?',
       question:
-        '¿En qué tipo de estructura de datos es común realizar tanto la búsqueda en profundidad (DFS) como la búsqueda en amplitud (BFS)?',
+        '¿Cuál es la complejidad de tiempo de búsqueda binaria en el peor caso?',
       options: {
-        A: 'Listas enlazadas',
-        B: 'Árboles binarios',
-        C: 'Colas',
-        D: 'Grafos',
+        A: 'O(1)',
+        B: 'O(log n)',
+        C: 'O(n)',
+        D: 'O(n²)',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'La búsqueda en profundidad (DFS) y la búsqueda en amplitud (BFS) son comunes en la exploración de grafos para encontrar caminos y conexiones entre nodos.',
+        'La complejidad temporal de la búsqueda binaria en el peor caso es O(log n), ya que en cada iteración divide el espacio de búsqueda por la mitad.',
     },
     {
-      statement:
-        '¿En qué tipo de estructura de datos es útil implementar una tabla hash para la búsqueda eficiente?',
-      question:
-        '¿En qué tipo de estructura de datos es útil implementar una tabla hash para la búsqueda eficiente?',
+      statement: '¿Cuál es el requisito principal para usar búsqueda binaria?',
+      question: '¿Cuál es el requisito previo para búsqueda binaria?',
       options: {
-        A: 'Listas enlazadas',
-        B: 'Árboles binarios',
-        C: 'Colas',
-        D: 'Arrays',
+        A: 'Los datos deben estar en un array.',
+        B: 'Los datos deben estar ordenados.',
+        C: 'Los datos deben ser números.',
+        D: 'Los datos deben ser únicos.',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Las tablas hash son particularmente útiles para la búsqueda eficiente en arrays o arreglos, ya que permiten acceso directo a través de una función de hash.',
+        'El requisito principal para usar búsqueda binaria es que los datos deben estar ordenados, de lo contrario el algoritmo no funcionará correctamente.',
     },
     {
       statement:
         '¿Cuál es la principal ventaja de la búsqueda binaria sobre la búsqueda lineal?',
       question:
-        '¿Cuál es la principal ventaja de la búsqueda binaria en comparación con la búsqueda lineal?',
+        '¿Cuál es la ventaja de búsqueda binaria frente a búsqueda lineal?',
       options: {
         A: 'Es más simple de implementar.',
-        B: 'Es más rápida en todo tipo de conjuntos de datos.',
-        C: 'Es más precisa.',
-        D: 'Requiere menos memoria.',
+        B: 'Es significativamente más rápida en conjuntos grandes.',
+        C: 'Funciona con datos no ordenados.',
+        D: 'Usa menos memoria.',
       },
       answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'La principal ventaja de la búsqueda binaria es su velocidad, ya que reduce significativamente el número de comparaciones necesarias, especialmente en conjuntos de datos grandes.',
+        'La principal ventaja de la búsqueda binaria es que es significativamente más rápida en conjuntos de datos grandes, con una complejidad de O(log n) frente a O(n) de la búsqueda lineal.',
     },
     {
-      statement:
-        '¿Cuál de los siguientes métodos de búsqueda es especialmente eficiente para conjuntos de datos dispersos?',
-      question:
-        '¿Cuál de estos métodos de búsqueda es especialmente eficiente para conjuntos de datos dispersos?',
+      statement: '¿Cuál es la desventaja principal de la búsqueda binaria?',
+      question: '¿Cuál es la desventaja de la búsqueda binaria?',
       options: {
-        A: 'Búsqueda lineal',
-        B: 'Búsqueda binaria',
-        C: 'Búsqueda en árbol',
-        D: 'Búsqueda hash',
+        A: 'Es lenta.',
+        B: 'Requiere que los datos estén ordenados.',
+        C: 'No funciona con arrays.',
+        D: 'Usa mucha memoria.',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'La búsqueda hash es especialmente eficiente para conjuntos de datos dispersos o con muchos valores faltantes, ya que puede mapear rápidamente claves a valores.',
+        'La principal desventaja es que requiere que los datos estén previamente ordenados, lo cual puede ser costoso computacionalmente si hay que ordenar primero.',
+    },
+    {
+      statement:
+        '¿Cómo se llama el punto central en el algoritmo de búsqueda binaria?',
+      question: '¿Cómo se llama el punto central en búsqueda binaria?',
+      options: {
+        A: 'Pivot',
+        B: 'Middle',
+        C: 'Centro',
+        D: 'Mitad',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'En la búsqueda binaria, el punto central se suele llamar "middle" (del inglés) o punto medio, que es el elemento usado para dividir el conjunto de datos.',
+    },
+    {
+      statement:
+        '¿Cuántas veces máximo se divide el conjunto de datos en una búsqueda binaria de 1 millón de elementos?',
+      question: '¿Cuántas divisiones máximo para 1 millón de elementos?',
+      options: {
+        A: 'Aproximadamente 10 divisiones',
+        B: 'Aproximadamente 20 divisiones',
+        C: 'Aproximadamente 100 divisiones',
+        D: 'Aproximadamente 1000 divisiones',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'Para 1 millón de elementos, la búsqueda binaria requiere un máximo de aproximadamente 20 divisiones (log₂(1,000,000) ≈ 20), demostrando su eficiencia.',
+    },
+    {
+      statement:
+        '¿Es la búsqueda binaria siempre mejor que la búsqueda lineal?',
+      question: '¿Es búsqueda binaria siempre mejor?',
+      options: {
+        A: 'Sí, en todos los casos.',
+        B: 'No, en conjuntos pequeños la búsqueda lineal puede ser comparativa.',
+        C: 'No, la búsqueda lineal es siempre mejor.',
+        D: 'Depende del lenguaje de programación.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'No es siempre mejor. En conjuntos de datos muy pequeños, la búsqueda lineal puede ser tan rápida o más debido al overhead de la búsqueda binaria, y además requiere datos ordenados.',
     },
   ],
 };
@@ -1419,6 +1543,148 @@ export const queueQuiz = {
       state: 'UNANSWERED',
       feedback:
         "En una cola implementada con una lista enlazada, la operación 'Enqueue' tiene una complejidad temporal promedio constante de O(1), ya que solo se necesita ajustar los punteros adecuadamente.",
+    },
+  ],
+};
+
+export const simpleListQuiz = {
+  name: 'Listas Simples',
+  questions: [
+    {
+      statement:
+        '¿Cuál es la definición correcta de una lista simple enlazada?',
+      question:
+        'En el contexto de estructuras de datos, ¿qué es una lista simple?',
+      options: {
+        A: 'Una estructura lineal de datos donde cada nodo almacena un valor y una referencia al siguiente nodo.',
+        B: 'Una estructura que solo puede almacenar números enteros.',
+        C: 'Una estructura de datos que almacena elementos en orden aleatorio.',
+        D: 'Una estructura de árbol binario con múltiples ramificaciones.',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'Una lista simple enlazada es una estructura lineal donde cada nodo contiene un valor y una referencia (puntero) al siguiente nodo en la secuencia.',
+    },
+    {
+      statement:
+        '¿Cuál es la principal diferencia entre una lista simple y una lista doblemente enlazada?',
+      question:
+        '¿Qué diferencia existe entre una lista simple y una lista doblemente enlazada?',
+      options: {
+        A: 'La lista simple es más rápida.',
+        B: 'La lista simple tiene referencias solo al siguiente nodo, mientras que la doblemente enlazada tiene referencias al anterior y siguiente.',
+        C: 'La lista doblemente enlazada ocupa menos memoria.',
+        D: 'Ambas son exactamente iguales en estructura.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La diferencia principal es que una lista simple solo tiene una referencia al siguiente nodo, mientras que una lista doblemente enlazada tiene referencias tanto al nodo anterior como al siguiente.',
+    },
+    {
+      statement:
+        '¿Cuál es la complejidad temporal para insertar un elemento al inicio de una lista simple enlazada?',
+      question:
+        '¿Cuál es la complejidad temporal para insertar un elemento al inicio de una lista simple?',
+      options: {
+        A: 'O(1)',
+        B: 'O(n)',
+        C: 'O(log n)',
+        D: 'O(n log n)',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La inserción al inicio de una lista simple es O(1) porque solo requiere ajustar el puntero del nuevo nodo al nodo que era la cabeza y actualizar la cabeza.',
+    },
+    {
+      statement:
+        '¿Cuál es la complejidad temporal para buscar un elemento en una lista simple enlazada?',
+      question:
+        '¿Cuál es la complejidad temporal promedio para buscar en una lista simple enlazada?',
+      options: {
+        A: 'O(1)',
+        B: 'O(n)',
+        C: 'O(log n)',
+        D: 'O(n^2)',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La búsqueda en una lista simple enlazada es O(n) en el caso promedio, porque potencialmente tienes que recorrer toda la lista desde el inicio hasta encontrar el elemento.',
+    },
+    {
+      statement:
+        '¿Qué operación es más eficiente en una lista simple comparada con un array?',
+      question:
+        '¿En qué operación es más eficiente una lista simple respecto a un array?',
+      options: {
+        A: 'En la inserción al inicio.',
+        B: 'En el acceso aleatorio a elementos.',
+        C: 'En la búsqueda binaria.',
+        D: 'En el almacenamiento de datos contiguos.',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La inserción al inicio de una lista simple es mucho más eficiente que en un array. En un array, insertar al inicio requiere desplazar todos los elementos (O(n)), mientras que en una lista simple es O(1).',
+    },
+    {
+      statement:
+        '¿Cuál es la ventaja principal de usar una lista simple sobre un array en programación?',
+      question:
+        '¿Cuál es la principal ventaja de una lista simple sobre un array?',
+      options: {
+        A: 'Acceso más rápido a elementos aleatorios.',
+        B: 'Mayor flexibilidad en la inserción y eliminación de elementos.',
+        C: 'Menor uso de memoria en general.',
+        D: 'Mejor rendimiento en búsquedas.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'La principal ventaja de una lista simple es su flexibilidad para insertar y eliminar elementos en cualquier posición, especialmente en el inicio, lo que es O(1) en comparación con un array.',
+    },
+    {
+      statement:
+        '¿Qué sucede cuando intentas acceder a un nodo después de la cola de una lista simple?',
+      question:
+        '¿Qué sucede si intentas acceder más allá del último nodo de una lista simple?',
+      options: {
+        A: 'Regresa al primer nodo.',
+        B: 'Accedes a un valor nulo o NULL.',
+        C: 'Se crea automáticamente un nuevo nodo.',
+        D: 'Se genera un error de desbordamiento.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'El último nodo de una lista simple tiene una referencia nula (NULL) al siguiente, lo que indica el final de la lista. Intentar acceder más allá resultaría en acceder a NULL.',
+    },
+    {
+      statement:
+        '¿Cuál es la mejor estrategia para eliminar un nodo específico de una lista simple?',
+      question:
+        '¿Cuál es la estrategia correcta para eliminar un nodo específico de una lista simple?',
+      options: {
+        A: 'Buscar el nodo anterior al que se desea eliminar y redirigir su referencia.',
+        B: 'Simplemente establecer el nodo a NULL.',
+        C: 'Recrear toda la lista sin ese nodo.',
+        D: 'Utilizar un algoritmo de búsqueda binaria.',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'Para eliminar un nodo de una lista simple, primero debes encontrar el nodo anterior al que deseas eliminar, y luego redirigir su referencia al nodo siguiente del nodo a eliminar.',
     },
   ],
 };

@@ -23,6 +23,7 @@ import {
   canFinishQuiz,
   formatQuestionIndicator,
   getQuizByName,
+  getAnimationNameByQuizName,
 } from '../helpers';
 import { questionStates, questionType } from '../constants';
 import {
@@ -152,7 +153,9 @@ export const QuizView = () => {
             {shouldShowFeedbackButton && (
               <BasicButton
                 onClick={() => {
-                  navigate(`/animacion/${quizName}`);
+                  navigate(
+                    `/animacion/${getAnimationNameByQuizName(quiz.name)}`
+                  );
                 }}
               >
                 Ver retroalimentación

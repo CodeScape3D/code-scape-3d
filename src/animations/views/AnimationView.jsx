@@ -26,7 +26,22 @@ import {
   SimpleListChart,
   SimpleListControls,
   SimpleListCode,
-} from '../simpleList/components'; // Importa los componentes
+} from '../simpleList/components';
+import {
+  DoubleListChart,
+  DoubleListControls,
+  DoubleListCode,
+} from '../doubleList/components';
+import {
+  LinearSearchChart,
+  LinearSearchControls,
+  LinearSearchCode,
+} from '../linearSearch';
+import {
+  BinarySearchChart,
+  BinarySearchControls,
+  BinarySearchCode,
+} from '../binarySearch';
 import { useTranslation } from 'react-i18next';
 
 export const AnimationView = () => {
@@ -60,46 +75,89 @@ export const AnimationView = () => {
         setIsOpen(false);
       }
     }
-    // Para listas simples no necesitamos inicializar arrays
   }, [animacion]);
 
   // Determinar la clase para el contenedor principal
   const classNameChart =
-    'flex-grow mb-4 w-full items-center justify-center ' +
-    (['stack', 'simpleList'].includes(animacion) ? 'flex' : '');
+    'flex-grow mb-4 w-full max-w-full overflow-hidden items-center justify-center ' +
+    ([
+      'stack',
+      'simpleList',
+      'doubleList',
+      'linearSearch',
+      'binarySearch',
+    ].includes(animacion)
+      ? 'flex'
+      : '');
+
+  // Obtener el título según el tipo de animación
+  const getTitulo = () => {
+    if (sort) return algorithm;
+    switch (animacion) {
+      case 'stack':
+        return 'Pilas';
+      case 'simpleList':
+        return 'Listas Simples';
+      case 'doubleList':
+        return 'Listas Dobles';
+      case 'linearSearch':
+        return 'Búsqueda Lineal';
+      case 'binarySearch':
+        return 'Búsqueda Binaria';
+      default:
+        return animacion;
+    }
+  };
+
+  // Mapeo de animación a nombre de quiz
+  const getQuizNameFromAnimation = () => {
+    const quizMapping = {
+      stack: 'stacks',
+      simpleList: 'simpleList',
+      doubleList: 'doubleList',
+      linearSearch: 'linearSearch',
+      binarySearch: 'binarySearch',
+      bubble: 'bubble',
+      quick: 'quick',
+      shell: 'shell',
+      insertion: 'insertion',
+    };
+    return quizMapping[animacion] || animacion;
+  };
 
   return (
-    <div className="flex flex-col items-center mt-3 w-full h-full flex-grow">
+    <div className="flex flex-col items-center mt-3 w-full h-full flex-grow overflow-hidden px-2">
       <Header
-        titulo={
-          sort
-            ? algorithm
-            : animacion === 'stack'
-              ? 'Pilas'
-              : animacion === 'simpleList'
-                ? 'Listas Simples'
-                : animacion
-        }
-        quiz={animacion}
-        descripcionQuiz={animacion + ` quiz`}
+        titulo={getTitulo()}
+        quiz={getQuizNameFromAnimation()}
+        descripcionQuiz={getTitulo() + ` quiz`}
       />
 
       <div className={classNameChart}>
         {animacion === 'stack' && <StackChart />}
         {animacion === 'simpleList' && <SimpleListChart />}
+        {animacion === 'doubleList' && <DoubleListChart />}
+        {animacion === 'linearSearch' && <LinearSearchChart />}
+        {animacion === 'binarySearch' && <BinarySearchChart />}
         {sort && <SortChart />}
       </div>
 
-      <div className="flex flex-col md:flex-row w-full">
-        <div className="md:w-1/2 flex items-center">
+      <div className="flex flex-col md:flex-row w-full max-w-full overflow-hidden">
+        <div className="md:w-1/2 flex items-center justify-center">
           {animacion === 'stack' && <StackControls />}
           {animacion === 'simpleList' && <SimpleListControls />}
+          {animacion === 'doubleList' && <DoubleListControls />}
+          {animacion === 'linearSearch' && <LinearSearchControls />}
+          {animacion === 'binarySearch' && <BinarySearchControls />}
           {sort && <SortControls />}
         </div>
 
-        <div className="md:w-1/2 flex items-center">
+        <div className="md:w-1/2 flex items-center justify-center">
           {animacion === 'stack' && <StackCode />}
           {animacion === 'simpleList' && <SimpleListCode />}
+          {animacion === 'doubleList' && <DoubleListCode />}
+          {animacion === 'linearSearch' && <LinearSearchCode />}
+          {animacion === 'binarySearch' && <BinarySearchCode />}
           {sort && <SortCode />}
         </div>
       </div>

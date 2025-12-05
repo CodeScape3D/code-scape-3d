@@ -23,7 +23,7 @@ const initialState = {
   srcHead: null,
   playing: false,
   funAction: null,
-  timeId: [],
+  timeIds: [],
 };
 
 export const simpleListSlice = createSlice({
@@ -96,8 +96,8 @@ export const simpleListSlice = createSlice({
     },
 
     restoreTimeIdSimpleList: state => {
-      state.timeId.forEach(timeoutId => clearTimeout(timeoutId));
-      state.timeId = [];
+      state.timeIds.forEach(timeoutId => clearTimeout(timeoutId));
+      state.timeIds = [];
     },
 
     updateVisualizationSimpleList: (state, action) => {
@@ -113,7 +113,7 @@ export const simpleListSlice = createSlice({
     },
 
     setTimeIdSimpleList: (state, action) => {
-      state.timeId = action.payload;
+      state.timeIds = action.payload;
     },
 
     incrementHistorySimpleList: state => {

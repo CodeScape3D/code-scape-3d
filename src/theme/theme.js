@@ -11,6 +11,14 @@ export const theme = createTheme({
     tertiary: {
       main: '#ECE6E4',
     },
+    info: {
+      main: '#0284C7',
+      dark: '#0369A1',
+    },
+    warning: {
+      main: '#EA580C',
+      dark: '#C2410C',
+    },
     gray: {
       main: '#1E1E1E',
       primary: '#D9D9D9',
