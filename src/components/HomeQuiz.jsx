@@ -3,9 +3,6 @@ import {
   svgOrderMethods,
   svgSearchMethods,
   svgLinkedList,
-  svgBinaryTrees,
-  svgPiles,
-  svgQueue,
 } from '../assets/svg/SvgConstans';
 import '../styles/mediaquerys.css';
 import { useEffect } from 'react';
@@ -32,7 +29,7 @@ export const HomeQuiz = () => {
           {t('quizzesPageSubtitle')}
         </p>
       </div>
-      <div className="mainQuizzes container m-auto mt-10 mb-6 md:mt-6 sm:mb-6 md:mb-6 lg:my-3  ">
+      <div className="mainQuizzes container m-auto mt-10 mb-6 md:mt-6 sm:mb-6 md:mb-6 lg:my-3">
         <div className="grid sm:grid-cols-1  gap-4 md:grid-cols-3 md:gap-6  justify-center sm:mt-10 lg:mt-10 xl:mt-10 ">
           <QuizCard
             logo={svgOrderMethods}
@@ -42,27 +39,12 @@ export const HomeQuiz = () => {
           <QuizCard
             logo={svgSearchMethods}
             titulo={t('searchingMethods')}
-            ruta={'/quiz/searchMethods'}
+            ruta={'/quizzes/searchMethods'}
           />
           <QuizCard
             logo={svgLinkedList}
-            titulo={t('linkedLists')}
-            ruta={'/quiz/linkedList'}
-          />
-          <QuizCard
-            logo={svgBinaryTrees}
-            titulo={t('binaryTrees')}
-            ruta={'/quiz/binaryTree'}
-          />
-          <QuizCard
-            logo={svgPiles}
-            titulo={t('stacks')}
-            ruta={'/quiz/stacks'}
-          />
-          <QuizCard
-            logo={svgQueue}
-            titulo={t('queues')}
-            ruta={'/quiz/queues'}
+            titulo={t('dataStructures') || 'Estructuras de Datos'}
+            ruta={'/quizzes/dataStructures'}
           />
         </div>
       </div>

@@ -54,6 +54,20 @@ export const SimpleListControls = () => {
     return count;
   }, [simpleListState.head]);
 
+  // Función para verificar si un elemento ya existe en la lista
+  const elementExists = useCallback(
+    value => {
+      if (!simpleListState.head) return false;
+      let current = simpleListState.head;
+      while (current !== null) {
+        if (current.getValue() === value) return true;
+        current = current.getNext();
+      }
+      return false;
+    },
+    [simpleListState.head]
+  );
+
   // Manejadores de cambio para los inputs
   const handleValueChange = useCallback(event => {
     const inputValue = event.target.value;
@@ -172,12 +186,13 @@ export const SimpleListControls = () => {
           actionPayload.position = position;
         }
 
-        dispatch(setHeadSimpleList(simpleListState.head));
-        dispatch(actionButtonSimpleList(actionPayload));
-        dispatch(restoreRepeatSimpleList());
-
+        // Marcar que se va a ejecutar una nueva animación
         animationExecutedRef.current = false;
         currentFunActionRef.current = action;
+
+        dispatch(setHeadSimpleList(simpleListState.head));
+        dispatch(actionButtonSimpleList(actionPayload));
+        // NO llamar a restoreRepeatSimpleList aquí, causa el bug de doble animación
       } catch (error) {
         console.error('Error executing animation:', error);
         showError('Error al ejecutar la animación');
@@ -195,18 +210,26 @@ export const SimpleListControls = () => {
 
   // Efecto para manejar la ejecución automática de animaciones
   useEffect(() => {
+    // Solo ejecutar si hay un stepHistory nuevo y válido
     if (
       simpleListState.stepHistory &&
       simpleListState.stepHistory.length > 0 &&
       simpleListState.funAction &&
       simpleListState.funAction === currentFunActionRef.current &&
       !simpleListState.playing &&
-      !animationExecutedRef.current
+      !animationExecutedRef.current &&
+      simpleListState.history === -1 // Solo si no ha empezado la animación
     ) {
       animationExecutedRef.current = true;
       runAnimation(simpleListState.stepHistory, true);
     }
-  }, [simpleListState.stepHistory, simpleListState.funAction, runAnimation]);
+  }, [
+    simpleListState.stepHistory,
+    simpleListState.funAction,
+    simpleListState.playing,
+    simpleListState.history,
+    runAnimation,
+  ]);
 
   // Limpiar refs cuando cambia la acción
   useEffect(() => {
@@ -225,6 +248,11 @@ export const SimpleListControls = () => {
       return;
     }
 
+    if (elementExists(numValue)) {
+      showError('El elemento ya existe en la lista');
+      return;
+    }
+
     executeAnimation('insertarAlInicio', numValue);
     setValue('');
   };
@@ -234,6 +262,11 @@ export const SimpleListControls = () => {
 
     if (numValue === null) {
       showError('Ingresa un valor válido');
+      return;
+    }
+
+    if (elementExists(numValue)) {
+      showError('El elemento ya existe en la lista');
       return;
     }
 
@@ -247,6 +280,11 @@ export const SimpleListControls = () => {
 
     if (numValue === null) {
       showError('Ingresa un valor válido para insertar');
+      return;
+    }
+
+    if (elementExists(numValue)) {
+      showError('El elemento ya existe en la lista');
       return;
     }
 
@@ -407,9 +445,9 @@ export const SimpleListControls = () => {
   const playPauseIcon = simpleListState.playing ? svgPause : svgPlay;
 
   return (
-    <div className="w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between">
+    <div className="w-full md:w-80 mx-auto px-2 md:px-0 md:ml-4 mb-4 flex flex-col md:justify-between">
       {/* Controles de reproducción */}
-      <div className="flex justify-center space-x-2 mb-4">
+      <div className="flex justify-center space-x-1 sm:space-x-2 mb-4">
         <BasicButton
           onClick={goBackward}
           disabled={
@@ -457,7 +495,7 @@ export const SimpleListControls = () => {
       </div>
 
       {/* Controles Insertar Inicio/Final */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <TextField
           label="Valor"
           variant="outlined"
@@ -465,7 +503,7 @@ export const SimpleListControls = () => {
           value={value}
           onChange={handleValueChange}
           disabled={isAnimating}
-          style={{ width: '120px' }}
+          sx={{ width: { xs: '80px', sm: '100px' } }}
           size="small"
         />
         <Button
@@ -478,7 +516,8 @@ export const SimpleListControls = () => {
             '&:hover': {
               backgroundColor: 'primary.dark',
             },
-            minWidth: '80px',
+            minWidth: { xs: '60px', sm: '80px' },
+            fontSize: { xs: '0.7rem', sm: '0.875rem' },
           }}
         >
           Inicio
@@ -493,7 +532,8 @@ export const SimpleListControls = () => {
             '&:hover': {
               backgroundColor: 'primary.dark',
             },
-            minWidth: '80px',
+            minWidth: { xs: '60px', sm: '80px' },
+            fontSize: { xs: '0.7rem', sm: '0.875rem' },
           }}
         >
           Final
@@ -501,7 +541,7 @@ export const SimpleListControls = () => {
       </div>
 
       {/* Controles para Insertar en Posición */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <TextField
           label="Posición"
           variant="outlined"
@@ -509,7 +549,7 @@ export const SimpleListControls = () => {
           value={position}
           onChange={handlePositionChange}
           disabled={isAnimating}
-          style={{ width: '120px' }}
+          sx={{ width: { xs: '80px', sm: '100px' } }}
           size="small"
           inputProps={{
             min: 0,
@@ -526,8 +566,8 @@ export const SimpleListControls = () => {
             '&:hover': {
               backgroundColor: 'secondary.dark',
             },
-            width: '100%',
-            maxWidth: '170px',
+            minWidth: { xs: '100px', sm: '140px' },
+            fontSize: { xs: '0.7rem', sm: '0.875rem' },
           }}
         >
           Insertar
@@ -535,7 +575,7 @@ export const SimpleListControls = () => {
       </div>
 
       {/* Controles para Eliminar en Posición */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <TextField
           label="Posición"
           variant="outlined"
@@ -543,7 +583,7 @@ export const SimpleListControls = () => {
           value={deletePosition}
           onChange={handleDeletePositionChange}
           disabled={isAnimating}
-          style={{ width: '120px' }}
+          sx={{ width: { xs: '80px', sm: '100px' } }}
           size="small"
           inputProps={{
             min: 0,
@@ -560,8 +600,8 @@ export const SimpleListControls = () => {
             '&:hover': {
               backgroundColor: 'secondary.dark',
             },
-            width: '100%',
-            maxWidth: '170px',
+            minWidth: { xs: '100px', sm: '140px' },
+            fontSize: { xs: '0.7rem', sm: '0.875rem' },
           }}
         >
           Eliminar
@@ -569,7 +609,7 @@ export const SimpleListControls = () => {
       </div>
 
       {/* Control Eliminar Inicio/Final */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <Button
           variant="contained"
           onClick={handleEliminarDelInicio}
@@ -580,8 +620,8 @@ export const SimpleListControls = () => {
             '&:hover': {
               backgroundColor: 'info.dark',
             },
-            width: '100%',
-            maxWidth: '140px',
+            minWidth: { xs: '90px', sm: '120px' },
+            fontSize: { xs: '0.65rem', sm: '0.8rem' },
           }}
         >
           Elim. Inicio
@@ -596,8 +636,8 @@ export const SimpleListControls = () => {
             '&:hover': {
               backgroundColor: 'info.dark',
             },
-            width: '100%',
-            maxWidth: '140px',
+            minWidth: { xs: '90px', sm: '120px' },
+            fontSize: { xs: '0.65rem', sm: '0.8rem' },
           }}
         >
           Elim. Final
@@ -605,7 +645,7 @@ export const SimpleListControls = () => {
       </div>
 
       {/* Control Buscar */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <TextField
           label="Buscar"
           variant="outlined"
@@ -613,7 +653,7 @@ export const SimpleListControls = () => {
           value={searchValue}
           onChange={handleSearchValueChange}
           disabled={isAnimating}
-          style={{ width: '120px' }}
+          sx={{ width: { xs: '80px', sm: '100px' } }}
           size="small"
         />
         <Button
@@ -627,8 +667,8 @@ export const SimpleListControls = () => {
             '&:hover': {
               backgroundColor: 'warning.dark',
             },
-            width: '100%',
-            maxWidth: '170px',
+            minWidth: { xs: '100px', sm: '140px' },
+            fontSize: { xs: '0.7rem', sm: '0.875rem' },
           }}
         >
           Buscar

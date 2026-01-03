@@ -385,9 +385,9 @@ export const StackControls = () => {
   const playPauseIcon = stackState.playing ? svgPause : svgPlay;
 
   return (
-    <div className="w-full md:w-80 mx-auto md:ml-4 mb-4 flex flex-col md:justify-between">
+    <div className="w-full md:w-80 mx-auto px-2 md:px-0 md:ml-4 mb-4 flex flex-col md:justify-between">
       {/* Controles de reproducción */}
-      <div className="flex justify-center space-x-2 mb-4">
+      <div className="flex justify-center space-x-1 sm:space-x-2 mb-4">
         <BasicButton
           onClick={goBackward}
           disabled={stackState.playing || (stackState.history || -1) <= 0}
@@ -430,7 +430,7 @@ export const StackControls = () => {
       </div>
 
       {/* Controles Push/Pop */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <TextField
           label="Valor"
           variant="outlined"
@@ -438,7 +438,7 @@ export const StackControls = () => {
           value={value}
           onChange={handleValueChange}
           disabled={isAnimating}
-          style={{ width: '120px' }}
+          sx={{ width: { xs: '80px', sm: '100px' } }}
           size="small"
         />
         <Button
@@ -451,7 +451,8 @@ export const StackControls = () => {
             '&:hover': {
               backgroundColor: 'primary.dark',
             },
-            minWidth: '80px',
+            minWidth: { xs: '60px', sm: '80px' },
+            fontSize: { xs: '0.75rem', sm: '0.875rem' },
           }}
         >
           Push
@@ -466,7 +467,8 @@ export const StackControls = () => {
             '&:hover': {
               backgroundColor: 'primary.dark',
             },
-            minWidth: '80px',
+            minWidth: { xs: '60px', sm: '80px' },
+            fontSize: { xs: '0.75rem', sm: '0.875rem' },
           }}
         >
           Pop
@@ -474,7 +476,7 @@ export const StackControls = () => {
       </div>
 
       {/* Controles para Insertar */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <TextField
           label="Posición"
           variant="outlined"
@@ -482,7 +484,7 @@ export const StackControls = () => {
           value={insertPosition}
           onChange={handleInsertPositionChange}
           disabled={isAnimating}
-          style={{ width: '120px' }}
+          sx={{ width: { xs: '80px', sm: '100px' } }}
           size="small"
           inputProps={{
             min: 0,
@@ -499,8 +501,8 @@ export const StackControls = () => {
             '&:hover': {
               backgroundColor: 'secondary.dark',
             },
-            width: '100%',
-            maxWidth: '170px',
+            minWidth: { xs: '100px', sm: '140px' },
+            fontSize: { xs: '0.75rem', sm: '0.875rem' },
           }}
         >
           Insertar
@@ -508,7 +510,7 @@ export const StackControls = () => {
       </div>
 
       {/* Controles para Extraer */}
-      <div className="flex justify-center space-x-2 items-center mb-3">
+      <div className="flex flex-wrap justify-center gap-2 items-center mb-3">
         <TextField
           label="Posición"
           variant="outlined"
@@ -516,7 +518,7 @@ export const StackControls = () => {
           value={extractPosition}
           onChange={handleExtractPositionChange}
           disabled={isAnimating}
-          style={{ width: '120px' }}
+          sx={{ width: { xs: '80px', sm: '100px' } }}
           size="small"
           inputProps={{
             min: 0,
@@ -536,8 +538,8 @@ export const StackControls = () => {
             '&:hover': {
               backgroundColor: 'secondary.dark',
             },
-            width: '100%',
-            maxWidth: '170px',
+            minWidth: { xs: '100px', sm: '140px' },
+            fontSize: { xs: '0.75rem', sm: '0.875rem' },
           }}
         >
           Extraer
@@ -545,7 +547,7 @@ export const StackControls = () => {
       </div>
 
       {/* Control Sumergir */}
-      <div className="flex justify-center mb-3">
+      <div className="flex justify-center mb-3 px-2">
         <Button
           variant="contained"
           onClick={handleSumergirButton}
@@ -557,7 +559,8 @@ export const StackControls = () => {
               backgroundColor: 'info.dark',
             },
             width: '100%',
-            maxWidth: '292px',
+            maxWidth: { xs: '200px', sm: '292px' },
+            fontSize: { xs: '0.75rem', sm: '0.875rem' },
           }}
         >
           Sumergir

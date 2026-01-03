@@ -865,143 +865,262 @@ export const sortingMethodsQuizEn = {
   ],
 };
 
-export const searchMethodsQuizEn = {
-  name: 'Search Methods',
+export const linearSearchQuizEn = {
+  name: 'Linear Search',
   questions: [
     {
-      statement:
-        'Which of the following search methods is more efficient on a sorted dataset?',
-      question: 'On a sorted dataset, which search method is more efficient?',
+      statement: 'What is the correct definition of linear search?',
+      question: 'What is linear search?',
       options: {
-        A: 'Linear Search',
-        B: 'Binary Search',
-        C: 'Tree Search',
-        D: 'Hash Search',
+        A: 'An algorithm that halves the dataset at each step.',
+        B: 'An algorithm that sequentially traverses each element until finding the target.',
+        C: 'An algorithm that uses a hash function to find elements.',
+        D: 'An algorithm that searches in a binary tree.',
       },
       answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Binary Search is more efficient on sorted datasets because it halves the search space with each iteration.',
+        'Linear search is an algorithm that sequentially traverses each element of the dataset until finding the target or reaching the end.',
     },
     {
       statement:
-        'Which of the following search methods is more suitable for small and unsorted datasets?',
+        'What is the time complexity of linear search in the worst case?',
       question:
-        'On small and unsorted datasets, which search method is more suitable?',
+        'What is the time complexity of linear search in the worst case?',
       options: {
-        A: 'Linear Search',
-        B: 'Binary Search',
-        C: 'Tree Search',
-        D: 'Hash Search',
+        A: 'O(1)',
+        B: 'O(log n)',
+        C: 'O(n)',
+        D: 'O(n²)',
+      },
+      answer: 'C',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'In the worst case, linear search has a time complexity of O(n) since it may need to check all elements in the dataset.',
+    },
+    {
+      statement: 'On what type of dataset is linear search most efficient?',
+      question: 'When is it most appropriate to use linear search?',
+      options: {
+        A: 'On large and sorted datasets.',
+        B: 'On small or unsorted datasets.',
+        C: 'On datasets with millions of elements.',
+        D: 'Only on binary tree structures.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'Linear search is most efficient for small datasets or when data is not sorted, as we cannot make assumptions about element arrangement.',
+    },
+    {
+      statement: 'What is the main advantage of linear search?',
+      question: 'What is the main advantage of linear search?',
+      options: {
+        A: 'It is very fast.',
+        B: 'It works on unsorted datasets.',
+        C: 'It uses less memory than other methods.',
+        D: 'It always has O(1) complexity.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'The main advantage of linear search is that it works on any dataset, sorted or unsorted, without requiring preprocessing.',
+    },
+    {
+      statement: 'What is the main disadvantage of linear search?',
+      question: 'What is the main disadvantage of linear search?',
+      options: {
+        A: 'It is not stable.',
+        B: 'It uses a lot of memory.',
+        C: 'It is slow on large datasets.',
+        D: 'It does not work on arrays.',
+      },
+      answer: 'C',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'The main disadvantage of linear search is its slowness on large datasets, as it may require checking all elements in the worst case.',
+    },
+    {
+      statement: 'Is it necessary for data to be sorted to use linear search?',
+      question: 'Must data be sorted for linear search?',
+      options: {
+        A: 'Yes, always.',
+        B: 'No, never.',
+        C: 'Only if there are more than 1000 elements.',
+        D: 'It depends on the programming language.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'It is not necessary for data to be sorted for linear search. The algorithm works on any dataset, sorted or unsorted.',
+    },
+    {
+      statement: 'What is the best case time complexity for linear search?',
+      question: 'What is the best case time complexity for linear search?',
+      options: {
+        A: 'O(1)',
+        B: 'O(log n)',
+        C: 'O(n)',
+        D: 'O(n²)',
       },
       answer: 'A',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Linear Search is more suitable for small and unsorted datasets as it involves checking each element one by one.',
+        'The best case time complexity for linear search is O(1), which occurs when the searched element is the first in the dataset.',
     },
     {
       statement:
-        'Which search method benefits the most from sorted datasets in terms of time?',
-      question:
-        'Among these search methods, which benefits the most from sorted datasets in terms of time?',
+        'On average, how many comparisons are needed to find an element using linear search?',
+      question: 'On average, how many comparisons for linear search?',
       options: {
-        A: 'Linear Search',
-        B: 'Binary Search',
-        C: 'Tree Search',
-        D: 'Hash Search',
+        A: '1 comparison',
+        B: 'n/2 comparisons',
+        C: 'log n comparisons',
+        D: 'n comparisons',
       },
       answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Binary Search greatly benefits from sorted datasets as it reduces the number of elements to consider at each step.',
+        'On average, linear search requires n/2 comparisons, as the element is typically found approximately halfway through the dataset.',
     },
+  ],
+};
+
+export const binarySearchQuizEn = {
+  name: 'Binary Search',
+  questions: [
     {
-      statement:
-        'Which of the following search methods is more efficient in terms of time on large datasets?',
-      question:
-        'On large datasets, which search method is more efficient in terms of time?',
+      statement: 'What is the correct definition of binary search?',
+      question: 'What is binary search?',
       options: {
-        A: 'Linear Search',
-        B: 'Binary Search',
-        C: 'Tree Search',
-        D: 'Hash Search',
+        A: 'An algorithm that sequentially traverses each element.',
+        B: 'An algorithm that halves the sorted dataset at each step.',
+        C: 'An algorithm that uses a hash function.',
+        D: 'An algorithm that searches in a binary tree.',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Hash Search is more efficient in terms of time on large datasets, as it allows direct access to elements using a hash function.',
+        'Binary search is an efficient algorithm that halves the sorted dataset at each step, eliminating the half where the target cannot be.',
     },
     {
       statement:
-        'In what type of data structure is it common to perform Depth-First Search (DFS) and Breadth-First Search (BFS)?',
+        'What is the time complexity of binary search in the worst case?',
       question:
-        'In what type of data structure is it common to perform both Depth-First Search (DFS) and Breadth-First Search (BFS)?',
+        'What is the time complexity of binary search in the worst case?',
       options: {
-        A: 'Linked Lists',
-        B: 'Binary Trees',
-        C: 'Queues',
-        D: 'Graphs',
+        A: 'O(1)',
+        B: 'O(log n)',
+        C: 'O(n)',
+        D: 'O(n²)',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Depth-First Search (DFS) and Breadth-First Search (BFS) are common in exploring graphs to find paths and connections between nodes.',
+        'The time complexity of binary search in the worst case is O(log n), as it halves the search space at each iteration.',
     },
     {
-      statement:
-        'In what type of data structure is it useful to implement a hash table for efficient searching?',
-      question:
-        'In what type of data structure is it useful to implement a hash table for efficient searching?',
+      statement: 'What is the main requirement to use binary search?',
+      question: 'What is the main requirement for binary search?',
       options: {
-        A: 'Linked Lists',
-        B: 'Binary Trees',
-        C: 'Queues',
-        D: 'Arrays',
+        A: 'Data must be in an array.',
+        B: 'Data must be sorted.',
+        C: 'Data must be numbers.',
+        D: 'Data must be unique.',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Hash tables are particularly useful for efficient searching in arrays, as they allow direct access through a hash function.',
+        'The main requirement for binary search is that data must be sorted; otherwise the algorithm will not work correctly.',
     },
     {
       statement:
         'What is the main advantage of binary search over linear search?',
-      question:
-        'What is the main advantage of binary search compared to linear search?',
+      question: 'What is the advantage of binary search over linear search?',
       options: {
         A: 'It is simpler to implement.',
-        B: 'It is faster across all types of datasets.',
-        C: 'It is more precise.',
-        D: 'It requires less memory.',
+        B: 'It is significantly faster on large datasets.',
+        C: 'It works with unsorted data.',
+        D: 'It uses less memory.',
       },
       answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'The main advantage of binary search is its speed, as it significantly reduces the number of comparisons needed, especially on large datasets.',
+        'The main advantage of binary search is that it is significantly faster on large datasets, with O(log n) complexity versus O(n) for linear search.',
     },
     {
-      statement:
-        'Which of the following search methods is particularly efficient for sparse datasets?',
-      question:
-        'Which of these search methods is particularly efficient for sparse datasets?',
+      statement: 'What is the main disadvantage of binary search?',
+      question: 'What is the disadvantage of binary search?',
       options: {
-        A: 'Linear Search',
-        B: 'Binary Search',
-        C: 'Tree Search',
-        D: 'Hash Search',
+        A: 'It is slow.',
+        B: 'It requires data to be sorted.',
+        C: 'It does not work on arrays.',
+        D: 'It uses a lot of memory.',
       },
-      answer: 'D',
+      answer: 'B',
       selectedAnswer: null,
       state: 'UNANSWERED',
       feedback:
-        'Hash Search is especially efficient for sparse datasets or datasets with many missing values, as it can quickly map keys to values.',
+        'The main disadvantage is that it requires data to be pre-sorted, which can be computationally expensive if sorting is needed first.',
+    },
+    {
+      statement:
+        'What is the central point called in the binary search algorithm?',
+      question: 'What is the central point called in binary search?',
+      options: {
+        A: 'Pivot',
+        B: 'Middle',
+        C: 'Center',
+        D: 'Midpoint',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'In binary search, the central point is typically called "middle", which is the element used to divide the dataset.',
+    },
+    {
+      statement:
+        'At most, how many times is the dataset divided in a binary search of 1 million elements?',
+      question: 'At most, how many divisions for 1 million elements?',
+      options: {
+        A: 'Approximately 10 divisions',
+        B: 'Approximately 20 divisions',
+        C: 'Approximately 100 divisions',
+        D: 'Approximately 1000 divisions',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'For 1 million elements, binary search requires at most approximately 20 divisions (log₂(1,000,000) ≈ 20), demonstrating its efficiency.',
+    },
+    {
+      statement: 'Is binary search always better than linear search?',
+      question: 'Is binary search always better?',
+      options: {
+        A: 'Yes, in all cases.',
+        B: 'No, on small datasets linear search can be comparable.',
+        C: 'No, linear search is always better.',
+        D: 'It depends on the programming language.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'It is not always better. On very small datasets, linear search can be as fast or faster due to binary search overhead, and binary search requires sorted data.',
     },
   ],
 };
@@ -1394,6 +1513,146 @@ export const queueQuizEn = {
       state: 'UNANSWERED',
       feedback:
         "In a queue implemented with a linked list, the 'Enqueue' operation has an average time complexity of O(1), as it only involves adjusting pointers.",
+    },
+  ],
+};
+
+export const simpleListQuizEn = {
+  name: 'Simple Lists',
+  questions: [
+    {
+      statement:
+        'What is the correct definition of a simple singly linked list?',
+      question: 'In the context of data structures, what is a simple list?',
+      options: {
+        A: 'A linear data structure where each node stores a value and a reference to the next node.',
+        B: 'A structure that can only store integers.',
+        C: 'A data structure that stores elements in random order.',
+        D: 'A binary tree structure with multiple branches.',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'A simple singly linked list is a linear structure where each node contains a value and a reference (pointer) to the next node in the sequence.',
+    },
+    {
+      statement:
+        'What is the main difference between a simple list and a doubly linked list?',
+      question:
+        'What difference exists between a simple list and a doubly linked list?',
+      options: {
+        A: 'The simple list is faster.',
+        B: 'The simple list has references only to the next node, while the doubly linked list has references to both previous and next.',
+        C: 'The doubly linked list uses less memory.',
+        D: 'Both are exactly the same in structure.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'The main difference is that a simple list has only one reference to the next node, while a doubly linked list has references to both the previous and next nodes.',
+    },
+    {
+      statement:
+        'What is the time complexity for inserting an element at the beginning of a simple singly linked list?',
+      question:
+        'What is the time complexity for inserting an element at the beginning of a simple list?',
+      options: {
+        A: 'O(1)',
+        B: 'O(n)',
+        C: 'O(log n)',
+        D: 'O(n log n)',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        "Insertion at the beginning of a simple list is O(1) because it only requires adjusting the new node's pointer to the current head node and updating the head.",
+    },
+    {
+      statement:
+        'What is the time complexity for searching an element in a simple singly linked list?',
+      question:
+        'What is the average time complexity for searching in a simple singly linked list?',
+      options: {
+        A: 'O(1)',
+        B: 'O(n)',
+        C: 'O(log n)',
+        D: 'O(n^2)',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'Searching in a simple singly linked list is O(n) on average, because you potentially have to traverse the entire list from the beginning to find the element.',
+    },
+    {
+      statement:
+        'What operation is more efficient in a simple list compared to an array?',
+      question:
+        'In which operation is a simple list more efficient compared to an array?',
+      options: {
+        A: 'In insertion at the beginning.',
+        B: 'In random access to elements.',
+        C: 'In binary search.',
+        D: 'In contiguous data storage.',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'Insertion at the beginning of a simple list is much more efficient than in an array. In an array, inserting at the beginning requires shifting all elements (O(n)), while in a simple list it is O(1).',
+    },
+    {
+      statement:
+        'What is the main advantage of using a simple list over an array in programming?',
+      question: 'What is the main advantage of a simple list over an array?',
+      options: {
+        A: 'Faster access to random elements.',
+        B: 'Greater flexibility in inserting and deleting elements.',
+        C: 'Lower overall memory usage.',
+        D: 'Better performance in searches.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'The main advantage of a simple list is its flexibility for inserting and deleting elements at any position, especially at the beginning, which is O(1) compared to an array.',
+    },
+    {
+      statement:
+        'What happens when you try to access a node after the tail of a simple list?',
+      question:
+        'What happens if you try to access beyond the last node of a simple list?',
+      options: {
+        A: 'It returns to the first node.',
+        B: 'You access a null or NULL value.',
+        C: 'A new node is automatically created.',
+        D: 'An overflow error is generated.',
+      },
+      answer: 'B',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'The last node of a simple list has a null (NULL) reference to the next node, indicating the end of the list. Attempting to access beyond it would result in accessing NULL.',
+    },
+    {
+      statement:
+        'What is the best strategy for deleting a specific node from a simple list?',
+      question:
+        'What is the correct strategy for deleting a specific node from a simple list?',
+      options: {
+        A: 'Find the node before the one you want to delete and redirect its reference.',
+        B: 'Simply set the node to NULL.',
+        C: 'Recreate the entire list without that node.',
+        D: 'Use a binary search algorithm.',
+      },
+      answer: 'A',
+      selectedAnswer: null,
+      state: 'UNANSWERED',
+      feedback:
+        'To delete a node from a simple list, you must first find the node before the one you want to delete, and then redirect its reference to the next node of the node to be deleted.',
     },
   ],
 };

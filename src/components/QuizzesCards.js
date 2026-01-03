@@ -5,6 +5,7 @@ import {
   svgBinaryTrees,
   svgPiles,
   svgQueue,
+  svgSimpleList,
 } from '../assets/svg/SvgConstans';
 
 export const quizzes = [
@@ -16,7 +17,7 @@ export const quizzes = [
   },
 
   {
-    id: 1,
+    id: 2,
     imagen: svgSearchMethods,
     titulo: 'Métodos de Busqueda',
     value: 'Métodos de Busqueda',
@@ -24,26 +25,33 @@ export const quizzes = [
 
   {
     id: 3,
-    imagen: svgLinkedList,
-    tiulo: 'Listas Enlazadas',
-    value: 'Listas Enlazadas',
+    imagen: svgSimpleList,
+    titulo: 'Listas Simples',
+    value: 'Listas Simples',
   },
 
   {
     id: 4,
+    imagen: svgLinkedList,
+    titulo: 'Listas Enlazadas',
+    value: 'Listas Enlazadas',
+  },
+
+  {
+    id: 5,
     imagen: svgBinaryTrees,
     titulo: 'Arboles Binarios',
     value: 'Arboles Binarios',
   },
 
   {
-    id: 5,
+    id: 6,
     imagen: svgPiles,
     titulo: 'Pilas',
     value: 'Pilas',
   },
   {
-    id: 6,
+    id: 7,
     imagen: svgQueue,
     titulo: 'Colas',
     value: 'Colas',

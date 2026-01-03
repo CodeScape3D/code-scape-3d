@@ -87,37 +87,34 @@ export const SortCode = () => {
 
   return (
     <div className="w-full md:w-80 mx-auto md:mr-4 md:mb-4">
-      <div className="relative">
-        {/* Panel de información */}
-        {infoVisible && (
-          <div
-            className="bg-gray-900 text-white p-4 rounded absolute bottom-14 w-full md:w-80"
-            style={{ zIndex: '100' }}
+      {/* Div header */}
+      <div className="bg-gray-900 text-white font-bold py-2 px-4 flex justify-between items-center rounded-t">
+        <div className="flex items-center">
+          {svgAlgo}
+          <span className="ml-2"> {t('algorithm')} </span>
+        </div>
+        <div className="flex items-center">
+          <span
+            className="inline-flex items-center ml-2 px-3 py-1 bg-primary text-white rounded-lg cursor-pointer hover:bg-secondary transition"
+            onClick={toggleInfoPanel}
           >
-            {Info(algorithm)}
-          </div>
-        )}
-
-        {/* Div header */}
-        <div className="bg-gray-900 text-white font-bold py-2 px-4 flex justify-between items-center rounded-t">
-          <div className="flex items-center">
-            {svgAlgo}
-            <span className="ml-2"> {t('algorithm')} </span>
-          </div>
-          <div className="flex items-center">
-            <span
-              className="inline-flex items-center ml-2 px-3 py-1 bg-primary text-white rounded-lg cursor-pointer hover:bg-secondary transition"
-              onClick={toggleInfoPanel}
-            >
-              {t('explanation')}
-              <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
-            </span>
-          </div>
+            {t('explanation')}
+            <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
+          </span>
         </div>
       </div>
 
       {/* Div del algoritmo */}
       <div className="bg-primary text-white text-xs p-2">{Code(algorithm)}</div>
+
+      {/* Panel de información */}
+      {infoVisible && (
+        <div className="bg-gray-900 text-white p-4 rounded mt-2">
+          <div style={{ maxHeight: '150px', overflowY: 'auto' }}>
+            {Info(algorithm)}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

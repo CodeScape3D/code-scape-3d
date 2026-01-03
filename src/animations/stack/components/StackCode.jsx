@@ -107,114 +107,24 @@ export const StackCode = () => {
   }, [prevCurrentLine]);
 
   return (
-    <div className="w-full md:w-80 mx-auto md:mr-4 md:mb-4">
-      <div className="relative">
-        {/* Panel de información */}
-        {infoVisible && (
-          <div
-            className="bg-gray-900 text-white p-4 rounded absolute bottom-14 w-full md:w-80 shadow-lg border border-gray-700"
-            style={{ zIndex: '100' }}
+    <div className="w-full md:w-80 mx-auto px-2 md:px-0 md:mr-4 md:mb-4">
+      {/* Header del panel de código */}
+      <div className="bg-gray-900 text-white font-bold py-2 px-4 flex justify-between items-center rounded-t border-b border-gray-700">
+        <div className="flex items-center">
+          {svgAlgo}
+          <span className="ml-2">{t('algorithm') || 'Algoritmo'}</span>
+        </div>
+        <div className="flex items-center">
+          <button
+            className="inline-flex items-center ml-2 px-3 py-1 bg-primary text-white rounded-lg cursor-pointer hover:bg-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary"
+            onClick={toggleInfoPanel}
+            aria-label={
+              infoVisible ? 'Ocultar información' : 'Mostrar información'
+            }
           >
-            <div className="max-h-96 overflow-y-auto">
-              <ul className="list-disc list-inside text-sm space-y-2">
-                <li>
-                  <span className="font-semibold text-blue-300">
-                    {t('definition') || 'Definición'}:
-                  </span>
-                  <span className="ml-1">
-                    {t('stackDefinition') ||
-                      'Una pila es una estructura de datos LIFO (Last In, First Out)'}
-                  </span>
-                </li>
-                <li>
-                  <span className="font-semibold text-blue-300">
-                    {t('principalOperations') || 'Operaciones principales'}:
-                  </span>
-                  <ul className="text-sm ml-4 mt-1 space-y-1">
-                    <li>
-                      <span className="font-semibold text-green-300">
-                        Push:
-                      </span>
-                      <span className="ml-1">
-                        {t('pushExplanation') ||
-                          'Añade un elemento al tope de la pila'}
-                      </span>
-                    </li>
-                    <li>
-                      <span className="font-semibold text-red-300">Pop:</span>
-                      <span className="ml-1">
-                        {t('popExplanation') ||
-                          'Elimina el elemento del tope de la pila'}
-                      </span>
-                    </li>
-                    <li>
-                      <span className="font-semibold text-yellow-300">
-                        Sumergir:
-                      </span>
-                      <span className="ml-1">
-                        Mueve el elemento del tope de la pila al final
-                      </span>
-                    </li>
-                    <li>
-                      <span className="font-semibold text-purple-300">
-                        Insertar:
-                      </span>
-                      <span className="ml-1">
-                        Agrega un elemento en una posición específica de la pila
-                      </span>
-                    </li>
-                    <li>
-                      <span className="font-semibold text-orange-300">
-                        Extraer:
-                      </span>
-                      <span className="ml-1">
-                        Elimina un elemento en una posición específica de la
-                        pila
-                      </span>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <span className="font-semibold text-blue-300">
-                    {t('utility') || 'Utilidad'}:
-                  </span>
-                  <span className="ml-1">
-                    {t('stackUsageExplanation') ||
-                      'Útil para operaciones de deshacer, navegación, etc.'}
-                  </span>
-                </li>
-                <li>
-                  <span className="font-semibold text-blue-300">
-                    {t('implementations') || 'Implementaciones'}:
-                  </span>
-                  <span className="ml-1">
-                    {t('stackImplementations') ||
-                      'Arrays, listas enlazadas, etc.'}
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
-
-        {/* Header del panel de código */}
-        <div className="bg-gray-900 text-white font-bold py-2 px-4 flex justify-between items-center rounded-t border-b border-gray-700">
-          <div className="flex items-center">
-            {svgAlgo}
-            <span className="ml-2">{t('algorithm') || 'Algoritmo'}</span>
-          </div>
-          <div className="flex items-center">
-            <button
-              className="inline-flex items-center ml-2 px-3 py-1 bg-primary text-white rounded-lg cursor-pointer hover:bg-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary"
-              onClick={toggleInfoPanel}
-              aria-label={
-                infoVisible ? 'Ocultar información' : 'Mostrar información'
-              }
-            >
-              <span>{t('explanation') || 'Explicación'}</span>
-              <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
-            </button>
-          </div>
+            <span>{t('explanation') || 'Explicación'}</span>
+            <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
+          </button>
         </div>
       </div>
 
@@ -225,6 +135,88 @@ export const StackCode = () => {
       >
         <div className="font-mono">{renderCode(funAction)}</div>
       </div>
+
+      {/* Panel de información */}
+      {infoVisible && (
+        <div className="bg-gray-900 text-white p-3 sm:p-4 rounded shadow-lg border border-gray-700 mt-2">
+          <ul
+            className="list-disc list-inside text-sm space-y-2 overflow-y-auto"
+            style={{ maxHeight: '150px' }}
+          >
+            <li>
+              <span className="font-semibold text-blue-300">
+                {t('definition') || 'Definición'}:
+              </span>
+              <span className="ml-1">
+                {t('stackDefinition') ||
+                  'Una pila es una estructura de datos LIFO (Last In, First Out)'}
+              </span>
+            </li>
+            <li>
+              <span className="font-semibold text-blue-300">
+                {t('principalOperations') || 'Operaciones principales'}:
+              </span>
+              <ul className="text-sm ml-4 mt-1 space-y-1">
+                <li>
+                  <span className="font-semibold text-green-300">Push:</span>
+                  <span className="ml-1">
+                    {t('pushExplanation') ||
+                      'Añade un elemento al tope de la pila'}
+                  </span>
+                </li>
+                <li>
+                  <span className="font-semibold text-red-300">Pop:</span>
+                  <span className="ml-1">
+                    {t('popExplanation') ||
+                      'Elimina el elemento del tope de la pila'}
+                  </span>
+                </li>
+                <li>
+                  <span className="font-semibold text-yellow-300">
+                    Sumergir:
+                  </span>
+                  <span className="ml-1">
+                    Mueve el elemento del tope de la pila al final
+                  </span>
+                </li>
+                <li>
+                  <span className="font-semibold text-purple-300">
+                    Insertar:
+                  </span>
+                  <span className="ml-1">
+                    Agrega un elemento en una posición específica de la pila
+                  </span>
+                </li>
+                <li>
+                  <span className="font-semibold text-orange-300">
+                    Extraer:
+                  </span>
+                  <span className="ml-1">
+                    Elimina un elemento en una posición específica de la pila
+                  </span>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span className="font-semibold text-blue-300">
+                {t('utility') || 'Utilidad'}:
+              </span>
+              <span className="ml-1">
+                {t('stackUsageExplanation') ||
+                  'Útil para operaciones de deshacer, navegación, etc.'}
+              </span>
+            </li>
+            <li>
+              <span className="font-semibold text-blue-300">
+                {t('implementations') || 'Implementaciones'}:
+              </span>
+              <span className="ml-1">
+                {t('stackImplementations') || 'Arrays, listas enlazadas, etc.'}
+              </span>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

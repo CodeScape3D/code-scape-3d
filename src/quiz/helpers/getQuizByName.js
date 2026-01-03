@@ -1,21 +1,25 @@
 import { defaultLanguage } from '../../main';
 import {
+  binarySearchQuiz,
+  binarySearchQuizEn,
   binaryTreeQuiz,
   binaryTreeQuizEn,
   bubbleSortQuiz,
   bubbleSortQuizEn,
   insertionSortQuiz,
   insertionSortQuizEn,
+  linearSearchQuiz,
+  linearSearchQuizEn,
   linkedListQuiz,
   linkedListQuizEn,
   queueQuiz,
   queueQuizEn,
   quickSortQuiz,
   quickSortQuizEn,
-  searchMethodsQuiz,
-  searchMethodsQuizEn,
   shellSortQuiz,
   shellSortQuizEn,
+  simpleListQuiz,
+  simpleListQuizEn,
   sortingFundamentalsQuiz,
   sortingFundamentalsQuizEn,
   sortingMethodsQuiz,
@@ -34,11 +38,13 @@ export const getQuizByName = name => {
     quick: quickSortQuiz,
     shell: shellSortQuiz,
     insertion: insertionSortQuiz,
+    linearSearch: linearSearchQuiz,
+    binarySearch: binarySearchQuiz,
     linkedList: linkedListQuiz,
-    searchMethods: searchMethodsQuiz,
     binaryTree: binaryTreeQuiz,
     stacks: stackQuiz,
     queues: queueQuiz,
+    simpleList: simpleListQuiz,
   };
 
   const quizzesEn = {
@@ -48,11 +54,13 @@ export const getQuizByName = name => {
     quick: quickSortQuizEn,
     shell: shellSortQuizEn,
     insertion: insertionSortQuizEn,
+    linearSearch: linearSearchQuizEn,
+    binarySearch: binarySearchQuizEn,
     linkedList: linkedListQuizEn,
-    searchMethods: searchMethodsQuizEn,
     binaryTree: binaryTreeQuizEn,
     stacks: stackQuizEn,
     queues: queueQuizEn,
+    simpleList: simpleListQuizEn,
   };
 
   return userLanguage == 'es' ? quizzes[name] : quizzesEn[name];

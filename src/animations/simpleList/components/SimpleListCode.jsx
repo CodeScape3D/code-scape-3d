@@ -87,63 +87,66 @@ export const SimpleListCode = () => {
   };
 
   return (
-    <div className="w-full md:w-80 mx-auto md:mr-4 md:mb-4">
-      <div className="relative">
-        {infoVisible && (
-          <div className="bg-gray-900 text-white p-4 rounded absolute bottom-14 w-full md:w-80 shadow-lg border border-gray-700 z-100">
-            <div className="max-h-96 overflow-y-auto">
-              <ul className="list-disc list-inside text-sm space-y-2">
-                <li>
-                  <span className="font-semibold text-blue-300">
-                    {t('definition') || 'Definición'}:
-                  </span>
-                  <span className="ml-1">
-                    Estructura lineal donde cada nodo contiene datos y un
-                    puntero al siguiente nodo
-                  </span>
-                </li>
-                <li>
-                  <span className="font-semibold text-blue-300">
-                    Operaciones:
-                  </span>
-                  <ul className="ml-4 mt-1 space-y-1">
-                    <li>
-                      <span className="text-green-300">Inserción</span>: Al
-                      inicio, final o posición específica
-                    </li>
-                    <li>
-                      <span className="text-red-300">Eliminación</span>: Del
-                      inicio, final o posición específica
-                    </li>
-                    <li>
-                      <span className="text-yellow-300">Búsqueda</span>:
-                      Recorrido secuencial
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
-
-        <div className="bg-gray-900 text-white font-bold py-2 px-4 flex justify-between items-center rounded-t border-b border-gray-700">
-          <div className="flex items-center">
-            {svgAlgo}
-            <span className="ml-2">{t('algorithm') || 'Algoritmo'}</span>
-          </div>
-          <button
-            className="inline-flex items-center px-3 py-1 bg-primary text-white rounded-lg hover:bg-secondary transition-colors"
-            onClick={() => setInfoVisible(!infoVisible)}
-          >
-            <span>{t('explanation') || 'Explicación'}</span>
-            <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
-          </button>
+    <div className="w-full md:w-80 mx-auto px-2 md:px-0 md:mr-4 md:mb-4">
+      {/* Header del panel de código */}
+      <div className="bg-gray-900 text-white font-bold py-2 px-4 flex justify-between items-center rounded-t border-b border-gray-700">
+        <div className="flex items-center">
+          {svgAlgo}
+          <span className="ml-2">{t('algorithm') || 'Algoritmo'}</span>
         </div>
+        <button
+          className="inline-flex items-center px-3 py-1 bg-primary text-white rounded-lg hover:bg-secondary transition-colors"
+          onClick={() => setInfoVisible(!infoVisible)}
+        >
+          <span>{t('explanation') || 'Explicación'}</span>
+          <SvgIconDropdown isOpen={infoVisible} className="ml-1" />
+        </button>
       </div>
 
-      <div className="bg-primary text-white text-xs p-2 rounded-b overflow-auto max-h-400">
+      {/* Contenido del código */}
+      <div
+        className="bg-primary text-white text-xs p-2 rounded-b overflow-auto"
+        style={{ maxHeight: '400px' }}
+      >
         <div className="font-mono">{renderCode(funAction)}</div>
       </div>
+
+      {/* Panel de información */}
+      {infoVisible && (
+        <div className="bg-gray-900 text-white p-3 sm:p-4 rounded shadow-lg border border-gray-700 mt-2">
+          <ul
+            className="list-disc list-inside text-sm space-y-2 overflow-y-auto"
+            style={{ maxHeight: '150px' }}
+          >
+            <li>
+              <span className="font-semibold text-blue-300">
+                {t('definition') || 'Definición'}:
+              </span>
+              <span className="ml-1">
+                Estructura lineal donde cada nodo contiene datos y un puntero al
+                siguiente nodo
+              </span>
+            </li>
+            <li>
+              <span className="font-semibold text-blue-300">Operaciones:</span>
+              <ul className="ml-4 mt-1 space-y-1">
+                <li>
+                  <span className="text-green-300">Inserción</span>: Al inicio,
+                  final o posición específica
+                </li>
+                <li>
+                  <span className="text-red-300">Eliminación</span>: Del inicio,
+                  final o posición específica
+                </li>
+                <li>
+                  <span className="text-yellow-300">Búsqueda</span>: Recorrido
+                  secuencial
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

@@ -9,7 +9,14 @@ import {
   HomeQuiz,
   HomeMiniJuegos,
 } from './components';
-import { QuizResults, QuizView, QuizAnswers, SortingMethodsPage } from './quiz';
+import {
+  QuizResults,
+  QuizView,
+  QuizAnswers,
+  SortingMethodsPage,
+  SearchMethodsPage,
+  DataStructuresPage,
+} from './quiz';
 import { AnimationView } from './animations';
 import { AppTheme } from './theme';
 import { Provider } from 'react-redux';
@@ -29,6 +36,14 @@ function App() {
               <Route
                 path="/quizzes/sortingMethods"
                 element={<SortingMethodsPage />}
+              />
+              <Route
+                path="/quizzes/searchMethods"
+                element={<SearchMethodsPage />}
+              />
+              <Route
+                path="/quizzes/dataStructures"
+                element={<DataStructuresPage />}
               />
               <Route path="/quiz/:quizName" element={<QuizView />} />
               <Route path="/quiz/results" element={<QuizResults />} />

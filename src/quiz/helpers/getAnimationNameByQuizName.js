@@ -4,6 +4,10 @@ export const getAnimationNameByQuizName = quizName => {
     Quicksort: 'quick',
     ShellSort: 'shell',
     'Insertion Sort': 'insertion',
+    'Listas Simples': 'simpleList',
+    Pilas: 'stack',
+    'Búsqueda Lineal': 'linearSearch',
+    'Búsqueda Binaria': 'binarySearch',
   };
 
   return animationNames[quizName];
