@@ -84,8 +84,22 @@
   }
 }
 
+@keyframes pulse-glow-danger {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 87, 87, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 87, 87, 0.95);
+  }
+}
+
 .animate-fadeInScale {
   animation: fadeInScale 0.5s ease-out forwards;
+}
+
+.animate-pulse-glow-danger {
+  animation: pulse-glow-danger 2s ease-in-out infinite;
 }
 
 .animate-fadeIn {

@@ -214,7 +214,7 @@ export const QuizView = () => {
                 </button>
               )}
             </div>
-            >>>>>>> origin/feature/quiz-y-busqueda-implementados
+
             {shouldShowFeedbackButton && (
               <button
                 onClick={() => {

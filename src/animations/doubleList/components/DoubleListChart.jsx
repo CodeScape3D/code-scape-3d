@@ -132,6 +132,8 @@ const NodeComponent = ({
     }
   }, [isHighlighted]);
 
+  const isDangerNode = secondSet.includes(value);
+
   return (
     <div className="relative flex-shrink-0">
       {/* Indicador HEAD - solo para el primer nodo */}
@@ -167,6 +169,7 @@ const NodeComponent = ({
           ${getBackgroundColor()}
           ${isHighlighted ? 'ring-2 sm:ring-4 ring-purple-400 ring-opacity-75 animate-pulse scale-105' : ''}
           ${isAnimating ? 'animate-wiggle' : ''}
+          ${isDangerNode ? 'animate-pulse-glow-danger ring-2 ring-red-400' : ''}
           cursor-pointer
         `}
         style={{

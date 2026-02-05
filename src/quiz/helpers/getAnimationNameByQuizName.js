@@ -6,6 +6,7 @@ export const getAnimationNameByQuizName = quizName => {
     'Insertion Sort': 'insertion',
     'Listas Simples': 'simpleList',
     Pilas: 'stack',
+    Colas: 'queue',
     'Búsqueda Lineal': 'linearSearch',
     'Búsqueda Binaria': 'binarySearch',
   };

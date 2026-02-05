@@ -13,6 +13,7 @@ import {
   svgDoubleList,
   svgLinearSearch,
   svgBinarySearch,
+  svgQueue,
 } from '../assets/svg/SvgConstans';
 
 export const courses = [
@@ -114,6 +115,13 @@ export const topic = [
     param: 'binarySearch',
     imagen: svgBinarySearch,
   },
+  {
+    id: 12,
+    curso: 'Programacion2',
+    titulo: 'Colas',
+    param: 'queue',
+    imagen: svgQueue,
+  },
 ];
 
 export const topicCategories = [
@@ -124,6 +132,7 @@ export const topicCategories = [
       t =>
         ![
           'stack',
+          'queue',
           'simpleList',
           'doubleList',
           'linearSearch',
@@ -135,7 +144,7 @@ export const topicCategories = [
     id: 2,
     nombre: 'Estructuras de Datos',
     temas: topic.filter(t =>
-      ['stack', 'simpleList', 'doubleList'].includes(t.param)
+      ['stack', 'queue', 'simpleList', 'doubleList'].includes(t.param)
     ),
   },
   {

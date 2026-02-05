@@ -6,6 +6,7 @@ import simpleListSlice from './simpleList/simpleListSlice';
 import doubleListSlice from './doubleList/doubleListSlice';
 import linearSearchSlice from './linearSearch/linearSearchSlice';
 import binarySearchSlice from './binarySearch/binarySearchSlice';
+import { queueSlice } from './queue';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     doubleList: doubleListSlice,
     linearSearch: linearSearchSlice,
     binarySearch: binarySearchSlice,
+    queue: queueSlice.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

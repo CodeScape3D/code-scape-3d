@@ -93,9 +93,11 @@ const StackNode = ({ node, isHead, firstSet, secondSet, height, fontSize }) => {
     return 'bg-secondary';
   };
 
+  const isDangerNode = secondSet.includes(node.value);
+
   return (
     <div
-      className={`w-full flex justify-center items-center relative text-black font-bold transition-all duration-200 ease-in-out rounded-md shadow-md ${getBackgroundColor()}`}
+      className={`w-full flex justify-center items-center relative ${isDangerNode ? 'text-white' : 'text-black'} font-bold transition-all duration-200 ease-in-out rounded-md shadow-md ${getBackgroundColor()} ${isDangerNode ? 'animate-pulse-glow-danger ring-2 ring-red-400' : ''}`}
       style={{
         height: `${height}px`,
         fontSize: `${fontSize}px`,

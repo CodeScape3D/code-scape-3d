@@ -22,6 +22,7 @@ import {
 } from '@mui/material';
 import { BasicButton } from '../../components';
 import { StackChart, StackCode, StackControls } from '../stack';
+import { QueueChart, QueueCode, QueueControls } from '../queue';
 import {
   SimpleListChart,
   SimpleListControls,
@@ -82,6 +83,7 @@ export const AnimationView = () => {
     'flex-grow mb-4 w-full max-w-full overflow-hidden items-center justify-center ' +
     ([
       'stack',
+      'queue',
       'simpleList',
       'doubleList',
       'linearSearch',
@@ -96,6 +98,8 @@ export const AnimationView = () => {
     switch (animacion) {
       case 'stack':
         return 'Pilas';
+      case 'queue':
+        return 'Colas';
       case 'simpleList':
         return 'Listas Simples';
       case 'doubleList':
@@ -113,9 +117,7 @@ export const AnimationView = () => {
   const getQuizNameFromAnimation = () => {
     const quizMapping = {
       stack: 'stacks',
-      simpleList: 'simpleList',
-      doubleList: 'doubleList',
-      linearSearch: 'linearSearch',
+      queue: 'queues',
       binarySearch: 'binarySearch',
       bubble: 'bubble',
       quick: 'quick',
@@ -134,7 +136,8 @@ export const AnimationView = () => {
       />
 
       <div className={classNameChart}>
-        {animacion === 'stack' && <StackChart />}
+        {animacion === 'stack' && <StackChart />}{' '}
+        {animacion === 'queue' && <QueueChart />}{' '}
         {animacion === 'simpleList' && <SimpleListChart />}
         {animacion === 'doubleList' && <DoubleListChart />}
         {animacion === 'linearSearch' && <LinearSearchChart />}
@@ -144,7 +147,8 @@ export const AnimationView = () => {
 
       <div className="flex flex-col md:flex-row w-full max-w-full overflow-hidden">
         <div className="md:w-1/2 flex items-center justify-center">
-          {animacion === 'stack' && <StackControls />}
+          {animacion === 'stack' && <StackControls />}{' '}
+          {animacion === 'queue' && <QueueControls />}{' '}
           {animacion === 'simpleList' && <SimpleListControls />}
           {animacion === 'doubleList' && <DoubleListControls />}
           {animacion === 'linearSearch' && <LinearSearchControls />}
@@ -153,7 +157,8 @@ export const AnimationView = () => {
         </div>
 
         <div className="md:w-1/2 flex items-center justify-center">
-          {animacion === 'stack' && <StackCode />}
+          {animacion === 'stack' && <StackCode />}{' '}
+          {animacion === 'queue' && <QueueCode />}{' '}
           {animacion === 'simpleList' && <SimpleListCode />}
           {animacion === 'doubleList' && <DoubleListCode />}
           {animacion === 'linearSearch' && <LinearSearchCode />}
