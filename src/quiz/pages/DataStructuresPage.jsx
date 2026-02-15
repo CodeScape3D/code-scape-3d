@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { resetStateForQuiz } from '../../store';
 import {
   svgSimpleList,
-  svgLinkedList,
+  svgLinkedListDataStructure,
   svgBinaryTrees,
   svgPiles,
   svgQueue,
@@ -31,7 +31,7 @@ export const DataStructuresPage = () => {
       id: 2,
       titulo: t('linkedLists'),
       param: 'linkedList',
-      imagen: svgLinkedList,
+      imagen: svgLinkedListDataStructure,
     },
     {
       id: 3,

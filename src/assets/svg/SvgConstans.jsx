@@ -166,10 +166,24 @@ export const svgLinkedList = (
   </svg>
 );
 
+export const svgLinkedListDataStructure = (
+  <svg
+    width="60"
+    height="60"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill="#FFFF"
+      d="M3.264 8.579a.683.683 0 0 1-.975 0a.704.704 0 0 1 0-.987L8.32 1.5C9.68.444 11.048-.063 12.41.006c1.716.088 3.052.742 4.186 1.815C17.752 2.915 18.5 4.476 18.5 6.368c0 1.452-.422 2.73-1.313 3.864l-8.503 8.76c-.86.705-1.816 1.046-2.84 1.005c-1.3-.054-2.267-.474-2.986-1.185c-.842-.831-1.358-1.852-1.358-3.225c0-1.092.377-2.1 1.155-3.046L10.139 4.9c.6-.64 1.187-1.02 1.787-1.112a2.486 2.486 0 0 1 2.2.755c.532.563.76 1.265.68 2.064c-.055.545-.278 1.047-.688 1.528l-6.88 7.048a.683.683 0 0 1-.974.006a.704.704 0 0 1-.006-.987l6.847-7.012c.2-.235.305-.472.33-.724c.04-.4-.056-.695-.305-.958a1.118 1.118 0 0 0-1-.34c-.243.037-.583.258-1.002.704l-7.453 7.607c-.537.655-.797 1.35-.797 2.109c0 .954.345 1.637.942 2.226c.475.47 1.12.75 2.08.79c.68.027 1.31-.198 1.858-.642l8.397-8.65c.645-.827.967-1.8.967-2.943c0-1.482-.577-2.684-1.468-3.528c-.91-.862-1.95-1.37-3.313-1.44c-1.008-.052-2.065.34-3.117 1.146L3.264 8.58Z"
+    />
+  </svg>
+);
+
 export const svgBinaryTrees = (
   <svg
-    width="120"
-    height="120"
+    width="60"
+    height="60"
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -183,8 +197,8 @@ export const svgBinaryTrees = (
 
 export const svgPiles = (
   <svg
-    width="120"
-    height="120"
+    width="60"
+    height="60"
     viewBox="0 0 14 14"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -217,8 +231,8 @@ export const svgPilesHome = (
 
 export const svgQueue = (
   <svg
-    width="40"
-    height="40"
+    width="60"
+    height="60"
     viewBox="0 0 16 16"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -638,8 +652,8 @@ export const svgMenu = (
 
 export const svgSimpleList = (
   <svg
-    width="40"
-    height="40"
+    width="60"
+    height="60"
     viewBox="0 0 40 40"
     xmlns="http://www.w3.org/2000/svg"
   >
