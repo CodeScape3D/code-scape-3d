@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 // Función para contar nodos en la pila
 const countNodes = node => {
@@ -14,7 +15,7 @@ const stackToArray = (node, arr = []) => {
 };
 
 export const StackChart = () => {
-  const { head, isHead, firstSet, secondSet } = useSelector(
+  const { head, isHead, firstSet, secondSet, deletingNode } = useSelector(
     state => state.stack
   );
 
@@ -77,6 +78,7 @@ export const StackChart = () => {
             isHead={isHead}
             firstSet={firstSet}
             secondSet={secondSet}
+            deletingNode={deletingNode}
             height={height}
             fontSize={fontSize}
           />
@@ -86,35 +88,68 @@ export const StackChart = () => {
   );
 };
 
-const StackNode = ({ node, isHead, firstSet, secondSet, height, fontSize }) => {
+const StackNode = ({
+  node,
+  isHead,
+  firstSet,
+  secondSet,
+  deletingNode,
+  height,
+  fontSize,
+}) => {
   const getBackgroundColor = () => {
     if (firstSet.includes(node.value)) return 'bg-success';
     if (secondSet.includes(node.value)) return 'bg-danger';
     return 'bg-secondary';
   };
 
-  const isDangerNode = secondSet.includes(node.value);
+  const isDangerNode =
+    secondSet.includes(node.value) || deletingNode === node.value;
+  const isDeleting = deletingNode === node.value;
+  const isNewNode = firstSet.includes(node.value);
+  const bgClass = firstSet.includes(node.value)
+    ? 'bg-success'
+    : isDangerNode
+      ? 'bg-danger'
+      : 'bg-secondary';
+
+  // Determinar qué animación aplicar
+  let animationClass = '';
+
+  if (isDeleting) {
+    animationClass = 'animate-fadeOutScale';
+  } else if (isNewNode) {
+    animationClass = 'animate-fadeInScale';
+  }
 
   return (
     <div
-      className={`w-full flex justify-center items-center relative ${isDangerNode ? 'text-white' : 'text-black'} font-bold transition-all duration-200 ease-in-out rounded-md shadow-md ${getBackgroundColor()} ${isDangerNode ? 'animate-pulse-glow-danger ring-2 ring-red-400' : ''}`}
+      className={`w-full flex justify-center items-center relative flex-shrink-0 ${animationClass}`}
       style={{
         height: `${height}px`,
         fontSize: `${fontSize}px`,
         minHeight: `${height}px`,
-        flexShrink: 0,
+        animationFillMode: animationClass ? 'both' : 'none',
       }}
     >
-      {node.value === isHead && (
-        <div
-          className="absolute left-full ml-1 sm:ml-2 flex items-center whitespace-nowrap text-white"
-          style={{ fontSize: `${Math.max(10, fontSize - 2)}px` }}
-        >
-          <span className="mr-1">⬅️</span>
-          <span className="hidden sm:inline">head</span>
-        </div>
-      )}
-      {node.value}
+      <div
+        className={`w-full flex justify-center items-center relative ${isDangerNode ? 'text-white' : 'text-black'} font-bold transition-all duration-200 ease-in-out rounded-md shadow-md ${bgClass} ${isDangerNode ? 'animate-pulse-glow-danger ring-2 ring-red-400' : ''}`}
+        style={{
+          height: `100%`,
+          fontSize: `${fontSize}px`,
+        }}
+      >
+        {node.value === isHead && (
+          <div
+            className="absolute left-full ml-1 sm:ml-2 flex items-center whitespace-nowrap text-white"
+            style={{ fontSize: `${Math.max(10, fontSize - 2)}px` }}
+          >
+            <span className="mr-1"></span>
+            <span className="hidden sm:inline">head</span>
+          </div>
+        )}
+        {node.value}
+      </div>
     </div>
   );
 };

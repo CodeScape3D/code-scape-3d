@@ -23,7 +23,8 @@ const crearRegistro = (
   cabeza,
   primerConjunto = [],
   segundoConjunto = [],
-  indiceActual = 0
+  indiceActual = 0,
+  nodoAEliminar = null
 ) => {
   return {
     head: copiarPila(cabeza),
@@ -31,6 +32,7 @@ const crearRegistro = (
     secondSet: [...segundoConjunto],
     isHead: cabeza ? cabeza.getValue() : -1,
     currentIndex: indiceActual,
+    deletingNode: nodoAEliminar,
   };
 };
 
@@ -84,11 +86,19 @@ export const Pop = cabeza => {
 
   // Paso 3: Guardar el valor a eliminar
   const valorEliminado = cabeza.getValue();
-  historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 2));
+
+  // Resaltar en rojo (secondSet) varios pasos como en la cola
+  historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 2));
+  historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 2));
+  historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 2));
+
+  // Preparar la animación de desaparición (deletingNode)
+  historialPasos.push(crearRegistro(cabeza, [], [], 2, valorEliminado));
+  historialPasos.push(crearRegistro(cabeza, [], [], 2, valorEliminado));
 
   // Paso 4: Actualizar el tope para que apunte al siguiente elemento
   cabeza = cabeza.getNext();
-  historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 3));
+  historialPasos.push(crearRegistro(cabeza, [], [], 3));
 
   // Paso 5: Mostrar estado final
   historialPasos.push(crearRegistro(cabeza, [], [], 4));
@@ -112,18 +122,18 @@ export const Sumergir = cabeza => {
   // Paso 3: Guardar el nodo del tope y su valor
   const nodoTope = cabeza;
   const valorTope = nodoTope.getValue();
-  historialPasos.push(crearRegistro(cabeza, [valorTope], [], 2));
+  historialPasos.push(crearRegistro(cabeza, [valorTope], [], 2, valorTope));
 
   // Paso 4: Actualizar el tope para que apunte al segundo elemento
   cabeza = cabeza.getNext();
-  historialPasos.push(crearRegistro(cabeza, [valorTope], [], 3));
+  historialPasos.push(crearRegistro(cabeza, [valorTope], [], 3, valorTope));
 
   // Paso 5: Buscar el último nodo de la pila
   let nodoActual = cabeza;
   while (nodoActual.getNext() !== null) {
     nodoActual = nodoActual.getNext();
     historialPasos.push(
-      crearRegistro(cabeza, [valorTope], [nodoActual.getValue()], 4)
+      crearRegistro(cabeza, [valorTope], [nodoActual.getValue()], 4, valorTope)
     );
   }
 
@@ -172,8 +182,8 @@ export const Insertar = (cabeza, valor, posicion) => {
     temp = temp.getNext();
   }
 
-  // Paso 5: Si la posición es mayor o igual al tamaño, insertar en el tope (push)
-  if (posicion >= tamanoPila) {
+  // Paso 5: Si posición <= 0, insertar en el tope (cima)
+  if (posicion <= 0) {
     nuevoNodo.setNext(cabeza);
     cabeza = nuevoNodo;
     historialPasos.push(crearRegistro(cabeza, [], [], 2));
@@ -181,8 +191,8 @@ export const Insertar = (cabeza, valor, posicion) => {
     return { historialPasos, nuevaCabeza: cabeza };
   }
 
-  // Paso 6: Si la posición es 0, insertar al fondo
-  if (posicion === 0) {
+  // Paso 6: Si posición >= tamaño, insertar al fondo
+  if (posicion >= tamanoPila) {
     // Encontrar el último nodo
     let nodoActual = cabeza;
     historialPasos.push(crearRegistro(cabeza, [valor], [], 3));
@@ -197,33 +207,32 @@ export const Insertar = (cabeza, valor, posicion) => {
     // Insertar al final
     nodoActual.setNext(nuevoNodo);
     historialPasos.push(crearRegistro(cabeza, [], [nuevoNodo.getValue()], 4));
+    historialPasos.push(crearRegistro(cabeza, [], [], 5));
+    return { historialPasos, nuevaCabeza: cabeza };
   }
-  // Paso 7: Insertar en posición intermedia
-  else {
-    // Convertir posición (desde el fondo) a índice (desde el tope)
-    let indiceDesdeTop = tamanoPila - posicion - 1;
-    let nodoActual = cabeza;
-    let contador = 0;
-    historialPasos.push(crearRegistro(cabeza, [valor], [], 3));
 
-    // Navegar hasta la posición anterior
-    while (contador < indiceDesdeTop) {
-      nodoActual = nodoActual.getNext();
-      contador++;
-      historialPasos.push(
-        crearRegistro(cabeza, [valor], [nodoActual.getValue()], 3)
-      );
-    }
+  // Paso 7: Insertar en posición intermedia (contando desde el tope)
+  let nodoActual = cabeza;
+  let contador = 0;
+  historialPasos.push(crearRegistro(cabeza, [valor], [], 3));
 
-    // Insertar el nuevo nodo
-    nuevoNodo.setNext(nodoActual.getNext());
+  // Navegar hasta la posición anterior
+  while (contador < posicion - 1) {
+    nodoActual = nodoActual.getNext();
+    contador++;
     historialPasos.push(
-      crearRegistro(cabeza, [valor], [nodoActual.getValue()], 4)
+      crearRegistro(cabeza, [valor], [nodoActual.getValue()], 3)
     );
-
-    nodoActual.setNext(nuevoNodo);
-    historialPasos.push(crearRegistro(cabeza, [], [nuevoNodo.getValue()], 4));
   }
+
+  // Insertar el nuevo nodo
+  nuevoNodo.setNext(nodoActual.getNext());
+  historialPasos.push(
+    crearRegistro(cabeza, [valor], [nodoActual.getValue()], 4)
+  );
+
+  nodoActual.setNext(nuevoNodo);
+  historialPasos.push(crearRegistro(cabeza, [], [nuevoNodo.getValue()], 4));
 
   // Paso 8: Mostrar estado final
   historialPasos.push(crearRegistro(cabeza, [], [], 5));
@@ -252,82 +261,87 @@ export const Extraer = (cabeza, posicion) => {
     temp = temp.getNext();
   }
 
-  // Paso 4: Verificar que la posición sea válida
-  if (posicion >= tamanoPila) {
+  // Paso 4: Verificar que la posición sea válida (0 <= posición < tamanoPila)
+  if (posicion < 0 || posicion >= tamanoPila) {
     historialPasos.push(crearRegistro(cabeza, [], [], 1));
     return { historialPasos, nuevaCabeza: cabeza };
   }
 
   let valorEliminado;
 
-  // Paso 5: Si la posición es la última (tope), eliminar del tope (pop)
-  if (posicion === tamanoPila - 1) {
+  // Caso 1: Eliminar en posición 0 (tope -> pop-like)
+  if (posicion === 0) {
     valorEliminado = cabeza.getValue();
-    historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 2));
+
+    // Resaltar en rojo varios pasos
+    historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 2));
+    historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 2));
+    historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 2));
+
+    // Preparar desaparición
+    historialPasos.push(crearRegistro(cabeza, [], [], 2, valorEliminado));
+    historialPasos.push(crearRegistro(cabeza, [], [], 2, valorEliminado));
 
     cabeza = cabeza.getNext();
-    historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 3));
+    historialPasos.push(crearRegistro(cabeza, [], [], 3));
+    historialPasos.push(crearRegistro(cabeza, [], [], 4));
+    return { historialPasos, nuevaCabeza: cabeza, valorEliminado };
   }
-  // Paso 6: Eliminar en otras posiciones
-  else {
-    historialPasos.push(crearRegistro(cabeza, [], [], 2));
 
-    // Si la posición es 0 (fondo), usar lógica especial
-    if (posicion === 0) {
-      // Caso especial: eliminar el último nodo de la cadena
-      if (tamanoPila === 1) {
-        // Solo hay un elemento, eliminarlo
-        valorEliminado = cabeza.getValue();
-        historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 3));
-        cabeza = null;
-        historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 4));
-      } else {
-        // Encontrar el penúltimo nodo
-        let nodoActual = cabeza;
-        while (nodoActual.getNext().getNext() !== null) {
-          nodoActual = nodoActual.getNext();
-          historialPasos.push(
-            crearRegistro(cabeza, [], [nodoActual.getValue()], 2)
-          );
-        }
-
-        // Eliminar el último nodo
-        valorEliminado = nodoActual.getNext().getValue();
-        historialPasos.push(
-          crearRegistro(cabeza, [valorEliminado], [nodoActual.getValue()], 3)
-        );
-
-        nodoActual.setNext(null);
-        historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 4));
-      }
-    }
-    // Eliminar en posición intermedia
-    else {
-      // Convertir posición (desde el fondo) a índice (desde el tope)
-      let indiceDesdeTop = tamanoPila - posicion - 1;
-      let nodoActual = cabeza;
-      let contador = 0;
-
-      // Navegar hasta el nodo anterior al que se va a eliminar
-      while (contador < indiceDesdeTop - 1) {
-        nodoActual = nodoActual.getNext();
-        contador++;
-        historialPasos.push(
-          crearRegistro(cabeza, [], [nodoActual.getValue()], 2)
-        );
-      }
-
-      // Guardar el valor a eliminar
-      valorEliminado = nodoActual.getNext().getValue();
+  // Caso 2: Eliminar en la última posición (fondo)
+  if (posicion === tamanoPila - 1) {
+    // Encontrar el penúltimo nodo
+    let nodoActual = cabeza;
+    while (nodoActual.getNext().getNext() !== null) {
+      nodoActual = nodoActual.getNext();
       historialPasos.push(
-        crearRegistro(cabeza, [valorEliminado], [nodoActual.getValue()], 3)
+        crearRegistro(cabeza, [], [nodoActual.getValue()], 2)
       );
-
-      // Eliminar el nodo de la cadena
-      nodoActual.setNext(nodoActual.getNext().getNext());
-      historialPasos.push(crearRegistro(cabeza, [valorEliminado], [], 4));
     }
+
+    // Valor a eliminar (el último)
+    valorEliminado = nodoActual.getNext().getValue();
+
+    // Resaltar en rojo antes de desaparición
+    historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 3));
+    historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 3));
+    historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 3));
+
+    // Preparar desaparición
+    historialPasos.push(crearRegistro(cabeza, [], [], 3, valorEliminado));
+    historialPasos.push(crearRegistro(cabeza, [], [], 3, valorEliminado));
+
+    // Eliminar el último nodo
+    nodoActual.setNext(null);
+    historialPasos.push(crearRegistro(cabeza, [], [], 4));
+    return { historialPasos, nuevaCabeza: cabeza, valorEliminado };
   }
+
+  // Caso 3: Eliminar en posición intermedia (contando desde el tope)
+  // Navegar hasta el nodo anterior al que se va a eliminar
+  let nodoActual = cabeza;
+  let contador = 0;
+  while (contador < posicion - 1) {
+    nodoActual = nodoActual.getNext();
+    contador++;
+    historialPasos.push(crearRegistro(cabeza, [], [nodoActual.getValue()], 2));
+  }
+
+  // Guardar el valor a eliminar
+  valorEliminado = nodoActual.getNext().getValue();
+
+  // Resaltar en rojo antes de desaparición
+  historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 3));
+  historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 3));
+  historialPasos.push(crearRegistro(cabeza, [], [valorEliminado], 3));
+
+  // Preparar desaparición
+  historialPasos.push(crearRegistro(cabeza, [], [], 3, valorEliminado));
+  historialPasos.push(crearRegistro(cabeza, [], [], 3, valorEliminado));
+
+  // Eliminar el nodo de la cadena
+  nodoActual.setNext(nodoActual.getNext().getNext());
+  historialPasos.push(crearRegistro(cabeza, [], [], 4));
 
   // Paso 7: Mostrar estado final
   historialPasos.push(crearRegistro(cabeza, [], [], 4));

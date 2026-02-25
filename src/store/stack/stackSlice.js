@@ -12,6 +12,7 @@ const initialState = {
   history: -1,
   firstSet: [],
   secondSet: [],
+  deletingNode: null,
   timeId: [],
   isHead: -1,
 
@@ -41,6 +42,7 @@ export const stackSlice = createSlice({
       state.history = -1;
       state.firstSet = [];
       state.secondSet = [];
+      state.deletingNode = null;
       state.timeId = [];
 
       state.srcHead = action.payload;
@@ -69,6 +71,7 @@ export const stackSlice = createSlice({
       state.secondSet = currVisualization.secondSet;
       state.isHead = currVisualization.isHead;
       state.elementos = elementos;
+      state.deletingNode = currVisualization.deletingNode || null;
     },
     restoreRepeatStack: state => {
       const head = state.srcHead;
@@ -76,6 +79,7 @@ export const stackSlice = createSlice({
       state.history = -1;
       state.firstSet = [];
       state.secondSet = [];
+      state.deletingNode = null;
       state.isHead = -1;
 
       // Actualizar elementos desde la cabeza restaurada
