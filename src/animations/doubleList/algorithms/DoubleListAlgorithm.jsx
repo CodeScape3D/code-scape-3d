@@ -902,89 +902,108 @@ export const Buscar = (cabeza, valor) => {
 // Componentes de código para visualización
 export const InsertarAlInicioCode = ({ codeRef }) => (
   <div ref={codeRef}>
-    <p>{'// Insertar al inicio - Lista Doble'}</p>
-    <p>{'nuevoNodo = new NodoDoble(valor)'}</p>
-    <p>{'nuevoNodo.next = cabeza'}</p>
-    <p>{'if (cabeza != null) cabeza.prev = nuevoNodo'}</p>
-    <p>{'cabeza = nuevoNodo'}</p>
-    <p>{'return cabeza'}</p>
+    <p>{'public void insertarAlInicio(int valor) {'}</p>
+    <p>{'    NodeDoble nuevoNodo = new NodeDoble(valor);'}</p>
+    <p>{'    nuevoNodo.setNext(cabeza);'}</p>
+    <p>{'    if (cabeza != null) cabeza.setPrev(nuevoNodo);'}</p>
+    <p>{'    cabeza = nuevoNodo;'}</p>
+    <p>{'}'}</p>
   </div>
 );
 
 export const InsertarAlFinalCode = ({ codeRef }) => (
   <div ref={codeRef}>
-    <p>{'// Insertar al final - Lista Doble'}</p>
-    <p>{'nuevoNodo = new NodoDoble(valor)'}</p>
-    <p>{'if (cabeza == null) return nuevoNodo'}</p>
-    <p>{'actual = cabeza'}</p>
-    <p>{'while (actual.next != null)'}</p>
-    <p>{'    actual = actual.next'}</p>
-    <p>{'actual.next = nuevoNodo'}</p>
-    <p>{'nuevoNodo.prev = actual'}</p>
-    <p>{'return cabeza'}</p>
+    <p>{'public void insertarAlFinal(int valor) {'}</p>
+    <p>{'    NodeDoble nuevoNodo = new NodeDoble(valor);'}</p>
+    <p>{'    if (cabeza == null) { cabeza = nuevoNodo; return; }'}</p>
+    <p>{'    NodeDoble actual = cabeza;'}</p>
+    <p>{'    while (actual.getNext() != null)'}</p>
+    <p>{'        actual = actual.getNext();'}</p>
+    <p>{'    actual.setNext(nuevoNodo);'}</p>
+    <p>{'    nuevoNodo.setPrev(actual);'}</p>
+    <p>{'}'}</p>
   </div>
 );
 
 export const InsertarEnPosicionCode = ({ codeRef }) => (
   <div ref={codeRef}>
-    <p>{'// Insertar en posición - Lista Doble'}</p>
-    <p>{'if (pos == 0) return insertarAlInicio()'}</p>
-    <p>{'nuevoNodo = new NodoDoble(valor)'}</p>
-    <p>{'actual = cabeza; cont = 0'}</p>
-    <p>{'while (cont < pos - 1 && actual != null)'}</p>
-    <p>{'    actual = actual.next; cont++'}</p>
-    <p>{'nuevoNodo.next = actual.next'}</p>
-    <p>{'nuevoNodo.prev = actual'}</p>
-    <p>{'if (actual.next != null) actual.next.prev = nuevoNodo'}</p>
-    <p>{'actual.next = nuevoNodo'}</p>
-    <p>{'return cabeza'}</p>
+    <p>{'public void insertarEnPosicion(int valor, int pos) {'}</p>
+    <p>{'    if (pos == 0) { insertarAlInicio(valor); return; }'}</p>
+    <p>{'    NodeDoble nuevoNodo = new NodeDoble(valor);'}</p>
+    <p>{'    NodeDoble actual = cabeza;'}</p>
+    <p>{'    for (int i = 0; i < pos - 1 && actual != null; i++)'}</p>
+    <p>{'        actual = actual.getNext();'}</p>
+    <p>{'    if (actual == null) return;'}</p>
+    <p>{'    nuevoNodo.setNext(actual.getNext());'}</p>
+    <p>{'    nuevoNodo.setPrev(actual);'}</p>
+    <p>{'    if (actual.getNext() != null)'}</p>
+    <p>{'        actual.getNext().setPrev(nuevoNodo);'}</p>
+    <p>{'    actual.setNext(nuevoNodo);'}</p>
+    <p>{'}'}</p>
   </div>
 );
 
 export const EliminarDelInicioCode = ({ codeRef }) => (
   <div ref={codeRef}>
-    <p>{'// Eliminar del inicio - Lista Doble'}</p>
-    <p>{'if (cabeza == null) return null'}</p>
-    <p>{'cabeza = cabeza.next'}</p>
-    <p>{'if (cabeza != null) cabeza.prev = null'}</p>
-    <p>{'return cabeza'}</p>
+    <p>{'public int eliminarDelInicio() {'}</p>
+    <p>{'    if (cabeza == null) return -1;'}</p>
+    <p>{'    int valor = cabeza.getValue();'}</p>
+    <p>{'    cabeza = cabeza.getNext();'}</p>
+    <p>{'    if (cabeza != null) cabeza.setPrev(null);'}</p>
+    <p>{'    return valor;'}</p>
+    <p>{'}'}</p>
   </div>
 );
 
 export const EliminarDelFinalCode = ({ codeRef }) => (
   <div ref={codeRef}>
-    <p>{'// Eliminar del final - Lista Doble'}</p>
-    <p>{'if (cabeza == null) return null'}</p>
-    <p>{'if (cabeza.next == null) return null'}</p>
-    <p>{'actual = cabeza'}</p>
-    <p>{'while (actual.next != null)'}</p>
-    <p>{'    actual = actual.next'}</p>
-    <p>{'actual.prev.next = null'}</p>
-    <p>{'return cabeza'}</p>
+    <p>{'public int eliminarDelFinal() {'}</p>
+    <p>{'    if (cabeza == null) return -1;'}</p>
+    <p>{'    if (cabeza.getNext() == null) {'}</p>
+    <p>{'        int valor = cabeza.getValue();'}</p>
+    <p>{'        cabeza = null;'}</p>
+    <p>{'        return valor;'}</p>
+    <p>{'    }'}</p>
+    <p>{'    NodeDoble actual = cabeza;'}</p>
+    <p>{'    while (actual.getNext() != null)'}</p>
+    <p>{'        actual = actual.getNext();'}</p>
+    <p>{'    int valor = actual.getValue();'}</p>
+    <p>{'    actual.getPrev().setNext(null);'}</p>
+    <p>{'    return valor;'}</p>
+    <p>{'}'}</p>
   </div>
 );
 
 export const EliminarEnPosicionCode = ({ codeRef }) => (
   <div ref={codeRef}>
-    <p>{'// Eliminar en posición - Lista Doble'}</p>
-    <p>{'if (pos == 0) return eliminarDelInicio()'}</p>
-    <p>{'actual = cabeza; cont = 0'}</p>
-    <p>{'while (cont < pos && actual != null)'}</p>
-    <p>{'    actual = actual.next; cont++'}</p>
-    <p>{'if (actual.prev != null) actual.prev.next = actual.next'}</p>
-    <p>{'if (actual.next != null) actual.next.prev = actual.prev'}</p>
-    <p>{'return cabeza'}</p>
+    <p>{'public int eliminarEnPosicion(int pos) {'}</p>
+    <p>{'    if (pos == 0) return eliminarDelInicio();'}</p>
+    <p>{'    NodeDoble actual = cabeza;'}</p>
+    <p>{'    for (int i = 0; i < pos && actual != null; i++)'}</p>
+    <p>{'        actual = actual.getNext();'}</p>
+    <p>{'    if (actual == null) return -1;'}</p>
+    <p>{'    int valor = actual.getValue();'}</p>
+    <p>{'    if (actual.getPrev() != null)'}</p>
+    <p>{'        actual.getPrev().setNext(actual.getNext());'}</p>
+    <p>{'    if (actual.getNext() != null)'}</p>
+    <p>{'        actual.getNext().setPrev(actual.getPrev());'}</p>
+    <p>{'    return valor;'}</p>
+    <p>{'}'}</p>
   </div>
 );
 
 export const BuscarCode = ({ codeRef }) => (
   <div ref={codeRef}>
-    <p>{'// Buscar en lista doble'}</p>
-    <p>{'if (cabeza == null) return -1'}</p>
-    <p>{'actual = cabeza; pos = 0'}</p>
-    <p>{'while (actual != null)'}</p>
-    <p>{'    if (actual.valor == buscado) return pos'}</p>
-    <p>{'    actual = actual.next; pos++'}</p>
-    <p>{'return -1'}</p>
+    <p>{'public int buscar(int valor) {'}</p>
+    <p>{'    if (cabeza == null) return -1;'}</p>
+    <p>{'    NodeDoble actual = cabeza;'}</p>
+    <p>{'    int pos = 0;'}</p>
+    <p>{'    while (actual != null) {'}</p>
+    <p>{'        if (actual.getValue() == valor) return pos;'}</p>
+    <p>{'        actual = actual.getNext();'}</p>
+    <p>{'        pos++;'}</p>
+    <p>{'    }'}</p>
+    <p>{'    return -1;'}</p>
+    <p>{'}'}</p>
   </div>
 );

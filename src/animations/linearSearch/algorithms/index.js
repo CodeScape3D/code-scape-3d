@@ -88,12 +88,12 @@ export const busquedaLineal = (array, target) => {
 };
 
 export const BusquedaLinealCode = () => {
-  return `function busquedaLineal(arreglo, objetivo) {
-  for (let i = 0; i < arreglo.length; i++) {
-    if (arreglo[i] === objetivo) {
-      return i; // Encontrado
+  return `public static int busquedaLineal(int[] arreglo, int objetivo) {
+    for (int i = 0; i < arreglo.length; i++) {
+        if (arreglo[i] == objetivo) {
+            return i;
+        }
     }
-  }
-  return -1; // No encontrado
+    return -1;
 }`;
 };

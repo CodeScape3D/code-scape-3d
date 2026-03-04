@@ -352,13 +352,17 @@ export const Extraer = (cabeza, posicion) => {
 export const EnqueueCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`nuevoNodo = new Nodo(valor)`}</pre>
-      <pre className="text-white">{`if (head === null) head = nuevoNodo`}</pre>
-      <pre className="text-white">{`else {`}</pre>
-      <pre className="text-white">{`  actual = head`}</pre>
-      <pre className="text-white">{`  while (actual.getNext() !== null)`}</pre>
-      <pre className="text-white">{`    actual = actual.getNext()`}</pre>
-      <pre className="text-white">{`  actual.setNext(nuevoNodo)`}</pre>
+      <pre className="text-white">{`public void enqueue(int valor) {`}</pre>
+      <pre className="text-white">{`    Node nuevoNodo = new Node(valor);`}</pre>
+      <pre className="text-white">{`    if (head == null) {`}</pre>
+      <pre className="text-white">{`        head = nuevoNodo;`}</pre>
+      <pre className="text-white">{`        return;`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    Node actual = head;`}</pre>
+      <pre className="text-white">{`    while (actual.getNext() != null) {`}</pre>
+      <pre className="text-white">{`        actual = actual.getNext();`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    actual.setNext(nuevoNodo);`}</pre>
       <pre className="text-white">{`}`}</pre>
     </code>
   );
@@ -367,9 +371,12 @@ export const EnqueueCode = ({ codeRef }) => {
 export const DequeueCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`if (head === null) return error`}</pre>
-      <pre className="text-white">{`valor = head.getValue()`}</pre>
-      <pre className="text-white">{`head = head.getNext()`}</pre>
+      <pre className="text-white">{`public int dequeue() {`}</pre>
+      <pre className="text-white">{`    if (head == null) return -1;`}</pre>
+      <pre className="text-white">{`    int valor = head.getValue();`}</pre>
+      <pre className="text-white">{`    head = head.getNext();`}</pre>
+      <pre className="text-white">{`    return valor;`}</pre>
+      <pre className="text-white">{`}`}</pre>
     </code>
   );
 };
@@ -377,12 +384,18 @@ export const DequeueCode = ({ codeRef }) => {
 export const EliminarFinalCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`if (head === null) return error`}</pre>
-      <pre className="text-white">{`if (head.getNext() === null) { head = null; return }`}</pre>
-      <pre className="text-white">{`actual = head`}</pre>
-      <pre className="text-white">{`while (actual.getNext().getNext() !== null)`}</pre>
-      <pre className="text-white">{`  actual = actual.getNext()`}</pre>
-      <pre className="text-white">{`actual.setNext(null)`}</pre>
+      <pre className="text-white">{`public void eliminarFinal() {`}</pre>
+      <pre className="text-white">{`    if (head == null) return;`}</pre>
+      <pre className="text-white">{`    if (head.getNext() == null) {`}</pre>
+      <pre className="text-white">{`        head = null;`}</pre>
+      <pre className="text-white">{`        return;`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    Node actual = head;`}</pre>
+      <pre className="text-white">{`    while (actual.getNext().getNext() != null) {`}</pre>
+      <pre className="text-white">{`        actual = actual.getNext();`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    actual.setNext(null);`}</pre>
+      <pre className="text-white">{`}`}</pre>
     </code>
   );
 };
@@ -390,15 +403,16 @@ export const EliminarFinalCode = ({ codeRef }) => {
 export const InsertarCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`nuevoNodo = new Nodo(valor)`}</pre>
-      <pre className="text-white">{`if (head === null && posicion === 0) head = nuevoNodo`}</pre>
-      <pre className="text-white">{`else if (posicion === 0) { nuevoNodo.setNext(head); head = nuevoNodo }`}</pre>
-      <pre className="text-white">{`else {`}</pre>
-      <pre className="text-white">{`  actual = head`}</pre>
-      <pre className="text-white">{`  for (i = 0; i < posicion - 1; i++)`}</pre>
-      <pre className="text-white">{`    actual = actual.getNext()`}</pre>
-      <pre className="text-white">{`  nuevoNodo.setNext(actual.getNext())`}</pre>
-      <pre className="text-white">{`  actual.setNext(nuevoNodo)`}</pre>
+      <pre className="text-white">{`public void insertar(int valor, int posicion) {`}</pre>
+      <pre className="text-white">{`    Node nuevoNodo = new Node(valor);`}</pre>
+      <pre className="text-white">{`    if (head == null && posicion == 0) {`}</pre>
+      <pre className="text-white">{`        head = nuevoNodo;`}</pre>
+      <pre className="text-white">{`        return;`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    if (posicion == 0) {`}</pre>
+      <pre className="text-white">{`        nuevoNodo.setNext(head);`}</pre>
+      <pre className="text-white">{`        head = nuevoNodo;`}</pre>
+      <pre className="text-white">{`    }`}</pre>
       <pre className="text-white">{`}`}</pre>
     </code>
   );
@@ -407,15 +421,20 @@ export const InsertarCode = ({ codeRef }) => {
 export const ExtraerCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`if (head === null) return error`}</pre>
-      <pre className="text-white">{`if (posicion >= tamano) return error`}</pre>
-      <pre className="text-white">{`if (posicion === 0) head = head.getNext()`}</pre>
-      <pre className="text-white">{`else {`}</pre>
-      <pre className="text-white">{`  actual = head`}</pre>
-      <pre className="text-white">{`  for (i = 0; i < posicion - 1; i++)`}</pre>
-      <pre className="text-white">{`    actual = actual.getNext()`}</pre>
-      <pre className="text-white">{`  eliminado = actual.getNext()`}</pre>
-      <pre className="text-white">{`  actual.setNext(actual.getNext().getNext())`}</pre>
+      <pre className="text-white">{`public int extraer(int posicion) {`}</pre>
+      <pre className="text-white">{`    if (head == null) return -1;`}</pre>
+      <pre className="text-white">{`    if (posicion == 0) {`}</pre>
+      <pre className="text-white">{`        int valor = head.getValue();`}</pre>
+      <pre className="text-white">{`        head = head.getNext();`}</pre>
+      <pre className="text-white">{`        return valor;`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    Node actual = head;`}</pre>
+      <pre className="text-white">{`    for (int i = 0; i < posicion - 1; i++) {`}</pre>
+      <pre className="text-white">{`        actual = actual.getNext();`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    int valor = actual.getNext().getValue();`}</pre>
+      <pre className="text-white">{`    actual.setNext(actual.getNext().getNext());`}</pre>
+      <pre className="text-white">{`    return valor;`}</pre>
       <pre className="text-white">{`}`}</pre>
     </code>
   );

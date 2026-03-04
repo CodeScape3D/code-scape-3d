@@ -1129,9 +1129,9 @@ export const DrawLinkedList = ({ record, cabeza }) => {
 // Funciones de visualización de código
 export const InsertarAlInicioCode = ({ codeRef, highlightedLines = [] }) => {
   const lines = [
-    'nuevoNodo = new Nodo(valor)',
-    'nuevoNodo.setNext(cabeza)',
-    'cabeza = nuevoNodo',
+    'Node nuevoNodo = new Node(valor);',
+    'nuevoNodo.setNext(cabeza);',
+    'cabeza = nuevoNodo;',
   ];
 
   return (
@@ -1152,13 +1152,12 @@ export const InsertarAlInicioCode = ({ codeRef, highlightedLines = [] }) => {
 
 export const InsertarAlFinalCode = ({ codeRef, highlightedLines = [] }) => {
   const lines = [
-    'nuevoNodo = new Nodo(valor)',
-    'if (cabeza === null) cabeza = nuevoNodo',
-    'else {',
-    '  actual = cabeza',
-    '  while (actual.getNext() !== null)',
-    '    actual = actual.getNext()',
-    '  actual.setNext(nuevoNodo)',
+    'Node nuevoNodo = new Node(valor);',
+    'if (cabeza == null) { cabeza = nuevoNodo; return; }',
+    'Node actual = cabeza;',
+    'while (actual.getNext() != null)',
+    '    actual = actual.getNext();',
+    'actual.setNext(nuevoNodo);',
   ];
 
   return (
@@ -1179,14 +1178,16 @@ export const InsertarAlFinalCode = ({ codeRef, highlightedLines = [] }) => {
 
 export const InsertarEnPosicionCode = ({ codeRef, highlightedLines = [] }) => {
   const lines = [
-    'if (posicion === 0) return insertarAlInicio(valor)',
-    'nuevoNodo = new Nodo(valor)',
-    'if (cabeza === null) return error',
-    'actual = cabeza',
-    'for (i = 0; i < posicion - 1; i++)',
-    '  if (actual === null) return error',
-    'nuevoNodo.setNext(actual.getNext())',
-    'actual.setNext(nuevoNodo)',
+    'if (posicion == 0) return insertarAlInicio(valor);',
+    'Node nuevoNodo = new Node(valor);',
+    'if (cabeza == null) return;',
+    'Node actual = cabeza;',
+    'for (int i = 0; i < posicion - 1; i++) {',
+    '    if (actual == null) return;',
+    '    actual = actual.getNext();',
+    '}',
+    'nuevoNodo.setNext(actual.getNext());',
+    'actual.setNext(nuevoNodo);',
   ];
 
   return (
@@ -1207,9 +1208,10 @@ export const InsertarEnPosicionCode = ({ codeRef, highlightedLines = [] }) => {
 
 export const EliminarDelInicioCode = ({ codeRef, highlightedLines = [] }) => {
   const lines = [
-    'if (cabeza === null) return error',
-    'valorEliminado = cabeza.getValue()',
-    'cabeza = cabeza.getNext()',
+    'if (cabeza == null) return -1;',
+    'int valor = cabeza.getValue();',
+    'cabeza = cabeza.getNext();',
+    'return valor;',
   ];
 
   return (
@@ -1230,15 +1232,18 @@ export const EliminarDelInicioCode = ({ codeRef, highlightedLines = [] }) => {
 
 export const EliminarDelFinalCode = ({ codeRef, highlightedLines = [] }) => {
   const lines = [
-    'if (cabeza === null) return error',
-    'if (cabeza.getNext() === null) {',
-    '  valorEliminado = cabeza.getValue()',
-    '  cabeza = null',
-    '} else {',
-    '  while (actual.getNext().getNext() !== null)',
-    '    actual = actual.getNext()',
-    '  valorEliminado = actual.getNext().getValue()',
-    '  actual.setNext(null)',
+    'if (cabeza == null) return -1;',
+    'if (cabeza.getNext() == null) {',
+    '    int valor = cabeza.getValue();',
+    '    cabeza = null;',
+    '    return valor;',
+    '}',
+    'Node actual = cabeza;',
+    'while (actual.getNext().getNext() != null)',
+    '    actual = actual.getNext();',
+    'int valor = actual.getNext().getValue();',
+    'actual.setNext(null);',
+    'return valor;',
   ];
 
   return (
@@ -1259,13 +1264,14 @@ export const EliminarDelFinalCode = ({ codeRef, highlightedLines = [] }) => {
 
 export const EliminarEnPosicionCode = ({ codeRef, highlightedLines = [] }) => {
   const lines = [
-    'if (posicion === 0) return eliminarDelInicio()',
-    'actual = cabeza',
-    'for (i = 0; i < posicion - 1; i++)',
-    '  actual = actual.getNext()',
-    'if (actual === null || actual.getNext() === null) return error',
-    'valorEliminado = actual.getNext().getValue()',
-    'actual.setNext(actual.getNext().getNext())',
+    'if (posicion == 0) return eliminarDelInicio();',
+    'Node actual = cabeza;',
+    'for (int i = 0; i < posicion - 1; i++)',
+    '    actual = actual.getNext();',
+    'if (actual == null || actual.getNext() == null) return -1;',
+    'int valor = actual.getNext().getValue();',
+    'actual.setNext(actual.getNext().getNext());',
+    'return valor;',
   ];
 
   return (
@@ -1286,16 +1292,16 @@ export const EliminarEnPosicionCode = ({ codeRef, highlightedLines = [] }) => {
 
 export const BuscarCode = ({ codeRef, highlightedLines = [] }) => {
   const lines = [
-    'if (cabeza === null) return not found',
-    'actual = cabeza',
-    'posicion = 0',
-    'while (actual !== null) {',
-    '  if (actual.getValue() === valor)',
-    '    return found at posicion',
-    '  actual = actual.getNext()',
-    '  posicion++',
+    'if (cabeza == null) return -1;',
+    'Node actual = cabeza;',
+    'int posicion = 0;',
+    'while (actual != null) {',
+    '    if (actual.getValue() == valor)',
+    '        return posicion;',
+    '    actual = actual.getNext();',
+    '    posicion++;',
     '}',
-    'return not found',
+    'return -1;',
   ];
 
   return (

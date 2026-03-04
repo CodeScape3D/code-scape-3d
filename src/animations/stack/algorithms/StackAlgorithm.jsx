@@ -353,10 +353,15 @@ export const Extraer = (cabeza, posicion) => {
 export const PushCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{` nuevoNodo = new Nodo(valor)`}</pre>
-      <pre className="text-white">{`if (cabeza === null) cabeza = nuevoNodo`}</pre>
-      <pre className="text-white">{`nuevoNodo.setNext(cabeza)`}</pre>
-      <pre className="text-white">{`cabeza = nuevoNodo`}</pre>
+      <pre className="text-white">{`public void push(int valor) {`}</pre>
+      <pre className="text-white">{`    Node nuevoNodo = new Node(valor);`}</pre>
+      <pre className="text-white">{`    if (cabeza == null) {`}</pre>
+      <pre className="text-white">{`        cabeza = nuevoNodo;`}</pre>
+      <pre className="text-white">{`    } else {`}</pre>
+      <pre className="text-white">{`        nuevoNodo.setNext(cabeza);`}</pre>
+      <pre className="text-white">{`        cabeza = nuevoNodo;`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`}`}</pre>
     </code>
   );
 };
@@ -364,9 +369,12 @@ export const PushCode = ({ codeRef }) => {
 export const PopCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`if (cabeza === null) return error`}</pre>
-      <pre className="text-white">{`valorEliminado = cabeza.getValue()`}</pre>
-      <pre className="text-white">{`cabeza = cabeza.getNext()`}</pre>
+      <pre className="text-white">{`public int pop() {`}</pre>
+      <pre className="text-white">{`    if (cabeza == null) return -1;`}</pre>
+      <pre className="text-white">{`    int valor = cabeza.getValue();`}</pre>
+      <pre className="text-white">{`    cabeza = cabeza.getNext();`}</pre>
+      <pre className="text-white">{`    return valor;`}</pre>
+      <pre className="text-white">{`}`}</pre>
     </code>
   );
 };
@@ -374,11 +382,16 @@ export const PopCode = ({ codeRef }) => {
 export const SumergirCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`if (cabeza === null || cabeza.getNext() === null) return`}</pre>
-      <pre className="text-white">{`nodoTope = cabeza`}</pre>
-      <pre className="text-white">{`cabeza = cabeza.getNext()`}</pre>
-      <pre className="text-white">{`while (nodoActual.getNext() !== null) nodoActual = nodoActual.getNext()`}</pre>
-      <pre className="text-white">{`nodoTope.setNext(null); nodoActual.setNext(nodoTope)`}</pre>
+      <pre className="text-white">{`public void sumergir() {`}</pre>
+      <pre className="text-white">{`    if (cabeza == null || cabeza.getNext() == null) return;`}</pre>
+      <pre className="text-white">{`    Node nodo = cabeza;`}</pre>
+      <pre className="text-white">{`    cabeza = cabeza.getNext();`}</pre>
+      <pre className="text-white">{`    Node siguiente = cabeza.getNext();`}</pre>
+      <pre className="text-white">{`    while (siguiente != null) {`}</pre>
+      <pre className="text-white">{`        siguiente = siguiente.getNext();`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    siguiente.setNext(nodo);`}</pre>
+      <pre className="text-white">{`}`}</pre>
     </code>
   );
 };
@@ -386,12 +399,19 @@ export const SumergirCode = ({ codeRef }) => {
 export const InsertarCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`nuevoNodo = new Nodo(valor)`}</pre>
-      <pre className="text-white">{`if (cabeza === null && posicion === 0) cabeza = nuevoNodo`}</pre>
-      <pre className="text-white">{`while (temp !== null) { tamanoPila++; temp = temp.getNext() }`}</pre>
-      <pre className="text-white">{`nuevoNodo.setNext(cabeza); cabeza = nuevoNodo`}</pre>
-      <pre className="text-white">{`ultimo.setNext(nuevoNodo)`}</pre>
-      <pre className="text-white">{`indiceDesdeTop = tamanoPila - posicion - 1`}</pre>
+      <pre className="text-white">{`public void insertar(int valor, int posicion) {`}</pre>
+      <pre className="text-white">{`    Node nuevoNodo = new Node(valor);`}</pre>
+      <pre className="text-white">{`    if (cabeza == null && posicion == 0) {`}</pre>
+      <pre className="text-white">{`        cabeza = nuevoNodo;`}</pre>
+      <pre className="text-white">{`        return;`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    int tamanoPila = 0;`}</pre>
+      <pre className="text-white">{`    Node temp = cabeza;`}</pre>
+      <pre className="text-white">{`    while (temp != null) {`}</pre>
+      <pre className="text-white">{`        tamanoPila++;`}</pre>
+      <pre className="text-white">{`        temp = temp.getNext();`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`}`}</pre>
     </code>
   );
 };
@@ -399,14 +419,16 @@ export const InsertarCode = ({ codeRef }) => {
 export const ExtraerCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre className="text-white">{`if (cabeza === null) return error`}</pre>
-      <pre className="text-white">{`while (temp !== null) { tamanoPila++; temp = temp.getNext() }`}</pre>
-      <pre className="text-white">{`if (posicion >= tamanoPila) return error`}</pre>
-      <pre className="text-white">{`valorEliminado = cabeza.getValue(); cabeza = cabeza.getNext()`}</pre>
-      <pre className="text-white">{`penúltimo.setNext(null)`}</pre>
-      <pre className="text-white">{`indiceDesdeTop = tamanoPila - posicion - 1`}</pre>
-      <pre className="text-white">{`valorEliminado = nodoActual.getNext().getValue()`}</pre>
-      <pre className="text-white">{`nodoActual.setNext(nodoActual.getNext().getNext())`}</pre>
+      <pre className="text-white">{`public int extraer(int posicion) {`}</pre>
+      <pre className="text-white">{`    if (cabeza == null) return -1;`}</pre>
+      <pre className="text-white">{`    int tamanoPila = 0;`}</pre>
+      <pre className="text-white">{`    Node temp = cabeza;`}</pre>
+      <pre className="text-white">{`    while (temp != null) {`}</pre>
+      <pre className="text-white">{`        tamanoPila++;`}</pre>
+      <pre className="text-white">{`        temp = temp.getNext();`}</pre>
+      <pre className="text-white">{`    }`}</pre>
+      <pre className="text-white">{`    if (posicion >= tamanoPila) return -1;`}</pre>
+      <pre className="text-white">{`}`}</pre>
     </code>
   );
 };

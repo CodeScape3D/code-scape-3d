@@ -136,20 +136,20 @@ export const busquedaBinaria = (arr, target) => {
 };
 
 export const BusquedaBinariaCode = () => {
-  return `function busquedaBinaria(arr, target) {
-  let izquierda = 0;
-  let derecha = arr.length - 1;
-  while (izquierda <= derecha) {
-    let medio = Math.floor((izq + der) / 2);
-    if (arr[medio] === target) {
-      return medio; // Encontrado
-    } else if (arr[medio] < target) {
-      izquierda = medio + 1;
-    } else {
-      derecha = medio - 1;
+  return `public static int busquedaBinaria(int[] arr, int target) {
+    int izquierda = 0;
+    int derecha = arr.length - 1;
+    while (izquierda <= derecha) {
+        int medio = (izquierda + derecha) / 2;
+        if (arr[medio] == target) {
+            return medio;
+        } else if (arr[medio] < target) {
+            izquierda = medio + 1;
+        } else {
+            derecha = medio - 1;
+        }
     }
-  }
-  return -1; // No encontrado
+    return -1;
 }`;
 };
 

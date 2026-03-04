@@ -59,13 +59,18 @@ export const BubbleSortLegend = createKey('Comparing', 'Swapping');
 export const BubbleSortCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre>{`do`}</pre>
-      <pre>{`  swapped = falso
-  for i = 1 to lastUnsortedIndex - 1`}</pre>
-      <pre>{`    if left > right`}</pre>
-      <pre>{`      swap(left, right)
-      swapped = true; swapCounter++`}</pre>
-      <pre>{`while swapped`}</pre>
+      <pre>{`public static void bubbleSort(int[] arr) {`}</pre>
+      <pre>{`    int n = arr.length;`}</pre>
+      <pre>{`    for (int i = 0; i < n - 1; i++) {`}</pre>
+      <pre>{`        for (int j = 0; j < n - i - 1; j++) {`}</pre>
+      <pre>{`            if (arr[j] > arr[j + 1]) {`}</pre>
+      <pre>{`                int temp = arr[j];`}</pre>
+      <pre>{`                arr[j] = arr[j + 1];`}</pre>
+      <pre>{`                arr[j + 1] = temp;`}</pre>
+      <pre>{`            }`}</pre>
+      <pre>{`        }`}</pre>
+      <pre>{`    }`}</pre>
+      <pre>{`}`}</pre>
     </code>
   );
 };

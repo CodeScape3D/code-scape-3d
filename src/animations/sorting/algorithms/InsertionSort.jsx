@@ -55,14 +55,17 @@ export const InsertionSortLegend = createKey(
 export const InsertionSortCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre>{`mark first element as sorted`}</pre>
-      <pre>{`for each unsorted element X
-	 'extract' the element X`}</pre>
-      <pre>{`	for j = lastSortedIndex down to 0`}</pre>
-      <pre>{`		if current element j > X
-			move sorted element 
-			to the right by 1`}</pre>
-      <pre>{`		break loop and insert X here`}</pre>
+      <pre>{`public static void insertionSort(int[] arr) {`}</pre>
+      <pre>{`    for (int i = 1; i < arr.length; i++) {`}</pre>
+      <pre>{`        int key = arr[i];`}</pre>
+      <pre>{`        int j = i - 1;`}</pre>
+      <pre>{`        while (j >= 0 && arr[j] > key) {`}</pre>
+      <pre>{`            arr[j + 1] = arr[j];`}</pre>
+      <pre>{`            j--;`}</pre>
+      <pre>{`        }`}</pre>
+      <pre>{`        arr[j + 1] = key;`}</pre>
+      <pre>{`    }`}</pre>
+      <pre>{`}`}</pre>
     </code>
   );
 };

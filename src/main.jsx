@@ -6,6 +6,7 @@ import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './i18n/en.json';
 import es from './i18n/es.json';
+import { initializeGoogleAnalytics } from './utils/googleAnalytics';
 
 export const defaultLanguage = 'es';
 const storedLanguage = localStorage.getItem('lang') || defaultLanguage;
@@ -24,6 +25,9 @@ i18next.use(initReactI18next).init({
     },
   },
 });
+
+// Inicializar Google Analytics
+initializeGoogleAnalytics('G-6G1Z8N0TNS');
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>

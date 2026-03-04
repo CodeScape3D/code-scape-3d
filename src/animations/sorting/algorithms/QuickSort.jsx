@@ -117,13 +117,13 @@ export const QuickSortLegend = createKey(
 export const QuickSortCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre>{`for each (unsorted) partition
-set random element as pivot
-	storeIndex = pivotIndex+1`}</pre>
-      <pre>{`	for i = pivotIndex+1 to rightmostIndex
-		if (a[i] < a[pivot])`}</pre>
-      <pre>{`			swap(i, storeIndex); storeIndex++`}</pre>
-      <pre>{`	swap(pivot, storeIndex-1)`}</pre>
+      <pre>{`public static void quickSort(int[] arr, int low, int high) {`}</pre>
+      <pre>{`    if (low < high) {`}</pre>
+      <pre>{`        int pi = partition(arr, low, high);`}</pre>
+      <pre>{`        quickSort(arr, low, pi - 1);`}</pre>
+      <pre>{`        quickSort(arr, pi + 1, high);`}</pre>
+      <pre>{`    }`}</pre>
+      <pre>{`}`}</pre>
     </code>
   );
 };

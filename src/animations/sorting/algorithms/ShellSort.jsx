@@ -58,16 +58,20 @@ export const ShellSortLegend = createKey('Comparing', 'Swapping');
 export const ShellSortCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre>{`for (i = num/2; i>0; i = i/2) {
-	for (j = i; j < num; j++) {
-    	for(k = j-i; k >= 0; k = k-i) {`}</pre>
-      <pre>{`			if (arr[k+i] < arr[k])`}</pre>
-      <pre>{`				tmp = arr[k];
-                arr[k] = arr[k+i];
-                arr[k+i] = tmp;`}</pre>
-      <pre>{`			else {
-                    break;
-                }`}</pre>
+      <pre>{`public static void shellSort(int[] arr) {`}</pre>
+      <pre>{`    int n = arr.length;`}</pre>
+      <pre>{`    for (int gap = n / 2; gap > 0; gap /= 2) {`}</pre>
+      <pre>{`        for (int i = gap; i < n; i++) {`}</pre>
+      <pre>{`            int temp = arr[i];`}</pre>
+      <pre>{`            int j = i;`}</pre>
+      <pre>{`            while (j >= gap && arr[j - gap] > temp) {`}</pre>
+      <pre>{`                arr[j] = arr[j - gap];`}</pre>
+      <pre>{`                j -= gap;`}</pre>
+      <pre>{`            }`}</pre>
+      <pre>{`            arr[j] = temp;`}</pre>
+      <pre>{`        }`}</pre>
+      <pre>{`    }`}</pre>
+      <pre>{`}`}</pre>
     </code>
   );
 };
