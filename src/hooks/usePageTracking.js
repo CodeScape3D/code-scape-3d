@@ -6,7 +6,11 @@ export const usePageTracking = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Rastrear cada vez que cambia la ruta
-    trackPageView(location.pathname);
-  }, [location.pathname]);
+    // Pequeño delay para asegurar que gtag esté listo
+    const timeout = setTimeout(() => {
+      trackPageView(location.pathname + location.search);
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [location.pathname, location.search]);
 };

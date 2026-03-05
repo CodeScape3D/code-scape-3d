@@ -22,8 +22,9 @@ export const initializeGoogleAnalytics = measurementId => {
   }
 
   gtag('js', new Date());
+  // Desactivar el page_view automático para manejarlo manualmente en la SPA
   gtag('config', measurementId, {
-    page_path: window.location.pathname,
+    send_page_view: false,
   });
 
   // Guardar gtag en window para usarla en toda la app
@@ -37,11 +38,12 @@ export const trackEvent = (eventName, eventParams = {}) => {
   }
 };
 
-// Función para rastrear cambios de página
+// Función para rastrear cambios de página (GA4 - evento page_view)
 export const trackPageView = pageName => {
-  if (window.gtag && MEASUREMENT_ID) {
-    window.gtag('config', MEASUREMENT_ID, {
+  if (window.gtag) {
+    window.gtag('event', 'page_view', {
       page_path: pageName,
+      page_location: window.location.origin + pageName,
       page_title: document.title,
     });
   }
