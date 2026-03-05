@@ -1,5 +1,11 @@
+// Variable global para almacenar el measurement ID
+let MEASUREMENT_ID = '';
+
 // Inicializar Google Analytics
 export const initializeGoogleAnalytics = measurementId => {
+  // Guardar el measurement ID
+  MEASUREMENT_ID = measurementId;
+
   // Crear el script de Google Analytics
   const script = document.createElement('script');
   script.async = true;
@@ -33,10 +39,10 @@ export const trackEvent = (eventName, eventParams = {}) => {
 
 // Función para rastrear cambios de página
 export const trackPageView = pageName => {
-  if (window.gtag) {
-    window.gtag('config', '', {
+  if (window.gtag && MEASUREMENT_ID) {
+    window.gtag('config', MEASUREMENT_ID, {
       page_path: pageName,
-      page_title: pageName,
+      page_title: document.title,
     });
   }
 };
