@@ -13,6 +13,7 @@ import {
 import { Alert, Button, Snackbar, TextField } from '@mui/material';
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { BasicButton } from '../../../components';
+import { registrarClick } from '../../../utils/clickRegistry';
 import {
   svgPause,
   svgBack,
@@ -211,6 +212,7 @@ export const StackControls = () => {
     }
 
     executeAnimation('push', numValue);
+    registrarClick('Push', `Insertar ${numValue} en la pila`);
     setValue('');
   };
 
@@ -222,6 +224,7 @@ export const StackControls = () => {
 
     const topValue = stackState.head.getValue();
     executeAnimation('pop', topValue);
+    registrarClick('Pop', `Eliminar ${topValue} de la pila`);
   };
 
   const handleSumergirButton = () => {
@@ -237,6 +240,7 @@ export const StackControls = () => {
 
     const topValue = stackState.head.getValue();
     executeAnimation('sumergir', topValue);
+    registrarClick('Sumergir', `Sumergir ${topValue} en la pila`);
   };
 
   const handleInsertarButton = () => {
@@ -270,6 +274,7 @@ export const StackControls = () => {
     }
 
     executeAnimation('insertar', numValue, position);
+    registrarClick('Insertar', `Insertar ${numValue} en posición ${position}`);
     setValue('');
     setInsertPosition('');
   };
@@ -296,6 +301,7 @@ export const StackControls = () => {
     }
 
     executeAnimation('extraer', null, position);
+    registrarClick('Extraer', `Extraer elemento en posición ${position}`);
     setExtractPosition('');
   };
 

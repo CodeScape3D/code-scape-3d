@@ -35,6 +35,7 @@ import {
   setQuiz,
 } from '../../store';
 import { useTranslation } from 'react-i18next';
+import useActivity from '../../hooks/useActivity';
 
 export const QuizView = () => {
   const { t } = useTranslation();
@@ -44,6 +45,8 @@ export const QuizView = () => {
   const { currentQuestion, currentQuestionIndex, totalQuestions, questions } =
     useSelector(state => state.quiz);
   const dispatch = useDispatch();
+  const { trackActivity } = useActivity();
+  const [quizStartTime] = useState(() => Date.now());
 
   if (!quiz) {
     return <Navigate to="/404" />;
@@ -104,6 +107,10 @@ export const QuizView = () => {
     if (canFinishQuiz(questions)) {
       dispatch(checkAnswer());
       dispatch(computeResults());
+
+      // Calcular duración real en segundos
+      const duracionSegundos = Math.round((Date.now() - quizStartTime) / 1000);
+      trackActivity('ejercicio_completado', quizName, duracionSegundos);
 
       setTimeout(() => {
         navigate('/quiz/results');

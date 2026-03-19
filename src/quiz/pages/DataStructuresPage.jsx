@@ -12,11 +12,13 @@ import {
   svgQueue,
 } from '../../assets/svg/SvgConstans';
 import { useTranslation } from 'react-i18next';
+import usePageActivity from '../../hooks/usePageActivity';
 
 export const DataStructuresPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  usePageActivity('pagina_visitada', 'estructuras-datos');
 
   useEffect(() => {
     dispatch(resetStateForQuiz());

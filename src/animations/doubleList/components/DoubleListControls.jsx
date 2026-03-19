@@ -20,6 +20,7 @@ import {
   svgRepeat,
   svgForward,
 } from '../../../assets/svg/SvgConstans';
+import { registrarClick } from '../../../utils/clickRegistry';
 
 export const DoubleListControls = () => {
   const doubleListState = useSelector(state => state.doubleList);
@@ -252,6 +253,10 @@ export const DoubleListControls = () => {
     }
 
     executeAnimation('insertarAlInicio', numValue);
+    registrarClick(
+      'Insertar al inicio',
+      `Insertar ${numValue} al inicio de la lista doble`
+    );
     setValue('');
   };
 
@@ -269,6 +274,10 @@ export const DoubleListControls = () => {
     }
 
     executeAnimation('insertarAlFinal', numValue);
+    registrarClick(
+      'Insertar al final',
+      `Insertar ${numValue} al final de la lista doble`
+    );
     setValue('');
   };
 
@@ -298,6 +307,10 @@ export const DoubleListControls = () => {
     }
 
     executeAnimation('insertarEnPosicion', numValue, pos);
+    registrarClick(
+      'Insertar en posición',
+      `Insertar ${numValue} en posición ${pos} en lista doble`
+    );
     setValue('');
     setPosition('');
   };
@@ -309,6 +322,10 @@ export const DoubleListControls = () => {
     }
 
     executeAnimation('eliminarDelInicio', null);
+    registrarClick(
+      'Eliminar del inicio',
+      'Eliminar primer elemento de la lista doble'
+    );
   };
 
   const handleEliminarDelFinal = () => {
@@ -318,6 +335,10 @@ export const DoubleListControls = () => {
     }
 
     executeAnimation('eliminarDelFinal', null);
+    registrarClick(
+      'Eliminar del final',
+      'Eliminar último elemento de la lista doble'
+    );
   };
 
   const handleEliminarEnPosicion = () => {
@@ -340,6 +361,10 @@ export const DoubleListControls = () => {
     }
 
     executeAnimation('eliminarEnPosicion', null, pos);
+    registrarClick(
+      'Eliminar en posición',
+      `Eliminar elemento en posición ${pos} de lista doble`
+    );
     setDeletePosition('');
   };
 
@@ -357,6 +382,7 @@ export const DoubleListControls = () => {
     }
 
     executeAnimation('buscar', numValue);
+    registrarClick('Buscar', `Buscar ${numValue} en la lista doble`);
     setSearchValue('');
   };
 

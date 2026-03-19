@@ -20,6 +20,7 @@ import {
   svgRepeat,
   svgForward,
 } from '../../../assets/svg/SvgConstans';
+import { registrarClick } from '../../../utils/clickRegistry';
 
 export const SimpleListControls = () => {
   const simpleListState = useSelector(state => state.simpleList);
@@ -254,6 +255,10 @@ export const SimpleListControls = () => {
     }
 
     executeAnimation('insertarAlInicio', numValue);
+    registrarClick(
+      'Insertar al inicio',
+      `Insertar ${numValue} al inicio de la lista`
+    );
     setValue('');
   };
 
@@ -271,6 +276,10 @@ export const SimpleListControls = () => {
     }
 
     executeAnimation('insertarAlFinal', numValue);
+    registrarClick(
+      'Insertar al final',
+      `Insertar ${numValue} al final de la lista`
+    );
     setValue('');
   };
 
@@ -300,6 +309,10 @@ export const SimpleListControls = () => {
     }
 
     executeAnimation('insertarEnPosicion', numValue, pos);
+    registrarClick(
+      'Insertar en posición',
+      `Insertar ${numValue} en posición ${pos}`
+    );
     setValue('');
     setPosition('');
   };
@@ -311,6 +324,10 @@ export const SimpleListControls = () => {
     }
 
     executeAnimation('eliminarDelInicio', null);
+    registrarClick(
+      'Eliminar del inicio',
+      'Eliminar primer elemento de la lista'
+    );
   };
 
   const handleEliminarDelFinal = () => {
@@ -320,6 +337,10 @@ export const SimpleListControls = () => {
     }
 
     executeAnimation('eliminarDelFinal', null);
+    registrarClick(
+      'Eliminar del final',
+      'Eliminar último elemento de la lista'
+    );
   };
 
   const handleEliminarEnPosicion = () => {
@@ -342,6 +363,10 @@ export const SimpleListControls = () => {
     }
 
     executeAnimation('eliminarEnPosicion', null, pos);
+    registrarClick(
+      'Eliminar en posición',
+      `Eliminar elemento en posición ${pos}`
+    );
     setDeletePosition('');
   };
 
@@ -359,6 +384,7 @@ export const SimpleListControls = () => {
     }
 
     executeAnimation('buscar', numValue);
+    registrarClick('Buscar', `Buscar ${numValue} en la lista`);
     setSearchValue('');
   };
 

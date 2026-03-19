@@ -6,11 +6,13 @@ import { useEffect } from 'react';
 import { resetStateForQuiz } from '../../store';
 import { svgLinearSearch, svgBinarySearch } from '../../assets/svg/SvgConstans';
 import { useTranslation } from 'react-i18next';
+import usePageActivity from '../../hooks/usePageActivity';
 
 export const SearchMethodsPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  usePageActivity('pagina_visitada', 'metodos-busqueda');
 
   useEffect(() => {
     dispatch(resetStateForQuiz());

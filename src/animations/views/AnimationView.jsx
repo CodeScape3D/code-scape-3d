@@ -44,12 +44,14 @@ import {
   BinarySearchCode,
 } from '../binarySearch';
 import { useTranslation } from 'react-i18next';
+import usePageActivity from '../../hooks/usePageActivity';
 
 export const AnimationView = () => {
   const { t } = useTranslation();
   const { animacion } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  usePageActivity('tema_abierto', animacion);
 
   // Determina si es un algoritmo de ordenamiento
   const algorithm =

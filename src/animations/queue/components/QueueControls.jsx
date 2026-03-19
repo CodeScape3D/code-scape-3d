@@ -13,6 +13,7 @@ import {
 import { Alert, Button, Snackbar, TextField } from '@mui/material';
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { BasicButton } from '../../../components';
+import { registrarClick } from '../../../utils/clickRegistry';
 import {
   svgPause,
   svgBack,
@@ -183,6 +184,7 @@ export const QueueControls = () => {
     }
 
     executeAnimation('enqueue', numValue);
+    registrarClick('Enqueue', `Insertar ${numValue} en la cola`);
     setValue('');
   };
 
@@ -194,6 +196,7 @@ export const QueueControls = () => {
 
     const frontValue = queueState.head.getValue();
     executeAnimation('dequeue', frontValue);
+    registrarClick('Dequeue', `Eliminar ${frontValue} del frente de la cola`);
   };
 
   const handleEliminarFinal = () => {
@@ -203,6 +206,7 @@ export const QueueControls = () => {
     }
 
     executeAnimation('eliminarFinal', null);
+    registrarClick('Eliminar Final', 'Eliminar último elemento de la cola');
   };
 
   const handleInsert = () => {
@@ -236,6 +240,7 @@ export const QueueControls = () => {
     }
 
     executeAnimation('insertar', numValue, pos);
+    registrarClick('Insertar', `Insertar ${numValue} en posición ${pos}`);
     setValue('');
     setInsertPosition('');
   };
@@ -261,6 +266,7 @@ export const QueueControls = () => {
     }
 
     executeAnimation('extraer', null, pos);
+    registrarClick('Extraer', `Extraer elemento en posición ${pos}`);
     setExtractPosition('');
   };
 

@@ -7,11 +7,13 @@ import { useEffect } from 'react';
 import { resetStateForQuiz } from '../../store';
 import { svgFundamentals } from '../../assets/svg/SvgConstans';
 import { useTranslation } from 'react-i18next';
+import usePageActivity from '../../hooks/usePageActivity';
 
 export const SortingMethodsPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  usePageActivity('pagina_visitada', 'metodos-ordenamiento');
 
   useEffect(() => {
     dispatch(resetStateForQuiz());

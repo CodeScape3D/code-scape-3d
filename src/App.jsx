@@ -22,10 +22,13 @@ import { AppTheme } from './theme';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { usePageTracking } from './hooks/usePageTracking';
+import useAuth from './hooks/useAuth';
+import useSessionClose from './hooks/useSessionClose';
 
 function AppContent() {
-  // Rastrear cambios de página automáticamente
   usePageTracking();
+  const { loginTime } = useAuth();
+  useSessionClose(loginTime);
 
   return (
     <div className="flex flex-col min-h-screen items-center">

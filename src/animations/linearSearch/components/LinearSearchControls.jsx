@@ -22,6 +22,7 @@ import {
   svgRepeat,
   svgForward,
 } from '../../../assets/svg/SvgConstans';
+import { registrarClick } from '../../../utils/clickRegistry';
 
 export const LinearSearchControls = () => {
   const linearSearchState = useSelector(state => state.linearSearch);
@@ -183,6 +184,7 @@ export const LinearSearchControls = () => {
     dispatch(setArrayLinearSearch(values));
     dispatch(resetLinearSearch());
     clearActiveTimeouts();
+    registrarClick('Cargar arreglo', `Cargar arreglo: [${values.join(', ')}]`);
     setToast('Arreglo cargado correctamente');
     setOpen(true);
   };
@@ -197,6 +199,10 @@ export const LinearSearchControls = () => {
     dispatch(setArrayLinearSearch(randomArray));
     dispatch(resetLinearSearch());
     clearActiveTimeouts();
+    registrarClick(
+      'Arreglo aleatorio',
+      `Generar arreglo aleatorio: [${randomArray.join(', ')}]`
+    );
     setToast('Arreglo aleatorio generado');
     setOpen(true);
   };
@@ -208,6 +214,7 @@ export const LinearSearchControls = () => {
       return;
     }
     executeSearch(numValue);
+    registrarClick('Buscar', `Buscar ${numValue} en el arreglo`);
     setSearchValue('');
   };
 
