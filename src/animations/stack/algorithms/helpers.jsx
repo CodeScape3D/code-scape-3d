@@ -1,10 +1,10 @@
-export const newTraceStack = (head, isHead) => {
+export const newTraceStack = head => {
   return [
     {
       head: head,
       firstSet: [],
       secondSet: [],
-      isHead: isHead,
+      isHead: head ? head.getValue() : -1,
       currentIndex: null,
     },
   ];
@@ -15,14 +15,13 @@ export const moveInHistoryRecordStack = (
   head,
   firstSet = [],
   secondSet = [],
-  isHead = -1,
   currentIndex = null
 ) => {
   stepHistory.push({
     head: head,
     firstSet: [...firstSet],
     secondSet: [...secondSet],
-    isHead: isHead,
+    isHead: head ? head.getValue() : -1,
     currentIndex: currentIndex,
   });
 };

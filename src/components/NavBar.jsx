@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import { NavTabs, NavTab } from './';
 import Logo from '../assets/logo.png';
-import UserLogo from '../assets/user.png';
 import { MobileMenu } from './MobileMenu';
 import { useNavigate } from 'react-router-dom';
 import { svgMenu } from '../assets/svg/SvgConstans';
 import { useTranslation } from 'react-i18next';
+import { CircularProgress } from '@mui/material';
+import useAuth from '../hooks/useAuth';
+import LoginButton from './Auth/LoginButton';
+import UserProfile from './Auth/UserProfile';
 
 export const NavBar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { user, loading } = useAuth();
 
   const [isHamburgerMenuVisible, setIsHamburgerMenuVisible] = useState(false);
 
@@ -41,9 +45,16 @@ export const NavBar = () => {
           <NavTab text={t('minigames')} linkTo="/mini-juegos" />
         </NavTabs>
 
-        <button className="hidden md:block">
-          <img src={UserLogo} width="38" />
-        </button>
+        {/* Auth area — desktop */}
+        <div className="hidden md:flex items-center gap-2 py-1">
+          {loading ? (
+            <CircularProgress size={22} sx={{ color: '#ffffff' }} />
+          ) : user ? (
+            <UserProfile user={user} />
+          ) : (
+            <LoginButton />
+          )}
+        </div>
 
         <button className="block md:hidden p-1" onClick={showHamburgerMenu}>
           {svgMenu}

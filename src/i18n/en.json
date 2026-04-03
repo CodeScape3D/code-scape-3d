@@ -6,6 +6,7 @@
   "quizzesPageTitle": "Challenge your knowledge",
   "quizzesPageSubtitle": "Choose a quiz and find out if you have potential as a programmer",
   "sortingMethods": "Sorting methods",
+  "dataStructures": "Data Structures",
   "searchingMethods": "Searching Methods",
   "linkedLists": "Linked Lists",
   "binaryTrees": "Binary Trees",
@@ -86,5 +87,6 @@
   "selectCategoryToExplore": "Select a category to explore algorithms and data structures",
   "availableCategories": "Available Categories",
   "clickToExpandCategory": "Click on a category to see available topics",
-  "fundamentals": "Fundamentals"
+  "fundamentals": "Fundamentals",
+  "simpleLists": "Simple Lists"
 }

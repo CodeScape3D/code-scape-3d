@@ -231,12 +231,17 @@ export const HeapSortLegend = createKey('Comparing', 'Swapping', null, 'Heap');
 export const HeapSortCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre>{`BuildMaxHeap(arr)`}</pre>
-      <pre>{`n = length(arr)`}</pre>
-      <pre>{`// Extract elements from the heap one by one
-for i from n - 1 down to 1:`}</pre>
-      <pre>{`	Swap(arr[0], arr[i])`}</pre>
-      <pre>{`	MaxHeapify(arr, 0, i)`}</pre>
+      <pre>{`public static void heapSort(int[] arr) {`}</pre>
+      <pre>{`    int n = arr.length;`}</pre>
+      <pre>{`    for (int i = n / 2 - 1; i >= 0; i--)`}</pre>
+      <pre>{`        maxHeapify(arr, n, i);`}</pre>
+      <pre>{`    for (int i = n - 1; i > 0; i--) {`}</pre>
+      <pre>{`        int temp = arr[0];`}</pre>
+      <pre>{`        arr[0] = arr[i];`}</pre>
+      <pre>{`        arr[i] = temp;`}</pre>
+      <pre>{`        maxHeapify(arr, i, 0);`}</pre>
+      <pre>{`    }`}</pre>
+      <pre>{`}`}</pre>
     </code>
   );
 };

@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
-import UserLogo from '../assets/user.png';
 import { svgClose } from '../assets/svg/SvgConstans';
 import { NavTab } from './NavTab';
 import { useTranslation } from 'react-i18next';
+import { Box, CircularProgress } from '@mui/material';
+import useAuth from '../hooks/useAuth';
+import LoginButton from './Auth/LoginButton';
+import UserProfile from './Auth/UserProfile';
 
 export const MobileMenu = ({ isHamburgerMenuVisible, hideHamburgerMenu }) => {
   const { t } = useTranslation();
+  const { user, loading } = useAuth();
 
   return (
     <div
@@ -18,12 +22,17 @@ export const MobileMenu = ({ isHamburgerMenuVisible, hideHamburgerMenu }) => {
         linkTo="/mini-juegos"
         onClick={hideHamburgerMenu}
       />
-      <NavTab
-        text=""
-        linkTo="#!"
-        iconSrc={UserLogo}
-        onClick={hideHamburgerMenu}
-      />
+
+      {/* Auth area — mobile */}
+      <Box sx={{ mt: 3 }}>
+        {loading ? (
+          <CircularProgress size={24} sx={{ color: '#ffffff' }} />
+        ) : user ? (
+          <UserProfile user={user} />
+        ) : (
+          <LoginButton />
+        )}
+      </Box>
 
       <button className="absolute top-1 right-7" onClick={hideHamburgerMenu}>
         {svgClose}

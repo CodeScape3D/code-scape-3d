@@ -9,6 +9,11 @@ import {
   svgPilesHome,
   svgSelectionHome,
   svgHeapHome,
+  svgSimpleList,
+  svgDoubleList,
+  svgLinearSearch,
+  svgBinarySearch,
+  svgQueue,
 } from '../assets/svg/SvgConstans';
 
 export const courses = [
@@ -32,7 +37,6 @@ export const courses = [
   },
 ];
 
-// Mantenemos la exportación original de topic para compatibilidad
 export const topic = [
   {
     id: 1,
@@ -83,18 +87,71 @@ export const topic = [
     param: 'stack',
     imagen: svgPilesHome,
   },
+  {
+    id: 8,
+    curso: 'Programacion2',
+    titulo: 'Listas Simples',
+    param: 'simpleList',
+    imagen: svgSimpleList,
+  },
+  {
+    id: 9,
+    curso: 'Programacion2',
+    titulo: 'Listas Dobles',
+    param: 'doubleList',
+    imagen: svgDoubleList,
+  },
+  {
+    id: 10,
+    curso: 'Programacion2',
+    titulo: 'Búsqueda Lineal',
+    param: 'linearSearch',
+    imagen: svgLinearSearch,
+  },
+  {
+    id: 11,
+    curso: 'Programacion2',
+    titulo: 'Búsqueda Binaria',
+    param: 'binarySearch',
+    imagen: svgBinarySearch,
+  },
+  {
+    id: 12,
+    curso: 'Programacion2',
+    titulo: 'Colas',
+    param: 'queue',
+    imagen: svgQueue,
+  },
 ];
 
-// Nueva estructura por categorías
 export const topicCategories = [
   {
     id: 1,
     nombre: 'Métodos de Ordenamiento',
-    temas: topic.filter(t => t.param !== 'stack'), // Todos excepto Pilas
+    temas: topic.filter(
+      t =>
+        ![
+          'stack',
+          'queue',
+          'simpleList',
+          'doubleList',
+          'linearSearch',
+          'binarySearch',
+        ].includes(t.param)
+    ),
   },
   {
     id: 2,
     nombre: 'Estructuras de Datos',
-    temas: topic.filter(t => t.param === 'stack'), // Solo Pilas
+    temas: topic.filter(t =>
+      ['stack', 'queue', 'simpleList', 'doubleList'].includes(t.param)
+    ),
+  },
+  {
+    id: 3,
+    nombre: 'Métodos de Búsqueda',
+    temas: topic.filter(t =>
+      ['linearSearch', 'binarySearch'].includes(t.param)
+    ),
   },
 ];

@@ -1,21 +1,39 @@
 import { Link } from 'react-router-dom';
 import '../styles/mediaquerys.css';
-import { HomeMiniJuegos } from './HomeMiniJuegos';
 
-const MiniGameCard = ({ logo, titulo, ruta }) => {
+const MiniGameCard = ({ logo, titulo, ruta, comingSoon = true }) => {
   return (
-    <div
-      className="bg-primary rounded-lg flex flex-col justify-center items-center h-40 w-40 
-       xl:w-52 xl:h-52 lg:w-56 lg:h-56 md:w-48 md:h-48 sm:w-48 sm:h-48 animate__bounceIn"
+    <Link
+      to={ruta}
+      className={`group ${comingSoon ? 'pointer-events-none' : ''}`}
     >
-      <Link to={ruta}>
-        <div className="flex justify-center mt-4">{logo}</div>
-
-        <div className="  bg-secondary xl:w-52 xl:h-20 lg:w-56 lg:h-24 md:w-48 md:h-16 sm:w-48 sm:h-16 pTitleGame rounded-b-lg flex justify-center text-center items-center">
-          <p className="text-white text-2xl ">{titulo}</p>
+      <div className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden h-full">
+        {/* Logo Container */}
+        <div className="bg-gradient-to-br from-primary to-blue-500 p-6 md:p-8 flex items-center justify-center min-h-[160px] md:min-h-[180px]">
+          <div
+            className={`transform ${!comingSoon && 'group-hover:scale-105'} transition-transform duration-300`}
+          >
+            {logo}
+          </div>
         </div>
-      </Link>
-    </div>
+
+        {/* Title Container */}
+        <div className="bg-gray-50 p-4 md:p-5 border-t border-gray-100">
+          <p className="text-gray-900 text-center font-semibold text-sm md:text-base">
+            {titulo}
+          </p>
+        </div>
+
+        {/* Coming Soon Badge */}
+        {comingSoon && (
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center rounded-xl">
+            <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+              Próximamente
+            </span>
+          </div>
+        )}
+      </div>
+    </Link>
   );
 };
 

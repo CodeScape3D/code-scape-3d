@@ -108,12 +108,18 @@ export const SelectionSortLegend = createKey('Comparing', 'Swapping');
 export const SelectionSortCode = ({ codeRef }) => {
   return (
     <code ref={codeRef}>
-      <pre>{`repeat (numOfElements - 1) times
-	set the first unsorted element as the minimum
-	for each of the unsorted elements`}</pre>
-      <pre>{`		if element < currentMinimum`}</pre>
-      <pre>{`			set element as new minimum`}</pre>
-      <pre>{`	swap minimum with first unsorted position`}</pre>
+      <pre>{`public static void selectionSort(int[] arr) {`}</pre>
+      <pre>{`    int n = arr.length;`}</pre>
+      <pre>{`    for (int i = 0; i < n - 1; i++) {`}</pre>
+      <pre>{`        int minIdx = i;`}</pre>
+      <pre>{`        for (int j = i + 1; j < n; j++) {`}</pre>
+      <pre>{`            if (arr[j] < arr[minIdx]) minIdx = j;`}</pre>
+      <pre>{`        }`}</pre>
+      <pre>{`        int temp = arr[i];`}</pre>
+      <pre>{`        arr[i] = arr[minIdx];`}</pre>
+      <pre>{`        arr[minIdx] = temp;`}</pre>
+      <pre>{`    }`}</pre>
+      <pre>{`}`}</pre>
     </code>
   );
 };

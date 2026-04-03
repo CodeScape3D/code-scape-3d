@@ -166,10 +166,24 @@ export const svgLinkedList = (
   </svg>
 );
 
+export const svgLinkedListDataStructure = (
+  <svg
+    width="60"
+    height="60"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill="#FFFF"
+      d="M3.264 8.579a.683.683 0 0 1-.975 0a.704.704 0 0 1 0-.987L8.32 1.5C9.68.444 11.048-.063 12.41.006c1.716.088 3.052.742 4.186 1.815C17.752 2.915 18.5 4.476 18.5 6.368c0 1.452-.422 2.73-1.313 3.864l-8.503 8.76c-.86.705-1.816 1.046-2.84 1.005c-1.3-.054-2.267-.474-2.986-1.185c-.842-.831-1.358-1.852-1.358-3.225c0-1.092.377-2.1 1.155-3.046L10.139 4.9c.6-.64 1.187-1.02 1.787-1.112a2.486 2.486 0 0 1 2.2.755c.532.563.76 1.265.68 2.064c-.055.545-.278 1.047-.688 1.528l-6.88 7.048a.683.683 0 0 1-.974.006a.704.704 0 0 1-.006-.987l6.847-7.012c.2-.235.305-.472.33-.724c.04-.4-.056-.695-.305-.958a1.118 1.118 0 0 0-1-.34c-.243.037-.583.258-1.002.704l-7.453 7.607c-.537.655-.797 1.35-.797 2.109c0 .954.345 1.637.942 2.226c.475.47 1.12.75 2.08.79c.68.027 1.31-.198 1.858-.642l8.397-8.65c.645-.827.967-1.8.967-2.943c0-1.482-.577-2.684-1.468-3.528c-.91-.862-1.95-1.37-3.313-1.44c-1.008-.052-2.065.34-3.117 1.146L3.264 8.58Z"
+    />
+  </svg>
+);
+
 export const svgBinaryTrees = (
   <svg
-    width="120"
-    height="120"
+    width="60"
+    height="60"
     viewBox="0 0 48 48"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -183,8 +197,8 @@ export const svgBinaryTrees = (
 
 export const svgPiles = (
   <svg
-    width="120"
-    height="120"
+    width="60"
+    height="60"
     viewBox="0 0 14 14"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -217,8 +231,8 @@ export const svgPilesHome = (
 
 export const svgQueue = (
   <svg
-    width="120"
-    height="120"
+    width="60"
+    height="60"
     viewBox="0 0 16 16"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -632,6 +646,115 @@ export const svgMenu = (
         fill="#fff"
         d="M20 17.5a1.5 1.5 0 0 1 .144 2.993L20 20.5H4a1.5 1.5 0 0 1-.144-2.993L4 17.5h16Zm0-7a1.5 1.5 0 0 1 0 3H4a1.5 1.5 0 0 1 0-3h16Zm0-7a1.5 1.5 0 0 1 0 3H4a1.5 1.5 0 1 1 0-3h16Z"
       />
+    </g>
+  </svg>
+);
+
+export const svgSimpleList = (
+  <svg
+    width="60"
+    height="60"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Nodos */}
+      <circle cx="10" cy="20" r="3" />
+      <circle cx="20" cy="20" r="3" />
+      <circle cx="30" cy="20" r="3" />
+
+      {/* Flechas */}
+      <line x1="13" y1="20" x2="17" y2="20" />
+      <line x1="23" y1="20" x2="27" y2="20" />
+      <polygon points="17 18, 19 20, 17 22" fill="#ffffff" />
+      <polygon points="27 18, 29 20, 27 22" fill="#ffffff" />
+    </g>
+  </svg>
+);
+
+export const svgDoubleList = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Nodos */}
+      <circle cx="10" cy="20" r="3" />
+      <circle cx="20" cy="20" r="3" />
+      <circle cx="30" cy="20" r="3" />
+
+      {/* Flechas hacia adelante (arriba) */}
+      <line x1="13" y1="18" x2="17" y2="18" />
+      <line x1="23" y1="18" x2="27" y2="18" />
+      <polygon points="17 16, 19 18, 17 20" fill="#ffffff" />
+      <polygon points="27 16, 29 18, 27 20" fill="#ffffff" />
+
+      {/* Flechas hacia atrás (abajo) */}
+      <line x1="17" y1="22" x2="13" y2="22" />
+      <line x1="27" y1="22" x2="23" y2="22" />
+      <polygon points="13 20, 11 22, 13 24" fill="#ffffff" />
+      <polygon points="23 20, 21 22, 23 24" fill="#ffffff" />
+    </g>
+  </svg>
+);
+
+export const svgLinearSearch = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Arreglo de cajas */}
+      <rect x="4" y="16" width="8" height="8" rx="1" />
+      <rect x="12" y="16" width="8" height="8" rx="1" />
+      <rect x="20" y="16" width="8" height="8" rx="1" />
+      <rect x="28" y="16" width="8" height="8" rx="1" />
+
+      {/* Flecha de búsqueda */}
+      <line x1="8" y1="12" x2="8" y2="14" />
+      <polygon points="6 12, 8 8, 10 12" fill="#ffffff" />
+
+      {/* Puntos indicando recorrido */}
+      <circle cx="16" cy="10" r="1" fill="#ffffff" />
+      <circle cx="24" cy="10" r="1" fill="#ffffff" />
+      <circle cx="32" cy="10" r="1" fill="#ffffff" />
+    </g>
+  </svg>
+);
+
+export const svgBinarySearch = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="none" stroke="#ffffff" strokeWidth="2">
+      {/* Arreglo de cajas */}
+      <rect x="2" y="18" width="6" height="6" rx="1" opacity="0.4" />
+      <rect x="9" y="18" width="6" height="6" rx="1" opacity="0.4" />
+      <rect x="16" y="16" width="8" height="8" rx="1" strokeWidth="2.5" />
+      <rect x="25" y="18" width="6" height="6" rx="1" opacity="0.4" />
+      <rect x="32" y="18" width="6" height="6" rx="1" opacity="0.4" />
+
+      {/* Indicadores L, M, R */}
+      <text x="5" y="32" fill="#ffffff" fontSize="6" textAnchor="middle">
+        L
+      </text>
+      <text x="20" y="32" fill="#ffffff" fontSize="6" textAnchor="middle">
+        M
+      </text>
+      <text x="35" y="32" fill="#ffffff" fontSize="6" textAnchor="middle">
+        R
+      </text>
+
+      {/* Flecha en el medio */}
+      <line x1="20" y1="12" x2="20" y2="14" />
+      <polygon points="18 12, 20 8, 22 12" fill="#ffffff" />
     </g>
   </svg>
 );

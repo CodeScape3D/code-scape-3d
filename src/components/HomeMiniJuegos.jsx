@@ -1,59 +1,61 @@
 import '../styles/mediaquerys.css';
 import MiniGameCard from './MiniGameCard';
-
-import {
-  svgGameCards,
-  svgGameMarbles,
-  svgGameThief,
-  svgGameSaveHomeland,
-  svgGameRescueOperation,
-  svgGamePrivacy,
-  svgGameFruitSplash,
-  svgGameMilitary,
-} from '../assets/svg/SvgConstans';
+import { topicCategories } from './HomeCartas';
 import { useTranslation } from 'react-i18next';
 
 export const HomeMiniJuegos = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative flex flex-col items-center justify-center mainDivGames bg-white w-full">
-      <div className="text-center text-black lg:mt-7 md:mt-4 md:mb-4">
-        <h1 className="font-bold text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl mt-5">
-          Aprende mientras <br />
-          juegas en CodeScape3D
-        </h1>
-        <p className="mt-6 text-lg md:text-lg lg:text-2xl text-center">
-          Selecciona tu minijuego favorito <br /> y presiona en "jugar"
-        </p>
+    <div className="w-full min-h-screen bg-gray-50 py-12 md:py-16 lg:py-20">
+      {/* Header */}
+      <div className="px-4 mb-12 md:mb-16">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            Minijuegos
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            Aprende mientras juegas. Explora los minijuegos de cada tema
+          </p>
+        </div>
       </div>
 
-      <div className="rounded-md lg:mb-10 md:mb-8 sm:mb-6 mb-6 md:m-0 md:gap-10 gap-5 bg-tertiary grid md:grid-cols-3 sm:grid-cols-2 lg:gap-x-24 lg:gap-y-16 p-14 gamesScroll sm:mt-6">
-        <MiniGameCard logo={svgGameCards} titulo={'Cartas'} ruta={'#'} />
-        <MiniGameCard logo={svgGameMarbles} titulo={'Canicas'} ruta={'#'} />
-        <MiniGameCard logo={svgGameThief} titulo={'El ladrón'} ruta={'#'} />
-        <MiniGameCard
-          logo={svgGameSaveHomeland}
-          titulo={'Salva la patria'}
-          ruta={'#'}
-        />
-        <MiniGameCard
-          logo={svgGameRescueOperation}
-          titulo={'Rescate'}
-          ruta={'#'}
-        />
-        <MiniGameCard logo={svgGamePrivacy} titulo={'Restringido'} ruta={'#'} />
-        <MiniGameCard
-          logo={svgGameFruitSplash}
-          titulo={'La Fruta'}
-          ruta={'#'}
-        />
-        <MiniGameCard logo={svgGameMilitary} titulo={'El militar'} ruta={'#'} />
+      {/* Categories */}
+      <div className="max-w-6xl mx-auto px-4">
+        {topicCategories.map(categoria => (
+          <div key={categoria.id} className="mb-16">
+            {/* Category Title */}
+            <div className="mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                {categoria.nombre}
+              </h2>
+              <div className="h-1 w-20 bg-primary rounded"></div>
+            </div>
+
+            {/* Topics Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {categoria.temas.map(tema => (
+                <MiniGameCard
+                  key={tema.id}
+                  logo={tema.imagen}
+                  titulo={tema.titulo}
+                  ruta={`#`}
+                  comingSoon
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center bg-primary"></div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <p className="text-white text-5xl font-semibold">{t('comingSoon')}</p>
+      {/* Coming Soon Banner */}
+      <div className="mt-20 px-4">
+        <div className="max-w-6xl mx-auto bg-gradient-to-r from-primary to-blue-500 rounded-xl p-8 md:p-12 text-center text-white">
+          <h3 className="text-2xl md:text-3xl font-bold mb-2">
+            Más minijuegos próximamente
+          </h3>
+          <p className="text-blue-100">{t('comingSoon')}</p>
+        </div>
       </div>
     </div>
   );

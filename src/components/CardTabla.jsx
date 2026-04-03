@@ -6,9 +6,11 @@ const CardTabla = ({ tema, ruta = '' }) => {
 
   return (
     <Link to={ruta === '' ? `/animacion/${param}` : ruta}>
-      <div className="hover:scale-110 bg-secondary w-32 mb-2 h-32 p-4 rounded-lg flex justify-center items-center flex-col cursor-pointer animate__bounceIn">
-        <div className="">{imagen}</div>
-        <p className="text-sm text-white">{titulo}</p>
+      <div className="hover:scale-110 bg-secondary w-36 h-40 p-3 rounded-lg flex justify-between items-center flex-col cursor-pointer animate__bounceIn">
+        <div className="flex items-center justify-center flex-1 mt-2">
+          {imagen}
+        </div>
+        <p className="text-sm text-white text-center mb-2">{titulo}</p>
       </div>
     </Link>
   );

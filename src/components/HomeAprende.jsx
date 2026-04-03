@@ -5,10 +5,12 @@ import HomeAprendeTabla from './HomeAprendeTabla';
 import { useDispatch } from 'react-redux';
 import { resetStateForQuiz } from '../store';
 import { useTranslation } from 'react-i18next';
+import usePageActivity from '../hooks/usePageActivity';
 
 export const HomeAprende = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  usePageActivity('pagina_visitada', 'inicio');
 
   useEffect(() => {
     dispatch(resetStateForQuiz());
