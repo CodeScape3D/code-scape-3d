@@ -60,7 +60,7 @@ const LoginButton = () => {
           )
         }
       >
-        {loading ? 'Ingresando…' : 'Google'}
+        {loading ? 'Ingresando…' : 'Iniciar sesión'}
       </Button>
 
       {error && (
